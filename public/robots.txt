@@ -1,0 +1,11 @@
+# robots.txt para syrtix.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://syrtix.com/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
