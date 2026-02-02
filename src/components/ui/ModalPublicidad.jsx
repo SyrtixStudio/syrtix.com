@@ -77,10 +77,17 @@ export default function ModalPublicidad({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4"
     >
-      <div className="relative bg-white shadow-2xl max-w-lg w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn">
-        <div className="relative z-10 hidden md:flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
-          <div className="text-center">
-            <div className="w-28 h-28 rounded-lg bg-white/10 flex items-center justify-center mb-4 p-3">
+            <div className="relative bg-white shadow-2xl max-w-lg w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[90vh] md:max-h-none">
+        <button
+          className="absolute top-2 right-2 md:top-3 md:right-3 z-20 text-gray-400 hover:text-primary text-2xl font-semibold"
+          onClick={onClose}
+          aria-label="Cerrar"
+        >
+          x
+        </button>
+        <div className="relative z-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary p-4 md:p-0">
+          <div className="text-center flex items-center gap-4 md:flex-col md:gap-0">
+            <div className="w-16 h-16 md:w-28 md:h-28 rounded-lg bg-white/10 flex items-center justify-center md:mb-4 p-2 md:p-3">
               <img
                 src="/img/logos/logo6.png"
                 alt="syrtix"
@@ -88,19 +95,15 @@ export default function ModalPublicidad({
                 draggable="false"
               />
             </div>
-            <p className="text-sm text-white/90">Diseños que convierten</p>
-            <p className="text-xs text-white/80 mt-2">UI/UX · Identidad · Contacto · RRSS · SEO </p>
+            <div className="text-left md:text-center">
+              <p className="text-xs md:text-sm text-white/90">Diseños que convierten</p>
+              <p className="text-[10px] md:text-xs text-white/80 md:mt-2">UI/UX · Identidad · Contacto · RRSS · SEO</p>
+            </div>
           </div>
         </div>
 
-        <div className="relative z-10 p-3 md:p-4">
-          <button
-            className="absolute top-4 right-4 text-gray-400 hover:text-primary text-2xl font-semibold"
-            onClick={onClose}
-            aria-label="Cerrar"
-          >
-            ×
-          </button>
+        <div className="relative z-10 p-3 md:p-4 overflow-y-auto md:overflow-visible">
+          
 
           {title && <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">{title}</h3>}
           {price && <div className="text-base md:text-lg font-extrabold text-primary mb-2">{price}</div>}
@@ -108,10 +111,10 @@ export default function ModalPublicidad({
           <div className="mb-2 overflow-hidden border border-primary">
             <div className="promo-marquee flex items-center">
               <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                Web profesional desde $99.000 - cupos limitados - asesoria gratuita
+                Web profesional desde $99.000 - cupos limitados - asesoría gratuita
               </span>
               <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                Web profesional desde $99.000 - cupos limitados - asesoria gratuita
+                Web profesional desde $99.000 - cupos limitados - asesoría gratuita
               </span>
             </div>
           </div>
@@ -121,12 +124,12 @@ export default function ModalPublicidad({
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-red-700">
                   <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
-                  Promocion - termina el 15 de febrero
+                  Promoción - termina el 15 de febrero
                 </div>
                 <div className="flex items-center gap-2 text-red-700">
                   <div className="text-center">
                     <div className="text-lg font-bold leading-none">{formatUnit(timeLeft.days)}</div>
-                    <div className="text-xs uppercase">Dias</div>
+                    <div className="text-xs uppercase">Días</div>
                   </div>
                   <span className="text-xs font-bold">:</span>
                   <div className="text-center">
@@ -148,7 +151,7 @@ export default function ModalPublicidad({
             </div>
           ) : (
             <div className="mb-2 rounded-lg border border-gray-200 bg-gray-50 px-2 py-1 text-xs text-gray-600">
-              Promocion finalizada.
+              Promoción finalizada.
             </div>
           )}
 
