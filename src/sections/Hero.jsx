@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { ChevronLeft, ChevronRight, ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
 
+import { useLanguage } from '../i18n/index.jsx';
+
 const heroImages = [
   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
   'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80',
@@ -19,6 +21,7 @@ const heroImages = [
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const { t } = useLanguage();
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % heroImages.length);
@@ -53,7 +56,7 @@ function Hero() {
           >
             <img
               src={image}
-              alt={`Desarrollo web ${index + 1}`}
+              alt={`${t('hero.carousel.alt')} ${index + 1}`}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
@@ -65,14 +68,14 @@ function Hero() {
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-primary p-3 transition duration-300 group"
-        aria-label="Imagen anterior"
+        aria-label={t('hero.carousel.prev')}
       >
         <ChevronLeft size={24} className="text-white group-hover:text-gray-900" />
       </button>
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-primary p-3 transition duration-300 group"
-        aria-label="Imagen siguiente"
+        aria-label={t('hero.carousel.next')}
       >
         <ChevronRight size={24} className="text-white group-hover:text-gray-900" />
       </button>
@@ -86,7 +89,7 @@ function Hero() {
             className={`w-3 h-3 transition-all duration-300 ${
               index === currentIndex ? 'bg-primary w-8' : 'bg-white/50 hover:bg-white'
             }`}
-            aria-label={`Ir a imagen ${index + 1}`}
+            aria-label={`${t('hero.carousel.goTo')} ${index + 1}`}
           />
         ))}
       </div>
@@ -99,23 +102,22 @@ function Hero() {
             <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">
               <Zap size={16} className="text-primary mr-2" />
               <span className="text-primary text-xs sm:text-sm font-medium">
-                Desarrollo web con inteligencia artificial
+                {t('hero.badge')}
               </span>
             </div>
 
             {/* Título */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Creamos sitios web que
+              {t('hero.title.line1')}
               <br />
-              <span className="text-primary">convierten visitantes</span>
+              <span className="text-primary">{t('hero.title.emphasis')}</span>
               <br />
-              en clientes
+              {t('hero.title.line2')}
             </h1>
 
             {/* Subtítulo */}
             <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8">
-              Agencia de desarrollo web premium. Diseño elegante, tecnología moderna y resultados
-              medibles para hacer crecer tu negocio.
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA */}
@@ -124,14 +126,14 @@ function Hero() {
                 to="/paquetes"
                 className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-secondary transition duration-300 flex items-center justify-center text-sm sm:text-base"
               >
-                Ver paquetes y precios
+                {t('hero.cta.primary')}
                 <ArrowRight className="ml-2" size={20} />
               </Link>
               <Link
                 to="/contacto"
                 className="border-2 border-white text-white font-bold px-8 py-4 hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-sm sm:text-base"
               >
-                Solicitar cotización
+                {t('hero.cta.secondary')}
               </Link>
             </div>
 
@@ -140,30 +142,34 @@ function Hero() {
               <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Zap size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">IA Integrada</span>
+                  <span className="text-white font-bold text-sm">{t('hero.info.ai.title')}</span>
                 </div>
-                <span className="text-white/60 text-xs">Desarrollo rápido</span>
+                <span className="text-white/60 text-xs">{t('hero.info.ai.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <TrendingUp size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">Alta conversión</span>
+                  <span className="text-white font-bold text-sm">
+                    {t('hero.info.conversion.title')}
+                  </span>
                 </div>
-                <span className="text-white/60 text-xs">Diseño orientado a ventas</span>
+                <span className="text-white/60 text-xs">{t('hero.info.conversion.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Clock size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">Soporte 24/7</span>
+                  <span className="text-white font-bold text-sm">
+                    {t('hero.info.support.title')}
+                  </span>
                 </div>
-                <span className="text-white/60 text-xs">Siempre disponibles</span>
+                <span className="text-white/60 text-xs">{t('hero.info.support.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Code size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">Código limpio</span>
+                  <span className="text-white font-bold text-sm">{t('hero.info.code.title')}</span>
                 </div>
-                <span className="text-white/60 text-xs">Tecnología moderna</span>
+                <span className="text-white/60 text-xs">{t('hero.info.code.desc')}</span>
               </div>
             </div>
           </div>

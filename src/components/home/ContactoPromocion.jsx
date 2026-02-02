@@ -52,14 +52,6 @@ export default function ContactoPromocion() {
         >
           WhatsApp
         </a>
-        <a
-          href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm text-primary underline w-full sm:w-auto text-center"
-        >
-          Ver en Google Maps
-        </a>
       </div>
     </div>
   );

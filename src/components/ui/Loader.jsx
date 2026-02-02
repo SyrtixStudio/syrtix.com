@@ -5,7 +5,7 @@ export default function Loader({ fadeOut = false }) {
 
   React.useEffect(() => {
     if (fadeOut) {
-      setTimeout(() => setFade(true), 1800);
+      setTimeout(() => setFade(true), 1000);
     }
   }, [fadeOut]);
 
@@ -19,7 +19,7 @@ export default function Loader({ fadeOut = false }) {
         {/* Logo */}
         <div className="relative w-48 h-48 sm:w-64 sm:h-64">
           <img
-            src="/img/logos/logogif.gif"
+            src="/img/logos/logogif1.gif"
             alt="syrtix.com"
             className="w-full h-full object-contain animate-pulse-slow drop-shadow-primary"
           />
@@ -28,9 +28,9 @@ export default function Loader({ fadeOut = false }) {
         {/* Nombre de la empresa */}
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
-            syrtix<span className="text-primary">.COM</span>
+            Creacion y soluciones de <span className="text-primary">software</span>
           </h2>
-          <div className="h-0.5 w-34 bg-primary mx-auto"></div>
+          
         </div>
       </div>
     </div>

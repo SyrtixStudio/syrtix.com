@@ -4,11 +4,21 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { Home, Package, Users, Briefcase, Mail, Phone } from 'lucide-react';
 
+import { useLanguage } from '../../i18n/index.jsx';
+
 function Header() {
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const scrollingDown = useRef(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const toggleLang = () => {
+    setLang((prev) => (prev === 'es' ? 'en' : 'es'));
+  };
+
+  const languageShortLabel =
+    lang === 'es' ? t('language.englishShort') : t('language.spanishShort');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,11 +82,11 @@ function Header() {
   };
 
   const navItems = [
-    { path: '/', label: 'Inicio', icon: <Home size={20} /> },
-    { path: '/paquetes', label: 'Paquetes', icon: <Package size={20} /> },
-    { path: '/nosotros', label: 'Nosotros', icon: <Users size={20} /> },
-    { path: '/servicios', label: 'Servicios', icon: <Briefcase size={20} /> },
-    { path: '/contacto', label: 'Contacto', icon: <Mail size={20} /> },
+    { path: '/', labelKey: 'nav.home', icon: <Home size={20} /> },
+    { path: '/paquetes', labelKey: 'nav.packages', icon: <Package size={20} /> },
+    { path: '/nosotros', labelKey: 'nav.about', icon: <Users size={20} /> },
+    { path: '/servicios', labelKey: 'nav.services', icon: <Briefcase size={20} /> },
+    { path: '/contacto', labelKey: 'nav.contact', icon: <Mail size={20} /> },
   ];
 
   return (
@@ -100,8 +110,16 @@ function Header() {
                 <span className="text-xs">contacto@syrtix.com</span>
               </div>
             </div>
-            <div className="text-xs">
+            <div className="flex items-center space-x-3 text-xs">
               <span>syrtix.com</span>
+              <button
+                type="button"
+                onClick={toggleLang}
+                className="border border-white/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide hover:bg-white hover:text-secondary transition-colors"
+                aria-label={t('language.toggle')}
+              >
+                {languageShortLabel}
+              </button>
             </div>
           </div>
         </div>
@@ -121,7 +139,7 @@ function Header() {
               </div>
               <div>
                 <div className="text-lg font-bold text-gray-900">syrtix</div>
-                <div className="text-sm text-gray-600">Creación de sitios web</div>
+                <div className="text-sm text-gray-600">{t('brand.tagline')}</div>
               </div>
             </Link>
 
@@ -130,7 +148,7 @@ function Header() {
               {navItems.map((item) => (
                 <Link key={item.path} to={item.path} className={getLinkClasses(item.path)}>
                   <span className="mr-1.5">{item.icon}</span>
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
             </nav>
@@ -147,8 +165,16 @@ function Header() {
               <Phone size={14} className="mr-1.5" />
               <span className="text-xs">+56945432006</span>
             </div>
-            <div className="text-xs">
+            <div className="flex items-center space-x-2 text-xs">
               <span>syrtix.com</span>
+              <button
+                type="button"
+                onClick={toggleLang}
+                className="border border-white/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide hover:bg-white hover:text-secondary transition-colors"
+                aria-label={t('language.toggle')}
+              >
+                {languageShortLabel}
+              </button>
             </div>
           </div>
         </div>
@@ -180,7 +206,7 @@ function Header() {
                   }`}
                 >
                   <span className="mb-1">{item.icon}</span>
-                  <span className="text-[10px] font-medium">{item.label}</span>
+                  <span className="text-[10px] font-medium">{t(item.labelKey)}</span>
                 </Link>
               ))}
             </nav>

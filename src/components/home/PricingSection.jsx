@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import { ArrowRight, Check, X } from 'lucide-react';
 
-import ContactoPromocion from './ContactoPromocion';
 import { getIcon } from './IconResolver';
 
 const packages = [
@@ -177,7 +176,6 @@ function PricingSection() {
           </Link>
         </div>
 
-        <ContactoPromocion />
       </div>
     </section>
   );

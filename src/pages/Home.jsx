@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   Differentiators,
   ServicesGrid,
@@ -8,27 +10,27 @@ import {
   SecuritySection,
   CtaSection,
 } from '../components/home';
-import ModalPublicidad from '../components/ui/ModalPublicidad';
 import PromocionContacto from '../components/home/PromocionContacto';
+import ModalPublicidad from '../components/ui/ModalPublicidad';
 import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
-import { useEffect, useState } from 'react';
 
 const publicidadWeb = {
-  title: 'Diseño Web',
+  title: 'Página web profesional para empresa',
   price: 'Desde $99.000',
   description:
-    'Diseños únicos y personalizados que reflejan la identidad de tu marca y conectan con tu audiencia.',
-  details:
-    'Enfocado en UI/UX, prototipos e identidad visual.',
+    'Tecnología moderna y escalable.',
+
   list: [
     'Diseño UI/UX profesional',
-    'Prototipado interactivo',
     'Identidad visual',
     'Responsive design',
-    'Landing simple',
-    'Rediseño',
-    'Sección adicional + SEO básico',
+    'Landing page',
+    'SEO inicial',
+    'Formulario de contacto',
+    'Acceso a tus redes sociales',
+    'Botón de WhatsApp integrado',
+    'Ubicación en Google Maps integrada',
   ],
   contactEmail: 'contacto@syrtix.com',
   whatsapp: '+56945432006',
