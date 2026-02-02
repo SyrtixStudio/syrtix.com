@@ -3,7 +3,51 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 import { getIcon } from './IconResolver';
-import { services } from '../../data';
+
+const services = [
+  {
+    id: 'diseno-web',
+    icon: 'Palette',
+    title: 'Diseño web',
+    description: 'Diseños únicos y personalizados que reflejan la identidad de tu marca.',
+    price: 'Desde $99.000',
+  },
+  {
+    id: 'desarrollo',
+    icon: 'Code',
+    title: 'Desarrollo a medida',
+    description: 'Soluciones personalizadas con las últimas tecnologías del mercado.',
+    price: 'Desde $199.000',
+  },
+  {
+    id: 'ecommerce',
+    icon: 'ShoppingCart',
+    title: 'E-commerce',
+    description: 'Tiendas online básicas con pasarelas de pago y gestión de inventario.',
+    price: 'Desde $299.000',
+  },
+  {
+    id: 'seo',
+    icon: 'Search',
+    title: 'SEO',
+    description: 'Optimización para buscadores que mejora tu visibilidad en Google.',
+    price: 'Desde $79.000/mes',
+  },
+  {
+    id: 'apps',
+    icon: 'Smartphone',
+    title: 'Apps móviles',
+    description: 'Aplicaciones nativas y PWA para iOS y Android.',
+    price: 'Desde $499.000',
+  },
+  {
+    id: 'mantenimiento',
+    icon: 'Settings',
+    title: 'Mantenimiento',
+    description: 'Actualizaciones, backups y soporte técnico continuo.',
+    price: 'Desde $49.000/mes',
+  },
+];
 
 function ServicesGrid() {
   const upgradePlans = [

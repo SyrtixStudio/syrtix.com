@@ -14,9 +14,9 @@ function Footer() {
             <div className="flex flex-col items-start">
               <div className="flex items-center space-x-3 mb-4">
                 <img
-                  src="/img/logos/logo-syrtix.webp"
+                  src="/img/logos/logo6.png"
                   alt="syrtix Logo"
-                  className="w-14 h-14 sm:w-12 sm:h-12 bg-primary object-contain p-2 border border-gray-700"
+                  className="w-16 h-16 sm:w-16 sm:h-16 bg-primary object-contain p-1 border border-gray-700"
                   loading="lazy"
                 />
                 <div>

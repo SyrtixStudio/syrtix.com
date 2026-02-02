@@ -1,7 +1,35 @@
 import { Lock, Shield, Server, CheckCircle } from 'lucide-react';
 
 import { getIcon } from './IconResolver';
-import { securityFeatures } from '../../data';
+
+const securityFeatures = [
+  {
+    id: 'ssl',
+    icon: 'Lock',
+    title: 'Certificado SSL/HTTPS',
+    description:
+      'Conexión cifrada y segura. El candado verde que genera confianza en tus visitantes.',
+  },
+  {
+    id: 'datos',
+    icon: 'Shield',
+    title: 'Protección de datos',
+    description:
+      'Cumplimos con normativas de privacidad. Tus datos y los de tus clientes están protegidos.',
+  },
+  {
+    id: 'hosting',
+    icon: 'Server',
+    title: 'Hosting seguro',
+    description: 'Servidores de alta disponibilidad con backups automáticos y protección DDoS.',
+  },
+  {
+    id: 'codigo',
+    icon: 'CheckCircle',
+    title: 'Código seguro',
+    description: 'Desarrollo con mejores prácticas OWASP para prevenir vulnerabilidades.',
+  },
+];
 
 function SecuritySection() {
   return (

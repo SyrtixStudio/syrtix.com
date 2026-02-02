@@ -1,4 +1,9 @@
-import { processSteps } from '../../data';
+const processSteps = [
+  { step: '01', title: 'Descubrimiento', desc: 'Entendemos tus objetivos y necesidades' },
+  { step: '02', title: 'Diseño', desc: 'Creamos mockups y prototipos' },
+  { step: '03', title: 'Desarrollo', desc: 'Construimos tu sitio con las mejores tecnologías' },
+  { step: '04', title: 'Lanzamiento', desc: 'Publicamos y optimizamos tu sitio' },
+];
 
 function ProcessSteps() {
   return (

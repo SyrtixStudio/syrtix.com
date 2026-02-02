@@ -111,9 +111,9 @@ function Header() {
           <div className="flex items-center justify-between py-3">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-16 h-16 flex items-center justify-center p-2 rounded-none border border-base2 bg-primary">
+              <div className="w-16 h-16 flex items-center justify-center p-1 rounded-none border border-base2 bg-primary">
                 <img
-                  src="/img/logos/logo-syrtix.webp"
+                  src="/img/logos/logo6.png"
                   alt="syrtix.com"
                   className="w-full h-full object-contain"
                   draggable="false"
@@ -162,9 +162,9 @@ function Header() {
               className="flex items-center justify-center px-3 py-2 border-r border-primary"
             >
               <img
-                src="/img/logos/logo-syrtix.webp"
+                src="/img/logos/logo6.png"
                 alt="syrtix.com"
-                className="h-10 w-auto object-contain"
+                className="h-16 w-16 object-contain bg-primary p-1"
                 draggable="false"
               />
             </Link>

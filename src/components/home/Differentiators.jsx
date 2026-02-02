@@ -1,5 +1,35 @@
 import { getIcon } from './IconResolver';
-import { differentiators } from '../../data';
+
+const differentiators = [
+  {
+    id: 'ia',
+    icon: 'Zap',
+    title: 'Desarrollo con IA',
+    description:
+      'Utilizamos inteligencia artificial para acelerar el desarrollo y entregar tu sitio web en tiempo récord.',
+  },
+  {
+    id: 'precios',
+    icon: 'DollarSign',
+    title: 'Precios accesibles',
+    description:
+      'Planes diseñados para cada presupuesto, sin sacrificar calidad ni funcionalidades.',
+  },
+  {
+    id: 'soporte',
+    icon: 'Clock',
+    title: 'Soporte 24/7',
+    description:
+      'Estamos disponibles cuando nos necesites. Soporte técnico continuo para tu tranquilidad.',
+  },
+  {
+    id: 'conversion',
+    icon: 'TrendingUp',
+    title: 'Enfoque en conversión',
+    description:
+      'Diseñamos pensando en resultados. Cada elemento optimizado para convertir visitantes en clientes.',
+  },
+];
 
 function Differentiators() {
   return (
