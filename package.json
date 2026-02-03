@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port $PORT",
+    "start": "serve -s dist -l $PORT",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css}\"",
@@ -32,6 +33,7 @@
     "globals": "^17.2.0",
     "postcss": "^8.4.49",
     "prettier": "^3.8.1",
+    "serve": "^14.2.5",
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.7"
   }
