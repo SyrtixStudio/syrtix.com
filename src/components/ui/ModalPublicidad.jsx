@@ -195,7 +195,7 @@ export default function ModalPublicidad({
           <div className="mt-2 flex items-center gap-2">
             {whatsapp && (
               <a
-                href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero información sobre ${title} - ${price}`)}`}
+                href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero información sobre ${title} - ${price}`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1 bg-green-500 text-white px-3 py-1 rounded-md text-xs font-semibold"

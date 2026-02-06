@@ -5,7 +5,7 @@ export const translations = {
     'language.toggle': 'Cambiar idioma',
     'language.englishShort': 'EN',
     'language.spanishShort': 'ES',
-    'brand.tagline': 'Creaci?n y soluciones de software',
+    'brand.tagline': 'Desarrollo y soluciones informáticas',
     'nav.home': 'Inicio',
     'nav.packages': 'Paquetes',
     'nav.about': 'Nosotros',

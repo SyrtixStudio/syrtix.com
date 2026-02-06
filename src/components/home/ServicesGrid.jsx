@@ -53,7 +53,7 @@ function ServicesGrid() {
   const upgradePlans = [
     {
       id: 'start',
-      title: 'Sitio smart',
+      title: 'Sitio Pyme',
       subtitle: 'Hasta 5 páginas o secciones',
       price: 'Diagnóstico desde $49.000',
       description:
@@ -67,7 +67,7 @@ function ServicesGrid() {
     },
     {
       id: 'grow',
-      title: 'Sitio grow',
+      title: 'Sitio Pyme Plus',
       subtitle: '6–15 páginas + módulos',
       price: 'Diagnóstico desde $99.000',
       description:
@@ -83,7 +83,7 @@ function ServicesGrid() {
     },
     {
       id: 'pro',
-      title: 'Sitio pro',
+      title: 'Sitio Empresa',
       subtitle: 'Más de 15 páginas o ecommerce',
       price: 'Diagnóstico desde $149.000',
       description:

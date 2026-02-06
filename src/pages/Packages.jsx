@@ -9,7 +9,7 @@ function Packages() {
 
   const packages = [
     {
-      name: 'Básico',
+      name: 'Persona - Pyme',
       icon: <Zap size={32} />,
       description: 'Ideal para emprendedores y pequeños negocios que necesitan presencia online.',
       priceMonthly: 299000,
@@ -33,7 +33,7 @@ function Packages() {
       color: 'primary',
     },
     {
-      name: 'Pro',
+      name: 'Pyme - Ecommerce',
       icon: <Star size={32} />,
       description: 'Para negocios en crecimiento que buscan destacar y convertir más clientes.',
       priceMonthly: 599000,
@@ -57,7 +57,7 @@ function Packages() {
       color: 'secondary',
     },
     {
-      name: 'Premium',
+      name: 'Empresa',
       icon: <Crown size={32} />,
       description: 'Solución completa para empresas que buscan máximo rendimiento y conversión.',
       priceMonthly: 999000,

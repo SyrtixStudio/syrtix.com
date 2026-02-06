@@ -120,7 +120,7 @@ function Contact() {
     setStatus('loading');
     setServerMessage('');
 
-    // Sanitizar inputs
+    // Sanitizar inputs y filtrar campos vacíos o por defecto
     const sanitizedData = {
       ...data,
       name: sanitizeInput(data.name),
@@ -135,59 +135,53 @@ function Contact() {
         ? sanitizedData.features
             .map((f) => featureOptions.find((opt) => opt.value === f)?.label)
             .join(', ')
-        : 'Ninguna seleccionada';
+        : '';
 
     const projectTypeText =
-      projectTypes.find((p) => p.value === sanitizedData.projectType)?.label ||
-      sanitizedData.projectType;
+      projectTypes.find((p) => p.value === sanitizedData.projectType)?.label || '';
     const budgetText =
-      budgetRanges.find((b) => b.value === sanitizedData.budget)?.label || sanitizedData.budget;
+      budgetRanges.find((b) => b.value === sanitizedData.budget)?.label || '';
     const deadlineText =
-      deadlineOptions.find((d) => d.value === sanitizedData.deadline)?.label ||
-      sanitizedData.deadline;
+      deadlineOptions.find((d) => d.value === sanitizedData.deadline)?.label || '';
 
+    // Enviar a Web3Forms solo campos completados
     const formData = new FormData();
     formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append('subject', 'syrtix.com - Nueva solicitud de cotización');
-    formData.append('from_name', 'Cotización Web - syrtix.com');
-    formData.append('name', sanitizedData.name);
-    formData.append('email', sanitizedData.email);
-    formData.append('phone', sanitizedData.phone);
-    formData.append('company', sanitizedData.company || 'No especificada');
-    formData.append('project_type', projectTypeText);
-    formData.append('budget', budgetText);
-    formData.append('deadline', deadlineText);
-    formData.append('features', featuresText);
-    formData.append('message', sanitizedData.message || 'Sin mensaje adicional');
+    formData.append('email', import.meta.env.VITE_CONTACT_EMAIL);
+    formData.append('subject', 'Nueva cotización desde syrtix.com');
+    formData.append('replyTo', import.meta.env.VITE_CONTACT_EMAIL);
+    formData.append('from_name', 'Syrtix Web');
+    if (sanitizedData.name) formData.append('name', sanitizedData.name);
+    if (sanitizedData.email) formData.append('from', sanitizedData.email);
+    if (sanitizedData.phone) formData.append('phone', sanitizedData.phone);
+    if (sanitizedData.company) formData.append('company', sanitizedData.company);
+    if (projectTypeText && projectTypeText !== 'Selecciona un tipo de proyecto') formData.append('projectType', projectTypeText);
+    if (budgetText && budgetText !== 'Selecciona tu presupuesto') formData.append('budget', budgetText);
+    if (deadlineText && deadlineText !== 'Selecciona el plazo') formData.append('deadline', deadlineText);
+    if (featuresText) formData.append('features', featuresText);
+    if (sanitizedData.message) formData.append('message', sanitizedData.message);
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        body: formData
       });
-
-      const json = await res.json();
-
-      if (json.success) {
-        submissionTimestamps.current.push(now);
+      if (response.ok) {
         setStatus('success');
-        setServerMessage(
-          '¡Gracias! Hemos recibido tu solicitud. Te contactaremos en menos de 24 horas.',
-        );
+        setServerMessage('¡Mensaje enviado correctamente!');
         reset();
-
-        setTimeout(() => {
-          setServerMessage('');
-          setStatus('idle');
-        }, 5000);
       } else {
         setStatus('error');
-        setServerMessage(json.message || 'No pudimos enviar tu solicitud. Intenta nuevamente.');
+        setServerMessage('Error al enviar el mensaje.');
       }
-    } catch {
+    } catch (error) {
       setStatus('error');
-      setServerMessage('No pudimos enviar tu solicitud. Intenta nuevamente en unos minutos.');
+      setServerMessage('Error de conexión.');
     }
+    setTimeout(() => {
+      setServerMessage('');
+      setStatus('idle');
+    }, 5000);
   };
 
   return (

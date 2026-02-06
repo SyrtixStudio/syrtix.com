@@ -11,9 +11,31 @@ export default function ContactoPromocion() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const subject = 'Consulta diseño web';
-    const body = `Nombre: ${name}%0AEmail: ${email}%0A%0AMensaje:%0A${message}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    const formData = new FormData();
+    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+    formData.append('email', EMAIL);
+    formData.append('subject', 'Nueva cotización desde syrtix.com');
+    formData.append('replyTo', EMAIL);
+    formData.append('from_name', 'Syrtix Web');
+    if (name) formData.append('name', name);
+    if (email) formData.append('from', email);
+    if (message) formData.append('message', message);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert('¡Mensaje enviado correctamente!');
+          setName('');
+          setEmail('');
+          setMessage('Quiero información sobre los servicios de diseño web.');
+        } else {
+          alert('Error al enviar el mensaje.');
+        }
+      });
   };
 
   return (

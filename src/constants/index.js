@@ -3,10 +3,9 @@ export const COMPANY = {
   name: 'syrtix',
   domain: 'syrtix.com',
   email: 'contacto@syrtix.com',
-  phone: '+56945432006',
-  phoneFormatted: '+56 9 4543 2006',
-  whatsappLink:
-    'https://wa.me/56945432006?text=Hola%20syrtix%2C%20me%20interesa%20solicitar%20una%20cotizaci%C3%B3n%20para%20mi%20proyecto%20web.',
+  phone: import.meta.env.VITE_WHATSAPP_PHONE,
+  phoneFormatted: import.meta.env.VITE_WHATSAPP_PHONE_FORMATTED,
+  whatsappLink: import.meta.env.VITE_WHATSAPP_LINK,
   description: 'Agencia de Desarrollo Web',
   country: 'Chile',
 };

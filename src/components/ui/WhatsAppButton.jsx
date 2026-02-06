@@ -1,8 +1,5 @@
-import { COMPANY } from '../../constants';
-
 function WhatsAppButton() {
-  const message = `Hola ${COMPANY.name}, me interesa conocer más sobre sus servicios de desarrollo web.`;
-  const whatsappUrl = `https://wa.me/${COMPANY.phone.replace('+', '')}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = import.meta.env.VITE_WHATSAPP_LINK;
 
   return (
     <a

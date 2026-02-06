@@ -6,8 +6,8 @@ import { getIcon } from './IconResolver';
 
 const packages = [
   {
-    id: 'basico',
-    name: 'Básico',
+    id: 'Persona-Pyme',
+    name: 'Persona - Pyme',
     icon: 'Zap',
     description: 'Ideal para emprendedores y pequeños negocios.',
     price: 299000,
@@ -29,8 +29,8 @@ const packages = [
     ctaLink: '/contacto',
   },
   {
-    id: 'pro',
-    name: 'Pro',
+    id: 'pyme-ecommerce',
+    name: 'Pyme - Ecommerce',
     icon: 'Star',
     description: 'Para negocios en crecimiento que buscan destacar.',
     price: 599000,
@@ -53,8 +53,8 @@ const packages = [
     ctaLink: '/contacto',
   },
   {
-    id: 'premium',
-    name: 'Premium',
+    id: 'Empresa',
+    name: 'Empresa',
     icon: 'Crown',
     description: 'Solución completa para máximo rendimiento.',
     price: 999000,
