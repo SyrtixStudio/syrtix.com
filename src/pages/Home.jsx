@@ -16,7 +16,7 @@ import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
 
 const publicidadWeb = {
-  title: 'Página web profesional para empresa',
+  title: 'Página web para pyme - empresa',
   price: 'Desde $99.000',
   description:
     'Tecnología moderna y escalable.',
@@ -31,11 +31,11 @@ const publicidadWeb = {
     'Acceso a tus redes sociales',
     'Botón de WhatsApp integrado',
     'Ubicación en Google Maps integrada',
+    "Entrega en 7 días",
   ],
   contactEmail: 'contacto@syrtix.com',
   whatsapp: '+56945432006',
   address: 'Santiago, Chile',
-  delivery: 'Entrega en 7 días',
 };
 
 function Home() {

@@ -5,12 +5,45 @@ export default function PromocionContacto({ data }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(`Estoy interesado en el paquete ${title} (${price}).`);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = `Solicitud - ${title}`;
-    const body = `Paquete: ${title} - ${price}%0A%0ANombre: ${name}%0AEmail: ${email}%0A%0AMensaje:%0A${message}`;
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    if (status === 'sending') return;
+
+    setStatus('sending');
+
+    const formData = new FormData();
+    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+    formData.append('email', contactEmail || import.meta.env.VITE_CONTACT_EMAIL);
+    formData.append('replyTo', contactEmail || import.meta.env.VITE_CONTACT_EMAIL);
+    formData.append('subject', `Solicitud - ${title}`);
+    formData.append('from_name', name || 'Interesado en paquete');
+    if (email) formData.append('from', email);
+    if (message) formData.append('message', message);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        alert('¡Mensaje enviado correctamente!');
+        setName('');
+        setEmail('');
+        setMessage(`Estoy interesado en el paquete ${title} (${price}).`);
+      } else {
+        throw new Error('request failed');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      alert('Error al enviar el mensaje. Intenta nuevamente.');
+    } finally {
+      setStatus('idle');
+    }
   };
 
   return (
@@ -57,7 +90,15 @@ export default function PromocionContacto({ data }) {
               />
 
               <div className="flex gap-2">
-                <button type="submit" className="bg-primary text-white px-4 py-2 rounded-md text-sm font-semibold">Enviar</button>
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className={`bg-primary text-white px-4 py-2 rounded-md text-sm font-semibold transition ${
+                    status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {status === 'sending' ? 'Enviando...' : 'Enviar'}
+                </button>
                 {whatsapp && (
                   <a
                     className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center"

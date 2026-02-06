@@ -147,9 +147,9 @@ function Contact() {
     // Enviar a Web3Forms solo campos completados
     const formData = new FormData();
     formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append('email', import.meta.env.VITE_CONTACT_EMAIL);
+    // formData.append('email', import.meta.env.VITE_CONTACT_EMAIL); // Ocultado para que no aparezca en el correo
     formData.append('subject', 'Nueva cotización desde syrtix.com');
-    formData.append('replyTo', import.meta.env.VITE_CONTACT_EMAIL);
+    // formData.append('replyTo', import.meta.env.VITE_CONTACT_EMAIL); // Ocultado para que no aparezca en el correo
     formData.append('from_name', 'Syrtix Web');
     if (sanitizedData.name) formData.append('name', sanitizedData.name);
     if (sanitizedData.email) formData.append('from', sanitizedData.email);

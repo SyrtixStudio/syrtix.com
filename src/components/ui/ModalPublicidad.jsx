@@ -42,6 +42,15 @@ export default function ModalPublicidad({
 }) {
   const promoDeadline = useMemo(() => getPromoDeadline(), []);
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(promoDeadline));
+  const defaultMessage = useMemo(
+    () => `Estoy interesado en el paquete ${title || 'web'} (${price || 'Consultar precio'}).`,
+    [title, price],
+  );
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(defaultMessage);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [feedback, setFeedback] = useState('');
 
   useEffect(() => {
     if (open) {
@@ -67,6 +76,53 @@ export default function ModalPublicidad({
     return () => clearInterval(intervalId);
   }, [promoDeadline]);
 
+  useEffect(() => {
+    if (open) {
+      setMessage(defaultMessage);
+    }
+  }, [open, defaultMessage]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === 'sending') return;
+
+    const targetEmail = import.meta.env.VITE_CONTACT_EMAIL || 'contacto@syrtix.com';
+    const formData = new FormData();
+    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+    formData.append('email', targetEmail);
+    formData.append('replyTo', targetEmail);
+    formData.append('subject', `Solicitud - ${title}`);
+    formData.append('from_name', name || 'Interesado en paquete');
+    if (email) formData.append('from', email);
+    if (message) formData.append('message', message);
+
+    try {
+      setStatus('sending');
+      setFeedback('');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFeedback('Tu mensaje fue enviado. Te contactaremos pronto.');
+        setName('');
+        setEmail('');
+        setMessage(defaultMessage);
+      } else {
+        throw new Error('Request failed');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      setFeedback('Hubo un problema al enviar. Inténtalo nuevamente.');
+    } finally {
+      setStatus('idle');
+    }
+  };
+
   const navigate = useNavigate();
 
   if (!open) return null;
@@ -77,7 +133,7 @@ export default function ModalPublicidad({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4"
     >
-            <div className="relative bg-white shadow-2xl max-w-lg w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[90vh] md:max-h-none">
+            <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[92vh] md:max-h-[88vh]">
         <button
           className="absolute top-2 right-2 md:top-3 md:right-3 z-20 text-gray-400 hover:text-primary text-2xl font-semibold"
           onClick={onClose}
@@ -102,11 +158,11 @@ export default function ModalPublicidad({
           </div>
         </div>
 
-        <div className="relative z-10 p-3 md:p-4 overflow-y-auto md:overflow-visible">
+        <div className="relative z-10 p-3 md:p-4 overflow-visible">
           
 
-          {title && <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">{title}</h3>}
-          {price && <div className="text-base md:text-lg font-extrabold text-primary mb-2">{price}</div>}
+          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{title}</h3>}
+          {price && <div className="text-base md:text-lg font-extrabold text-primary mb-1">{price}</div>}
 
           <div className="mb-2 overflow-hidden border border-primary">
             <div className="promo-marquee flex items-center">
@@ -120,33 +176,17 @@ export default function ModalPublicidad({
           </div>
 
           {timeLeft.totalSeconds > 0 ? (
-            <div className="mb-1 border border-red-200 bg-red-50 p-2">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-red-700">
-                  <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse"></span>
-                  Promoción - termina el 15 de febrero
-                </div>
-                <div className="flex items-center gap-2 text-red-700">
-                  <div className="text-center">
-                    <div className="text-lg font-bold leading-none">{formatUnit(timeLeft.days)}</div>
-                    <div className="text-xs uppercase">Días</div>
-                  </div>
-                  <span className="text-xs font-bold">:</span>
-                  <div className="text-center">
-                    <div className="text-lg font-bold leading-none">{formatUnit(timeLeft.hours)}</div>
-                    <div className="text-xs uppercase">Horas</div>
-                  </div>
-                  <span className="text-xs font-bold">:</span>
-                  <div className="text-center">
-                    <div className="text-lg font-bold leading-none">{formatUnit(timeLeft.minutes)}</div>
-                    <div className="text-xs uppercase">Min</div>
-                  </div>
-                  <span className="text-xs font-bold">:</span>
-                  <div className="text-center">
-                    <div className="text-lg font-bold leading-none">{formatUnit(timeLeft.seconds)}</div>
-                    <div className="text-xs uppercase">Seg</div>
-                  </div>
-                </div>
+            <div className="mb-2 flex items-center gap-2 text-xs text-red-700">
+              <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse" aria-hidden />
+              <span className="font-semibold">Promo termina el 15 feb</span>
+              <div className="flex items-center gap-1 text-[11px] font-bold bg-red-50 border border-red-200 rounded-full px-2 py-1">
+                <span>{formatUnit(timeLeft.days)}d</span>
+                <span>:</span>
+                <span>{formatUnit(timeLeft.hours)}h</span>
+                <span>:</span>
+                <span>{formatUnit(timeLeft.minutes)}m</span>
+                <span>:</span>
+                <span>{formatUnit(timeLeft.seconds)}s</span>
               </div>
             </div>
           ) : (
@@ -159,32 +199,71 @@ export default function ModalPublicidad({
           {details && <p className="text-xs text-gray-600 mb-2">{details}</p>}
 
           {Array.isArray(list) && list.length > 0 && (
-            <ul className="grid grid-cols-1 gap-1 mb-3">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 mb-3">
               {list.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <svg className="mt-1 w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="mt-1 w-3.5 h-3.5 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.545a1 1 0 111.414-1.414L8.12 11.54l6.657-6.657a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-xs text-gray-700">{item}</span>
+                  <span className="text-[11px] text-gray-700 leading-tight">{item}</span>
                 </li>
               ))}
             </ul>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-2 mb-2">
-            <button
-              onClick={() => { if (onClose) onClose(); navigate('/contacto'); }}
-              className="w-full sm:w-auto bg-primary text-white px-3 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-xs"
-            >
-              Solicitar presupuesto
-            </button>
-            <button
-              onClick={() => { if (onClose) onClose(); navigate('/paquetes'); }}
-              className="w-full sm:w-auto border border-gray-200 text-gray-800 px-3 py-2 rounded-lg font-medium hover:bg-gray-50 transition text-xs"
-            >
-              Ver paquetes
-            </button>
-          </div>
+          <form onSubmit={handleSubmit} className="space-y-2 mb-3">
+            <input
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Tu nombre"
+              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
+            />
+            <input
+              required
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
+            />
+            <textarea
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs h-16"
+            />
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className={`w-full sm:w-auto bg-primary text-white px-3 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-xs ${
+                  status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
+              >
+                {status === 'sending' ? 'Enviando...' : 'Enviar cotización'}
+              </button>
+              {whatsapp && (
+                <a
+                  href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero información sobre ${title} - ${price}`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full sm:w-auto border border-green-500 text-green-700 px-3 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-xs text-center flex items-center justify-center gap-2"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z" fill="currentColor"/>
+                    <path d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z" fill="#fff"/>
+                  </svg>
+                  WhatsApp
+                </a>
+              )}
+            </div>
+            {feedback && (
+              <p className={`text-xs ${status === 'error' ? 'text-red-600' : 'text-green-600'}`}>
+                {feedback}
+              </p>
+            )}
+          </form>
 
         
 
@@ -192,22 +271,7 @@ export default function ModalPublicidad({
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}
           </div>
 
-          <div className="mt-2 flex items-center gap-2">
-            {whatsapp && (
-              <a
-                href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero información sobre ${title} - ${price}`)}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 bg-green-500 text-white px-3 py-1 rounded-md text-xs font-semibold"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z" fill="currentColor"/>
-                  <path d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z" fill="#fff"/>
-                </svg>
-                WhatsApp
-              </a>
-            )}
-          </div>
+          
         </div>
       </div>
 

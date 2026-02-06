@@ -1,10 +1,21 @@
 import { Link } from 'react-router-dom';
 
-import { MessageCircle, Phone, Mail, ChevronRight } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  ChevronRight,
+  Instagram,
+  Facebook,
+  MessageCircle,
+  Linkedin,
+  Youtube,
+} from 'lucide-react';
 
 import { COMPANY } from '../../constants';
 
 function Footer() {
+  const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL;
+  const facebookUrl = import.meta.env.VITE_FACEBOOK_URL;
   return (
     <footer className="w-full bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
@@ -125,18 +136,44 @@ function Footer() {
                 </div>
               </div>
 
-              {/* WhatsApp */}
-              <div className="pt-4">
-                <p className="text-gray-500 text-xs mb-3">Escríbenos</p>
-                <a
-                  href={COMPANY.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 p-2 hover:bg-primary hover:text-gray-900 transition duration-300 inline-block"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle size={18} />
-                </a>
+              {/* Redes sociales */}
+              <div className="pt-4 space-y-2">
+                <p className="text-gray-500 text-xs mb-1">Síguenos</p>
+                <div className="flex items-center gap-3">
+                  {[
+                    { href: instagramUrl, label: 'Instagram', icon: <Instagram size={18} /> },
+                    { href: facebookUrl, label: 'Facebook', icon: <Facebook size={18} /> },
+                    {
+                      href: COMPANY.whatsappLink,
+                      label: 'WhatsApp',
+                      icon: <MessageCircle size={18} />,
+                    },
+                    {
+                      href: import.meta.env.VITE_LINKEDIN_URL,
+                      label: 'LinkedIn',
+                      icon: <Linkedin size={18} />,
+                    },
+                    {
+                      href: import.meta.env.VITE_YOUTUBE_URL,
+                      label: 'YouTube',
+                      icon: <Youtube size={18} />,
+                    },
+                  ].map(
+                    (item) =>
+                      item.href && (
+                        <a
+                          key={item.label}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={item.label}
+                          className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-primary/20 text-gray-200 hover:text-primary transition duration-300 border border-gray-700 hover:border-primary/60"
+                        >
+                          {item.icon}
+                        </a>
+                      ),
+                  )}
+                </div>
               </div>
             </div>
           </div>
