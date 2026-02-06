@@ -197,7 +197,7 @@ function Contact() {
     >
       <div className="absolute inset-0">
         <img
-          src="/img/contacto.png"
+          src="/img/img-contacto.avif"
           alt="Fondo contacto syrtix"
           className="w-full h-full object-cover opacity-20"
           style={{ objectPosition: 'center' }}

@@ -96,7 +96,7 @@ function Packages() {
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
           <img
-            src="/img/precio2.png"
+            src="/img/img-paquetes.avif"
             alt="Fondo precios syrtix"
             className="w-full h-full object-cover opacity-30"
             style={{ objectPosition: 'center' }}
