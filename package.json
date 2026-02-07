@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0 --port $PORT",
-    "start": "serve -s dist -l $PORT",
+    "preview": "node scripts/with-port.mjs vite preview --host 0.0.0.0 --port {PORT}",
+    "start": "node scripts/with-port.mjs serve -s dist -l {PORT}",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css}\"",

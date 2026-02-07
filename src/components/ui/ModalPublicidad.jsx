@@ -40,6 +40,18 @@ export default function ModalPublicidad({
   whatsapp,
   delivery,
 }) {
+  const whatsappSource =
+    typeof whatsapp === 'string' && whatsapp.trim()
+      ? whatsapp
+      : import.meta.env.VITE_WHATSAPP_PHONE;
+  const whatsappDigits =
+    typeof whatsappSource === 'string' ? whatsappSource.replace(/[^0-9]/g, '') : '';
+  const whatsappHref = whatsappDigits
+    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
+        `Hola, quiero informaciÃ³n sobre ${title} - ${price}`,
+      )}`
+    : '';
+
   const promoDeadline = useMemo(() => getPromoDeadline(), []);
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(promoDeadline));
   const defaultMessage = useMemo(
@@ -243,9 +255,9 @@ export default function ModalPublicidad({
               >
                 {status === 'sending' ? 'Enviando...' : 'Enviar cotización'}
               </button>
-              {whatsapp && (
+              {whatsappHref && (
                 <a
-                  href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero información sobre ${title} - ${price}`)}`}
+                  href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
                   className="w-full sm:w-auto border border-green-500 text-green-700 px-3 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-xs text-center flex items-center justify-center gap-2"
@@ -271,7 +283,6 @@ export default function ModalPublicidad({
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}
           </div>
 
-          
         </div>
       </div>
 
