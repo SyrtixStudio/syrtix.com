@@ -98,9 +98,19 @@ export default function ModalPublicidad({
     e.preventDefault();
     if (status === 'sending') return;
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
     const targetEmail = import.meta.env.VITE_CONTACT_EMAIL || 'contacto@syrtix.com';
+
+    if (!accessKey) {
+      setStatus('error');
+      setFeedback(
+        'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
+      );
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+    formData.append('access_key', accessKey);
     formData.append('email', targetEmail);
     formData.append('replyTo', targetEmail);
     formData.append('subject', `Solicitud - ${title}`);
