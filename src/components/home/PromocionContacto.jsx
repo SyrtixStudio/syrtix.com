@@ -6,17 +6,40 @@ export default function PromocionContacto({ data }) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(`Estoy interesado en el paquete ${title} (${price}).`);
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [feedback, setFeedback] = useState(null); // { type: 'success' | 'error', message: string }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === 'sending') return;
 
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    const targetEmail = contactEmail || import.meta.env.VITE_CONTACT_EMAIL;
+
+    if (!accessKey) {
+      setFeedback({
+        type: 'error',
+        message:
+          'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
+      });
+      return;
+    }
+
+    if (!targetEmail) {
+      setFeedback({
+        type: 'error',
+        message: 'Falta configurar el correo de contacto. No se puede enviar el formulario.',
+      });
+      return;
+    }
+
+    setFeedback(null);
     setStatus('sending');
 
     const formData = new FormData();
-    formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append('email', contactEmail || import.meta.env.VITE_CONTACT_EMAIL);
-    formData.append('replyTo', contactEmail || import.meta.env.VITE_CONTACT_EMAIL);
+    formData.append('access_key', accessKey);
+    formData.append('email', targetEmail);
+    formData.append('replyTo', targetEmail);
     formData.append('subject', `Solicitud - ${title}`);
     formData.append('from_name', name || 'Interesado en paquete');
     if (email) formData.append('from', email);
@@ -30,7 +53,7 @@ export default function PromocionContacto({ data }) {
 
       if (response.ok) {
         setStatus('success');
-        alert('¡Mensaje enviado correctamente!');
+        setFeedback({ type: 'success', message: 'Mensaje enviado correctamente.' });
         setName('');
         setEmail('');
         setMessage(`Estoy interesado en el paquete ${title} (${price}).`);
@@ -40,7 +63,7 @@ export default function PromocionContacto({ data }) {
     } catch (err) {
       console.error(err);
       setStatus('error');
-      alert('Error al enviar el mensaje. Intenta nuevamente.');
+      setFeedback({ type: 'error', message: 'Error al enviar el mensaje. Intenta nuevamente.' });
     } finally {
       setStatus('idle');
     }
@@ -110,6 +133,15 @@ export default function PromocionContacto({ data }) {
                   </a>
                 )}
               </div>
+
+
+              {feedback && (
+                <p
+                  className={`text-sm ${feedback.type === 'error' ? 'text-red-600' : 'text-green-600'}`}
+                >
+                  {feedback.message}
+                </p>
+              )}
 
               {address && (
                 <a
