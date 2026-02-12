@@ -1,76 +1,111 @@
-import { useEffect, useMemo, useState } from 'react';
+﻿import { useEffect, useMemo, useState } from 'react';
 
 import { Star } from 'lucide-react';
+
+import { useLanguage } from '../../i18n/index.jsx';
 
 const testimonials = [
   {
     id: 1,
-    name: 'María González',
+    name: 'Maria Gonzalez',
     company: 'Boutique Elena',
-    text: 'Excelente trabajo. Mi tienda online aumentó las ventas un 150% en el primer mes.',
+    textEs: 'Excelente trabajo. Mi tienda online aumento las ventas un 150% en el primer mes.',
+    textEn: 'Excellent work. My online store increased sales by 150% in the first month.',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Carlos Rodríguez',
+    name: 'Carlos Rodriguez',
     company: 'Consultora CR',
-    text: 'Profesionales y rápidos. Entregaron antes de tiempo y el resultado superó mis expectativas.',
+    textEs: 'Profesionales y rapidos. Entregaron antes de tiempo y el resultado supero mis expectativas.',
+    textEn: 'Professional and fast. They delivered ahead of time and exceeded my expectations.',
     rating: 5,
   },
   {
     id: 3,
-    name: 'Ana Martínez',
-    company: 'Clínica Dental Sonríe',
-    text: 'El mejor equipo con el que he trabajado. Soporte increíble y diseño impecable.',
+    name: 'Ana Martinez',
+    company: 'Clinica Dental Sonrie',
+    textEs: 'El mejor equipo con el que he trabajado. Soporte increible y diseno impecable.',
+    textEn: 'The best team I have worked with. Amazing support and flawless design.',
     rating: 5,
   },
   {
     id: 4,
     name: 'Alan Iturra',
-    company: 'Eat burger',
-    text: 'Grande chicos! solucionaron mi problema de años en semanas.',
+    company: 'Eat Burger',
+    textEs: 'Grande chicos, solucionaron mi problema de anos en semanas.',
+    textEn: 'Great team, they solved a long-standing issue in just weeks.',
     rating: 5,
   },
   {
     id: 5,
     name: 'Marcela Concha',
     company: 'Tech Solutions',
-    text: 'Totalmente recomendables, indagaron a fondo y entregaron el producto que quería.',
+    textEs: 'Totalmente recomendables, indagaron a fondo y entregaron el producto que queria.',
+    textEn: 'Highly recommended. They went deep and delivered exactly what I needed.',
     rating: 5,
   },
   {
     id: 6,
     name: 'Antonio Vega',
     company: 'Innova Corp',
-    text: 'Muy muy profesionales, diseños modernos y funcionalidades excepcionales. Ellos saben lo que hacen',
+    textEs: 'Muy profesionales, disenos modernos y funcionalidades excepcionales.',
+    textEn: 'Very professional, modern designs and exceptional functionality.',
     rating: 5,
   },
   {
     id: 7,
     name: 'Sebastian Mella',
     company: 'Startup XYZ',
-    text: '4 paginas e-commerce con ellos todas fluyen de maravilla. ellos hacen el manteniemiento de mis sitios web.',
+    textEs:
+      'Tengo 4 paginas e-commerce con ellos y todas funcionan excelente. Ellos mantienen mis sitios web.',
+    textEn:
+      'I have 4 e-commerce websites with them and all run perfectly. They also maintain my websites.',
     rating: 5,
   },
   {
     id: 8,
-    name: 'Alexis Rodríguez',
+    name: 'Alexis Rodriguez',
     company: 'Servicios Financieros AR',
-    text: 'Valió cada peso invertido, superaron mis expectativas en diseño y funcionalidad.',
+    textEs: 'Valio cada peso invertido, superaron mis expectativas en diseno y funcionalidad.',
+    textEn: 'Worth every peso. They exceeded my expectations in design and functionality.',
     rating: 5,
   },
   {
     id: 9,
     name: 'Cristian Castro',
     company: 'Barber Shop CC',
-    text: 'No sabía cómo tener en orden mis reservas hasta que este equipo me ayudaron a crear mi sitio web con sistema de reservas integrado. Vale la pena 100%',
+    textEs:
+      'No sabia como ordenar mis reservas hasta que este equipo me ayudo a crear mi web con reservas integradas.',
+    textEn:
+      'I did not know how to organize my bookings until this team helped me build my website with integrated booking.',
     rating: 5,
   },
 ];
 
 function Testimonials() {
+  const { lang } = useLanguage();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const copy =
+    lang === 'en'
+      ? {
+          titlePrefix: 'What our ',
+          titleHighlight: 'clients',
+          titleSuffix: ' say',
+          prev: 'Previous',
+          next: 'Next',
+          goToGroup: 'Go to group',
+        }
+      : {
+          titlePrefix: 'Lo que dicen nuestros ',
+          titleHighlight: 'clientes',
+          titleSuffix: '',
+          prev: 'Anterior',
+          next: 'Siguiente',
+          goToGroup: 'Ir al grupo',
+        };
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
@@ -115,7 +150,9 @@ function Testimonials() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Lo que dicen nuestros <span className="text-primary">clientes</span>
+            {copy.titlePrefix}
+            <span className="text-primary">{copy.titleHighlight}</span>
+            {copy.titleSuffix}
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
         </div>
@@ -134,7 +171,9 @@ function Testimonials() {
                     <Star key={i} size={16} className="text-primary fill-current" />
                   ))}
                 </div>
-                <p className="text-white/90 text-sm mb-4 italic">&quot;{testimonial.text}&quot;</p>
+                <p className="text-white/90 text-sm mb-4 italic">
+                  &quot;{lang === 'en' ? testimonial.textEn : testimonial.textEs}&quot;
+                </p>
                 <div>
                   <p className="text-white font-bold text-sm">{testimonial.name}</p>
                   <p className="text-white/60 text-xs">{testimonial.company}</p>
@@ -150,7 +189,7 @@ function Testimonials() {
                   type="button"
                   onClick={goPrev}
                   className="h-9 w-9 border border-white/30 text-white hover:border-primary hover:text-primary transition"
-                  aria-label="Anterior"
+                  aria-label={copy.prev}
                 >
                   ‹
                 </button>
@@ -163,7 +202,7 @@ function Testimonials() {
                       className={`h-2.5 w-2.5  transition ${
                         idx === activeIndex ? 'bg-primary' : 'bg-white/30'
                       }`}
-                      aria-label={`Ir al grupo ${idx + 1}`}
+                      aria-label={`${copy.goToGroup} ${idx + 1}`}
                     />
                   ))}
                 </div>
@@ -171,7 +210,7 @@ function Testimonials() {
                   type="button"
                   onClick={goNext}
                   className="h-9 w-9 border border-white/30 text-white hover:border-primary hover:text-primary transition"
-                  aria-label="Siguiente"
+                  aria-label={copy.next}
                 >
                   ›
                 </button>

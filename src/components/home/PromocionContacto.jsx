@@ -1,17 +1,63 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { useLanguage } from '../../i18n/index.jsx';
 
 export default function PromocionContacto({ data }) {
   const { title, price, description, details, list, contactEmail, whatsapp, address, delivery } = data;
+  const { lang } = useLanguage();
+
+  const copy =
+    lang === 'en'
+      ? {
+          namePlaceholder: 'Your name',
+          emailPlaceholder: 'Email',
+          submitSending: 'Sending...',
+          submit: 'Send',
+          whatsapp: 'WhatsApp',
+          map: 'Open in Google Maps',
+          missingAccessKey:
+            'VITE_WEB3FORMS_ACCESS_KEY is missing. The form cannot be submitted.',
+          missingContactEmail: 'Contact email is missing. The form cannot be submitted.',
+          success: 'Message sent successfully.',
+          error: 'Error sending message. Please try again.',
+          defaultMessage: `I am interested in the package ${title} (${price}).`,
+          waMessage: `Hi, I want info about ${title} - ${price}`,
+          subject: `Request - ${title}`,
+          fromName: 'Interested in package',
+          mapTitle: 'map',
+        }
+      : {
+          namePlaceholder: 'Tu nombre',
+          emailPlaceholder: 'Email',
+          submitSending: 'Enviando...',
+          submit: 'Enviar',
+          whatsapp: 'WhatsApp',
+          map: 'Ver en Google Maps',
+          missingAccessKey:
+            'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
+          missingContactEmail: 'Falta configurar el correo de contacto. No se puede enviar el formulario.',
+          success: 'Mensaje enviado correctamente.',
+          error: 'Error al enviar el mensaje. Intenta nuevamente.',
+          defaultMessage: `Estoy interesado en el paquete ${title} (${price}).`,
+          waMessage: `Hola, quiero info sobre ${title} - ${price}`,
+          subject: `Solicitud - ${title}`,
+          fromName: 'Interesado en paquete',
+          mapTitle: 'mapa',
+        };
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(`Estoy interesado en el paquete ${title} (${price}).`);
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error
-  const [feedback, setFeedback] = useState(null); // { type: 'success' | 'error', message: string }
+  const [message, setMessage] = useState(copy.defaultMessage);
+  const [status, setStatus] = useState('idle');
+  const [feedback, setFeedback] = useState(null);
+
+  useEffect(() => {
+    setMessage(copy.defaultMessage);
+  }, [copy.defaultMessage]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (status === 'sending') return;
-
 
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
     const targetEmail = contactEmail || import.meta.env.VITE_CONTACT_EMAIL;
@@ -19,8 +65,7 @@ export default function PromocionContacto({ data }) {
     if (!accessKey) {
       setFeedback({
         type: 'error',
-        message:
-          'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
+        message: copy.missingAccessKey,
       });
       return;
     }
@@ -28,7 +73,7 @@ export default function PromocionContacto({ data }) {
     if (!targetEmail) {
       setFeedback({
         type: 'error',
-        message: 'Falta configurar el correo de contacto. No se puede enviar el formulario.',
+        message: copy.missingContactEmail,
       });
       return;
     }
@@ -40,8 +85,8 @@ export default function PromocionContacto({ data }) {
     formData.append('access_key', accessKey);
     formData.append('email', targetEmail);
     formData.append('replyTo', targetEmail);
-    formData.append('subject', `Solicitud - ${title}`);
-    formData.append('from_name', name || 'Interesado en paquete');
+    formData.append('subject', copy.subject);
+    formData.append('from_name', name || copy.fromName);
     if (email) formData.append('from', email);
     if (message) formData.append('message', message);
 
@@ -53,17 +98,17 @@ export default function PromocionContacto({ data }) {
 
       if (response.ok) {
         setStatus('success');
-        setFeedback({ type: 'success', message: 'Mensaje enviado correctamente.' });
+        setFeedback({ type: 'success', message: copy.success });
         setName('');
         setEmail('');
-        setMessage(`Estoy interesado en el paquete ${title} (${price}).`);
+        setMessage(copy.defaultMessage);
       } else {
         throw new Error('request failed');
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setFeedback({ type: 'error', message: 'Error al enviar el mensaje. Intenta nuevamente.' });
+      setFeedback({ type: 'error', message: copy.error });
     } finally {
       setStatus('idle');
     }
@@ -94,7 +139,7 @@ export default function PromocionContacto({ data }) {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Tu nombre"
+                placeholder={copy.namePlaceholder}
                 className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
               />
               <input
@@ -102,7 +147,7 @@ export default function PromocionContacto({ data }) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                placeholder={copy.emailPlaceholder}
                 className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
               />
               <textarea
@@ -120,20 +165,19 @@ export default function PromocionContacto({ data }) {
                     status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
-                  {status === 'sending' ? 'Enviando...' : 'Enviar'}
+                  {status === 'sending' ? copy.submitSending : copy.submit}
                 </button>
                 {whatsapp && (
                   <a
                     className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center"
-                    href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hola, quiero info sobre ${title} - ${price}`)}`}
+                    href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(copy.waMessage)}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    WhatsApp
+                    {copy.whatsapp}
                   </a>
                 )}
               </div>
-
 
               {feedback && (
                 <p
@@ -150,7 +194,7 @@ export default function PromocionContacto({ data }) {
                   rel="noreferrer"
                   className="text-sm text-primary underline"
                 >
-                  Ver en Google Maps
+                  {copy.map}
                 </a>
               )}
             </form>
@@ -159,7 +203,7 @@ export default function PromocionContacto({ data }) {
           {address && (
             <div className="mt-4">
               <iframe
-                title="mapa"
+                title={copy.mapTitle}
                 src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
                 width="100%"
                 height="200"

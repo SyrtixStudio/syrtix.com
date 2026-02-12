@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 import {
   Code,
@@ -19,106 +19,263 @@ import {
   BarChart,
 } from 'lucide-react';
 
-const services = [
-  {
-    title: 'Diseño Web',
-    icon: <Palette size={32} />,
-    description:
-      'Tecnología moderna para un software escalable y duradero.',
-    features: [
-    'Diseño UI/UX profesional',
-    'Identidad visual',
-    'Responsive design',
-    'Landing page',
-    'SEO inicial',
-    'Formulario de contacto',
-    'Acceso a tus redes sociales',
-    'Botón de WhatsApp integrado',
-    'Ubicación en Google Maps integrada',
-    ],
-    price: 'Desde $99.000',
-  },
-  {
-    title: 'Desarrollo Web',
-    icon: <Code size={32} />,
-    description:
-      'Sitios web rápidos, seguros y escalables con las últimas tecnologías del mercado.',
-    note: 'Programación y funcionalidad: performance, integraciones y estabilidad.',
-    features: ['React / Next.js', 'WordPress / PHP', 'APIs REST', 'Optimización de rendimiento'],
-    price: 'Desde $199.000',
-  },
-  {
-    title: 'E-commerce',
-    icon: <ShoppingCart size={32} />,
-    description:
-      'Tiendas online básicas con lo esencial para empezar a vender en internet.',
-    features: [
-      'Carrito de compras',
-      'Pasarela de pago',
-      'Gestión de inventario',
-      'Panel de administración',
-    ],
-    note: 'Desarrollo orientado a ventas: carrito, pagos e inventario. Tienda básica.',
-    price: 'Desde $299.000',
-  },
-  {
-    title: 'SEO y Marketing',
-    icon: <Search size={32} />,
-    description: 'Optimización para buscadores que aumenta tu visibilidad y trae más clientes.',
-    note: 'Precio base. El valor final depende del tamaño del sitio y su estado técnico.',
-    features: ['Auditoría SEO', 'Optimización on-page', 'Link building', 'Google Analytics'],
-    price: 'Desde $79.000/mes',
-  },
-  {
-    title: 'Aplicaciones Móviles',
-    icon: <Smartphone size={32} />,
-    description: 'Apps nativas y PWA para iOS y Android que extienden tu presencia digital.',
-    note: 'Apps móviles y PWA para alcanzar usuarios en cualquier dispositivo.',
-    features: ['React Native', 'PWA', 'App Store / Play Store', 'Notificaciones push'],
-    price: 'Desde $499.000',
-  },
-  {
-    title: 'Mantenimiento',
-    icon: <Settings size={32} />,
-    description: 'Tu sitio siempre actualizado, seguro y funcionando al máximo rendimiento.',
-    note: 'Actualizaciones, monitoreo y soporte continuo para evitar caídas.',
-    features: ['Actualizaciones', 'Backups automáticos', 'Monitoreo 24/7', 'Soporte técnico'],
-    price: 'Desde $49.000/mes',
-  },
-];
-
-const additionalServices = [
-  {
-    icon: <Globe size={24} />,
-    title: 'Hosting y dominios',
-    desc: 'Alojamiento web de alta velocidad',
-  },
-  { icon: <Database size={24} />, title: 'Bases de datos', desc: 'Diseño y optimización de BD' },
-  { icon: <Shield size={24} />, title: 'Seguridad web', desc: 'SSL, firewalls y protección DDoS' },
-  {
-    icon: <Monitor size={24} />,
-    title: 'Landing pages',
-    desc: 'Páginas de aterrizaje optimizadas',
-  },
-  {
-    icon: <Server size={24} />,
-    title: 'APIs e integraciones',
-    desc: 'Conexión con servicios externos',
-  },
-  { icon: <Brush size={24} />, title: 'Rediseño web', desc: 'Modernización de sitios existentes' },
-  { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Métricas y reportes de rendimiento' },
-  { icon: <Zap size={24} />, title: 'Optimización', desc: 'Velocidad y Core Web Vitals' },
-];
+import { useLanguage } from '../i18n/index.jsx';
 
 function Services() {
+  const { lang } = useLanguage();
+
+  const copy =
+    lang === 'en'
+      ? {
+          heroBadge: 'Web development services',
+          heroTitleLine1: 'Digital solutions',
+          heroTitleLine2: 'tailored to you',
+          heroDescription:
+            'From design to development, we deliver everything you need for a professional and effective digital presence.',
+          viewPackages: 'View packages',
+          requestQuote: 'Request quote',
+          sectionTitlePrefix: 'Our ',
+          sectionTitleHighlight: 'services',
+          sectionSubtitle: 'Complete solutions for each stage of your digital project',
+          requestService: 'Request service',
+          additionalTitlePrefix: 'Additional ',
+          additionalTitleHighlight: 'services',
+          additionalSubtitle: 'Enhance your project with these specialized services',
+          maintenanceTitlePrefix: 'Maintenance and ',
+          maintenanceTitleHighlight: 'continuous growth',
+          maintenanceSubtitle:
+            'We support you after launch so your site stays fast, secure, and conversion-ready. Monthly plan recommended.',
+          maintenanceCta: 'Request monthly plan',
+          whyTitlePrefix: 'Why ',
+          whyTitleHighlight: 'choose us',
+          workTitlePrefix: 'How we ',
+          workTitleHighlight: 'work',
+          techTitlePrefix: 'Technologies we ',
+          techTitleHighlight: 'master',
+          ctaTitle: 'Do you have a project in mind?',
+          ctaDescription:
+            'Tell us your idea and we will help you make it real. Free quote with no commitment.',
+          services: [
+            {
+              title: 'Web Design',
+              icon: <Palette size={32} />,
+              description: 'Modern technology for scalable and long-lasting software.',
+              features: [
+                'Professional UI/UX design',
+                'Visual identity',
+                'Responsive design',
+                'Landing page',
+                'Initial SEO setup',
+                'Contact form',
+                'Social media access',
+                'Integrated WhatsApp button',
+                'Integrated Google Maps location',
+              ],
+              price: 'From $99.990',
+            },
+            {
+              title: 'Web Development',
+              icon: <Code size={32} />,
+              description: 'Fast, secure, and scalable websites with latest technologies.',
+              note: 'Programming and functionality: performance, integrations, and stability.',
+              features: ['React / Next.js', 'Node.js / Express', 'REST APIs', 'Performance optimization'],
+              price: 'From $199.990',
+            },
+            {
+              title: 'E-commerce',
+              icon: <ShoppingCart size={32} />,
+              description: 'Basic online stores with everything needed to start selling online.',
+              features: ['Shopping cart', 'Payment gateway', 'Inventory management', 'Admin panel'],
+              note: 'Sales-focused development: cart, payments, and inventory. Basic store.',
+              price: 'From $299.990',
+            },
+            {
+              title: 'SEO and Marketing',
+              icon: <Search size={32} />,
+              description: 'Search optimization that improves visibility and brings more clients.',
+              note: 'Base price. Final value depends on website size and technical condition.',
+              features: ['SEO audit', 'On-page optimization', 'Link building', 'Google Analytics'],
+              price: 'From $79.990/month',
+            },
+            {
+              title: 'Mobile Applications',
+              icon: <Smartphone size={32} />,
+              description: 'Native apps and PWA for iOS and Android to expand your digital reach.',
+              note: 'Mobile apps and PWA to reach users on every device.',
+              features: ['React Native', 'PWA', 'App Store / Play Store', 'Push notifications'],
+              price: 'From $499.990',
+            },
+            {
+              title: 'Maintenance',
+              icon: <Settings size={32} />,
+              description: 'Your site always updated, secure, and running at top performance.',
+              note: 'Updates, monitoring, and ongoing support to prevent downtime.',
+              features: ['Updates', 'Automatic backups', '24/7 monitoring', 'Technical support'],
+              price: 'From $49.990/month',
+            },
+          ],
+          additional: [
+            { icon: <Globe size={24} />, title: 'Hosting and domains', desc: 'High-speed web hosting' },
+            { icon: <Database size={24} />, title: 'Databases', desc: 'DB design and optimization' },
+            { icon: <Shield size={24} />, title: 'Web security', desc: 'SSL, firewalls and DDoS protection' },
+            { icon: <Monitor size={24} />, title: 'Landing pages', desc: 'Optimized landing pages' },
+            { icon: <Server size={24} />, title: 'APIs and integrations', desc: 'Connection with external services' },
+            { icon: <Brush size={24} />, title: 'Website redesign', desc: 'Modernization of existing sites' },
+            { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Performance metrics and reporting' },
+            { icon: <Zap size={24} />, title: 'Optimization', desc: 'Speed and Core Web Vitals' },
+          ],
+          maintenanceCards: [
+            { title: 'Proactive maintenance', desc: 'Updates, backups and monitoring to prevent outages.' },
+            { title: 'Continuous optimization', desc: 'Monthly improvements in speed, UX and conversions.' },
+            { title: 'Monthly report', desc: 'Metrics summary, progress and next steps.' },
+            { title: 'Priority support', desc: 'Preferred response times and minor adjustments.' },
+            { title: 'Managed hosting and domain', desc: 'Forget technical tasks: we handle them.' },
+            { title: 'Loyalty benefits', desc: 'Improvements or discounts for continuity.' },
+          ],
+          whyItems: [
+            'Agile and transparent methodology: active client participation throughout the process.',
+            'Frequent deliveries and room for changes: flexibility to adapt the project to your needs.',
+            'Clear documentation and defined timeline: you always know what is being done and when.',
+            'Modern design optimized for performance: elegant, fast and stable sites.',
+            'Professional and updated team: software engineering, machine learning, security and PM expertise.',
+          ],
+          process: [
+            { step: '01', title: 'Consultation', desc: 'We analyze your needs and goals' },
+            { step: '02', title: 'Proposal', desc: 'We send a detailed quote' },
+            { step: '03', title: 'Development', desc: 'We build your project with revisions' },
+            { step: '04', title: 'Delivery', desc: 'We launch and onboard you' },
+          ],
+          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB'],
+        }
+      : {
+          heroBadge: 'Servicios de desarrollo web',
+          heroTitleLine1: 'Soluciones digitales',
+          heroTitleLine2: 'a tu medida',
+          heroDescription:
+            'Desde diseno hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia digital profesional y efectiva.',
+          viewPackages: 'Ver paquetes',
+          requestQuote: 'Solicitar cotizacion',
+          sectionTitlePrefix: 'Nuestros ',
+          sectionTitleHighlight: 'servicios',
+          sectionSubtitle: 'Soluciones completas para cada etapa de tu proyecto digital',
+          requestService: 'Solicitar servicio',
+          additionalTitlePrefix: 'Servicios ',
+          additionalTitleHighlight: 'adicionales',
+          additionalSubtitle: 'Complementa tu proyecto con estos servicios especializados',
+          maintenanceTitlePrefix: 'Mantenimiento y ',
+          maintenanceTitleHighlight: 'crecimiento continuo',
+          maintenanceSubtitle:
+            'Te acompanamos despues del lanzamiento para que tu sitio siga rapido, seguro y convirtiendo. Plan mensual recomendado.',
+          maintenanceCta: 'Solicitar plan mensual',
+          whyTitlePrefix: 'Por que ',
+          whyTitleHighlight: 'elegirnos',
+          workTitlePrefix: 'Como ',
+          workTitleHighlight: 'trabajamos',
+          techTitlePrefix: 'Tecnologias que ',
+          techTitleHighlight: 'dominamos',
+          ctaTitle: 'Tienes un proyecto en mente?',
+          ctaDescription:
+            'Cuentanos tu idea y te ayudaremos a hacerla realidad. Cotizacion gratuita y sin compromiso.',
+          services: [
+            {
+              title: 'Diseno Web',
+              icon: <Palette size={32} />,
+              description: 'Tecnologia moderna para un software escalable y duradero.',
+              features: [
+                'Diseno UI/UX profesional',
+                'Identidad visual',
+                'Responsive design',
+                'Landing page',
+                'SEO inicial',
+                'Formulario de contacto',
+                'Acceso a tus redes sociales',
+                'Boton de WhatsApp integrado',
+                'Ubicacion en Google Maps integrada',
+              ],
+              price: 'Desde $99.990',
+            },
+            {
+              title: 'Desarrollo Web',
+              icon: <Code size={32} />,
+              description: 'Sitios web rapidos, seguros y escalables con las ultimas tecnologias del mercado.',
+              note: 'Programacion y funcionalidad: performance, integraciones y estabilidad.',
+              features: ['React / Next.js', 'Node.js / Express', 'APIs REST', 'Optimizacion de rendimiento'],
+              price: 'Desde $199.990',
+            },
+            {
+              title: 'E-commerce',
+              icon: <ShoppingCart size={32} />,
+              description: 'Tiendas online basicas con lo esencial para empezar a vender en internet.',
+              features: ['Carrito de compras', 'Pasarela de pago', 'Gestion de inventario', 'Panel de administracion'],
+              note: 'Desarrollo orientado a ventas: carrito, pagos e inventario. Tienda basica.',
+              price: 'Desde $299.990',
+            },
+            {
+              title: 'SEO y Marketing',
+              icon: <Search size={32} />,
+              description: 'Optimizacion para buscadores que aumenta tu visibilidad y trae mas clientes.',
+              note: 'Precio base. El valor final depende del tamano del sitio y su estado tecnico.',
+              features: ['Auditoria SEO', 'Optimizacion on-page', 'Link building', 'Google Analytics'],
+              price: 'Desde $79.990/mes',
+            },
+            {
+              title: 'Aplicaciones Moviles',
+              icon: <Smartphone size={32} />,
+              description: 'Apps nativas y PWA para iOS y Android que extienden tu presencia digital.',
+              note: 'Apps moviles y PWA para alcanzar usuarios en cualquier dispositivo.',
+              features: ['React Native', 'PWA', 'App Store / Play Store', 'Notificaciones push'],
+              price: 'Desde $499.990',
+            },
+            {
+              title: 'Mantenimiento',
+              icon: <Settings size={32} />,
+              description: 'Tu sitio siempre actualizado, seguro y funcionando al maximo rendimiento.',
+              note: 'Actualizaciones, monitoreo y soporte continuo para evitar caidas.',
+              features: ['Actualizaciones', 'Backups automaticos', 'Monitoreo 24/7', 'Soporte tecnico'],
+              price: 'Desde $49.990/mes',
+            },
+          ],
+          additional: [
+            { icon: <Globe size={24} />, title: 'Hosting y dominios', desc: 'Alojamiento web de alta velocidad' },
+            { icon: <Database size={24} />, title: 'Bases de datos', desc: 'Diseno y optimizacion de BD' },
+            { icon: <Shield size={24} />, title: 'Seguridad web', desc: 'SSL, firewalls y proteccion DDoS' },
+            { icon: <Monitor size={24} />, title: 'Landing pages', desc: 'Paginas de aterrizaje optimizadas' },
+            { icon: <Server size={24} />, title: 'APIs e integraciones', desc: 'Conexion con servicios externos' },
+            { icon: <Brush size={24} />, title: 'Rediseno web', desc: 'Modernizacion de sitios existentes' },
+            { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Metricas y reportes de rendimiento' },
+            { icon: <Zap size={24} />, title: 'Optimizacion', desc: 'Velocidad y Core Web Vitals' },
+          ],
+          maintenanceCards: [
+            { title: 'Mantenimiento proactivo', desc: 'Actualizaciones, backups y monitoreo para evitar caidas.' },
+            { title: 'Optimizacion continua', desc: 'Mejoras de velocidad, UX y conversiones cada mes.' },
+            { title: 'Reporte mensual', desc: 'Resumen de metricas, avances y proximos pasos.' },
+            { title: 'Soporte prioritario', desc: 'Tiempos de respuesta preferentes y ajustes menores.' },
+            { title: 'Hosting y dominio gestionado', desc: 'Olvidate de lo tecnico: nosotros lo administramos.' },
+            { title: 'Beneficios por permanencia', desc: 'Mejoras o descuentos por continuidad.' },
+          ],
+          whyItems: [
+            'Metodologia agil y transparente: participacion activa del cliente en todo el proceso.',
+            'Entregas frecuentes y posibilidad de cambios: flexibilidad para adaptar el proyecto a tus necesidades.',
+            'Documentacion clara y cronogramas definidos: siempre sabras que se esta haciendo y cuando.',
+            'Diseno moderno y optimizado para rendimiento: sitios elegantes, rapidos y estables.',
+            'Equipo profesional y actualizado: ingenieria, machine learning, seguridad y gestion de proyectos.',
+          ],
+          process: [
+            { step: '01', title: 'Consulta', desc: 'Analizamos tus necesidades y objetivos' },
+            { step: '02', title: 'Propuesta', desc: 'Te enviamos una cotizacion detallada' },
+            { step: '03', title: 'Desarrollo', desc: 'Creamos tu proyecto con revisiones' },
+            { step: '04', title: 'Entrega', desc: 'Lanzamos y te capacitamos' },
+          ],
+          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB'],
+        };
+
   return (
     <main className="min-h-screen bg-base">
-      {/* Hero Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
           <img
             src="/img/img-servicios.avif"
-            alt="Fondo servicios syrtix"
+            alt="services background"
             className="w-full h-full object-cover opacity-30"
             style={{ objectPosition: 'center' }}
           />
@@ -127,55 +284,48 @@ function Services() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">
             <Code size={16} className="text-primary mr-2" />
-            <span className="text-primary text-xs sm:text-sm font-medium">
-              Servicios de desarrollo web
-            </span>
+            <span className="text-primary text-xs sm:text-sm font-medium">{copy.heroBadge}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Soluciones digitales
+            {copy.heroTitleLine1}
             <br />
-            <span className="text-primary">a tu medida</span>
+            <span className="text-primary">{copy.heroTitleLine2}</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Desde diseño hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia
-            digital profesional y efectiva.
-          </p>
+          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">{copy.heroDescription}</p>
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-4 w-full max-w-xl mx-auto">
             <Link
               to="/paquetes"
               className="flex-1 bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center min-w-[180px]"
             >
-              Ver paquetes
+              {copy.viewPackages}
               <ArrowRight className="ml-2" size={20} />
             </Link>
             <Link
               to="/contacto"
               className="flex-1 border-2 border-white text-white font-bold px-8 py-4 hover:bg-white hover:text-gray-900 transition duration-300 min-w-[180px]"
             >
-              Solicitar cotización
+              {copy.requestQuote}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Servicios principales */}
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Nuestros <span className="text-primary">servicios</span>
+              {copy.sectionTitlePrefix}
+              <span className="text-primary">{copy.sectionTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
-            Soluciones completas para cada etapa de tu proyecto digital
-          </p>
-        </div>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.sectionSubtitle}</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, idx) => (
+            {copy.services.map((service, idx) => (
               <div
                 key={idx}
                 className="bg-base border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 group"
@@ -193,9 +343,7 @@ function Services() {
                 </div>
 
                 <p className="text-sm text-gray-600 mb-3">{service.description}</p>
-                {service.note && (
-                  <p className="text-xs text-gray-500 mb-4">{service.note}</p>
-                )}
+                {service.note && <p className="text-xs text-gray-500 mb-4">{service.note}</p>}
 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, i) => (
@@ -210,7 +358,7 @@ function Services() {
                   to="/contacto"
                   className="inline-flex items-center text-secondary font-bold text-sm hover:text-primary transition-all duration-300"
                 >
-                  Solicitar servicio
+                  {copy.requestService}
                   <ArrowRight size={16} className="ml-1" />
                 </Link>
               </div>
@@ -219,21 +367,19 @@ function Services() {
         </div>
       </section>
 
-      {/* Servicios adicionales */}
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Servicios <span className="text-primary">adicionales</span>
+              {copy.additionalTitlePrefix}
+              <span className="text-primary">{copy.additionalTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
-              Complementa tu proyecto con estos servicios especializados
-            </p>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.additionalSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {additionalServices.map((service, idx) => (
+            {copy.additional.map((service, idx) => (
               <div
                 key={idx}
                 className="bg-base p-4 border border-gray-200 hover:border-primary text-center transition-all duration-300"
@@ -249,47 +395,19 @@ function Services() {
         </div>
       </section>
 
-      {/* Mantenimiento y crecimiento */}
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Mantenimiento y <span className="text-primary">crecimiento continuo</span>
+              {copy.maintenanceTitlePrefix}
+              <span className="text-primary">{copy.maintenanceTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
-              Te acompañamos después del lanzamiento para que tu sitio siga rápido, seguro y
-              convirtiendo. Plan mensual recomendado.
-            </p>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.maintenanceSubtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Mantenimiento proactivo',
-                desc: 'Actualizaciones, backups y monitoreo para evitar caídas.',
-              },
-              {
-                title: 'Optimización continua',
-                desc: 'Mejoras de velocidad, UX y conversiones cada mes.',
-              },
-              {
-                title: 'Reporte mensual',
-                desc: 'Resumen de métricas, avances y próximos pasos.',
-              },
-              {
-                title: 'Soporte prioritario',
-                desc: 'Tiempos de respuesta preferentes y ajustes menores.',
-              },
-              {
-                title: 'Hosting y dominio gestionado',
-                desc: 'Olvídate de lo técnico: nosotros lo administramos.',
-              },
-              {
-                title: 'Beneficios por permanencia',
-                desc: 'Mejoras o descuentos por continuidad.',
-              },
-            ].map((item, idx) => (
+            {copy.maintenanceCards.map((item, idx) => (
               <div key={idx} className="border border-gray-200 bg-base p-5">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-xs text-gray-600">{item.desc}</p>
@@ -302,68 +420,40 @@ function Services() {
               to="/contacto"
               className="inline-flex items-center bg-secondary text-white font-bold px-6 py-3 hover:bg-primary transition duration-300"
             >
-              Solicitar plan mensual
+              {copy.maintenanceCta}
               <ArrowRight size={18} className="ml-2" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ¿Por qué elegirnos? */}
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            ¿Por qué <span className="text-primary">elegirnos?</span>
+            {copy.whyTitlePrefix}
+            <span className="text-primary">{copy.whyTitleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
           <ul className="text-left text-gray-700 space-y-2 max-w-2xl mx-auto">
-            <li>
-              <span className="font-bold text-primary">Metodología ágil y transparente:</span>{' '}
-              Participación activa del cliente en todo el proceso.
-            </li>
-            <li>
-              <span className="font-bold text-primary">
-                Entregas frecuentes y posibilidad de cambios:
-              </span>{' '}
-              Flexibilidad para adaptar el proyecto a tus necesidades.
-            </li>
-            <li>
-              <span className="font-bold text-primary">
-                Documentación clara y cronogramas definidos:
-              </span>{' '}
-              Siempre sabrás qué se está haciendo y cuándo.
-            </li>
-            <li>
-              <span className="font-bold text-primary">
-                Diseño moderno y optimizado para rendimiento:
-              </span>{' '}
-              Nos especializamos en sitios elegantes, rápidos y estables.
-            </li>
-            <li>
-              <span className="font-bold text-primary">Equipo profesional y actualizado:</span>{' '}
-              Formación en ingeniería, machine learning, seguridad y gestión de proyectos.
-            </li>
+            {copy.whyItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </section>
 
-      {/* Proceso */}
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Cómo <span className="text-primary">trabajamos</span>
+              {copy.workTitlePrefix}
+              <span className="text-primary">{copy.workTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { step: '01', title: 'Consulta', desc: 'Analizamos tus necesidades y objetivos' },
-              { step: '02', title: 'Propuesta', desc: 'Te enviamos una cotización detallada' },
-              { step: '03', title: 'Desarrollo', desc: 'Creamos tu proyecto con revisiones' },
-              { step: '04', title: 'Entrega', desc: 'Lanzamos y te capacitamos' },
-            ].map((item, idx) => (
+            {copy.process.map((item, idx) => (
               <div key={idx} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-900 font-bold text-xl mb-4">
                   {item.step}
@@ -376,24 +466,16 @@ function Services() {
         </div>
       </section>
 
-      {/* Tecnologías */}
       <section className="py-16 px-4 sm:px-6 bg-secondary">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Tecnologías que <span className="text-primary">dominamos</span>
+            {copy.techTitlePrefix}
+            <span className="text-primary">{copy.techTitleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-8"></div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 text-white/80">
-            {[
-              'React',
-              'Next.js',
-              'Node.js',
-              'WordPress',
-              'Tailwind CSS',
-              'PostgreSQL',
-              'MongoDB',
-            ].map((tech, idx) => (
+            {copy.tech.map((tech, idx) => (
               <span
                 key={idx}
                 className="text-lg font-bold hover:text-primary transition-colors duration-300"
@@ -405,29 +487,23 @@ function Services() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            ¿Tienes un proyecto en mente?
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            Cuéntanos tu idea y te ayudaremos a hacerla realidad. Cotización gratuita y sin
-            compromiso.
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.ctaTitle}</h2>
+          <p className="text-gray-600 mb-8 max-w-xl mx-auto">{copy.ctaDescription}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
               className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
             >
-              Solicitar cotización
+              {copy.requestQuote}
               <ArrowRight size={20} className="ml-2" />
             </Link>
             <Link
               to="/paquetes"
               className="border-2 border-secondary text-secondary font-bold px-8 py-4 hover:bg-secondary hover:text-white transition duration-300"
             >
-              Ver paquetes
+              {copy.viewPackages}
             </Link>
           </div>
         </div>

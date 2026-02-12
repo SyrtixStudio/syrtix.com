@@ -1,93 +1,155 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
-const LAST_UPDATED = '31 de enero de 2026';
+import { useLanguage } from '../i18n/index.jsx';
+
+const LAST_UPDATED_ES = '31 de enero de 2026';
+const LAST_UPDATED_EN = 'January 31, 2026';
 
 const LegalNotice = () => {
+  const { lang } = useLanguage();
+
+  const copy =
+    lang === 'en'
+      ? {
+          title: 'Legal Notice',
+          updated: 'Last updated',
+          lastUpdatedValue: LAST_UPDATED_EN,
+          sections: [
+            {
+              title: '1. Company information',
+              paragraphs: [
+                'syrtix.com is a web development agency operating in Chile. For inquiries, contact us at contacto@syrtix.com.',
+                'Contact address: Canal Sarmiento 6380, Puerto Montt, Chile.',
+              ],
+            },
+            {
+              title: '2. Website purpose',
+              paragraphs: [
+                'This website provides information about our web development services, available packages, and contact channels.',
+                'Information on this site is for general informational purposes and does not constitute professional advice.',
+                'Personal data processing is governed by our Privacy Policy.',
+              ],
+            },
+            {
+              title: '3. Intellectual property',
+              paragraphs: [
+                'All content on this website, including texts, images, logos, and design elements, is protected by intellectual property laws.',
+                'You may not reproduce, distribute, or use site content for commercial purposes without prior written consent.',
+              ],
+            },
+            {
+              title: '4. External links',
+              paragraphs: [
+                'The site may include links to third-party websites. We do not control those sites and are not responsible for their content or privacy practices.',
+              ],
+            },
+            {
+              title: '5. Liability',
+              paragraphs: [
+                'syrtix.com makes reasonable efforts to ensure information accuracy, but does not guarantee completeness or absence of errors.',
+                'We disclaim liability for damages resulting from website use.',
+              ],
+            },
+            {
+              title: '6. Applicable law',
+              paragraphs: [
+                'These terms are governed by Chilean law. Any dispute is subject to competent courts in Santiago, Chile.',
+              ],
+            },
+          ],
+          privacyLink: 'Privacy Policy',
+          footer: 'If you have questions about this Legal Notice, contact us at',
+          back: 'Back to home',
+        }
+      : {
+          title: 'Aviso Legal',
+          updated: 'Ultima actualizacion',
+          lastUpdatedValue: LAST_UPDATED_ES,
+          sections: [
+            {
+              title: '1. Informacion de la empresa',
+              paragraphs: [
+                'syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas, contactenos en contacto@syrtix.com.',
+                'Domicilio de contacto: Canal Sarmiento 6380, Puerto Montt, Chile.',
+              ],
+            },
+            {
+              title: '2. Proposito del sitio web',
+              paragraphs: [
+                'Este sitio web proporciona informacion sobre nuestros servicios de desarrollo web, paquetes disponibles y formas de contacto.',
+                'La informacion proporcionada en el sitio es de caracter general y no constituye asesoramiento profesional.',
+                'El tratamiento de datos personales se rige por nuestra Politica de Privacidad.',
+              ],
+            },
+            {
+              title: '3. Propiedad intelectual',
+              paragraphs: [
+                'Todo el contenido de este sitio web, incluidos textos, imagenes, logos y elementos de diseno, esta protegido por leyes de propiedad intelectual.',
+                'No puede reproducir, distribuir o utilizar el contenido del sitio con fines comerciales sin consentimiento escrito previo.',
+              ],
+            },
+            {
+              title: '4. Enlaces externos',
+              paragraphs: [
+                'El sitio puede incluir enlaces a sitios web de terceros. No controlamos esos sitios ni sus practicas de privacidad.',
+              ],
+            },
+            {
+              title: '5. Responsabilidad',
+              paragraphs: [
+                'syrtix.com hace esfuerzos razonables para garantizar la precision de la informacion en este sitio, pero no garantiza que sea completa o libre de errores.',
+                'Declinamos responsabilidad por danos resultantes del uso del sitio web.',
+              ],
+            },
+            {
+              title: '6. Ley aplicable',
+              paragraphs: [
+                'Estos terminos se rigen por las leyes de Chile. Cualquier disputa estara sujeta a la jurisdiccion de los tribunales competentes de Santiago, Chile.',
+              ],
+            },
+          ],
+          privacyLink: 'Politica de Privacidad',
+          footer: 'Si tienes preguntas sobre este Aviso Legal, contactanos en',
+          back: 'Volver al inicio',
+        };
+
   return (
     <main className="min-h-screen bg-base/50 mt-28">
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Aviso Legal</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{copy.title}</h1>
           <p className="text-xs text-gray-600 mt-2">
-            Última actualización: {LAST_UPDATED}
+            {copy.updated}: {copy.lastUpdatedValue}
           </p>
           <div className="h-0.5 w-16 bg-primary mx-auto mt-4"></div>
         </div>
 
         <div className="bg-base rounded-none border border-gray-200 p-4 md:p-6 text-gray-700 space-y-6">
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">1. Información de la Empresa</h2>
-            <p className="text-sm leading-relaxed">
-              syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas,
-              contáctenos en{' '}
-              <a href="mailto:contacto@syrtix.com" className="text-primary">
-                contacto@syrtix.com
-              </a>
-              .
-            </p>
-            <p className="text-sm leading-relaxed">
-              Domicilio de contacto: Canal Sarmiento 6380, Puerto Montt, Chile.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">2. Propósito del Sitio Web</h2>
-            <p className="text-sm leading-relaxed">
-              Este sitio web proporciona información sobre nuestros servicios de desarrollo web,
-              paquetes disponibles y formas de contactar a nuestro equipo. La información
-              proporcionada en el sitio es con fines informativos generales y no constituye
-              asesoramiento profesional.
-            </p>
-            <p className="text-sm leading-relaxed">
-              El tratamiento de datos personales se rige por nuestra{' '}
-              <Link to="/politica-privacidad" className="text-primary">
-                Política de Privacidad
-              </Link>
-              .
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">3. Propiedad Intelectual</h2>
-            <p className="text-sm leading-relaxed">
-              Todo el contenido de este sitio web, incluidos textos, imágenes, logos y elementos de
-              diseño, está protegido por las leyes de propiedad intelectual. No puede reproducir,
-              distribuir o utilizar el contenido del sitio con fines comerciales sin consentimiento
-              previo por escrito.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">4. Enlaces Externos</h2>
-            <p className="text-sm leading-relaxed">
-              El sitio puede incluir enlaces a sitios web de terceros. No controlamos esos sitios y
-              no somos responsables de su contenido o prácticas de privacidad. Los enlaces se
-              proporcionan solo por conveniencia.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">5. Responsabilidad</h2>
-            <p className="text-sm leading-relaxed">
-              syrtix.com hace esfuerzos razonables para garantizar la precisión de la información en
-              este sitio, pero no garantizamos que sea completa o libre de errores. Declinamos toda
-              responsabilidad por cualquier daño resultante del uso del sitio web.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">6. Ley Aplicable</h2>
-            <p className="text-sm leading-relaxed">
-              Estos términos se rigen por las leyes de Chile. Cualquier disputa estará sujeta a la
-              jurisdicción de los tribunales competentes en Santiago, Chile.
-            </p>
-          </section>
+          {copy.sections.map((section) => (
+            <section key={section.title}>
+              <h2 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-sm leading-relaxed mb-2">
+                  {paragraph.includes('Privacy Policy') || paragraph.includes('Politica de Privacidad') ? (
+                    <>
+                      {paragraph.replace('Privacy Policy', '').replace('Politica de Privacidad', '')}
+                      <Link to="/politica-privacidad" className="text-primary">
+                        {copy.privacyLink}
+                      </Link>
+                      .
+                    </>
+                  ) : (
+                    paragraph
+                  )}
+                </p>
+              ))}
+            </section>
+          ))}
 
           <section className="border-t border-gray-200 pt-4">
             <p className="text-xs text-gray-600 italic">
-              Si tiene preguntas sobre este Aviso Legal, contáctenos en
+              {copy.footer}{' '}
               <a href="mailto:contacto@syrtix.com" className="text-primary">
-                {' '}
                 contacto@syrtix.com
               </a>
               .
@@ -100,7 +162,7 @@ const LegalNotice = () => {
             to="/"
             className="inline-block px-4 py-2 border border-gray-200 text-sm rounded-none hover:bg-base/50"
           >
-            Volver al inicio
+            {copy.back}
           </Link>
         </div>
       </div>

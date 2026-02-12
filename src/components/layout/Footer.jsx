@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 import {
   Phone,
@@ -12,15 +12,78 @@ import {
 } from 'lucide-react';
 
 import { COMPANY } from '../../constants';
+import { useLanguage } from '../../i18n/index.jsx';
 
 function Footer() {
+  const { lang } = useLanguage();
   const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL;
   const facebookUrl = import.meta.env.VITE_FACEBOOK_URL;
+
+  const copy =
+    lang === 'en'
+      ? {
+          tagline: 'Web Development',
+          description:
+            'Premium web development agency. We build websites that convert visitors into customers with modern technology and professional design.',
+          quickLinks: 'Quick links',
+          servicesTitle: 'Services',
+          contact: 'Contact',
+          links: [
+            { to: '/', label: 'Home' },
+            { to: '/paquetes', label: 'Packages and pricing' },
+            { to: '/servicios', label: 'Services' },
+            { to: '/nosotros', label: 'About us' },
+            { to: '/contacto', label: 'Contact' },
+          ],
+          services: [
+            'Web design',
+            'Custom development',
+            'E-commerce',
+            'SEO and marketing',
+            'Website maintenance',
+          ],
+          workHours: 'Mon-Fri 9:00-19:00',
+          responseTime: 'Reply within 24h',
+          followUs: 'Follow us',
+          rights: 'All rights reserved.',
+          privacy: 'Privacy',
+          terms: 'Terms',
+          legal: 'Legal notice',
+        }
+      : {
+          tagline: 'Desarrollo Web',
+          description:
+            'Agencia de desarrollo web premium. Creamos sitios web que convierten visitantes en clientes con tecnologia de vanguardia y diseno profesional.',
+          quickLinks: 'Enlaces rapidos',
+          servicesTitle: 'Servicios',
+          contact: 'Contacto',
+          links: [
+            { to: '/', label: 'Inicio' },
+            { to: '/paquetes', label: 'Paquetes y precios' },
+            { to: '/servicios', label: 'Servicios' },
+            { to: '/nosotros', label: 'Nosotros' },
+            { to: '/contacto', label: 'Contacto' },
+          ],
+          services: [
+            'Diseno web',
+            'Desarrollo a medida',
+            'E-commerce',
+            'SEO y marketing',
+            'Mantenimiento web',
+          ],
+          workHours: 'Lun-Vie 9:00-19:00',
+          responseTime: 'Respuesta en 24h',
+          followUs: 'Siguenos',
+          rights: 'Todos los derechos reservados.',
+          privacy: 'Privacidad',
+          terms: 'Terminos',
+          legal: 'Aviso legal',
+        };
+
   return (
     <footer className="w-full bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Logo y Descripción */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col items-start">
               <div className="flex items-center space-x-3 mb-4">
@@ -32,29 +95,19 @@ function Footer() {
                 />
                 <div>
                   <div className="text-xl font-bold text-white">syrtix</div>
-                  <div className="text-sm text-gray-400">Desarrollo Web</div>
+                  <div className="text-sm text-gray-400">{copy.tagline}</div>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Agencia de desarrollo web premium. Creamos sitios web que convierten visitantes en
-                clientes con tecnología de vanguardia y diseño profesional.
-              </p>
+              <p className="text-gray-400 text-sm leading-relaxed">{copy.description}</p>
             </div>
           </div>
 
-          {/* Enlaces rápidos */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white pb-2 border-b border-gray-700">
-              Enlaces rápidos
+              {copy.quickLinks}
             </h3>
             <ul className="space-y-3">
-              {[
-                { to: '/', label: 'Inicio' },
-                { to: '/paquetes', label: 'Paquetes y Precios' },
-                { to: '/servicios', label: 'Servicios' },
-                { to: '/nosotros', label: 'Nosotros' },
-                { to: '/contacto', label: 'Contacto' },
-              ].map((link, index) => (
+              {copy.links.map((link, index) => (
                 <li key={index}>
                   <Link
                     to={link.to}
@@ -71,19 +124,12 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Servicios */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white pb-2 border-b border-gray-700">
-              Servicios
+              {copy.servicesTitle}
             </h3>
             <ul className="space-y-3">
-              {[
-                'Diseño Web',
-                'Desarrollo a Medida',
-                'E-commerce',
-                'SEO y Marketing',
-                'Mantenimiento Web',
-              ].map((service, index) => (
+              {copy.services.map((service, index) => (
                 <li key={index}>
                   <Link
                     to="/servicios"
@@ -100,10 +146,9 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contacto */}
           <div>
             <h3 className="font-bold text-lg mb-6 text-white pb-2 border-b border-gray-700">
-              Contacto
+              {copy.contact}
             </h3>
             <div className="space-y-4">
               <div className="flex items-start">
@@ -117,7 +162,7 @@ function Footer() {
                   >
                     {COMPANY.phone}
                   </a>
-                  <div className="text-gray-500 text-xs">Lun-Vie 9:00-19:00</div>
+                  <div className="text-gray-500 text-xs">{copy.workHours}</div>
                 </div>
               </div>
 
@@ -132,13 +177,12 @@ function Footer() {
                   >
                     {COMPANY.email}
                   </a>
-                  <div className="text-gray-500 text-xs">Respuesta en 24h</div>
+                  <div className="text-gray-500 text-xs">{copy.responseTime}</div>
                 </div>
               </div>
 
-              {/* Redes sociales */}
               <div className="pt-4 space-y-2">
-                <p className="text-gray-500 text-xs mb-1">Síguenos</p>
+                <p className="text-gray-500 text-xs mb-1">{copy.followUs}</p>
                 <div className="flex items-center gap-3">
                   {[
                     { href: instagramUrl, label: 'Instagram', icon: <Instagram size={18} /> },
@@ -179,11 +223,10 @@ function Footer() {
           </div>
         </div>
 
-        {/* Línea separadora */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} {COMPANY.name}. Todos los derechos reservados.
+              © {new Date().getFullYear()} {COMPANY.name}. {copy.rights}
             </div>
 
             <div className="flex flex-wrap gap-4 text-sm">
@@ -191,19 +234,19 @@ function Footer() {
                 to="/politica-privacidad"
                 className="text-gray-400 hover:text-primary transition duration-300"
               >
-                Privacidad
+                {copy.privacy}
               </Link>
               <Link
                 to="/terminos-condiciones"
                 className="text-gray-400 hover:text-primary transition duration-300"
               >
-                Términos
+                {copy.terms}
               </Link>
               <Link
                 to="/aviso-legal"
                 className="text-gray-400 hover:text-primary transition duration-300"
               >
-                Aviso legal
+                {copy.legal}
               </Link>
             </div>
           </div>

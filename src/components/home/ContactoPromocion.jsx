@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const WHATSAPP = '+56945432006';
 const EMAIL = 'contacto@syrtix.com';
-const ADDRESS = 'Santiago, Chile';
+const ADDRESS = '5151 Los Militares, Las Condes, Región Metropolitana, Chile';
 
 export default function ContactoPromocion() {
   const [name, setName] = useState('');

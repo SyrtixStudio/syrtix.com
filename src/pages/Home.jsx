@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useMemo, useState } from 'react';
 
 import {
   Differentiators,
@@ -12,34 +12,63 @@ import {
 } from '../components/home';
 import PromocionContacto from '../components/home/PromocionContacto';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
+import { useLanguage } from '../i18n/index.jsx';
 import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
 
-const publicidadWeb = {
-  title: 'Página web para pyme - empresa',
-  price: 'Desde $99.000',
-  description:
-    'Tecnología moderna y escalable.',
-
-  list: [
-    'Diseño UI/UX profesional',
-    'Identidad visual',
-    'Responsive design',
-    'Landing page',
-    'SEO inicial',
-    'Formulario de contacto',
-    'Acceso a tus redes sociales',
-    'Botón de WhatsApp integrado',
-    'Ubicación en Google Maps integrada',
-    "Entrega en 7 días",
-  ],
-  contactEmail: 'contacto@syrtix.com',
-  whatsapp: '+56945432006',
-  address: 'Santiago, Chile',
-};
-
 function Home() {
   const [showModal, setShowModal] = useState(false);
+  const { lang } = useLanguage();
+
+  const publicidadWeb = useMemo(() => {
+    const common = {
+      contactEmail: 'contacto@syrtix.com',
+      whatsapp: '+56945432006',
+      address: '5151 Los Militares, Las Condes, Region Metropolitana, Chile',
+    };
+
+    if (lang === 'en') {
+      return {
+        ...common,
+        title: 'Website for small and medium businesses',
+        price: 'From $99.990',
+        description: 'Modern and scalable technology.',
+        list: [
+          'Professional UI/UX design',
+          'Visual identity',
+          'Responsive design',
+          'Landing page',
+          'Initial SEO setup',
+          'Contact form',
+          'Social media links',
+          'Integrated WhatsApp button',
+          'Integrated Google Maps location',
+          'Delivery in 7 days',
+        ],
+        delivery: 'Delivery in 7 days',
+      };
+    }
+
+    return {
+      ...common,
+      title: 'Pagina web para pyme - empresa',
+      price: 'Desde $99.990',
+      description: 'Tecnologia moderna y escalable.',
+      list: [
+        'Diseno UI/UX profesional',
+        'Identidad visual',
+        'Responsive design',
+        'Landing page',
+        'SEO inicial',
+        'Formulario de contacto',
+        'Acceso a tus redes sociales',
+        'Boton de WhatsApp integrado',
+        'Ubicacion en Google Maps integrada',
+        'Entrega en 7 dias',
+      ],
+      delivery: 'Entrega en 7 dias',
+    };
+  }, [lang]);
 
   useEffect(() => {
     setShowModal(true);
@@ -63,14 +92,14 @@ function Home() {
       <Hero />
       <main className="bg-base">
         <Differentiators />
-        <ServicesGrid />
-        <PortfolioCarousel />
-        <Testimonials />
-        <ProcessSteps />
         <PricingSection />
         <PromocionContacto data={publicidadWeb} />
-        <CtaSection />
+        <PortfolioCarousel />
+        <Testimonials />
+        <ServicesGrid />
+        <ProcessSteps />
         <SecuritySection />
+        <CtaSection />
         <Contact />
       </main>
     </div>

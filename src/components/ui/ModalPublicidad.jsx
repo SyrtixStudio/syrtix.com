@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+﻿import { useEffect, useMemo, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../i18n/index.jsx';
 
 const getPromoDeadline = () => {
   const now = new Date();
@@ -40,28 +40,73 @@ export default function ModalPublicidad({
   whatsapp,
   delivery,
 }) {
+  const { lang } = useLanguage();
+
+  const copy =
+    lang === 'en'
+      ? {
+          close: 'Close',
+          sideLabel: 'Designs that convert',
+          sideTags: 'UI/UX · Branding · Contact · Social · SEO',
+          marquee: 'Professional website from $99.990 - limited slots - free consulting',
+          promoEnds: 'Offer ends on Feb 15',
+          promoOver: 'Offer ended.',
+          namePlaceholder: 'Your name',
+          emailPlaceholder: 'Email',
+          submitSending: 'Sending...',
+          submit: 'Send quote request',
+          whatsapp: 'WhatsApp',
+          missingAccessKey:
+            'VITE_WEB3FORMS_ACCESS_KEY is missing. The form cannot be submitted.',
+          success: 'Your message was sent. We will contact you soon.',
+          error: 'There was a problem sending your message. Please try again.',
+          fallbackMessage: 'I am interested in this package',
+          fallbackPrice: 'Check pricing',
+          waMessage: `Hi, I want information about ${title} - ${price}`,
+          subject: `Request - ${title}`,
+          fromName: 'Interested lead',
+        }
+      : {
+          close: 'Cerrar',
+          sideLabel: 'Disenos que convierten',
+          sideTags: 'UI/UX · Identidad · Contacto · RRSS · SEO',
+          marquee: 'Web profesional desde $99.990 - cupos limitados - asesoria gratuita',
+          promoEnds: 'Promo termina el 15 feb',
+          promoOver: 'Promocion finalizada.',
+          namePlaceholder: 'Tu nombre',
+          emailPlaceholder: 'Email',
+          submitSending: 'Enviando...',
+          submit: 'Enviar cotizacion',
+          whatsapp: 'WhatsApp',
+          missingAccessKey:
+            'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
+          success: 'Tu mensaje fue enviado. Te contactaremos pronto.',
+          error: 'Hubo un problema al enviar. Intentalo nuevamente.',
+          fallbackMessage: 'Estoy interesado en este paquete',
+          fallbackPrice: 'Consultar precio',
+          waMessage: `Hola, quiero informacion sobre ${title} - ${price}`,
+          subject: `Solicitud - ${title}`,
+          fromName: 'Interesado en paquete',
+        };
+
   const whatsappSource =
-    typeof whatsapp === 'string' && whatsapp.trim()
-      ? whatsapp
-      : import.meta.env.VITE_WHATSAPP_PHONE;
+    typeof whatsapp === 'string' && whatsapp.trim() ? whatsapp : import.meta.env.VITE_WHATSAPP_PHONE;
   const whatsappDigits =
     typeof whatsappSource === 'string' ? whatsappSource.replace(/[^0-9]/g, '') : '';
   const whatsappHref = whatsappDigits
-    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
-        `Hola, quiero informaciÃ³n sobre ${title} - ${price}`,
-      )}`
+    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(copy.waMessage)}`
     : '';
 
   const promoDeadline = useMemo(() => getPromoDeadline(), []);
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(promoDeadline));
   const defaultMessage = useMemo(
-    () => `Estoy interesado en el paquete ${title || 'web'} (${price || 'Consultar precio'}).`,
-    [title, price],
+    () => `${copy.fallbackMessage} ${title || 'web'} (${price || copy.fallbackPrice}).`,
+    [copy.fallbackMessage, copy.fallbackPrice, title, price],
   );
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(defaultMessage);
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
 
   useEffect(() => {
@@ -83,7 +128,6 @@ export default function ModalPublicidad({
         clearInterval(intervalId);
       }
     }, 1000);
-    // Run tick immediately
     setTimeLeft(getTimeLeft(promoDeadline));
     return () => clearInterval(intervalId);
   }, [promoDeadline]);
@@ -103,9 +147,7 @@ export default function ModalPublicidad({
 
     if (!accessKey) {
       setStatus('error');
-      setFeedback(
-        'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
-      );
+      setFeedback(copy.missingAccessKey);
       return;
     }
 
@@ -113,8 +155,8 @@ export default function ModalPublicidad({
     formData.append('access_key', accessKey);
     formData.append('email', targetEmail);
     formData.append('replyTo', targetEmail);
-    formData.append('subject', `Solicitud - ${title}`);
-    formData.append('from_name', name || 'Interesado en paquete');
+    formData.append('subject', copy.subject);
+    formData.append('from_name', name || copy.fromName);
     if (email) formData.append('from', email);
     if (message) formData.append('message', message);
 
@@ -129,7 +171,7 @@ export default function ModalPublicidad({
 
       if (response.ok) {
         setStatus('success');
-        setFeedback('Tu mensaje fue enviado. Te contactaremos pronto.');
+        setFeedback(copy.success);
         setName('');
         setEmail('');
         setMessage(defaultMessage);
@@ -139,13 +181,11 @@ export default function ModalPublicidad({
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setFeedback('Hubo un problema al enviar. Inténtalo nuevamente.');
+      setFeedback(copy.error);
     } finally {
       setStatus('idle');
     }
   };
-
-  const navigate = useNavigate();
 
   if (!open) return null;
 
@@ -155,11 +195,11 @@ export default function ModalPublicidad({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4"
     >
-            <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[92vh] md:max-h-[88vh]">
+      <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[92vh] md:max-h-[88vh]">
         <button
           className="absolute top-2 right-2 md:top-3 md:right-3 z-20 text-gray-400 hover:text-primary text-2xl font-semibold"
           onClick={onClose}
-          aria-label="Cerrar"
+          aria-label={copy.close}
         >
           x
         </button>
@@ -174,25 +214,23 @@ export default function ModalPublicidad({
               />
             </div>
             <div className="text-left md:text-center">
-              <p className="text-xs md:text-sm text-white/90">Diseños que convierten</p>
-              <p className="text-[10px] md:text-xs text-white/80 md:mt-2">UI/UX · Identidad · Contacto · RRSS · SEO</p>
+              <p className="text-xs md:text-sm text-white/90">{copy.sideLabel}</p>
+              <p className="text-[10px] md:text-xs text-white/80 md:mt-2">{copy.sideTags}</p>
             </div>
           </div>
         </div>
 
         <div className="relative z-10 p-3 md:p-4 overflow-visible">
-          
-
           {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{title}</h3>}
           {price && <div className="text-base md:text-lg font-extrabold text-primary mb-1">{price}</div>}
 
           <div className="mb-2 overflow-hidden border border-primary">
             <div className="promo-marquee flex items-center">
               <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                Web profesional desde $99.000 - cupos limitados - asesoría gratuita
+                {copy.marquee}
               </span>
               <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                Web profesional desde $99.000 - cupos limitados - asesoría gratuita
+                {copy.marquee}
               </span>
             </div>
           </div>
@@ -200,7 +238,7 @@ export default function ModalPublicidad({
           {timeLeft.totalSeconds > 0 ? (
             <div className="mb-2 flex items-center gap-2 text-xs text-red-700">
               <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse" aria-hidden />
-              <span className="font-semibold">Promo termina el 15 feb</span>
+              <span className="font-semibold">{copy.promoEnds}</span>
               <div className="flex items-center gap-1 text-[11px] font-bold bg-red-50 border border-red-200 rounded-full px-2 py-1">
                 <span>{formatUnit(timeLeft.days)}d</span>
                 <span>:</span>
@@ -213,7 +251,7 @@ export default function ModalPublicidad({
             </div>
           ) : (
             <div className="mb-2 rounded-lg border border-gray-200 bg-gray-50 px-2 py-1 text-xs text-gray-600">
-              Promoción finalizada.
+              {copy.promoOver}
             </div>
           )}
 
@@ -224,8 +262,17 @@ export default function ModalPublicidad({
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 mb-3">
               {list.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <svg className="mt-1 w-3.5 h-3.5 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.545a1 1 0 111.414-1.414L8.12 11.54l6.657-6.657a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="mt-1 w-3.5 h-3.5 text-primary flex-shrink-0"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.545a1 1 0 111.414-1.414L8.12 11.54l6.657-6.657a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   <span className="text-[11px] text-gray-700 leading-tight">{item}</span>
                 </li>
@@ -238,7 +285,7 @@ export default function ModalPublicidad({
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Tu nombre"
+              placeholder={copy.namePlaceholder}
               className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
             />
             <input
@@ -246,7 +293,7 @@ export default function ModalPublicidad({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              placeholder={copy.emailPlaceholder}
               className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
             />
             <textarea
@@ -263,7 +310,7 @@ export default function ModalPublicidad({
                   status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >
-                {status === 'sending' ? 'Enviando...' : 'Enviar cotización'}
+                {status === 'sending' ? copy.submitSending : copy.submit}
               </button>
               {whatsappHref && (
                 <a
@@ -273,10 +320,16 @@ export default function ModalPublicidad({
                   className="w-full sm:w-auto border border-green-500 text-green-700 px-3 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-xs text-center flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z" fill="currentColor"/>
-                    <path d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z" fill="#fff"/>
+                    <path
+                      d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z"
+                      fill="#fff"
+                    />
                   </svg>
-                  WhatsApp
+                  {copy.whatsapp}
                 </a>
               )}
             </div>
@@ -287,12 +340,9 @@ export default function ModalPublicidad({
             )}
           </form>
 
-        
-
           <div className="mt-2">
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}
           </div>
-
         </div>
       </div>
 

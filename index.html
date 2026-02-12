@@ -9,9 +9,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
 
     <!-- SEO Meta Tags -->
-    <title>Syrtix | Crear páginas web profesionales y contratar página web</title>
-    <meta name="description" content="Syrtix es una agencia de desarrollo web en Chile. Creamos y diseñamos páginas web profesionales, tiendas online y landing pages. Si buscas crear o contratar una página web, hablemos." />
-    <meta name="keywords" content="crear página web, contratar página web, desarrollo web, diseño web, páginas web profesionales, e-commerce, landing page, agencia web, tienda online, syrtix" />
+    <title>Syrtix | Compra tu pagina web profesional</title>
+    <meta name="description" content="Compra tu pagina web profesional con Syrtix. Desarrollamos sitios web, tiendas online y landing pages enfocadas en conversion." />
+    <meta name="keywords" content="comprar pagina web, crear pagina web, contratar pagina web, desarrollo web, diseno web, paginas web profesionales, e-commerce, landing page, agencia web, tienda online, syrtix" />
     <meta name="author" content="syrtix" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://syrtix.com/" />
@@ -19,8 +19,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://syrtix.com/" />
-    <meta property="og:title" content="Syrtix | Crear páginas web profesionales" />
-    <meta property="og:description" content="Creamos sitios web que convierten visitantes en clientes. Diseño elegante, tecnología moderna y resultados medibles para tu negocio." />
+    <meta property="og:title" content="Syrtix | Compra tu pagina web profesional" />
+    <meta property="og:description" content="Compra tu pagina web profesional con Syrtix. Sitios web orientados a conversion para hacer crecer tu negocio." />
     <meta property="og:image" content="https://syrtix.com/img/logos/logo-syrtix.webp" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:site_name" content="syrtix" />
@@ -28,9 +28,64 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://syrtix.com/" />
-    <meta name="twitter:title" content="Syrtix | Crear páginas web profesionales" />
-    <meta name="twitter:description" content="Creamos sitios web que convierten visitantes en clientes. Diseño elegante, tecnología moderna y resultados medibles." />
+    <meta name="twitter:title" content="Syrtix | Compra tu pagina web profesional" />
+    <meta name="twitter:description" content="Compra tu pagina web profesional con Syrtix. Sitios web orientados a conversion y resultados." />
     <meta name="twitter:image" content="https://syrtix.com/img/logos/logo-syrtix.webp" />
+    <script>
+      (function () {
+        var key = 'syrtix_copy_variant';
+        var variants = {
+          a: {
+            title: 'Syrtix | Compra tu pagina web profesional',
+            description:
+              'Compra tu pagina web profesional con Syrtix. Desarrollamos sitios web, tiendas online y landing pages enfocadas en conversion.',
+            ogDescription:
+              'Compra tu pagina web profesional con Syrtix. Sitios web orientados a conversion para hacer crecer tu negocio.',
+            twitterDescription:
+              'Compra tu pagina web profesional con Syrtix. Sitios web orientados a conversion y resultados.',
+          },
+          b: {
+            title: 'Syrtix | Cotiza y compra tu pagina web hoy',
+            description:
+              'Cotiza y compra tu pagina web hoy con Syrtix. Creamos sitios web y tiendas online listos para vender.',
+            ogDescription:
+              'Cotiza y compra tu pagina web hoy con Syrtix. Desarrollo web enfocado en conversion y ventas.',
+            twitterDescription:
+              'Cotiza y compra tu pagina web hoy con Syrtix. Sitios web listos para crecer tu negocio.',
+          },
+        };
+
+        var params = new URLSearchParams(window.location.search);
+        var forcedVariant = params.get('ab');
+        var variant =
+          forcedVariant === 'a' || forcedVariant === 'b'
+            ? forcedVariant
+            : window.localStorage.getItem(key);
+
+        if (variant !== 'a' && variant !== 'b') {
+          variant = Math.random() < 0.5 ? 'a' : 'b';
+        }
+
+        window.localStorage.setItem(key, variant);
+        var selected = variants[variant];
+        if (!selected) return;
+
+        document.title = selected.title;
+
+        var setMeta = function (selector, value) {
+          var element = document.querySelector(selector);
+          if (element) {
+            element.setAttribute('content', value);
+          }
+        };
+
+        setMeta('meta[name="description"]', selected.description);
+        setMeta('meta[property="og:title"]', selected.title);
+        setMeta('meta[property="og:description"]', selected.ogDescription);
+        setMeta('meta[name="twitter:title"]', selected.title);
+        setMeta('meta[name="twitter:description"]', selected.twitterDescription);
+      })();
+    </script>
 
     <!-- Geo Tags -->
     <meta name="geo.region" content="CL" />
