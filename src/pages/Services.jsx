@@ -152,7 +152,7 @@ function Services() {
           heroTitleLine1: 'Soluciones digitales',
           heroTitleLine2: 'a tu medida',
           heroDescription:
-            'Desde diseno hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia digital profesional y efectiva.',
+            'Desde Diseño hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia digital profesional y efectiva.',
           viewPackages: 'Ver paquetes',
           requestQuote: 'Solicitar cotizacion',
           sectionTitlePrefix: 'Nuestros ',
@@ -175,14 +175,14 @@ function Services() {
           techTitleHighlight: 'dominamos',
           ctaTitle: 'Tienes un proyecto en mente?',
           ctaDescription:
-            'Cuentanos tu idea y te ayudaremos a hacerla realidad. Cotizacion gratuita y sin compromiso.',
+            'Cuentaños tu idea y te ayudaremos a hacerla realidad. Cotizacion gratuita y sin compromiso.',
           services: [
             {
-              title: 'Diseno Web',
+              title: 'Diseño Web',
               icon: <Palette size={32} />,
               description: 'Tecnologia moderna para un software escalable y duradero.',
               features: [
-                'Diseno UI/UX profesional',
+                'Diseño UI/UX profesional',
                 'Identidad visual',
                 'Responsive design',
                 'Landing page',
@@ -214,7 +214,7 @@ function Services() {
               title: 'SEO y Marketing',
               icon: <Search size={32} />,
               description: 'Optimizacion para buscadores que aumenta tu visibilidad y trae mas clientes.',
-              note: 'Precio base. El valor final depende del tamano del sitio y su estado tecnico.',
+              note: 'Precio base. El valor final depende del tamaño del sitio y su estado tecnico.',
               features: ['Auditoria SEO', 'Optimizacion on-page', 'Link building', 'Google Analytics'],
               price: 'Desde $79.990/mes',
             },
@@ -237,11 +237,11 @@ function Services() {
           ],
           additional: [
             { icon: <Globe size={24} />, title: 'Hosting y dominios', desc: 'Alojamiento web de alta velocidad' },
-            { icon: <Database size={24} />, title: 'Bases de datos', desc: 'Diseno y optimizacion de BD' },
+            { icon: <Database size={24} />, title: 'Bases de datos', desc: 'Diseño y optimizacion de BD' },
             { icon: <Shield size={24} />, title: 'Seguridad web', desc: 'SSL, firewalls y proteccion DDoS' },
             { icon: <Monitor size={24} />, title: 'Landing pages', desc: 'Paginas de aterrizaje optimizadas' },
             { icon: <Server size={24} />, title: 'APIs e integraciones', desc: 'Conexion con servicios externos' },
-            { icon: <Brush size={24} />, title: 'Rediseno web', desc: 'Modernizacion de sitios existentes' },
+            { icon: <Brush size={24} />, title: 'ReDiseño web', desc: 'Modernizacion de sitios existentes' },
             { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Metricas y reportes de rendimiento' },
             { icon: <Zap size={24} />, title: 'Optimizacion', desc: 'Velocidad y Core Web Vitals' },
           ],
@@ -257,7 +257,7 @@ function Services() {
             'Metodologia agil y transparente: participacion activa del cliente en todo el proceso.',
             'Entregas frecuentes y posibilidad de cambios: flexibilidad para adaptar el proyecto a tus necesidades.',
             'Documentacion clara y cronogramas definidos: siempre sabras que se esta haciendo y cuando.',
-            'Diseno moderno y optimizado para rendimiento: sitios elegantes, rapidos y estables.',
+            'Diseño moderno y optimizado para rendimiento: sitios elegantes, rapidos y estables.',
             'Equipo profesional y actualizado: ingenieria, machine learning, seguridad y gestion de proyectos.',
           ],
           process: [

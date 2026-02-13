@@ -55,7 +55,7 @@ function Home() {
       price: 'Desde $99.990',
       description: 'Tecnologia moderna y escalable.',
       list: [
-        'Diseno UI/UX profesional',
+        'Diseño UI/UX profesional',
         'Identidad visual',
         'Responsive design',
         'Landing page',

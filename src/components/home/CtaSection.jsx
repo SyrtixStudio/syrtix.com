@@ -19,7 +19,7 @@ function CtaSection() {
       : {
           title: 'Listo para llevar tu negocio al siguiente nivel?',
           description:
-            'Contactanos hoy y recibe una cotizacion gratuita para tu proyecto. Sin compromisos, sin costos ocultos.',
+            'Contactaños hoy y recibe una cotizacion gratuita para tu proyecto. Sin compromisos, sin costos ocultos.',
           packages: 'Ver paquetes',
           quote: 'Solicitar cotizacion',
         };

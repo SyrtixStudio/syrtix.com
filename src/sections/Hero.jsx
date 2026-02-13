@@ -44,7 +44,7 @@ function Hero() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full min-h-screen overflow-hidden flex items-center">
       {/* Carrusel de imágenes */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
@@ -96,80 +96,79 @@ function Hero() {
 
       {/* Contenido principal */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-14">
-          <div className="max-w-2xl">
+        <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+          <div className="max-w-xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
             {/* Badge */}
-            <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">
+            <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-[0.55rem] py-[0.25rem] mb-2 sm:mb-3">
               <Zap size={16} className="text-primary mr-2" />
-              <span className="text-primary text-xs sm:text-sm font-medium">
+              <span className="text-primary text-[0.7rem] sm:text-[0.85rem] font-medium">
                 {t('hero.badge')}
               </span>
             </div>
 
             {/* Título */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-[clamp(1.3rem,3.5vw,2.3rem)] font-bold text-white mb-2 sm:mb-3 leading-[1.08]">
               {t('hero.title.line1')}
-              <br />
-              <span className="text-primary">{t('hero.title.emphasis')}</span>
-              <br />
+              {' '}
+              <span className="text-primary">{t('hero.title.emphasis')}</span>{' '}
               {t('hero.title.line2')}
             </h1>
 
             {/* Subtítulo */}
-            <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8">
+            <p className="text-[clamp(0.95rem,1.5vw,1.1rem)] text-white/80 mb-3 sm:mb-4 max-w-[32rem]">
               {t('hero.subtitle')}
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-3 sm:mb-4">
               <Link
                 to="/paquetes"
-                className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-secondary transition duration-300 flex items-center justify-center text-sm sm:text-base"
+                className="bg-primary text-gray-900 font-bold px-[0.9rem] py-[0.55rem] sm:px-[1.2rem] sm:py-[0.7rem] hover:bg-secondary transition duration-300 flex items-center justify-center text-[0.9rem] sm:text-[0.98rem]"
               >
                 {t('hero.cta.primary')}
                 <ArrowRight className="ml-2" size={20} />
               </Link>
               <Link
                 to="/contacto"
-                className="border-2 border-white text-white font-bold px-8 py-4 hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-sm sm:text-base"
+                className="border-2 border-white text-white font-bold px-[0.9rem] py-[0.55rem] sm:px-[1.2rem] sm:py-[0.7rem] hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-[0.9rem] sm:text-[0.98rem]"
               >
                 {t('hero.cta.secondary')}
               </Link>
             </div>
 
             {/* Info boxes */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2">
+              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Zap size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">{t('hero.info.ai.title')}</span>
+                  <span className="text-white font-bold text-[0.95rem]">{t('hero.info.ai.title')}</span>
                 </div>
-                <span className="text-white/60 text-xs">{t('hero.info.ai.desc')}</span>
+                <span className="text-white/60 text-[0.85rem]">{t('hero.info.ai.desc')}</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
+              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <TrendingUp size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">
+                  <span className="text-white font-bold text-[0.95rem]">
                     {t('hero.info.conversion.title')}
                   </span>
                 </div>
-                <span className="text-white/60 text-xs">{t('hero.info.conversion.desc')}</span>
+                <span className="text-white/60 text-[0.85rem]">{t('hero.info.conversion.desc')}</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
+              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Clock size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">
+                  <span className="text-white font-bold text-[0.95rem]">
                     {t('hero.info.support.title')}
                   </span>
                 </div>
-                <span className="text-white/60 text-xs">{t('hero.info.support.desc')}</span>
+                <span className="text-white/60 text-[0.85rem]">{t('hero.info.support.desc')}</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-4 border-l-4 border-primary">
+              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Code size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-sm">{t('hero.info.code.title')}</span>
+                  <span className="text-white font-bold text-[0.95rem]">{t('hero.info.code.title')}</span>
                 </div>
-                <span className="text-white/60 text-xs">{t('hero.info.code.desc')}</span>
+                <span className="text-white/60 text-[0.85rem]">{t('hero.info.code.desc')}</span>
               </div>
             </div>
           </div>

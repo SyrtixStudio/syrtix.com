@@ -76,7 +76,7 @@ function NotFound() {
             to="/contacto"
             className="text-primary hover:text-amber-600 transition duration-300 font-medium"
           >
-            Contáctanos
+            Contáctaños
           </Link>
         </div>
       </div>

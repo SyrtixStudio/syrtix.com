@@ -53,7 +53,7 @@ function Footer() {
       : {
           tagline: 'Desarrollo Web',
           description:
-            'Agencia de desarrollo web premium. Creamos sitios web que convierten visitantes en clientes con tecnologia de vanguardia y diseno profesional.',
+            'Agencia de desarrollo web premium. Creamos sitios web que convierten visitantes en clientes con tecnologia de vanguardia y Diseño profesional.',
           quickLinks: 'Enlaces rapidos',
           servicesTitle: 'Servicios',
           contact: 'Contacto',
@@ -65,7 +65,7 @@ function Footer() {
             { to: '/contacto', label: 'Contacto' },
           ],
           services: [
-            'Diseno web',
+            'Diseño web',
             'Desarrollo a medida',
             'E-commerce',
             'SEO y marketing',

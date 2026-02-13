@@ -68,7 +68,7 @@ export default function ModalPublicidad({
         }
       : {
           close: 'Cerrar',
-          sideLabel: 'Disenos que convierten',
+          sideLabel: 'Diseños que convierten',
           sideTags: 'UI/UX · Identidad · Contacto · RRSS · SEO',
           marquee: 'Web profesional desde $99.990 - cupos limitados - asesoria gratuita',
           promoEnds: 'Promo termina el 15 feb',

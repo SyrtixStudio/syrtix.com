@@ -149,7 +149,7 @@ function About() {
             'Democratizar el acceso a sitios web profesionales mediante tecnologia de vanguardia y precios accesibles, permitiendo que cada negocio tenga una presencia digital que genere resultados reales.',
           visionTitle: 'Nuestra Vision',
           visionText:
-            'Ser la agencia de desarrollo web de referencia en Latinoamerica, reconocida por combinar excelencia tecnica, diseno innovador y un servicio al cliente que supera expectativas.',
+            'Ser la agencia de desarrollo web de referencia en Latinoamerica, reconocida por combinar excelencia tecnica, Diseño innovador y un servicio al cliente que supera expectativas.',
           valuesTitlePrefix: 'Nuestros ',
           valuesTitleHighlight: 'valores',
           valuesSubtitle: 'Los principios que guian cada decision y cada linea de codigo',
@@ -159,7 +159,7 @@ function About() {
           stats: [
             { value: '50+', label: 'Proyectos entregados' },
             { value: '100%', label: 'Clientes satisfechos' },
-            { value: '5+', label: 'Anos de experiencia' },
+            { value: '5+', label: 'años de experiencia' },
             { value: '24/7', label: 'Soporte disponible' },
           ],
           whyTitlePrefix: 'Por que trabajar con ',
@@ -174,7 +174,7 @@ function About() {
           ],
           formulaTitle: 'Tecnologia + Creatividad = Resultados',
           formulaText:
-            'Combinamos las ultimas tecnologias con diseno centrado en el usuario para crear sitios web que no solo se ven bien, sino que generan conversiones reales para tu negocio.',
+            'Combinamos las ultimas tecnologias con Diseño centrado en el usuario para crear sitios web que no solo se ven bien, sino que generan conversiones reales para tu negocio.',
           viewServices: 'Ver nuestros servicios',
           howTitlePrefix: 'Como ',
           howTitleHighlight: 'trabajamos contigo',
@@ -205,11 +205,11 @@ function About() {
             { title: 'Cronograma y plan', desc: 'Te entregamos fechas y entregables claros por etapa.' },
             { title: 'Mockups y prototipos', desc: 'Visualizas el resultado y das feedback antes de desarrollar.' },
             { title: 'Reuniones semanales', desc: 'Revisamos avances, resolvemos dudas y ajustamos decisiones.' },
-            { title: 'Desarrollo y entrega', desc: 'Construimos con foco en rendimiento, estabilidad y diseno.' },
+            { title: 'Desarrollo y entrega', desc: 'Construimos con foco en rendimiento, estabilidad y Diseño.' },
           ],
           ctaTitle: 'Listo para trabajar juntos?',
           ctaDescription:
-            'Cuentanos sobre tu proyecto y descubre como podemos ayudarte a alcanzar tus objetivos digitales.',
+            'Cuentaños sobre tu proyecto y descubre como podemos ayudarte a alcanzar tus objetivos digitales.',
           contactTeam: 'Contactar al equipo',
           viewPackages: 'Ver paquetes',
           values: [
@@ -238,12 +238,12 @@ function About() {
             {
               name: 'Francisco Campos',
               role: 'CEO & Fundador',
-              description: 'Mas de 10 anos de experiencia en desarrollo de software y estrategia digital.',
+              description: 'Mas de 10 años de experiencia en desarrollo de software y estrategia digital.',
             },
             {
               name: 'Maria Gonzalez',
-              role: 'Directora de Diseno',
-              description: 'Especialista en UX/UI con enfoque en disenos que convierten.',
+              role: 'Directora de Diseño',
+              description: 'Especialista en UX/UI con enfoque en Diseños que convierten.',
             },
             {
               name: 'Andres Silva',

@@ -173,7 +173,7 @@ const TermsAndConditions = () => {
             },
             {
               title: '12. Contacto',
-              text: ['Si tienes preguntas sobre estos terminos, contactanos desde nuestra pagina de Contacto.'],
+              text: ['Si tienes preguntas sobre estos terminos, contactaños desde nuestra pagina de Contacto.'],
             },
           ],
           privacyLink: 'Politica de Privacidad',

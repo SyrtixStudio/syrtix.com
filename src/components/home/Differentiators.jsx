@@ -44,7 +44,7 @@ function Differentiators() {
       : {
           titlePrefix: 'Por que elegir ',
           titleBrand: 'syrtix',
-          subtitle: 'Combinamos tecnologia de vanguardia con diseno centrado en resultados',
+          subtitle: 'Combinamos tecnologia de vanguardia con Diseño centrado en resultados',
           cards: [
             {
               id: 'ia',

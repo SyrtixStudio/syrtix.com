@@ -131,8 +131,8 @@ function ServicesGrid() {
             {
               id: 'design',
               icon: 'Palette',
-              title: 'Diseno web',
-              description: 'Disenos unicos y personalizados que reflejan la identidad de tu marca.',
+              title: 'Diseño web',
+              description: 'Diseños unicos y personalizados que reflejan la identidad de tu marca.',
               price: 'Desde $99.990',
             },
             {

@@ -26,7 +26,7 @@ function ProcessSteps() {
           subtitle: 'Un metodo probado para entregar resultados excepcionales',
           steps: [
             { step: '01', title: 'Descubrimiento', desc: 'Entendemos tus objetivos y necesidades' },
-            { step: '02', title: 'Diseno', desc: 'Creamos mockups y prototipos' },
+            { step: '02', title: 'Diseño', desc: 'Creamos mockups y prototipos' },
             {
               step: '03',
               title: 'Desarrollo',

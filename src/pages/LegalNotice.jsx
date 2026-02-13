@@ -84,7 +84,7 @@ const LegalNotice = () => {
             {
               title: '3. Propiedad intelectual',
               paragraphs: [
-                'Todo el contenido de este sitio web, incluidos textos, imagenes, logos y elementos de diseno, esta protegido por leyes de propiedad intelectual.',
+                'Todo el contenido de este sitio web, incluidos textos, imagenes, logos y elementos de Diseño, esta protegido por leyes de propiedad intelectual.',
                 'No puede reproducir, distribuir o utilizar el contenido del sitio con fines comerciales sin consentimiento escrito previo.',
               ],
             },
@@ -98,7 +98,7 @@ const LegalNotice = () => {
               title: '5. Responsabilidad',
               paragraphs: [
                 'syrtix.com hace esfuerzos razonables para garantizar la precision de la informacion en este sitio, pero no garantiza que sea completa o libre de errores.',
-                'Declinamos responsabilidad por danos resultantes del uso del sitio web.',
+                'Declinamos responsabilidad por daños resultantes del uso del sitio web.',
               ],
             },
             {
@@ -109,7 +109,7 @@ const LegalNotice = () => {
             },
           ],
           privacyLink: 'Politica de Privacidad',
-          footer: 'Si tienes preguntas sobre este Aviso Legal, contactanos en',
+          footer: 'Si tienes preguntas sobre este Aviso Legal, contactaños en',
           back: 'Volver al inicio',
         };
 

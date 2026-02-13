@@ -141,7 +141,7 @@ function Contact() {
           headerPrefix: 'Solicita tu ',
           headerHighlight: 'cotizacion',
           headerDescription:
-            'Cuentanos sobre tu proyecto y te enviaremos una propuesta personalizada sin compromiso.',
+            'Cuentaños sobre tu proyecto y te enviaremos una propuesta personalizada sin compromiso.',
           contactInfo: 'Informacion de contacto',
           companyDescription: 'Agencia de desarrollo web',
           supportHours: 'Lun-Dom 24/7',
@@ -166,7 +166,7 @@ function Contact() {
           yourEmail: 'tu@email.com',
           phone: 'Telefono',
           projectType: 'Tipo de proyecto *',
-          tellUsMore: 'Cuentanos mas sobre tu proyecto (opcional)',
+          tellUsMore: 'Cuentaños mas sobre tu proyecto (opcional)',
           messagePlaceholder:
             'Describe tu proyecto, objetivos y referencias de sitios que te gusten.',
           addMoreDetails: 'Anadir mas detalles (opcional)',
@@ -175,7 +175,7 @@ function Contact() {
           requiredFeatures: 'Funcionalidades requeridas',
           loading: 'Enviando solicitud...',
           submit: 'Solicitar cotizacion gratuita',
-          orContact: 'o contactanos por',
+          orContact: 'o contactaños por',
           whatsapp: 'Escribir por WhatsApp',
           sslSecure: 'Conexion segura SSL',
           protectedData: 'Datos protegidos',
@@ -202,7 +202,7 @@ function Contact() {
             { value: 'ecommerce', label: 'Tienda online / E-commerce' },
             { value: 'webapp', label: 'Aplicacion web' },
             { value: 'mobile', label: 'Aplicacion movil' },
-            { value: 'redesign', label: 'Rediseno de sitio existente' },
+            { value: 'redesign', label: 'ReDiseño de sitio existente' },
             { value: 'other', label: 'Otro' },
           ],
           budgetRanges: [
@@ -223,7 +223,7 @@ function Contact() {
             { value: 'flexible', label: 'Sin fecha limite' },
           ],
           featureOptions: [
-            { value: 'responsive', label: 'Diseno responsive' },
+            { value: 'responsive', label: 'Diseño responsive' },
             { value: 'seo', label: 'Optimizacion SEO' },
             { value: 'blog', label: 'Blog integrado' },
             { value: 'ecommerce', label: 'Carrito de compras' },

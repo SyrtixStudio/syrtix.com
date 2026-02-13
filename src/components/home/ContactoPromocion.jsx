@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 const WHATSAPP = '+56945432006';
 const EMAIL = 'contacto@syrtix.com';
-const ADDRESS = '5151 Los Militares, Las Condes, Región Metropolitana, Chile';
+const ADDRESS = '5151 Los Militares, Las Condes, Regiï¿½n Metropolitana, Chile';
 
 export default function ContactoPromocion() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('Quiero información sobre los servicios de diseño web.');
+  const [message, setMessage] = useState('Quiero informaciï¿½n sobre los servicios de diseï¿½o web.');
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [feedback, setFeedback] = useState('');
 
@@ -18,7 +18,7 @@ export default function ContactoPromocion() {
     const formData = new FormData();
     formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
     formData.append('email', EMAIL);
-    formData.append('subject', 'Nueva cotización desde syrtix.com');
+    formData.append('subject', 'Nueva cotizaciï¿½n desde syrtix.com');
     formData.append('replyTo', EMAIL);
     formData.append('from_name', 'Syrtix Web');
     if (name) formData.append('name', name);
@@ -39,14 +39,14 @@ export default function ContactoPromocion() {
         setFeedback('Tu mensaje fue enviado. Te contactaremos pronto.');
         setName('');
         setEmail('');
-        setMessage('Quiero información sobre los servicios de diseño web.');
+        setMessage('Quiero informaciï¿½n sobre los servicios de diseï¿½o web.');
       } else {
         throw new Error('Request failed');
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setFeedback('Hubo un problema al enviar. Inténtalo nuevamente.');
+      setFeedback('Hubo un problema al enviar. Intï¿½ntalo nuevamente.');
     } finally {
       setStatus('idle');
     }
@@ -54,7 +54,7 @@ export default function ContactoPromocion() {
 
   return (
     <div className="max-w-xl mx-auto mt-12 bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
-      <h3 className="text-lg font-bold mb-2 text-gray-900">¿Interesado? Contáctanos directo</h3>
+      <h3 className="text-lg font-bold mb-2 text-gray-900">ï¿½Interesado? Contï¿½aÃ±onos directo</h3>
       <form onSubmit={handleSubmit} className="space-y-3 mb-4">
         <input
           required
@@ -99,7 +99,7 @@ export default function ContactoPromocion() {
       <div className="flex flex-col sm:flex-row gap-2 items-center justify-between">
         <a
           className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto"
-          href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola, quiero información sobre diseño web.')}`}
+          href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola, quiero informaciï¿½n sobre diseï¿½o web.')}`}
           target="_blank"
           rel="noreferrer"
         >
