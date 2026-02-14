@@ -59,7 +59,15 @@ function Services() {
             {
               title: 'Web Design',
               icon: <Palette size={32} />, 
-              description: 'Professional UX/UI design: visual identity, prototypes, and user experience ready for development.',
+              description: (
+                <>
+                  Professional UX/UI design: visual identity, prototypes, and user experience ready for development.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is web design important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Good web design creates a strong first impression, builds trust, and guides users to conversion. It’s essential for brand identity and user experience.
+                  </div>
+                </>
+              ),
               features: [
                 'Homepage and section mockups',
                 'Logo design',
@@ -74,9 +82,44 @@ function Services() {
               price: 'From $99.990',
             },
             {
+              title: 'Web Security Audit',
+              icon: <Shield size={32} />, 
+              description: (
+                <>
+                  We detect critical vulnerabilities and risks in your website before attackers do. Protect your data and reputation.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is a web security audit important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    A security audit helps you identify critical vulnerabilities before attackers do, protects your company and client data, and prevents financial loss and reputational damage. It’s the best investment to ensure business continuity and trust in your digital presence.
+                  </div>
+                </>
+              ),
+              note: 'Includes manual and automated review, findings report and remediation plan.',
+              features: [
+                'Privilege escalation detection',
+                'Exposed CRUDs and endpoints without auth',
+                'Sensitive data (PII) exposure',
+                'Leaked secrets and credentials',
+                'Hardcoded passwords and dangerous endpoints',
+                'Insecure webhooks and forms',
+                'Vulnerable dependencies',
+                'Missing headers and hardening',
+                'Insecure DB and port configs',
+                'Report and remediation plan',
+              ],
+              price: 'Diagnosis from $49.990',
+            },
+            {
               title: 'Web Development',
               icon: <Code size={32} />,
-              description: 'Fast, secure, and scalable websites with latest technologies.',
+              description: (
+                <>
+                  Fast, secure, and scalable websites with latest technologies.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is web development important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Robust development ensures your site works reliably, loads quickly, and adapts to growth. It’s the foundation for business success online.
+                  </div>
+                </>
+              ),
               note: 'Programming and functionality: performance, integrations, and stability.',
               features: [
                 'Landing page',
@@ -100,7 +143,15 @@ function Services() {
             {
               title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: 'Basic online stores with everything needed to start selling online.',
+              description: (
+                <>
+                  Basic online stores with everything needed to start selling online.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is e-commerce important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    E-commerce lets you reach more customers, automate sales, and grow your business 24/7. It’s key for modern commercial success.
+                  </div>
+                </>
+              ),
               features: ['Shopping cart', 'Payment gateway', 'Inventory management', 'Admin panel'],
               note: 'Sales-focused development: cart, payments, and inventory. Basic store.',
               price: 'From $299.990',
@@ -108,7 +159,15 @@ function Services() {
             {
               title: 'SEO and Marketing',
               icon: <Search size={32} />,
-              description: 'Search optimization that improves visibility and brings more clients.',
+              description: (
+                <>
+                  Search optimization that improves visibility and brings more clients.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO & marketing important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    SEO and digital marketing help you attract qualified leads, increase visibility, and compete effectively. Without it, your site won’t be found.
+                  </div>
+                </>
+              ),
               note: 'Base price. Final value depends on website size and technical condition.',
               features: ['SEO audit', 'On-page optimization', 'Link building', 'Google Analytics'],
               price: 'From $79.990/month',
@@ -116,7 +175,15 @@ function Services() {
             {
               title: 'Mobile Applications',
               icon: <Smartphone size={32} />,
-              description: 'Native apps and PWA for iOS and Android to expand your digital reach.',
+              description: (
+                <>
+                  Native apps and PWA for iOS and Android to expand your digital reach.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why are mobile apps important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Mobile apps connect you with users wherever they are, boost engagement, and unlock new business models. They’re vital for digital presence.
+                  </div>
+                </>
+              ),
               note: 'Mobile apps and PWA to reach users on every device.',
               features: ['React Native', 'PWA', 'App Store / Play Store', 'Push notifications'],
               price: 'From $499.990',
@@ -124,7 +191,15 @@ function Services() {
             {
               title: 'Maintenance',
               icon: <Settings size={32} />,
-              description: 'Your site always updated, secure, and running at top performance.',
+              description: (
+                <>
+                  Your site always updated, secure, and running at top performance.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is maintenance important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Ongoing maintenance prevents downtime, keeps your site secure, and ensures optimal performance. It’s essential for protecting your investment.
+                  </div>
+                </>
+              ),
               note: 'Updates, monitoring, and ongoing support to prevent downtime.',
               features: ['Updates', 'Automatic backups', '24/7 monitoring', 'Technical support'],
               price: 'From $49.990/month',
@@ -196,7 +271,15 @@ function Services() {
             {
               title: 'Diseño Web',
               icon: <Palette size={32} />, 
-              description: 'Diseños profesionales UX/UI: identidad visual, prototipos y experiencia de usuario lista para desarrollo.',
+              description: (
+                <>
+                  Diseños profesionales UX/UI: identidad visual, prototipos y experiencia de usuario lista para desarrollo.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el diseño web?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Un buen diseño web genera confianza, refuerza tu marca y guía al usuario hacia la conversión. Es clave para destacar y lograr resultados.
+                  </div>
+                </>
+              ),
               features: [
                 'Mockups de página principal y secciones',
                 'Diseño de logo',
@@ -211,9 +294,44 @@ function Services() {
               price: 'Desde $99.990',
             },
             {
+              title: 'Auditoría de Seguridad Web',
+              icon: <Shield size={32} />, 
+              description: (
+                <>
+                  Detectamos vulnerabilidades críticas y riesgos en tu web antes de que lo hagan los atacantes. Protege tus datos y reputación.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante una auditoría de seguridad web?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Una auditoría de seguridad permite identificar vulnerabilidades críticas antes de que sean explotadas, protege la información sensible de tu empresa y tus clientes, y previene pérdidas económicas y daños reputacionales. Es la mejor inversión para asegurar la continuidad y confianza en tu negocio digital.
+                  </div>
+                </>
+              ),
+              note: 'Incluye revisión manual y automatizada, reporte de hallazgos y recomendaciones.',
+              features: [
+                'Detección de escalación de privilegios',
+                'CRUDs y endpoints expuestos sin auth',
+                'Exposición de datos sensibles (PII)',
+                'Secretos y credenciales filtrados',
+                'Contraseñas hardcodeadas y endpoints peligrosos',
+                'Webhooks y formularios inseguros',
+                'Dependencias vulnerables',
+                'Falta de headers y hardening',
+                'Configuraciones inseguras de DB y puertos',
+                'Reporte y plan de remediación',
+              ],
+              price: 'Diagnóstico desde $49.990',
+            },
+            {
               title: 'Desarrollo Web',
               icon: <Code size={32} />,
-              description: 'Sitios web rapidos, seguros y escalables con las ultimas tecnologias del mercado.',
+              description: (
+                <>
+                  Sitios web rapidos, seguros y escalables con las ultimas tecnologias del mercado.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el desarrollo web?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Un desarrollo robusto garantiza que tu sitio funcione bien, sea rápido y crezca contigo. Es la base del éxito digital.
+                  </div>
+                </>
+              ),
               note: 'Programacion y funcionalidad: performance, integraciones y estabilidad.',
               features: [
                 'Landing page', 
@@ -237,7 +355,15 @@ function Services() {
             {
               title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: 'Tiendas online basicas con lo esencial para empezar a vender en internet.',
+              description: (
+                <>
+                  Tiendas online basicas con lo esencial para empezar a vender en internet.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el e-commerce?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    El e-commerce te permite llegar a más clientes, automatizar ventas y crecer 24/7. Es fundamental para el éxito comercial moderno.
+                  </div>
+                </>
+              ),
               features: ['Carrito de compras', 'Pasarela de pago', 'Gestion de inventario', 'Panel de administracion'],
               note: 'Desarrollo orientado a ventas: carrito, pagos e inventario. Tienda basica.',
               price: 'Desde $299.990',
@@ -245,7 +371,15 @@ function Services() {
             {
               title: 'SEO y Marketing',
               icon: <Search size={32} />,
-              description: 'Optimizacion para buscadores que aumenta tu visibilidad y trae mas clientes.',
+              description: (
+                <>
+                  Optimizacion para buscadores que aumenta tu visibilidad y trae mas clientes.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el SEO y marketing?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    El SEO y marketing digital te ayudan a atraer clientes calificados, aumentar visibilidad y competir. Sin ellos, tu sitio no será encontrado.
+                  </div>
+                </>
+              ),
               note: 'Precio base. El valor final depende del tamaño del sitio y su estado tecnico.',
               features: ['Auditoria SEO', 'Optimizacion on-page', 'Link building', 'Google Analytics'],
               price: 'Desde $79.990/mes',
@@ -253,7 +387,15 @@ function Services() {
             {
               title: 'Aplicaciones Moviles',
               icon: <Smartphone size={32} />,
-              description: 'Apps nativas y PWA para iOS y Android que extienden tu presencia digital.',
+              description: (
+                <>
+                  Apps nativas y PWA para iOS y Android que extienden tu presencia digital.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué son importantes las apps móviles?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Las apps móviles te conectan con usuarios donde sea, aumentan el engagement y abren nuevas oportunidades de negocio. Son vitales para tu presencia digital.
+                  </div>
+                </>
+              ),
               note: 'Apps moviles y PWA para alcanzar usuarios en cualquier dispositivo.',
               features: ['React Native', 'PWA', 'App Store / Play Store', 'Notificaciones push'],
               price: 'Desde $499.990',
@@ -261,7 +403,15 @@ function Services() {
             {
               title: 'Mantenimiento',
               icon: <Settings size={32} />,
-              description: 'Tu sitio siempre actualizado, seguro y funcionando al maximo rendimiento.',
+              description: (
+                <>
+                  Tu sitio siempre actualizado, seguro y funcionando al maximo rendimiento.
+                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el mantenimiento?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    El mantenimiento continuo previene caídas, mantiene tu sitio seguro y asegura el mejor rendimiento. Es esencial para proteger tu inversión.
+                  </div>
+                </>
+              ),
               note: 'Actualizaciones, monitoreo y soporte continuo para evitar caidas.',
               features: ['Actualizaciones', 'Backups automaticos', 'Monitoreo 24/7', 'Soporte tecnico'],
               price: 'Desde $49.990/mes',

@@ -21,17 +21,19 @@ const portfolio = [
   },
   {
     id: 'burger',
-    titleEs: 'Burger House',
-    titleEn: 'Burger House',
+    titleEs: 'EatBurger',
+    titleEn: 'EatBurger',
     category: 'landing',
-    image: '/img/img-proyectos/burger.png',
+    image: '/img/img-proyectos/mockup-eatburger.webp',
+    url: 'https://eatburger-cl.vercel.app/',
   },
   {
-    id: 'cafe',
-    titleEs: 'Cafeteria gourmet',
-    titleEn: 'Gourmet cafe',
+    id: 'kuchenycafe',
+    titleEs: 'Kuchen y Café',
+    titleEn: 'Kuchen & Coffee',
     category: 'landing',
-    image: '/img/img-proyectos/cafe.png',
+    image: '/img/img-proyectos/mockup-cafeykuchen.webp',
+    url: 'https://kuchen-cafe-cl.vercel.app/',
   },
   {
     id: 'cars',
@@ -69,11 +71,12 @@ const portfolio = [
     image: '/img/img-proyectos/ferreteria.png',
   },
   {
-    id: 'fishes',
-    titleEs: 'Acuario y peces',
-    titleEn: 'Aquarium and fish store',
+    id: 'barberblack',
+    titleEs: 'Barbería Black',
+    titleEn: 'Barber Black',
     category: 'landing',
-    image: '/img/img-proyectos/fishes.png',
+    image: '/img/img-proyectos/mockup-barberblack.webp',
+    url: 'https://barber-black-cl.vercel.app/',
   },
   {
     id: 'mascotas',
@@ -211,11 +214,8 @@ function PortfolioCarousel() {
                 const title = lang === 'en' ? project.titleEn : project.titleEs;
                 const category = copy.categories[project.category] || project.category;
 
-                return (
-                  <div
-                    key={`${project.originalIndex}-${idx}`}
-                    className="group relative overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300"
-                  >
+                const cardContent = (
+                  <>
                     <div className="aspect-video bg-gray-100 overflow-hidden">
                       <img
                         src={project.image}
@@ -227,15 +227,47 @@ function PortfolioCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
                       <span className="text-primary text-xs font-bold mb-1">{category}</span>
                       <h3 className="text-white font-bold text-lg mb-2">{title}</h3>
-                      <button className="inline-flex items-center text-primary text-sm font-bold">
-                        {copy.viewProject} <ExternalLink size={14} className="ml-1" />
-                      </button>
+                      {project.url ? (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-primary text-sm font-bold"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {copy.viewProject} <ExternalLink size={14} className="ml-1" />
+                        </a>
+                      ) : (
+                        <span className="inline-flex items-center text-primary text-sm font-bold opacity-50 cursor-not-allowed">
+                          {copy.viewProject} <ExternalLink size={14} className="ml-1" />
+                        </span>
+                      )}
                     </div>
 
                     <div className="p-4 bg-base">
                       <span className="text-primary text-xs font-bold">{category}</span>
                       <h3 className="text-gray-900 font-bold">{title}</h3>
                     </div>
+                  </>
+                );
+
+                return project.url ? (
+                  <a
+                    key={`${project.originalIndex}-${idx}`}
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 block"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    {cardContent}
+                  </a>
+                ) : (
+                  <div
+                    key={`${project.originalIndex}-${idx}`}
+                    className="group relative overflow-hidden border border-gray-200 transition-all duration-300 opacity-70 cursor-not-allowed"
+                  >
+                    {cardContent}
                   </div>
                 );
               })}
