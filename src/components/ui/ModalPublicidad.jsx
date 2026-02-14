@@ -195,13 +195,16 @@ export default function ModalPublicidad({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4"
     >
-      <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[92vh] md:max-h-[88vh]">
+      <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[96vh] md:max-h-[96vh]">
         <button
-          className="absolute top-2 right-2 md:top-3 md:right-3 z-20 text-gray-400 hover:text-primary text-2xl font-semibold"
+          className="absolute top-2 right-2 md:top-3 md:right-3 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-gray-100/80 hover:bg-primary/90 transition-colors shadow-lg border border-gray-200 hover:border-primary group"
           onClick={onClose}
           aria-label={copy.close}
         >
-          x
+          <svg className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="9" fill="none" />
+            <path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
         <div className="relative z-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary p-4 md:p-0">
           <div className="text-center flex items-center gap-4 md:flex-col md:gap-0">
@@ -221,7 +224,7 @@ export default function ModalPublicidad({
         </div>
 
         <div className="relative z-10 p-3 md:p-4 overflow-visible">
-          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{title}</h3>}
+          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{title}</h3>}
           {price && <div className="text-base md:text-lg font-extrabold text-primary mb-1">{price}</div>}
 
           <div className="mb-2 overflow-hidden border border-primary">

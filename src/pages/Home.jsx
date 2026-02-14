@@ -34,7 +34,7 @@ function Home() {
         price: 'From $99.990',
         description: 'Modern and scalable technology.',
         list: [
-          'Professional UI/UX design',
+          'Personal design',
           'Visual identity',
           'Responsive design',
           'Landing page',
@@ -43,7 +43,11 @@ function Home() {
           'Social media links',
           'Integrated WhatsApp button',
           'Integrated Google Maps location',
-          'Delivery in 7 days',
+          'Reviews section',
+          'Corporate email included',
+          'Free SSL certificate',
+          'Free hosting for 1 month',
+          'Technical support',
         ],
         delivery: 'Delivery in 7 days',
       };
@@ -51,22 +55,26 @@ function Home() {
 
     return {
       ...common,
-      title: 'Pagina web para pyme - empresa',
+      title: 'Página web para pyme - empresa',
       price: 'Desde $99.990',
-      description: 'Tecnologia moderna y escalable.',
+      description: 'Tecnología moderna y escalable.',
       list: [
-        'Diseño UI/UX profesional',
+        'Diseño personalizado',
         'Identidad visual',
-        'Responsive design',
+        'Diseño responsive',
         'Landing page',
-        'SEO inicial',
+        'SEO esencial',
         'Formulario de contacto',
-        'Acceso a tus redes sociales',
-        'Boton de WhatsApp integrado',
-        'Ubicacion en Google Maps integrada',
-        'Entrega en 7 dias',
+        'Redes sociales integradas',
+        'WhatsApp integrado',
+        'Ubicación en Google Maps',
+        'Apartado de reseñas',
+        'Correo corporativo',
+        'SSL gratuito',
+        'Hosting 1 mes gratis',
+        'Soporte técnico',
       ],
-      delivery: 'Entrega en 7 dias',
+      delivery: 'Entrega en 7 días',
     };
   }, [lang]);
 

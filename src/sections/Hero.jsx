@@ -96,7 +96,7 @@ function Hero() {
 
       {/* Contenido principal */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+        <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6 lg:px-36">
           <div className="max-w-xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
             {/* Badge */}
             <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-[0.55rem] py-[0.25rem] mb-2 sm:mb-3">
