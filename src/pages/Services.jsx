@@ -87,7 +87,7 @@ function Services() {
               features: [
                 'Professional web design & UX/UI',
                 'Logo and visual identity design',
-                'Complete branding (colors, typography)',
+                'Complete branding (colors, typography, guidelines)',
                 'Wireframes and clickable prototypes',
                 'Accessible design (WCAG compliance)',
                 'Responsive & mobile-ready design',
@@ -112,11 +112,11 @@ function Services() {
               features: [
                 'Landing pages optimized for conversion',
                 'Corporate and institutional websites',
-                'Complex web applications & dashboards',
+                'Complex web applications, dashboards & CRM/ERP',
                 'Membership portals & communities',
                 'Multi-language support (i18n)',
                 'Booking and reservation systems',
-                'Educational platforms (LMS)',
+                'Educational platforms (LMS) & news/magazine sites',
                 'Custom requirements: blogs, forums, events',
               ],
               price: 'From $99.990',
@@ -134,12 +134,14 @@ function Services() {
                 </>
               ),
               features: [
+                'Basic and advanced online stores',
                 'Shopping cart and secure checkout',
                 'Payment integration (Stripe, PayPal, crypto)',
                 'Inventory management & automation',
                 'Order tracking & fulfillment',
                 'Shipping integration & labels',
                 'Sales analytics & reporting',
+                'Affiliate and referral programs',
                 'Multi-vendor platform (PREMIUM)',
                 'Commission automation (PREMIUM)',
               ],
@@ -158,67 +160,95 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Native, hybrid (React Native/Flutter), and PWA options available.',
+              note: 'Native, hybrid (React Native/Flutter), and PWA options available. MVP and rapid prototyping available.',
               features: [
                 'iOS and Android native apps',
                 'Hybrid apps (React Native/Flutter)',
                 'Progressive Web Apps (PWA)',
+                'MVP and rapid prototyping',
                 'Geolocation & GPS integration',
                 'Push notifications & engagement',
                 'In-app purchases & monetization',
                 'App Store optimization (ASO)',
-                'Firebase integration & analytics',
+                'Camera, sensors & biometric integration',
+                'Offline sync & data persistence',
+                'QA testing on multiple devices',
+                'Firebase & custom backend options',
+                'Maintenance & continuous updates',
               ],
               price: 'From $499.990',
             },
             {
-              title: 'Audits & Optimization',
+              title: 'Security & Performance Audit',
               icon: <Shield size={32} />,
               description: (
                 <>
-                  Comprehensive audits and optimization to ensure your site performs at its best, is secure, and converts.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is auditing important?</div>
+                  Complete security and performance audit to identify vulnerabilities, speed issues, and accessibility gaps. Get actionable recommendations to improve your site.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why audit your site?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Regular audits identify vulnerabilities, performance bottlenecks, and improvement opportunities. They're critical for security, speed, and conversions.
+                    Regular security and performance audits prevent data breaches, improve load times, and ensure accessibility. Critical for user experience and trust.
                   </div>
                 </>
               ),
               features: [
-                'Security audit (OWASP Top 10)',
-                'Performance optimization & speed',
-                'SEO technical audit & fixes',
-                'Accessibility audit (WCAG)',
-                'UX/UI testing with real users',
-                'Core Web Vitals optimization',
-                'Database optimization & queries',
-                'A/B testing & conversion optimization',
+                'Security audit (OWASP Top 10, SSL, vulnerabilities)',
+                'Accessibility audit (WCAG, digital inclusion)',
+                'UX/UI audit (user testing, heatmaps, behavior mapping)',
+                'Performance optimization (load speed, Core Web Vitals, Lighthouse)',
+                'Image optimization (compression, WebP & AVIF formats)',
+                'Database optimization (queries, indexes, caching)',
+                'A/B testing & conversion analysis (funnel, abandonment points)',
+                'Complete audit report with action plan & recommendations',
               ],
               price: 'From $49.990',
             },
             {
-              title: 'SEO & Digital Marketing',
+              title: 'SEO Strategy Setup',
               icon: <Search size={32} />,
               description: (
                 <>
-                  Search optimization and marketing strategy that improves visibility and brings qualified clients to your business.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO & marketing important?</div>
+                  Complete SEO audit and optimization setup to get your site ready for search visibility. Initial one-time setup includes strategy and implementation.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO setup important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    SEO and digital marketing help you attract qualified leads, increase visibility, and compete effectively. Without it, your site won't be found.
+                    A solid SEO foundation is critical for visibility. Setup includes technical fixes, keyword strategy, and GA4 tracking so you can measure success from day one.
                   </div>
                 </>
               ),
-              note: 'Monthly retainer model. Includes analysis, strategy, optimization, and reporting.',
+              note: 'One-time setup. After completion, optional monthly retainer available for ongoing optimization.',
               features: [
-                'Technical SEO & schema markup',
-                'On-page SEO optimization',
-                'Keyword research & strategy',
-                'Link building & backlink strategy',
-                'Google Analytics 4 setup (GA4)',
-                'Google Search Console configuration',
-                'Social media integration & feeds',
-                'Email marketing & automation setup',
+                'Complete site technical audit',
+                'Keyword strategy (15-20 keywords)',
+                'Full site on-page optimization',
+                'GA4 + Search Console setup',
+                'Initial positioning report',
+                'Implementation recommendations',
+                'Basic training and handover',
               ],
-              price: 'From $79.990/month',
+              price: 'From $399.990',
+            },
+            {
+              title: 'SEO Monthly Retainer',
+              icon: <BarChart size={32} />,
+              description: (
+                <>
+                  Continuous SEO maintenance and optimization to protect and improve your search rankings every month. Builds on your SEO setup foundation.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why monthly SEO maintenance?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    SEO is not one-time. Competitors change, algorithms update, and your site needs continuous monitoring and optimization to stay competitive and maintain rankings.
+                  </div>
+                </>
+              ),
+              note: 'Monthly retainer. Perfect for sites already with SEO setup or those wanting continuous optimization.',
+              features: [
+                'Monthly on-page optimization',
+                'Link building and backlink strategy',
+                'Competitive monitoring and analysis',
+                'GA4 + positioning reports',
+                'Content optimization recommendations',
+                'Technical performance monitoring',
+                'Monthly strategy calls and support',
+              ],
+              price: 'From $149.990/month',
             },
             {
               title: 'Maintenance & Support',
@@ -293,7 +323,7 @@ function Services() {
                 'Data-driven recommendations',
               ],
               note: 'Includes research, testing, and actionable recommendations.',
-              price: 'From $99.990',
+              price: 'From $249.990',
             },
           ],
           additional: [
@@ -482,7 +512,7 @@ function Services() {
               features: [
                 'Diseño web profesional UX/UI',
                 'Diseño de logo e identidad visual',
-                'Identidad visual completa (colores, tipografía)',
+                'Identidad visual completa (colores, tipografía, manual de marca)',
                 'Wireframes y prototipos navegables',
                 'Diseño accesible (cumplimiento WCAG)',
                 'Diseño responsive y adaptado a móvil',
@@ -509,11 +539,11 @@ function Services() {
               features: [
                 'Landing pages optimizadas para conversión',
                 'Sitios web corporativos e institucionales',
-                'Aplicaciones web complejas y dashboards',
+                'Aplicaciones web complejas, dashboards, CRM y ERP',
                 'Portales de membresía y comunidades',
                 'Soporte multiidioma (i18n)',
                 'Sistemas de reservas y citas',
-                'Plataformas educativas (LMS)',
+                'Plataformas educativas (LMS) y sitios de noticias',
                 'Requisitos personalizados: blogs, foros, eventos',
               ],
               price: 'Desde $99.990',
@@ -533,12 +563,14 @@ function Services() {
                 </>
               ),
               features: [
+                'Tiendas online básicas y avanzadas',
                 'Carrito de compras y checkout seguro',
                 'Integración de pagos (Stripe, PayPal, cripto)',
                 'Gestión de inventario y automatización',
                 'Seguimiento de pedidos y cumplimiento',
                 'Integración de plataformas de envío',
                 'Analytics y reportes de ventas',
+                'Programas de afiliados y referidos',
                 'Plataforma multi-vendedor (PREMIUM)',
                 'Automatización de comisiones (PREMIUM)',
               ],
@@ -559,71 +591,101 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Apps nativas, híbridas (React Native/Flutter) y PWA disponibles.',
+              note: 'Apps nativas, híbridas (React Native/Flutter) y PWA disponibles. MVP y prototipado rápido disponibles.',
               features: [
                 'Apps nativas iOS y Android',
                 'Apps híbridas (React Native/Flutter)',
                 'Progressive Web Apps (PWA)',
+                'MVP y prototipado rápido',
                 'Integración de geolocalización y GPS',
                 'Push notifications y engagement',
                 'Compras dentro de la app y monetización',
                 'Optimización App Store (ASO)',
-                'Integración Firebase y analytics',
+                'Integración de cámara, sensores y biometría',
+                'Sincronización offline y persistencia de datos',
+                'QA testing en múltiples dispositivos',
+                'Firebase e integración de backend personalizado',
+                'Mantenimiento y actualizaciones continuas',
               ],
               price: 'Desde $499.990',
             },
             {
-              title: 'Auditorías & Optimización',
+              title: 'Auditoría de Seguridad & Performance',
               icon: <Shield size={32} />,
               description: (
                 <>
-                  Auditorías completas y optimización para asegurar que tu sitio funciona al máximo, es seguro y convierte.
+                  Auditoría completa de seguridad y performance para identificar vulnerabilidades, problemas de velocidad y brechas de accesibilidad. Recomendaciones accionables.
                   <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué son importantes las auditorías?
+                    ¿Por qué auditar tu sitio?
                   </div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Las auditorías regulares identifican vulnerabilidades, cuellos de botella y oportunidades de mejora. Son críticas para seguridad, velocidad y conversiones.
+                    Las auditorías regulares previenen brechas de seguridad, mejoran velocidad y aseguran accesibilidad. Crítico para experiencia de usuario y confianza.
                   </div>
                 </>
               ),
               features: [
-                'Auditoría de seguridad (OWASP Top 10)',
-                'Optimización de performance y velocidad',
-                'Auditoría técnica de SEO y fixes',
-                'Auditoría de accesibilidad (WCAG)',
-                'Testing de UX/UI con usuarios reales',
-                'Optimización de Core Web Vitals',
-                'Optimización de base de datos y queries',
-                'Testing A/B y optimización de conversiones',
+                'Auditoría de seguridad (OWASP Top 10, SSL, vulnerabilidades)',
+                'Auditoría de accesibilidad (WCAG, inclusión digital)',
+                'Auditoría UX/UI (testing con usuarios, mapas de calor, comportamiento)',
+                'Optimización de rendimiento (velocidad de carga, Core Web Vitals, Lighthouse)',
+                'Optimización de imágenes (compresión, formatos WebP y AVIF)',
+                'Optimización de base de datos (queries, índices, caché)',
+                'Testing A/B y conversiones (análisis de funnel, puntos de abandono)',
+                'Reporte completo de auditoría (recomendaciones detalladas y plan de acción)',
               ],
               price: 'Desde $49.990',
             },
             {
-              title: 'SEO & Marketing Digital',
+              title: 'Setup SEO Estratégico',
               icon: <Search size={32} />,
               description: (
                 <>
-                  Optimización de búsqueda y estrategia de marketing que mejora visibilidad y atrae clientes calificados.
+                  Auditoría completa y setup SEO para posicionar tu sitio en búsquedas. Setup inicial único que incluye estrategia e implementación.
                   <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante SEO y marketing?
+                    ¿Por qué es importante el setup SEO?
                   </div>
                   <div className="text-gray-700 text-xs mb-2">
-                    SEO y marketing digital te ayudan a atraer clientes calificados, aumentar visibilidad y competir. Sin ellos, tu sitio no será encontrado.
+                    Una base SEO sólida es crítica para visibilidad. Incluye fixes técnicos, estrategia de keywords y GA4 para medir resultados desde el primer día.
                   </div>
                 </>
               ),
-              note: 'Modelo de retainer mensual. Incluye análisis, estrategia, optimización y reportes.',
+              note: 'Setup único. Después de completar, retainer mensual disponible para optimización continua.',
               features: [
-                'SEO técnico y schema markup',
-                'Optimización on-page de SEO',
-                'Investigación y estrategia de keywords',
-                'Link building y estrategia de backlinks',
-                'Google Analytics 4 setup (GA4)',
-                'Configuración Google Search Console',
-                'Integración de redes sociales y feeds',
-                'Email marketing y automatización setup',
+                'Auditoría técnica completa del sitio',
+                'Estrategia de 15-20 palabras clave',
+                'Optimización on-page de todo el sitio',
+                'GA4 + Search Console configuración',
+                'Reporte inicial de posicionamiento',
+                'Recomendaciones de implementación',
+                'Capacitación básica y entrega',
               ],
-              price: 'Desde $79.990/mes',
+              price: 'Desde $399.990',
+            },
+            {
+              title: 'SEO Retainer Mensual',
+              icon: <BarChart size={32} />,
+              description: (
+                <>
+                  Mantenimiento y optimización SEO continua cada mes para proteger y mejorar tu posicionamiento en búsquedas. Construye sobre tu setup SEO.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué mantenimiento SEO mensual?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    SEO no es de una sola vez. Los competidores cambian, los algoritmos se actualizan y tu sitio necesita monitoreo continuo para mantener posiciones competitivas.
+                  </div>
+                </>
+              ),
+              note: 'Retainer mensual. Ideal para sitios con setup SEO listo o que quieren optimización continua.',
+              features: [
+                'Optimización on-page mensual',
+                'Link building y estrategia de backlinks',
+                'Monitoreo competitivo y análisis',
+                'Reportes GA4 y posicionamiento',
+                'Recomendaciones de contenido',
+                'Monitoreo técnico y performance',
+                'Llamadas estratégicas mensuales y soporte',
+              ],
+              price: 'Desde $149.990/mes',
             },
             {
               title: 'Mantenimiento & Soporte',
@@ -704,7 +766,7 @@ function Services() {
                 'Recomendaciones basadas en datos',
               ],
               note: 'Incluye investigación, testing y recomendaciones accionables.',
-              price: 'Desde $99.990',
+              price: 'Desde $249.990',
             },
           ],
           additional: [
