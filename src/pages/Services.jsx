@@ -17,6 +17,22 @@ import {
   Server,
   Brush,
   BarChart,
+  Lightbulb,
+  Layers,
+  Mail,
+  Video,
+  Plug,
+  Ticket,
+  Workflow,
+  Rocket,
+  Building,
+  Newspaper,
+  Users,
+  Gift,
+  Briefcase,
+  Calendar,
+  BookOpen,
+  Megaphone,
 } from 'lucide-react';
 
 import { useLanguage } from '../i18n/index.jsx';
@@ -57,171 +73,330 @@ function Services() {
             'Tell us your idea and we will help you make it real. Free quote with no commitment.',
           services: [
             {
-              title: 'Web Design',
-              icon: <Palette size={32} />, 
+              title: 'Web Design & UX/UI',
+              icon: <Palette size={32} />,
               description: (
                 <>
                   Professional UX/UI design: visual identity, prototypes, and user experience ready for development.
                   <div className="mt-3 text-primary text-sm font-semibold">Why is web design important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Good web design creates a strong first impression, builds trust, and guides users to conversion. It’s essential for brand identity and user experience.
+                    Good web design creates a strong first impression, builds trust, and guides users to conversion. It's essential for brand identity and user experience.
                   </div>
                 </>
               ),
               features: [
-                'Homepage and section mockups',
-                'Logo design',
-                'Visual identity (colors & fonts)',
+                'Professional web design & UX/UI',
+                'Logo and visual identity design',
+                'Complete branding (colors, typography)',
                 'Wireframes and clickable prototypes',
-                'Visual components (buttons, sliders, carousels)',
-                'Style guide for developers',
-                'Responsive design (mobile/tablet ready)',
-                'Delivery in Figma, XD or PDF',
-                'Review and one round of changes',
+                'Accessible design (WCAG compliance)',
+                'Responsive & mobile-ready design',
+                'Figma delivery with style guide',
+                'Review with design revisions included',
               ],
               price: 'From $99.990',
-            },
-            {
-              title: 'Web Security Audit',
-              icon: <Shield size={32} />, 
-              description: (
-                <>
-                  We detect critical vulnerabilities and risks in your website before attackers do. Protect your data and reputation.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is a web security audit important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    A security audit helps you identify critical vulnerabilities before attackers do, protects your company and client data, and prevents financial loss and reputational damage. It’s the best investment to ensure business continuity and trust in your digital presence.
-                  </div>
-                </>
-              ),
-              note: 'Includes manual and automated review, findings report and remediation plan.',
-              features: [
-                'Privilege escalation detection',
-                'Exposed CRUDs and endpoints without auth',
-                'Sensitive data (PII) exposure',
-                'Leaked secrets and credentials',
-                'Hardcoded passwords and dangerous endpoints',
-                'Insecure webhooks and forms',
-                'Vulnerable dependencies',
-                'Missing headers and hardening',
-                'Insecure DB and port configs',
-                'Report and remediation plan',
-              ],
-              price: 'Diagnosis from $49.990',
             },
             {
               title: 'Web Development',
               icon: <Code size={32} />,
               description: (
                 <>
-                  Fast, secure, and scalable websites with latest technologies.
+                  Fast, secure, and scalable websites with modern technologies. From landing pages to complex applications.
                   <div className="mt-3 text-primary text-sm font-semibold">Why is web development important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Robust development ensures your site works reliably, loads quickly, and adapts to growth. It’s the foundation for business success online.
+                    Robust development ensures your site works reliably, loads quickly, and adapts to growth. It's the foundation for business success online.
                   </div>
                 </>
               ),
               note: 'Programming and functionality: performance, integrations, and stability.',
               features: [
-                'Landing page',
-                'Corporate/institutional website',
-                'E-commerce (online store)',
-                'Blog or news website',
-                'Portfolio (personal or agency)',
-                'Membership site (private/paid content)',
-                'Booking/appointment website',
-                'Educational website (courses, LMS)',
-                'Event website (with registration and agenda)',
-                'News website',
-                'Forum or community website',
-                'Catalog website (without direct sales)',
-                'Microsite (small site for specific campaigns)',
-                'Custom development (tell us your idea)',
-
+                'Landing pages optimized for conversion',
+                'Corporate and institutional websites',
+                'Complex web applications & dashboards',
+                'Membership portals & communities',
+                'Multi-language support (i18n)',
+                'Booking and reservation systems',
+                'Educational platforms (LMS)',
+                'Custom requirements: blogs, forums, events',
               ],
               price: 'From $99.990',
             },
             {
-              title: 'E-commerce',
+              title: 'E-commerce & Marketplaces',
               icon: <ShoppingCart size={32} />,
               description: (
                 <>
-                  Basic online stores with everything needed to start selling online.
+                  Complete online stores and multi-vendor platforms with everything needed to sell and scale.
                   <div className="mt-3 text-primary text-sm font-semibold">Why is e-commerce important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    E-commerce lets you reach more customers, automate sales, and grow your business 24/7. It’s key for modern commercial success.
+                    E-commerce lets you reach more customers, automate sales, and grow your business 24/7. It's key for modern commercial success.
                   </div>
                 </>
               ),
-              features: ['Shopping cart', 'Payment gateway', 'Inventory management', 'Admin panel'],
-              note: 'Sales-focused development: cart, payments, and inventory. Basic store.',
+              features: [
+                'Shopping cart and secure checkout',
+                'Payment integration (Stripe, PayPal, crypto)',
+                'Inventory management & automation',
+                'Order tracking & fulfillment',
+                'Shipping integration & labels',
+                'Sales analytics & reporting',
+                'Multi-vendor platform (PREMIUM)',
+                'Commission automation (PREMIUM)',
+              ],
+              note: 'Available in Basic, Advanced, and Premium (marketplace) tiers.',
               price: 'From $299.990',
-            },
-            {
-              title: 'SEO and Marketing',
-              icon: <Search size={32} />,
-              description: (
-                <>
-                  Search optimization that improves visibility and brings more clients.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO & marketing important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    SEO and digital marketing help you attract qualified leads, increase visibility, and compete effectively. Without it, your site won’t be found.
-                  </div>
-                </>
-              ),
-              note: 'Base price. Final value depends on website size and technical condition.',
-              features: ['SEO audit', 'On-page optimization', 'Link building', 'Google Analytics'],
-              price: 'From $79.990/month',
             },
             {
               title: 'Mobile Applications',
               icon: <Smartphone size={32} />,
               description: (
                 <>
-                  Native apps and PWA for iOS and Android to expand your digital reach.
+                  Native apps and PWA for iOS and Android to expand your digital reach and engage users on all devices.
                   <div className="mt-3 text-primary text-sm font-semibold">Why are mobile apps important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Mobile apps connect you with users wherever they are, boost engagement, and unlock new business models. They’re vital for digital presence.
+                    Mobile apps connect you with users wherever they are, boost engagement, and unlock new business models. They're vital for digital presence.
                   </div>
                 </>
               ),
-              note: 'Mobile apps and PWA to reach users on every device.',
-              features: ['React Native', 'PWA', 'App Store / Play Store', 'Push notifications'],
+              note: 'Native, hybrid (React Native/Flutter), and PWA options available.',
+              features: [
+                'iOS and Android native apps',
+                'Hybrid apps (React Native/Flutter)',
+                'Progressive Web Apps (PWA)',
+                'Geolocation & GPS integration',
+                'Push notifications & engagement',
+                'In-app purchases & monetization',
+                'App Store optimization (ASO)',
+                'Firebase integration & analytics',
+              ],
               price: 'From $499.990',
             },
             {
-              title: 'Maintenance',
-              icon: <Settings size={32} />,
+              title: 'Audits & Optimization',
+              icon: <Shield size={32} />,
               description: (
                 <>
-                  Your site always updated, secure, and running at top performance.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is maintenance important?</div>
+                  Comprehensive audits and optimization to ensure your site performs at its best, is secure, and converts.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is auditing important?</div>
                   <div className="text-gray-700 text-xs mb-2">
-                    Ongoing maintenance prevents downtime, keeps your site secure, and ensures optimal performance. It’s essential for protecting your investment.
+                    Regular audits identify vulnerabilities, performance bottlenecks, and improvement opportunities. They're critical for security, speed, and conversions.
                   </div>
                 </>
               ),
-              note: 'Updates, monitoring, and ongoing support to prevent downtime.',
-              features: ['Updates', 'Automatic backups', '24/7 monitoring', 'Technical support'],
+              features: [
+                'Security audit (OWASP Top 10)',
+                'Performance optimization & speed',
+                'SEO technical audit & fixes',
+                'Accessibility audit (WCAG)',
+                'UX/UI testing with real users',
+                'Core Web Vitals optimization',
+                'Database optimization & queries',
+                'A/B testing & conversion optimization',
+              ],
+              price: 'From $49.990',
+            },
+            {
+              title: 'SEO & Digital Marketing',
+              icon: <Search size={32} />,
+              description: (
+                <>
+                  Search optimization and marketing strategy that improves visibility and brings qualified clients to your business.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO & marketing important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    SEO and digital marketing help you attract qualified leads, increase visibility, and compete effectively. Without it, your site won't be found.
+                  </div>
+                </>
+              ),
+              note: 'Monthly retainer model. Includes analysis, strategy, optimization, and reporting.',
+              features: [
+                'Technical SEO & schema markup',
+                'On-page SEO optimization',
+                'Keyword research & strategy',
+                'Link building & backlink strategy',
+                'Google Analytics 4 setup (GA4)',
+                'Google Search Console configuration',
+                'Social media integration & feeds',
+                'Email marketing & automation setup',
+              ],
+              price: 'From $79.990/month',
+            },
+            {
+              title: 'Maintenance & Support',
+              icon: <Settings size={32} />,
+              description: (
+                <>
+                  Your site always updated, secure, and running at top performance. Available in multiple plan levels.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is maintenance important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Ongoing maintenance prevents downtime, keeps your site secure, and ensures optimal performance. It's essential for protecting your investment.
+                  </div>
+                </>
+              ),
+              features: [
+                'Security updates & patches',
+                'Automatic daily backups',
+                'Uptime monitoring 24/7',
+                'Performance optimization',
+                'Dependency & library updates',
+                'Database optimization & cleaning',
+                'Monthly health reports & analytics',
+                'Priority technical support',
+              ],
+              note: 'Available in Basic, Professional, and Premium (99.9% uptime SLA) plans.',
               price: 'From $49.990/month',
+            },
+            {
+              title: 'Rebranding & Strategy',
+              icon: <Brush size={32} />,
+              description: (
+                <>
+                  Complete brand transformation and market positioning strategy to strengthen your market presence.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is rebranding important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Rebranding helps you stay competitive, attract new audiences, and communicate your evolution. It's essential when pivoting, merging, or reaching new markets.
+                  </div>
+                </>
+              ),
+              features: [
+                'Complete brand audit and analysis',
+                'Visual identity redesign',
+                'Logo and color palette design',
+                'Website redesign',
+                'Brand guidelines and documentation',
+                'Brand positioning strategy',
+                'Refresh or complete rebranding',
+                'Market positioning consultation',
+              ],
+              note: 'Available as complete rebranding or light refresh option.',
+              price: 'From $199.990',
+            },
+            {
+              title: 'Strategy & Analysis',
+              icon: <Lightbulb size={32} />,
+              description: (
+                <>
+                  Strategic consulting and data-driven analysis to optimize conversions and competitive positioning.
+                  <div className="mt-3 text-primary text-sm font-semibold">Why is strategic analysis important?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Strategy and analysis uncover hidden opportunities and help you make data-driven decisions. They're essential for competitive advantage and growth.
+                  </div>
+                </>
+              ),
+              features: [
+                'UX/UI audit with user testing',
+                'Conversion Rate Optimization (CRO)',
+                'Competitive benchmarking analysis',
+                'User behavior mapping',
+                'Funnel analysis & optimization',
+                'A/B testing strategy',
+                'Market positioning analysis',
+                'Data-driven recommendations',
+              ],
+              note: 'Includes research, testing, and actionable recommendations.',
+              price: 'From $99.990',
             },
           ],
           additional: [
-            { icon: <Globe size={24} />, title: 'Hosting and domains', desc: 'High-speed web hosting' },
-            { icon: <Database size={24} />, title: 'Databases', desc: 'DB design and optimization' },
-            { icon: <Shield size={24} />, title: 'Web security', desc: 'SSL, firewalls and DDoS protection' },
-            { icon: <Monitor size={24} />, title: 'Landing pages', desc: 'Optimized landing pages' },
-            { icon: <Server size={24} />, title: 'APIs and integrations', desc: 'Connection with external services' },
-            { icon: <Brush size={24} />, title: 'Website redesign', desc: 'Modernization of existing sites' },
-            { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Performance metrics and reporting' },
-            { icon: <Zap size={24} />, title: 'Optimization', desc: 'Speed and Core Web Vitals' },
+            {
+              icon: <ArrowRight size={24} />,
+              title: 'QR Codes',
+              desc: 'Professional dynamic QR codes with tracking and analytics',
+            },
+            {
+              icon: <Monitor size={24} />,
+              title: 'Lead Capture',
+              desc: 'Professional forms, lead capture, CRM integration automation',
+            },
+            {
+              icon: <Globe size={24} />,
+              title: 'Chatbots & AI',
+              desc: 'OpenAI chatbots, helpdesk systems, customer support automation',
+            },
+            {
+              icon: <Database size={24} />,
+              title: 'CRM Setup',
+              desc: 'Implementation and configuration of CRM systems and workflows',
+            },
+            {
+              icon: <Zap size={24} />,
+              title: 'Automation',
+              desc: 'Workflows with n8n/Make, API integrations, data synchronization',
+            },
+            {
+              icon: <Layers size={24} />,
+              title: 'Integrations',
+              desc: 'Custom webhooks and API connectors for external services',
+            },
+            {
+              icon: <Ticket size={24} />,
+              title: 'Helpdesk & Support',
+              desc: 'Ticketing systems and customer support automation',
+            },
+            {
+              icon: <Video size={24} />,
+              title: 'Video Hosting',
+              desc: 'Professional video hosting with player customization and analytics',
+            },
+            {
+              icon: <Plug size={24} />,
+              title: 'Webhooks & APIs',
+              desc: 'Custom API connectors and webhooks for external services',
+            },
+            {
+              icon: <Workflow size={24} />,
+              title: 'n8n/Make Automation',
+              desc: 'Advanced automation workflows and data synchronization',
+            },
+            {
+              icon: <Mail size={24} />,
+              title: 'Newsletter Setup',
+              desc: 'Professional email templates, automation, and list management',
+            },
+          ],
+          webTypesTitlePrefix: 'Types of webs we ',
+          webTypesTitleHighlight: 'specialize in',
+          webTypesSubtitle: 'Check the most in-demand website types and use cases',
+          webTypes: [
+            { icon: <Rocket size={20} />, title: 'Landing Pages' },
+            { icon: <ShoppingCart size={20} />, title: 'E-commerce Stores' },
+            { icon: <Building size={20} />, title: 'Corporate Sites' },
+            { icon: <Newspaper size={20} />, title: 'Blogs & News' },
+            { icon: <Gift size={20} />, title: 'Membership Portal' },
+            { icon: <Briefcase size={20} />, title: 'Portfolio' },
+            { icon: <Calendar size={20} />, title: 'Booking Systems' },
+            { icon: <BookOpen size={20} />, title: 'Learning Platforms' },
+            { icon: <Megaphone size={20} />, title: 'Event Platforms' },
+            { icon: <Users size={20} />, title: 'Community Forum' },
+            { icon: <Globe size={20} />, title: 'Catalog' },
+            { icon: <Code size={20} />, title: 'Custom Web Apps' },
+            { icon: <Monitor size={20} />, title: 'Microsite Campaign' },
+            { icon: <Zap size={20} />, title: 'Web Solutions' },
           ],
           maintenanceCards: [
-            { title: 'Proactive maintenance', desc: 'Updates, backups and monitoring to prevent outages.' },
-            { title: 'Continuous optimization', desc: 'Monthly improvements in speed, UX and conversions.' },
-            { title: 'Monthly report', desc: 'Metrics summary, progress and next steps.' },
-            { title: 'Priority support', desc: 'Preferred response times and minor adjustments.' },
-            { title: 'Managed hosting and domain', desc: 'Forget technical tasks: we handle them.' },
-            { title: 'Loyalty benefits', desc: 'Improvements or discounts for continuity.' },
+            {
+              title: 'Proactive maintenance',
+              desc: 'Updates, backups and monitoring to prevent outages.',
+            },
+            {
+              title: 'Continuous optimization',
+              desc: 'Monthly improvements in speed, UX and conversions.',
+            },
+            {
+              title: 'Monthly report',
+              desc: 'Metrics summary, progress and next steps.',
+            },
+            {
+              title: 'Priority support',
+              desc: 'Preferred response times and minor adjustments.',
+            },
+            {
+              title: 'Managed hosting and domain',
+              desc: 'Forget technical tasks: we handle them.',
+            },
+            {
+              title: 'Loyalty benefits',
+              desc: 'Improvements or discounts for continuity.',
+            },
           ],
           whyItems: [
             'Agile and transparent methodology: active client participation throughout the process.',
@@ -231,12 +406,32 @@ function Services() {
             'Professional and updated team: software engineering, machine learning, security and PM expertise.',
           ],
           process: [
-            { step: '01', title: 'Consultation', desc: 'We analyze your needs and goals' },
-            { step: '02', title: 'Proposal', desc: 'We send a detailed quote' },
-            { step: '03', title: 'Development', desc: 'We build your project with revisions' },
+            {
+              step: '01',
+              title: 'Consultation',
+              desc: 'We analyze your needs and goals',
+            },
+            {
+              step: '02',
+              title: 'Proposal',
+              desc: 'We send a detailed quote',
+            },
+            {
+              step: '03',
+              title: 'Development',
+              desc: 'We build your project with revisions',
+            },
             { step: '04', title: 'Delivery', desc: 'We launch and onboard you' },
           ],
-          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB'],
+          tech: [
+            'React',
+            'Next.js',
+            'Node.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'PostgreSQL',
+            'MongoDB',
+          ],
         }
       : {
           heroBadge: 'Servicios de desarrollo web',
@@ -245,210 +440,413 @@ function Services() {
           heroDescription:
             'Desde Diseño hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia digital profesional y efectiva.',
           viewPackages: 'Ver paquetes',
-          requestQuote: 'Solicitar cotizacion',
+          requestQuote: 'Solicitar cotización',
           sectionTitlePrefix: 'Nuestros ',
           sectionTitleHighlight: 'servicios',
-          sectionSubtitle: 'Soluciones completas para cada etapa de tu proyecto digital',
+          sectionSubtitle:
+            'Soluciones completas para cada etapa de tu proyecto digital',
           requestService: 'Solicitar servicio',
           additionalTitlePrefix: 'Servicios ',
           additionalTitleHighlight: 'adicionales',
-          additionalSubtitle: 'Complementa tu proyecto con estos servicios especializados',
+          additionalSubtitle:
+            'Complementa tu proyecto con estos servicios especializados',
           maintenanceTitlePrefix: 'Mantenimiento y ',
           maintenanceTitleHighlight: 'crecimiento continuo',
           maintenanceSubtitle:
-            'Te acompanamos despues del lanzamiento para que tu sitio siga rapido, seguro y convirtiendo. Plan mensual recomendado.',
+            'Te acompañamos después del lanzamiento para que tu sitio siga rápido, seguro y convirtiendo. Plan mensual recomendado.',
           maintenanceCta: 'Solicitar plan mensual',
-          whyTitlePrefix: 'Por que ',
+          whyTitlePrefix: 'Por qué ',
           whyTitleHighlight: 'elegirnos',
-          workTitlePrefix: 'Como ',
+          workTitlePrefix: 'Cómo ',
           workTitleHighlight: 'trabajamos',
-          techTitlePrefix: 'Tecnologias que ',
+          techTitlePrefix: 'Tecnologías que ',
           techTitleHighlight: 'dominamos',
-          ctaTitle: 'Tienes un proyecto en mente?',
+          ctaTitle: '¿Tienes un proyecto en mente?',
           ctaDescription:
-            'Cuentaños tu idea y te ayudaremos a hacerla realidad. Cotizacion gratuita y sin compromiso.',
+            'Cuéntanos tu idea y te ayudaremos a hacerla realidad. Cotización gratuita y sin compromiso.',
           services: [
             {
-              title: 'Diseño Web',
-              icon: <Palette size={32} />, 
+              title: 'Diseño Web & UX/UI',
+              icon: <Palette size={32} />,
               description: (
                 <>
                   Diseños profesionales UX/UI: identidad visual, prototipos y experiencia de usuario lista para desarrollo.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el diseño web?</div>
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el diseño web?
+                  </div>
                   <div className="text-gray-700 text-xs mb-2">
                     Un buen diseño web genera confianza, refuerza tu marca y guía al usuario hacia la conversión. Es clave para destacar y lograr resultados.
                   </div>
                 </>
               ),
               features: [
-                'Mockups de página principal y secciones',
-                'Diseño de logo',
-                'Identidad visual (colores y tipografías)',
+                'Diseño web profesional UX/UI',
+                'Diseño de logo e identidad visual',
+                'Identidad visual completa (colores, tipografía)',
                 'Wireframes y prototipos navegables',
-                'Componentes visuales (botones, sliders, carruseles)',
-                'Guía de estilos para desarrolladores',
-                'Diseño responsive (adaptado a móvil/tablet)',
-                'Entrega en Figma, XD o PDF',
-                'Revisión y una ronda de cambios',
+                'Diseño accesible (cumplimiento WCAG)',
+                'Diseño responsive y adaptado a móvil',
+                'Entrega en Figma con guía de estilos',
+                'Revisión con rondas de cambios incluidas',
               ],
               price: 'Desde $99.990',
-            },
-            {
-              title: 'Auditoría de Seguridad Web',
-              icon: <Shield size={32} />, 
-              description: (
-                <>
-                  Detectamos vulnerabilidades críticas y riesgos en tu web antes de que lo hagan los atacantes. Protege tus datos y reputación.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante una auditoría de seguridad web?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Una auditoría de seguridad permite identificar vulnerabilidades críticas antes de que sean explotadas, protege la información sensible de tu empresa y tus clientes, y previene pérdidas económicas y daños reputacionales. Es la mejor inversión para asegurar la continuidad y confianza en tu negocio digital.
-                  </div>
-                </>
-              ),
-              note: 'Incluye revisión manual y automatizada, reporte de hallazgos y recomendaciones.',
-              features: [
-                'Detección de escalación de privilegios',
-                'CRUDs y endpoints expuestos sin auth',
-                'Exposición de datos sensibles (PII)',
-                'Secretos y credenciales filtrados',
-                'Contraseñas hardcodeadas y endpoints peligrosos',
-                'Webhooks y formularios inseguros',
-                'Dependencias vulnerables',
-                'Falta de headers y hardening',
-                'Configuraciones inseguras de DB y puertos',
-                'Reporte y plan de remediación',
-              ],
-              price: 'Diagnóstico desde $49.990',
             },
             {
               title: 'Desarrollo Web',
               icon: <Code size={32} />,
               description: (
                 <>
-                  Sitios web rapidos, seguros y escalables con las ultimas tecnologias del mercado.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el desarrollo web?</div>
+                  Sitios web rápidos, seguros y escalables con las últimas tecnologías del mercado. Desde landing pages hasta aplicaciones complejas.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el desarrollo web?
+                  </div>
                   <div className="text-gray-700 text-xs mb-2">
                     Un desarrollo robusto garantiza que tu sitio funcione bien, sea rápido y crezca contigo. Es la base del éxito digital.
                   </div>
                 </>
               ),
-              note: 'Programacion y funcionalidad: performance, integraciones y estabilidad.',
+              note: 'Programación y funcionalidad: performance, integraciones y estabilidad.',
               features: [
-                'Landing page', 
-                'Sitio web corporativo/institucional', 
-                'E-commerce (tienda online)', 
-                'Blog o revista digital', 
-                'Portafolio (personal o de agencia)', 
-                'Web de membresía (contenido privado/pago)', 
-                'Web de reservas/citas', 
-                'Web educativa (cursos, LMS)', 
-                'Web de eventos (con registro y agenda)', 
-                'Web de noticias', 
-                'Web de foro o comunidad', 
-                'Web de catálogo (sin venta directa)', 
-                'Micrositio (sitio pequeño para campañas puntuales)',
-                'Desarrollo a medida (cuéntanos tu idea)',
-
+                'Landing pages optimizadas para conversión',
+                'Sitios web corporativos e institucionales',
+                'Aplicaciones web complejas y dashboards',
+                'Portales de membresía y comunidades',
+                'Soporte multiidioma (i18n)',
+                'Sistemas de reservas y citas',
+                'Plataformas educativas (LMS)',
+                'Requisitos personalizados: blogs, foros, eventos',
               ],
               price: 'Desde $99.990',
             },
             {
-              title: 'E-commerce',
+              title: 'E-commerce & Marketplaces',
               icon: <ShoppingCart size={32} />,
               description: (
                 <>
-                  Tiendas online basicas con lo esencial para empezar a vender en internet.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el e-commerce?</div>
+                  Tiendas online completas y plataformas multi-vendedor con todo lo necesario para vender y escalar.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el e-commerce?
+                  </div>
                   <div className="text-gray-700 text-xs mb-2">
                     El e-commerce te permite llegar a más clientes, automatizar ventas y crecer 24/7. Es fundamental para el éxito comercial moderno.
                   </div>
                 </>
               ),
-              features: ['Carrito de compras', 'Pasarela de pago', 'Gestion de inventario', 'Panel de administracion'],
-              note: 'Desarrollo orientado a ventas: carrito, pagos e inventario. Tienda basica.',
+              features: [
+                'Carrito de compras y checkout seguro',
+                'Integración de pagos (Stripe, PayPal, cripto)',
+                'Gestión de inventario y automatización',
+                'Seguimiento de pedidos y cumplimiento',
+                'Integración de plataformas de envío',
+                'Analytics y reportes de ventas',
+                'Plataforma multi-vendedor (PREMIUM)',
+                'Automatización de comisiones (PREMIUM)',
+              ],
+              note: 'Disponible en niveles Basic, Advanced y Premium (marketplace).',
               price: 'Desde $299.990',
             },
             {
-              title: 'SEO y Marketing',
-              icon: <Search size={32} />,
-              description: (
-                <>
-                  Optimizacion para buscadores que aumenta tu visibilidad y trae mas clientes.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el SEO y marketing?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    El SEO y marketing digital te ayudan a atraer clientes calificados, aumentar visibilidad y competir. Sin ellos, tu sitio no será encontrado.
-                  </div>
-                </>
-              ),
-              note: 'Precio base. El valor final depende del tamaño del sitio y su estado tecnico.',
-              features: ['Auditoria SEO', 'Optimizacion on-page', 'Link building', 'Google Analytics'],
-              price: 'Desde $79.990/mes',
-            },
-            {
-              title: 'Aplicaciones Moviles',
+              title: 'Aplicaciones Móviles',
               icon: <Smartphone size={32} />,
               description: (
                 <>
-                  Apps nativas y PWA para iOS y Android que extienden tu presencia digital.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué son importantes las apps móviles?</div>
+                  Apps nativas y PWA para iOS y Android que extienden tu presencia digital y engancha usuarios en todos los dispositivos.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué son importantes las apps móviles?
+                  </div>
                   <div className="text-gray-700 text-xs mb-2">
                     Las apps móviles te conectan con usuarios donde sea, aumentan el engagement y abren nuevas oportunidades de negocio. Son vitales para tu presencia digital.
                   </div>
                 </>
               ),
-              note: 'Apps moviles y PWA para alcanzar usuarios en cualquier dispositivo.',
-              features: ['React Native', 'PWA', 'App Store / Play Store', 'Notificaciones push'],
+              note: 'Apps nativas, híbridas (React Native/Flutter) y PWA disponibles.',
+              features: [
+                'Apps nativas iOS y Android',
+                'Apps híbridas (React Native/Flutter)',
+                'Progressive Web Apps (PWA)',
+                'Integración de geolocalización y GPS',
+                'Push notifications y engagement',
+                'Compras dentro de la app y monetización',
+                'Optimización App Store (ASO)',
+                'Integración Firebase y analytics',
+              ],
               price: 'Desde $499.990',
             },
             {
-              title: 'Mantenimiento',
+              title: 'Auditorías & Optimización',
+              icon: <Shield size={32} />,
+              description: (
+                <>
+                  Auditorías completas y optimización para asegurar que tu sitio funciona al máximo, es seguro y convierte.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué son importantes las auditorías?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Las auditorías regulares identifican vulnerabilidades, cuellos de botella y oportunidades de mejora. Son críticas para seguridad, velocidad y conversiones.
+                  </div>
+                </>
+              ),
+              features: [
+                'Auditoría de seguridad (OWASP Top 10)',
+                'Optimización de performance y velocidad',
+                'Auditoría técnica de SEO y fixes',
+                'Auditoría de accesibilidad (WCAG)',
+                'Testing de UX/UI con usuarios reales',
+                'Optimización de Core Web Vitals',
+                'Optimización de base de datos y queries',
+                'Testing A/B y optimización de conversiones',
+              ],
+              price: 'Desde $49.990',
+            },
+            {
+              title: 'SEO & Marketing Digital',
+              icon: <Search size={32} />,
+              description: (
+                <>
+                  Optimización de búsqueda y estrategia de marketing que mejora visibilidad y atrae clientes calificados.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante SEO y marketing?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    SEO y marketing digital te ayudan a atraer clientes calificados, aumentar visibilidad y competir. Sin ellos, tu sitio no será encontrado.
+                  </div>
+                </>
+              ),
+              note: 'Modelo de retainer mensual. Incluye análisis, estrategia, optimización y reportes.',
+              features: [
+                'SEO técnico y schema markup',
+                'Optimización on-page de SEO',
+                'Investigación y estrategia de keywords',
+                'Link building y estrategia de backlinks',
+                'Google Analytics 4 setup (GA4)',
+                'Configuración Google Search Console',
+                'Integración de redes sociales y feeds',
+                'Email marketing y automatización setup',
+              ],
+              price: 'Desde $79.990/mes',
+            },
+            {
+              title: 'Mantenimiento & Soporte',
               icon: <Settings size={32} />,
               description: (
                 <>
-                  Tu sitio siempre actualizado, seguro y funcionando al maximo rendimiento.
-                  <div className="mt-3 text-primary text-sm font-semibold">¿Por qué es importante el mantenimiento?</div>
+                  Tu sitio siempre actualizado, seguro y funcionando al máximo rendimiento. Disponible en múltiples niveles.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el mantenimiento?
+                  </div>
                   <div className="text-gray-700 text-xs mb-2">
                     El mantenimiento continuo previene caídas, mantiene tu sitio seguro y asegura el mejor rendimiento. Es esencial para proteger tu inversión.
                   </div>
                 </>
               ),
-              note: 'Actualizaciones, monitoreo y soporte continuo para evitar caidas.',
-              features: ['Actualizaciones', 'Backups automaticos', 'Monitoreo 24/7', 'Soporte tecnico'],
+              features: [
+                'Actualizaciones de seguridad y patches',
+                'Backups automáticos diarios',
+                'Monitoreo de uptime 24/7',
+                'Optimización de performance',
+                'Actualizaciones de dependencias y librerías',
+                'Optimización de base de datos y limpieza',
+                'Reportes mensuales de salud del sitio',
+                'Soporte técnico prioritario',
+              ],
+              note: 'Disponible en planes Basic, Professional y Premium (SLA 99.9% uptime).',
               price: 'Desde $49.990/mes',
+            },
+            {
+              title: 'Rebranding & Estrategia',
+              icon: <Brush size={32} />,
+              description: (
+                <>
+                  Transformación completa de marca y estrategia de posicionamiento para fortalecer tu presencia en el mercado.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el rebranding?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    El rebranding te ayuda a mantenerte competitivo, atraer nuevas audiencias y comunicar tu evolución. Es esencial al pivotar, fusionarse o llegar a nuevos mercados.
+                  </div>
+                </>
+              ),
+              features: [
+                'Auditoría y análisis completo de marca',
+                'Rediseño de identidad visual',
+                'Diseño de logo y paleta de colores',
+                'Rediseño de sitio web',
+                'Guía de marca y documentación',
+                'Estrategia de posicionamiento',
+                'Refreshing o rebranding completo',
+                'Consultoría de posicionamiento en mercado',
+              ],
+              note: 'Disponible como rebranding completo o opción de refreshing ligero.',
+              price: 'Desde $199.990',
+            },
+            {
+              title: 'Estrategia & Análisis',
+              icon: <Lightbulb size={32} />,
+              description: (
+                <>
+                  Consultoría estratégica y análisis basado en datos para optimizar conversiones y posicionamiento competitivo.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Por qué es importante el análisis estratégico?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    La estrategia y análisis descubren oportunidades ocultas y te ayudan a tomar decisiones basadas en datos. Son esenciales para ventaja competitiva y crecimiento.
+                  </div>
+                </>
+              ),
+              features: [
+                'Auditoría UX/UI con testing de usuarios',
+                'Optimización de Tasa de Conversión (CRO)',
+                'Análisis de benchmarking competitivo',
+                'Mapeo de comportamiento de usuarios',
+                'Análisis de funnel y optimización',
+                'Estrategia de testing A/B',
+                'Análisis de posicionamiento en mercado',
+                'Recomendaciones basadas en datos',
+              ],
+              note: 'Incluye investigación, testing y recomendaciones accionables.',
+              price: 'Desde $99.990',
             },
           ],
           additional: [
-            { icon: <Globe size={24} />, title: 'Hosting y dominios', desc: 'Alojamiento web de alta velocidad' },
-            { icon: <Database size={24} />, title: 'Bases de datos', desc: 'Diseño y optimizacion de BD' },
-            { icon: <Shield size={24} />, title: 'Seguridad web', desc: 'SSL, firewalls y proteccion DDoS' },
-            { icon: <Monitor size={24} />, title: 'Landing pages', desc: 'Paginas de aterrizaje optimizadas' },
-            { icon: <Server size={24} />, title: 'APIs e integraciones', desc: 'Conexion con servicios externos' },
-            { icon: <Brush size={24} />, title: 'ReDiseño web', desc: 'Modernizacion de sitios existentes' },
-            { icon: <BarChart size={24} />, title: 'Analytics', desc: 'Metricas y reportes de rendimiento' },
-            { icon: <Zap size={24} />, title: 'Optimizacion', desc: 'Velocidad y Core Web Vitals' },
+            {
+              icon: <ArrowRight size={24} />,
+              title: 'Códigos QR',
+              desc: 'Códigos QR profesionales dinámicos con tracking y analytics',
+            },
+            {
+              icon: <Monitor size={24} />,
+              title: 'Captura de Leads',
+              desc: 'Formularios profesionales, captura de leads y automatización CRM',
+            },
+            {
+              icon: <Globe size={24} />,
+              title: 'Chatbots & IA',
+              desc: 'Chatbots OpenAI, sistemas de helpdesk, automatización de soporte',
+            },
+            {
+              icon: <Database size={24} />,
+              title: 'Setup CRM',
+              desc: 'Implementación y configuración de sistemas CRM y workflows',
+            },
+            {
+              icon: <Zap size={24} />,
+              title: 'Automatización',
+              desc: 'Flujos con n8n/Make, integraciones de APIs, sincronización de datos',
+            },
+            {
+              icon: <Layers size={24} />,
+              title: 'Integraciones',
+              desc: 'Webhooks personalizados y conectores de APIs externas',
+            },
+            {
+              icon: <Ticket size={24} />,
+              title: 'Helpdesk & Soporte',
+              desc: 'Sistemas de ticketing y automatización de soporte al cliente',
+            },
+            {
+              icon: <Video size={24} />,
+              title: 'Video Hosting',
+              desc: 'Video hosting profesional con personalización de player y analytics',
+            },
+            {
+              icon: <Plug size={24} />,
+              title: 'Webhooks & APIs',
+              desc: 'Conectores de APIs personalizados y webhooks para servicios externos',
+            },
+            {
+              icon: <Workflow size={24} />,
+              title: 'Automatización n8n/Make',
+              desc: 'Flujos avanzados de automatización y sincronización de datos',
+            },
+            {
+              icon: <Mail size={24} />,
+              title: 'Newsletter Setup',
+              desc: 'Templates profesionales, automatización y gestión de listas de email',
+            },
+          ],
+          webTypesTitlePrefix: 'Tipos de webs que ',
+          webTypesTitleHighlight: 'especializamos',
+          webTypesSubtitle: 'Conoce los tipos de sitios más demandados y casos de uso',
+          webTypes: [
+            { icon: <Rocket size={20} />, title: 'Landing Pages' },
+            { icon: <ShoppingCart size={20} />, title: 'Tiendas E-commerce' },
+            { icon: <Building size={20} />, title: 'Sitios Corporativos' },
+            { icon: <Newspaper size={20} />, title: 'Blogs y Noticias' },
+            { icon: <Gift size={20} />, title: 'Portal de Membresía' },
+            { icon: <Briefcase size={20} />, title: 'Portfolio Profesional' },
+            { icon: <Calendar size={20} />, title: 'Sistemas de Reservas' },
+            { icon: <BookOpen size={20} />, title: 'Plataformas Educativas' },
+            { icon: <Megaphone size={20} />, title: 'Plataformas de Eventos' },
+            { icon: <Users size={20} />, title: 'Foro de Comunidad' },
+            { icon: <Globe size={20} />, title: 'Catálogos y Directorios' },
+            { icon: <Code size={20} />, title: 'Aplicaciones Web' },
+            { icon: <Monitor size={20} />, title: 'Micrositios' },
+            { icon: <Zap size={20} />, title: 'Soluciones Digitales' },
           ],
           maintenanceCards: [
-            { title: 'Mantenimiento proactivo', desc: 'Actualizaciones, backups y monitoreo para evitar caidas.' },
-            { title: 'Optimizacion continua', desc: 'Mejoras de velocidad, UX y conversiones cada mes.' },
-            { title: 'Reporte mensual', desc: 'Resumen de metricas, avances y proximos pasos.' },
-            { title: 'Soporte prioritario', desc: 'Tiempos de respuesta preferentes y ajustes menores.' },
-            { title: 'Hosting y dominio gestionado', desc: 'Olvidate de lo tecnico: nosotros lo administramos.' },
-            { title: 'Beneficios por permanencia', desc: 'Mejoras o descuentos por continuidad.' },
+            {
+              title: 'Mantenimiento proactivo',
+              desc: 'Actualizaciones, backups y monitoreo para evitar caídas.',
+            },
+            {
+              title: 'Optimización continua',
+              desc: 'Mejoras de velocidad, UX y conversiones cada mes.',
+            },
+            {
+              title: 'Reporte mensual',
+              desc: 'Resumen de métricas, avances y próximos pasos.',
+            },
+            {
+              title: 'Soporte prioritario',
+              desc: 'Tiempos de respuesta preferentes y ajustes menores.',
+            },
+            {
+              title: 'Hosting y dominio gestionado',
+              desc: 'Olvídate de lo técnico: nosotros lo administramos.',
+            },
+            {
+              title: 'Beneficios por permanencia',
+              desc: 'Mejoras o descuentos por continuidad.',
+            },
           ],
           whyItems: [
-            'Metodologia agil y transparente: participacion activa del cliente en todo el proceso.',
+            'Metodología ágil y transparente: participación activa del cliente en todo el proceso.',
             'Entregas frecuentes y posibilidad de cambios: flexibilidad para adaptar el proyecto a tus necesidades.',
-            'Documentacion clara y cronogramas definidos: siempre sabras que se esta haciendo y cuando.',
-            'Diseño moderno y optimizado para rendimiento: sitios elegantes, rapidos y estables.',
-            'Equipo profesional y actualizado: ingenieria, machine learning, seguridad y gestion de proyectos.',
+            'Documentación clara y cronogramas definidos: siempre sabrás qué se está haciendo y cuándo.',
+            'Diseño moderno y optimizado para rendimiento: sitios elegantes, rápidos y estables.',
+            'Equipo profesional y actualizado: ingeniería, machine learning, seguridad y gestión de proyectos.',
           ],
           process: [
-            { step: '01', title: 'Consulta', desc: 'Analizamos tus necesidades y objetivos' },
-            { step: '02', title: 'Propuesta', desc: 'Te enviamos una cotizacion detallada' },
-            { step: '03', title: 'Desarrollo', desc: 'Creamos tu proyecto con revisiones' },
-            { step: '04', title: 'Entrega', desc: 'Lanzamos y te capacitamos' },
+            {
+              step: '01',
+              title: 'Consulta',
+              desc: 'Analizamos tus necesidades y objetivos',
+            },
+            {
+              step: '02',
+              title: 'Propuesta',
+              desc: 'Te enviamos una cotización detallada',
+            },
+            {
+              step: '03',
+              title: 'Desarrollo',
+              desc: 'Creamos tu proyecto con revisiones',
+            },
+            {
+              step: '04',
+              title: 'Entrega',
+              desc: 'Lanzamos y te capacitamos',
+            },
           ],
-          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'MongoDB'],
+          tech: [
+            'React',
+            'Next.js',
+            'Node.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'PostgreSQL',
+            'MongoDB',
+          ],
         };
 
   return (
@@ -524,7 +922,7 @@ function Services() {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                <div className="text-sm text-gray-600 mb-3">{service.description}</div>
                 {service.note && <p className="text-xs text-gray-500 mb-4">{service.note}</p>}
 
                 <ul className="space-y-2 mb-6">
@@ -573,6 +971,40 @@ function Services() {
                 <p className="text-xs text-gray-600">{service.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 bg-base2">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              {copy.webTypesTitlePrefix}
+              <span className="text-primary">{copy.webTypesTitleHighlight}</span>
+            </h2>
+            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.webTypesSubtitle}</p>
+          </div>
+
+          <div className="marquee">
+            <div className="marquee-track" style={{ '--marquee-duration': '40s' }}>
+              {[...copy.webTypes, ...copy.webTypes].map((item, i) => {
+                const isDuplicate = i >= copy.webTypes.length;
+
+                return (
+                  <div
+                    key={`${item.title}-${i}`}
+                    className="marquee-card bg-base border border-gray-300 px-6 py-4 shadow-sm hover:border-primary hover:shadow-md transition flex flex-col items-center text-center gap-2"
+                    aria-hidden={isDuplicate ? 'true' : undefined}
+                  >
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                      {item.icon}
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">{item.title}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

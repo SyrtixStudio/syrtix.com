@@ -23,6 +23,7 @@ function Packages() {
           badgePopular: 'MOST POPULAR',
           paymentMonthly: 'one-time payment',
           paymentYearly: 'includes annual maintenance',
+          emailFootnote: '* Corporate email setup is included. Provider licenses are billed separately.',
           customTitle: 'Need something more custom?',
           customDescription:
             'Every project is unique. If you need special requirements or additional features, contact us for a tailored quote.',
@@ -62,9 +63,9 @@ function Packages() {
                 { name: 'Image carousel', included: true },
                 { name: 'Reviews section', included: true },
                 { name: 'Free SSL', included: true },
-                { name: 'Hosting 1 year', included: true },
+                { name: 'Technical launch setup', included: true },
                 { name: 'Technical support', included: true },
-                { name: 'Admin emails', included: true },
+                { name: 'Corporate email*', included: true },
                 { name: 'Email panel', included: false },
                 { name: 'Domain included', included: false },
                 { name: 'E-commerce', included: false },
@@ -83,6 +84,7 @@ function Packages() {
               priceMonthly: 599990,
               priceYearly: 5999990,
               popular: true,
+              conditionNote: 'Infrastructure and business email are billed monthly based on usage.',
               features: [
                 { name: 'Custom design', included: true },
                 { name: 'Logo design', included: true },
@@ -96,9 +98,9 @@ function Packages() {
                 { name: 'Image carousel', included: true },
                 { name: 'Reviews section', included: true },
                 { name: 'Free SSL', included: true },
-                { name: 'Hosting 1 year', included: true },
+                { name: 'Technical launch setup', included: true },
                 { name: 'Technical support', included: true },
-                { name: 'Admin emails', included: true },
+                { name: 'Corporate email*', included: true },
                 { name: 'Email panel', included: true },
                 { name: 'Domain included', included: true },
                 { name: 'E-commerce', included: true },
@@ -117,6 +119,7 @@ function Packages() {
               priceMonthly: 999990,
               priceYearly: 9999990,
               popular: false,
+              conditionNote: 'Infrastructure and business email are billed monthly based on usage.',
               features: [
                 { name: 'Professional UI/UX design', included: true },
                 { name: 'Logo design', included: true },
@@ -130,9 +133,10 @@ function Packages() {
                 { name: 'Image carousel', included: true },
                 { name: 'Reviews section', included: true },
                 { name: 'Free SSL', included: true },
-                { name: 'Hosting 1 year', included: true },
+                { name: 'Technical launch setup', included: true },
+                { name: 'Scalable architecture + monitoring + SLA', included: true },
                 { name: 'Technical support', included: true },
-                { name: 'Admin emails', included: true },
+                { name: 'Corporate email*', included: true },
                 { name: 'Email panel', included: true },
                 { name: 'Domain included', included: true },
                 { name: 'E-commerce', included: true },
@@ -157,6 +161,7 @@ function Packages() {
           badgePopular: 'MAS POPULAR',
           paymentMonthly: 'pago unico',
           paymentYearly: 'incluye mantenimiento anual',
+          emailFootnote: '* Incluye configuracion de correo corporativo. Las licencias del proveedor se cotizan aparte.',
           customTitle: 'Necesitas algo mas personalizado?',
           customDescription:
             'Cada proyecto es unico. Si tienes requerimientos especiales o necesitas funcionalidades adicionales, contactaños para una cotizacion a medida.',
@@ -196,9 +201,9 @@ function Packages() {
                 { name: 'Carrusel de imágenes', included: true },
                 { name: 'Apartado de reseñas', included: true },
                 { name: 'SSL gratuito', included: true },
-                { name: 'Hosting 1 año', included: true },
+                { name: 'Puesta en marcha técnica', included: true },
                 { name: 'Soporte técnico', included: true },
-                { name: 'Correos administrativos', included: true },
+                { name: 'Correo corporativo*', included: true },
                 { name: 'Panel de emails', included: false },
                 { name: 'Dominio incluido', included: false },
                 { name: 'E-commerce', included: false },
@@ -218,6 +223,7 @@ function Packages() {
               priceMonthly: 599990,
               priceYearly: 5999990,
               popular: true,
+              conditionNote: 'Infraestructura y correos se cotizan mensual según uso.',
               features: [
                 { name: 'Diseño personalizado', included: true },
                 { name: 'Diseño de logo', included: true },
@@ -231,9 +237,9 @@ function Packages() {
                 { name: 'Carrusel de imágenes', included: true },
                 { name: 'Apartado de reseñas', included: true },
                 { name: 'SSL gratuito', included: true },
-                { name: 'Hosting 1 año', included: true },
+                { name: 'Puesta en marcha técnica', included: true },
                 { name: 'Soporte técnico', included: true },
-                { name: 'Correos administrativos', included: true },
+                { name: 'Correo corporativo*', included: true },
                 { name: 'Panel de emails', included: true },
                 { name: 'Dominio incluido', included: true },
                 { name: 'E-commerce', included: true },
@@ -252,6 +258,7 @@ function Packages() {
               priceMonthly: 999990,
               priceYearly: 9999990,
               popular: false,
+              conditionNote: 'Infraestructura y correos se cotizan mensual según uso.',
               features: [
                 { name: 'Diseño UI/UX profesional', included: true },
                 { name: 'Diseño de logo', included: true },
@@ -265,9 +272,10 @@ function Packages() {
                 { name: 'Carrusel de imágenes', included: true },
                 { name: 'Apartado de reseñas', included: true },
                 { name: 'SSL gratuito', included: true },
-                { name: 'Hosting 1 año', included: true },
+                { name: 'Puesta en marcha técnica', included: true },
+                { name: 'Arquitectura escalable + monitoreo + SLA', included: true },
                 { name: 'Soporte técnico', included: true },
-                { name: 'Correos administrativos', included: true },
+                { name: 'Correo corporativo*', included: true },
                 { name: 'Panel de emails', included: true },
                 { name: 'Dominio incluido', included: true },
                 { name: 'E-commerce', included: true },
@@ -346,7 +354,7 @@ function Packages() {
               key={index}
               className={`relative bg-base border-2 ${
                 pkg.popular ? 'border-secondary' : 'border-gray-200'
-              } p-6 transition-all duration-300 hover:border-primary hover:shadow-lg`}
+              } p-6 transition-all duration-300 hover:border-primary hover:shadow-lg flex flex-col h-full`}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -377,24 +385,28 @@ function Packages() {
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {pkg.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm">
-                    {feature.included ? (
-                      <Check size={18} className="text-green-500 mr-2 flex-shrink-0" />
-                    ) : (
-                      <X size={18} className="text-gray-300 mr-2 flex-shrink-0" />
-                    )}
-                    <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
-                      {feature.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-1">
+                <ul className="space-y-3 mb-4">
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm">
+                      {feature.included ? (
+                        <Check size={18} className="text-green-500 mr-2 flex-shrink-0" />
+                      ) : (
+                        <X size={18} className="text-gray-300 mr-2 flex-shrink-0" />
+                      )}
+                      <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
+                        {feature.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {pkg.conditionNote && <p className="text-[11px] text-gray-500 mb-6">{pkg.conditionNote}</p>}
+              </div>
 
               <Link
                 to="/contacto"
-                className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 ${
+                className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 mt-auto ${
                   pkg.popular
                     ? 'bg-secondary text-white hover:bg-blue-900'
                     : 'bg-primary text-gray-900 hover:bg-amber-600'
@@ -405,6 +417,10 @@ function Packages() {
               </Link>
             </div>
           ))}
+        </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-[11px] text-gray-500">{copy.emailFootnote}</p>
         </div>
 
         <div className="mt-16 text-center">

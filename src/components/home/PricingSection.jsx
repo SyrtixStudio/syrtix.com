@@ -18,6 +18,7 @@ function PricingSection() {
           helper:
             'Our packages are more complete than standalone services: planning, design, development, launch, and initial support to convert visitors into customers.',
           growthTip: 'Want ongoing growth? We recommend a monthly maintenance plan.',
+          emailFootnote: '* Corporate email setup is included. Provider licenses are billed separately.',
           viewDetails: 'View full package details',
           packages: [
             {
@@ -41,9 +42,9 @@ function PricingSection() {
                 { text: 'Image carousel', included: true },
                 { text: 'Reviews section', included: true },
                 { text: 'Free SSL', included: true },
-                { text: 'Hosting 1 year', included: true },
+                { text: 'Technical launch setup', included: true },
                 { text: 'Technical support', included: true },
-                { text: 'Admin emails', included: true },
+                { text: 'Corporate email*', included: true },
                 { text: 'Email panel', included: false },
                 { text: 'Domain included', included: false },
                 { text: 'E-commerce', included: false },
@@ -65,6 +66,7 @@ function PricingSection() {
               paymentType: 'one-time payment',
               featured: true,
               badge: 'MOST POPULAR',
+              conditionNote: 'Infrastructure and business email are billed monthly based on usage.',
               features: [
                 { text: 'Custom design', included: true },
                 { text: 'Logo design', included: true },
@@ -78,9 +80,9 @@ function PricingSection() {
                 { text: 'Image carousel', included: true },
                 { text: 'Reviews section', included: true },
                 { text: 'Free SSL', included: true },
-                { text: 'Hosting 1 year', included: true },
+                { text: 'Technical launch setup', included: true },
                 { text: 'Technical support', included: true },
-                { text: 'Admin emails', included: true },
+                { text: 'Corporate email*', included: true },
                 { text: 'Email panel', included: true },
                 { text: 'Domain included', included: true },
                 { text: 'E-commerce', included: true },
@@ -101,6 +103,7 @@ function PricingSection() {
               priceLabel: '$999.990',
               paymentType: 'one-time payment',
               featured: false,
+              conditionNote: 'Infrastructure and business email are billed monthly based on usage.',
               features: [
                 { text: 'Professional UI/UX design', included: true },
                 { text: 'Logo design', included: true },
@@ -114,9 +117,10 @@ function PricingSection() {
                 { text: 'Image carousel', included: true },
                 { text: 'Reviews section', included: true },
                 { text: 'Free SSL', included: true },
-                { text: 'Hosting 1 year', included: true },
+                { text: 'Technical launch setup', included: true },
+                { text: 'Scalable architecture + monitoring + SLA', included: true },
                 { text: 'Technical support', included: true },
-                { text: 'Admin emails', included: true },
+                { text: 'Corporate email*', included: true },
                 { text: 'Email panel', included: true },
                 { text: 'Domain included', included: true },
                 { text: 'E-commerce', included: true },
@@ -139,6 +143,7 @@ function PricingSection() {
           helper:
             'Nuestros paquetes son soluciones mas completas que los servicios a la carta: incluyen planificacion, Diseño, desarrollo, publicacion y acompanamiento inicial para que tu sitio convierta visitantes en clientes.',
           growthTip: 'Quieres crecimiento continuo? Recomendamos un plan mensual de mantenimiento.',
+          emailFootnote: '* Incluye configuracion de correo corporativo. Las licencias del proveedor se cotizan aparte.',
           viewDetails: 'Ver todos los detalles de cada paquete',
           packages: [
             {
@@ -162,9 +167,9 @@ function PricingSection() {
                 { text: 'Carrusel de imágenes', included: true },
                 { text: 'Apartado de reseñas', included: true },
                 { text: 'SSL gratuito', included: true },
-                { text: 'Hosting 1 año', included: true },
+                { text: 'Puesta en marcha técnica', included: true },
                 { text: 'Soporte técnico', included: true },
-                { text: 'Correos administrativos', included: true },
+                { text: 'Correo corporativo*', included: true },
                 { text: 'Panel de emails', included: false },
                 { text: 'Dominio incluido', included: false },
                 { text: 'E-commerce', included: false },
@@ -188,6 +193,7 @@ function PricingSection() {
               paymentType: 'pago unico',
               featured: true,
               badge: 'MAS VENDIDO',
+              conditionNote: 'Infraestructura y correos se cotizan mensual según uso.',
               features: [
                 { text: 'Diseño personalizado', included: true },
                 { text: 'Diseño de logo', included: true },
@@ -201,9 +207,9 @@ function PricingSection() {
                 { text: 'Carrusel de imágenes', included: true },
                 { text: 'Apartado de reseñas', included: true },
                 { text: 'SSL gratuito', included: true },
-                { text: 'Hosting 1 año', included: true },
+                { text: 'Puesta en marcha técnica', included: true },
                 { text: 'Soporte técnico', included: true },
-                { text: 'Correos administrativos', included: true },
+                { text: 'Correo corporativo*', included: true },
                 { text: 'Panel de emails', included: true },
                 { text: 'Dominio incluido', included: true },
                 { text: 'E-commerce', included: true },
@@ -224,6 +230,7 @@ function PricingSection() {
               priceLabel: '$999.990',
               paymentType: 'pago único',
               featured: false,
+              conditionNote: 'Infraestructura y correos se cotizan mensual según uso.',
               features: [
                 { text: 'Diseño UI/UX profesional', included: true },
                 { text: 'Diseño de logo', included: true },
@@ -237,9 +244,10 @@ function PricingSection() {
                 { text: 'Carrusel de imágenes', included: true },
                 { text: 'Apartado de reseñas', included: true },
                 { text: 'SSL gratuito', included: true },
-                { text: 'Hosting 1 año', included: true },
+                { text: 'Puesta en marcha técnica', included: true },
+                { text: 'Arquitectura escalable + monitoreo + SLA', included: true },
                 { text: 'Soporte técnico', included: true },
-                { text: 'Correos administrativos', included: true },
+                { text: 'Correo corporativo*', included: true },
                 { text: 'Panel de emails', included: true },
                 { text: 'Dominio incluido', included: true },
                 { text: 'E-commerce', included: true },
@@ -274,7 +282,7 @@ function PricingSection() {
               key={pkg.id}
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-              className={`relative bg-base border-2 p-6 transition-all duration-300 hover:border-primary hover:shadow-lg ${
+              className={`relative bg-base border-2 p-6 transition-all duration-300 hover:border-primary hover:shadow-lg flex flex-col h-full ${
                 pkg.featured ? 'border-secondary' : 'border-gray-200'
               }`}
             >
@@ -301,24 +309,28 @@ function PricingSection() {
                 <div className="text-sm text-gray-500">{pkg.paymentType}</div>
               </div>
 
-              <ul className="space-y-3 mb-8">
-                {pkg.features.map((feature, fidx) => (
-                  <li key={fidx} className="flex items-center text-sm">
-                    {feature.included ? (
-                      <Check size={18} className="text-green-500 mr-2 flex-shrink-0" />
-                    ) : (
-                      <X size={18} className="text-gray-300 mr-2 flex-shrink-0" />
-                    )}
-                    <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
-                      {feature.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-1">
+                <ul className="space-y-3 mb-4">
+                  {pkg.features.map((feature, fidx) => (
+                    <li key={fidx} className="flex items-center text-sm">
+                      {feature.included ? (
+                        <Check size={18} className="text-green-500 mr-2 flex-shrink-0" />
+                      ) : (
+                        <X size={18} className="text-gray-300 mr-2 flex-shrink-0" />
+                      )}
+                      <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
+                        {feature.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {pkg.conditionNote && <p className="text-[11px] text-gray-500 mb-6">{pkg.conditionNote}</p>}
+              </div>
 
               <Link
                 to={pkg.ctaLink}
-                className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 ${
+                className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 mt-auto ${
                   pkg.featured
                     ? 'bg-secondary text-white hover:bg-blue-900'
                     : 'bg-primary text-gray-900 hover:bg-amber-600'
@@ -332,6 +344,7 @@ function PricingSection() {
 
         <div className="text-center mt-8" data-aos="fade-up">
           <p className="text-xs sm:text-sm text-gray-600 mb-3">{copy.growthTip}</p>
+          <p className="text-[11px] text-gray-500 mb-3">{copy.emailFootnote}</p>
           <Link
             to="/paquetes"
             className="inline-flex items-center text-secondary font-semibold hover:text-primary transition-colors"

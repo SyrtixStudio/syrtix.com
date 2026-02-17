@@ -9,8 +9,10 @@ import {
   PricingSection,
   SecuritySection,
   CtaSection,
+  TransparencySection,
 } from '../components/home';
 import PromocionContacto from '../components/home/PromocionContacto';
+import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { useLanguage } from '../i18n/index.jsx';
 import Contact from '../sections/Contact';
@@ -30,7 +32,7 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Website for small and medium businesses',
+        title: 'Business Website',
         price: 'From $99.990',
         description: 'Modern and scalable technology.',
         list: [
@@ -44,9 +46,9 @@ function Home() {
           'Integrated WhatsApp button',
           'Integrated Google Maps location',
           'Reviews section',
-          'Corporate email included',
+          'Administrative email*',
           'Free SSL certificate',
-          'Free hosting for 1 year',
+          'Technical launch setup',
           'Technical support',
         ],
         delivery: 'Delivery in 7 days',
@@ -55,7 +57,7 @@ function Home() {
 
     return {
       ...common,
-      title: 'Página web para pyme - empresa',
+      title: 'Sitio web para negocios',
       price: 'Desde $99.990',
       description: 'Tecnología moderna y escalable.',
       list: [
@@ -69,9 +71,9 @@ function Home() {
         'WhatsApp integrado',
         'Ubicación en Google Maps',
         'Apartado de reseñas',
-        'Correo corporativo',
+        'Correo administrativo*',
         'SSL gratuito',
-        'Hosting 1 año gratis',
+        'Puesta en marcha técnica',
         'Soporte técnico',
       ],
       delivery: 'Entrega en 7 días',
@@ -98,8 +100,10 @@ function Home() {
         delivery={publicidadWeb.delivery}
       />
       <Hero />
+      <WhatWeDoSection />
       <main className="bg-base">
         <Differentiators />
+        <TransparencySection />
         <PricingSection />
         <PromocionContacto data={publicidadWeb} />
         <PortfolioCarousel />

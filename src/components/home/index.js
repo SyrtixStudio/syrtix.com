@@ -6,3 +6,4 @@ export { default as ProcessSteps } from './ProcessSteps';
 export { default as PricingSection } from './PricingSection';
 export { default as SecuritySection } from './SecuritySection';
 export { default as CtaSection } from './CtaSection';
+export { default as TransparencySection } from './TransparencySection';

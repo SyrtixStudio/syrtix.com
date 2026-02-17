@@ -65,6 +65,7 @@ export default function ModalPublicidad({
           waMessage: `Hi, I want information about ${title} - ${price}`,
           subject: `Request - ${title}`,
           fromName: 'Interested lead',
+          emailFootnote: '* Includes setup. Provider licenses are quoted separately.',
         }
       : {
           close: 'Cerrar',
@@ -87,6 +88,7 @@ export default function ModalPublicidad({
           waMessage: `Hola, quiero informacion sobre ${title} - ${price}`,
           subject: `Solicitud - ${title}`,
           fromName: 'Interesado en paquete',
+          emailFootnote: '* Incluye configuracion. Las licencias del proveedor se cotizan aparte.',
         };
 
   const whatsappSource =
@@ -108,6 +110,7 @@ export default function ModalPublicidad({
   const [message, setMessage] = useState(defaultMessage);
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
+  const hasAsteriskFeature = Array.isArray(list) && list.some((item) => typeof item === 'string' && item.includes('*'));
 
   useEffect(() => {
     if (open) {
@@ -282,6 +285,8 @@ export default function ModalPublicidad({
               ))}
             </ul>
           )}
+
+          {hasAsteriskFeature && <p className="text-[10px] text-gray-500 mb-3">{copy.emailFootnote}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-2 mb-3">
             <input

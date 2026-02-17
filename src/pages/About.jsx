@@ -119,21 +119,25 @@ function About() {
             {
               name: 'Francisco Campos',
               role: 'CEO & Founder',
+              profession: 'Computer Engineer',
               description: '10+ years of experience in software development and digital strategy.',
             },
             {
               name: 'Maria Gonzalez',
               role: 'Design Director',
+              profession: 'UX/UI Designer',
               description: 'UX/UI specialist focused on conversion-driven design.',
             },
             {
               name: 'Andres Silva',
               role: 'Lead Developer',
+              profession: 'Software Engineer',
               description: 'Expert in React, Node.js, and scalable architectures.',
             },
             {
               name: 'Valentina Rojas',
               role: 'Project Manager',
+              profession: 'Project Manager',
               description: 'Ensures each project is delivered on time and exceeds expectations.',
             },
           ],
@@ -238,21 +242,25 @@ function About() {
             {
               name: 'Francisco Campos',
               role: 'CEO & Fundador',
+              profession: 'Ingeniero en Informatica',
               description: 'Mas de 10 años de experiencia en desarrollo de software y estrategia digital.',
             },
             {
               name: 'Maria Gonzalez',
               role: 'Directora de Diseño',
+              profession: 'Diseñadora UX/UI',
               description: 'Especialista en UX/UI con enfoque en Diseños que convierten.',
             },
             {
               name: 'Andres Silva',
               role: 'Lead Developer',
+              profession: 'Ingeniero de Software',
               description: 'Experto en React, Node.js y arquitecturas escalables.',
             },
             {
               name: 'Valentina Rojas',
               role: 'Project Manager',
+              profession: 'Gestora de Proyectos',
               description: 'Garantiza que cada proyecto se entregue a tiempo y supere expectativas.',
             },
           ],
@@ -359,6 +367,7 @@ function About() {
                 <div className="p-4">
                   <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
+                  <p className="text-xs text-gray-500 mb-2">{member.profession}</p>
                   <p className="text-sm text-gray-600 mb-4">{member.description}</p>
                 </div>
               </div>

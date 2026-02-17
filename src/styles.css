@@ -27,3 +27,50 @@
 .animate-side-bounce {
   animation: side-bounce 1.4s ease-in-out infinite;
 }
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee::before,
+.marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 64px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-base) 0%, rgba(253, 253, 253, 0) 100%);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-base) 0%, rgba(253, 253, 253, 0) 100%);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 28s) linear infinite;
+}
+
+.marquee-card {
+  flex: 0 0 auto;
+  min-width: 240px;
+}
