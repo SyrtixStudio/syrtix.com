@@ -108,11 +108,11 @@ function Contact() {
           ],
           budgetRanges: [
             { value: '', label: 'Select your budget' },
-            { value: '0-300', label: 'Less than $300.000' },
-            { value: '300-500', label: '$300.000 - $500.000' },
-            { value: '500-1000', label: '$500.000 - $1.000.000' },
-            { value: '1000-2000', label: '$1.000.000 - $2.000.000' },
-            { value: '2000+', label: 'More than $2.000.000' },
+            { value: '0-300', label: 'Less than $300.000 CLP' },
+            { value: '300-500', label: '$300.000 - $500.000 CLP' },
+            { value: '500-1000', label: '$500.000 - $1.000.000 CLP' },
+            { value: '1000-2000', label: '$1.000.000 - $2.000.000 CLP' },
+            { value: '2000+', label: 'More than $2.000.000 CLP' },
             { value: 'flexible', label: 'Flexible budget' },
           ],
           deadlineOptions: [

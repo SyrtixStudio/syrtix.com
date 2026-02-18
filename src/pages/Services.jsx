@@ -14,7 +14,6 @@ import {
   ArrowRight,
   CheckCircle,
   Monitor,
-  Server,
   Brush,
   BarChart,
   Lightbulb,
@@ -94,7 +93,7 @@ function Services() {
                 'Figma delivery with style guide',
                 'Review with design revisions included',
               ],
-              price: 'From $99.990',
+              price: 'From $149.990 CLP',
             },
             {
               title: 'Web Development',
@@ -108,7 +107,7 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Programming and functionality: performance, integrations, and stability.',
+              note: 'Serious landing pages from $349.990 CLP. Corporate websites from $799.990 CLP. Advanced web development from $1.499.990 CLP.',
               features: [
                 'Landing pages optimized for conversion',
                 'Corporate and institutional websites',
@@ -119,7 +118,7 @@ function Services() {
                 'Educational platforms (LMS) & news/magazine sites',
                 'Custom requirements: blogs, forums, events',
               ],
-              price: 'From $99.990',
+              price: 'From $349.990 CLP',
             },
             {
               title: 'E-commerce & Marketplaces',
@@ -145,8 +144,8 @@ function Services() {
                 'Multi-vendor platform (PREMIUM)',
                 'Commission automation (PREMIUM)',
               ],
-              note: 'Available in Basic, Advanced, and Premium (marketplace) tiers.',
-              price: 'From $299.990',
+              note: 'Available in Basic, Professional, and Premium (marketplace) tiers.',
+              price: 'From $899.990 CLP',
             },
             {
               title: 'Mobile Applications',
@@ -176,7 +175,7 @@ function Services() {
                 'Firebase & custom backend options',
                 'Maintenance & continuous updates',
               ],
-              price: 'From $499.990',
+              price: 'From $1.899.990 CLP',
             },
             {
               title: 'Security & Performance Audit',
@@ -200,7 +199,7 @@ function Services() {
                 'A/B testing & conversion analysis (funnel, abandonment points)',
                 'Complete audit report with action plan & recommendations',
               ],
-              price: 'From $49.990',
+              price: 'From $99.990 CLP',
             },
             {
               title: 'SEO Strategy Setup',
@@ -224,7 +223,7 @@ function Services() {
                 'Implementation recommendations',
                 'Basic training and handover',
               ],
-              price: 'From $399.990',
+              price: 'From $499.990 CLP',
             },
             {
               title: 'SEO Monthly Retainer',
@@ -248,7 +247,7 @@ function Services() {
                 'Technical performance monitoring',
                 'Monthly strategy calls and support',
               ],
-              price: 'From $149.990/month',
+              price: 'From $199.990 CLP/month',
             },
             {
               title: 'Maintenance & Support',
@@ -273,7 +272,7 @@ function Services() {
                 'Priority technical support',
               ],
               note: 'Available in Basic, Professional, and Premium (99.9% uptime SLA) plans.',
-              price: 'From $49.990/month',
+              price: 'From $59.990 CLP/month',
             },
             {
               title: 'Rebranding & Strategy',
@@ -298,7 +297,7 @@ function Services() {
                 'Market positioning consultation',
               ],
               note: 'Available as complete rebranding or light refresh option.',
-              price: 'From $199.990',
+              price: 'From $799.990 CLP',
             },
             {
               title: 'Strategy & Analysis',
@@ -323,7 +322,35 @@ function Services() {
                 'Data-driven recommendations',
               ],
               note: 'Includes research, testing, and actionable recommendations.',
-              price: 'From $249.990',
+              price: 'From $199.990 CLP',
+            },
+            {
+              title: 'Complementary Services',
+              icon: <Layers size={32} />,
+              description: (
+                <>
+                  Strategic add-on services to strengthen your digital operation with integrations, automation, and support tools.
+                  <div className="mt-3 text-primary text-sm font-semibold">What do these complementary services include?</div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    These are optional modules you can add based on your project stage and growth goals.
+                  </div>
+                </>
+              ),
+              features: [
+                'Professional dynamic QR codes with tracking',
+                'Lead capture forms with CRM integrations',
+                'Basic chatbots (FAQ and automated responses)',
+                'OpenAI AI chatbots (advanced conversational flows)',
+                'Helpdesk and ticketing systems',
+                'CRM setup and workflow configuration',
+                'Video hosting with custom player and analytics',
+                'Tool integrations (GA4, Search Console, Calendly, Zapier)',
+                'Custom webhooks and API connectors',
+                'n8n/Make automation workflows',
+                'Newsletter setup and email templates',
+              ],
+              note: 'Available as add-ons with custom scope and quote.',
+              price: 'Custom quote',
             },
           ],
           additional: [
@@ -383,7 +410,7 @@ function Services() {
               desc: 'Professional email templates, automation, and list management',
             },
           ],
-          webTypesTitlePrefix: 'Types of webs we ',
+          webTypesTitlePrefix: 'Website types we ',
           webTypesTitleHighlight: 'specialize in',
           webTypesSubtitle: 'Check the most in-demand website types and use cases',
           webTypes: [
@@ -420,8 +447,8 @@ function Services() {
               desc: 'Preferred response times and minor adjustments.',
             },
             {
-              title: 'Managed hosting and domain',
-              desc: 'Forget technical tasks: we handle them.',
+              title: 'Managed hosting/domain (add-on)',
+              desc: 'Optional add-on: setup and ongoing management.',
             },
             {
               title: 'Loyalty benefits',
@@ -519,7 +546,7 @@ function Services() {
                 'Entrega en Figma con guía de estilos',
                 'Revisión con rondas de cambios incluidas',
               ],
-              price: 'Desde $99.990',
+              price: 'Desde $149.990',
             },
             {
               title: 'Desarrollo Web',
@@ -535,7 +562,7 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Programación y funcionalidad: performance, integraciones y estabilidad.',
+              note: 'Landing seria desde $349.990. Web corporativa desde $799.990. Desarrollo web avanzado desde $1.499.990.',
               features: [
                 'Landing pages optimizadas para conversión',
                 'Sitios web corporativos e institucionales',
@@ -546,7 +573,7 @@ function Services() {
                 'Plataformas educativas (LMS) y sitios de noticias',
                 'Requisitos personalizados: blogs, foros, eventos',
               ],
-              price: 'Desde $99.990',
+              price: 'Desde $349.990',
             },
             {
               title: 'E-commerce & Marketplaces',
@@ -574,8 +601,8 @@ function Services() {
                 'Plataforma multi-vendedor (PREMIUM)',
                 'Automatización de comisiones (PREMIUM)',
               ],
-              note: 'Disponible en niveles Basic, Advanced y Premium (marketplace).',
-              price: 'Desde $299.990',
+              note: 'Disponible en niveles Básico, Profesional y Premium (marketplace).',
+              price: 'Desde $899.990',
             },
             {
               title: 'Aplicaciones Móviles',
@@ -607,7 +634,7 @@ function Services() {
                 'Firebase e integración de backend personalizado',
                 'Mantenimiento y actualizaciones continuas',
               ],
-              price: 'Desde $499.990',
+              price: 'Desde $1.899.990',
             },
             {
               title: 'Auditoría de Seguridad & Performance',
@@ -633,7 +660,7 @@ function Services() {
                 'Testing A/B y conversiones (análisis de funnel, puntos de abandono)',
                 'Reporte completo de auditoría (recomendaciones detalladas y plan de acción)',
               ],
-              price: 'Desde $49.990',
+              price: 'Desde $99.990',
             },
             {
               title: 'Setup SEO Estratégico',
@@ -659,7 +686,7 @@ function Services() {
                 'Recomendaciones de implementación',
                 'Capacitación básica y entrega',
               ],
-              price: 'Desde $399.990',
+              price: 'Desde $499.990',
             },
             {
               title: 'SEO Retainer Mensual',
@@ -685,7 +712,7 @@ function Services() {
                 'Monitoreo técnico y performance',
                 'Llamadas estratégicas mensuales y soporte',
               ],
-              price: 'Desde $149.990/mes',
+              price: 'Desde $199.990/mes',
             },
             {
               title: 'Mantenimiento & Soporte',
@@ -711,8 +738,8 @@ function Services() {
                 'Reportes mensuales de salud del sitio',
                 'Soporte técnico prioritario',
               ],
-              note: 'Disponible en planes Basic, Professional y Premium (SLA 99.9% uptime).',
-              price: 'Desde $49.990/mes',
+              note: 'Disponible en planes Básico, Profesional y Premium (SLA 99.9% uptime).',
+              price: 'Desde $59.990 por mes',
             },
             {
               title: 'Rebranding & Estrategia',
@@ -739,7 +766,7 @@ function Services() {
                 'Consultoría de posicionamiento en mercado',
               ],
               note: 'Disponible como rebranding completo o opción de refreshing ligero.',
-              price: 'Desde $199.990',
+              price: 'Desde $799.990',
             },
             {
               title: 'Estrategia & Análisis',
@@ -766,7 +793,37 @@ function Services() {
                 'Recomendaciones basadas en datos',
               ],
               note: 'Incluye investigación, testing y recomendaciones accionables.',
-              price: 'Desde $249.990',
+              price: 'Desde $199.990',
+            },
+            {
+              title: 'Servicios Complementarios',
+              icon: <Layers size={32} />,
+              description: (
+                <>
+                  Servicios add-on estratégicos para potenciar tu operación digital con integraciones, automatización y herramientas de soporte.
+                  <div className="mt-3 text-primary text-sm font-semibold">
+                    ¿Qué incluyen estos servicios complementarios?
+                  </div>
+                  <div className="text-gray-700 text-xs mb-2">
+                    Son módulos opcionales que puedes activar según la etapa de tu proyecto y objetivos de crecimiento.
+                  </div>
+                </>
+              ),
+              features: [
+                'Creación de QRs profesionales dinámicos con tracking',
+                'Formularios y captura de leads con integración CRM',
+                'Chatbots básicos (FAQ y respuestas automáticas)',
+                'Chatbots IA con OpenAI (flujos conversacionales avanzados)',
+                'Sistemas de helpdesk y tickets',
+                'Setup CRM y configuración de workflows',
+                'Video hosting con player personalizado y analytics',
+                'Integración de herramientas (GA4, Search Console, Calendly, Zapier)',
+                'Webhooks y conectores de APIs personalizadas',
+                'Automatización con n8n/Make',
+                'Newsletter setup y templates de email',
+              ],
+              note: 'Disponible como add-ons con alcance y cotización personalizada.',
+              price: 'Cotización personalizada',
             },
           ],
           additional: [
@@ -826,7 +883,7 @@ function Services() {
               desc: 'Templates profesionales, automatización y gestión de listas de email',
             },
           ],
-          webTypesTitlePrefix: 'Tipos de webs que ',
+          webTypesTitlePrefix: 'Tipos de webs en las que nos ',
           webTypesTitleHighlight: 'especializamos',
           webTypesSubtitle: 'Conoce los tipos de sitios más demandados y casos de uso',
           webTypes: [
@@ -863,8 +920,8 @@ function Services() {
               desc: 'Tiempos de respuesta preferentes y ajustes menores.',
             },
             {
-              title: 'Hosting y dominio gestionado',
-              desc: 'Olvídate de lo técnico: nosotros lo administramos.',
+              title: 'Hosting/dominio gestionado (add-on)',
+              desc: 'Add-on opcional: setup y administración continua.',
             },
             {
               title: 'Beneficios por permanencia',
@@ -967,11 +1024,18 @@ function Services() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {copy.services.map((service, idx) => (
-              <div
-                key={idx}
-                className="bg-base border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 group"
-              >
+            {copy.services.map((service, idx) => {
+              const isLastService = idx === copy.services.length - 1;
+              const hasSingleRemainderOnLg = copy.services.length % 3 === 1;
+              const spanFullRowOnLg = isLastService && hasSingleRemainderOnLg;
+
+              return (
+                <div
+                  key={idx}
+                  className={`bg-base border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 group ${
+                    spanFullRowOnLg ? 'lg:col-span-3' : ''
+                  }`}
+                >
                 <div className="flex items-center mb-4">
                   <div className="bg-primary/10 p-3 mr-4 group-hover:bg-primary transition-all duration-300">
                     <div className="text-primary group-hover:text-gray-900 transition-all duration-300">
@@ -1003,36 +1067,9 @@ function Services() {
                   {copy.requestService}
                   <ArrowRight size={16} className="ml-1" />
                 </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base2">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              {copy.additionalTitlePrefix}
-              <span className="text-primary">{copy.additionalTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.additionalSubtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {copy.additional.map((service, idx) => (
-              <div
-                key={idx}
-                className="bg-base p-4 border border-gray-200 hover:border-primary text-center transition-all duration-300"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-secondary/10 text-secondary mb-3">
-                  {service.icon}
                 </div>
-                <h3 className="text-sm font-bold text-gray-900 mb-1">{service.title}</h3>
-                <p className="text-xs text-gray-600">{service.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1189,3 +1226,4 @@ function Services() {
 }
 
 export default Services;
+

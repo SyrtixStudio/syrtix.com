@@ -29,42 +29,42 @@ function ServicesGrid() {
               icon: 'Palette',
               title: 'Web design',
               description: 'Unique custom designs that reflect your brand identity.',
-              price: 'From $99.990',
+              price: 'From $99.990 CLP',
             },
             {
               id: 'development',
               icon: 'Code',
               title: 'Custom development',
               description: 'Custom solutions with the latest technologies.',
-              price: 'From $199.990',
+              price: 'From $199.990 CLP',
             },
             {
               id: 'ecommerce',
               icon: 'ShoppingCart',
               title: 'E-commerce',
               description: 'Basic online stores with payments and inventory management.',
-              price: 'From $299.990',
+              price: 'From $299.990 CLP',
             },
             {
               id: 'seo',
               icon: 'Search',
               title: 'SEO',
               description: 'Search optimization to improve your visibility on Google.',
-              price: 'From $79.990/month',
+              price: 'From $79.990 CLP/month',
             },
             {
               id: 'apps',
               icon: 'Smartphone',
               title: 'Mobile apps',
               description: 'Native apps and PWAs for iOS and Android.',
-              price: 'From $499.990',
+              price: 'From $499.990 CLP',
             },
             {
               id: 'maintenance',
               icon: 'Settings',
               title: 'Maintenance',
               description: 'Updates, backups, and ongoing technical support.',
-              price: 'From $49.990/month',
+              price: 'From $49.990 CLP/month',
             },
           ],
           plans: [
@@ -72,7 +72,7 @@ function ServicesGrid() {
               id: 'start',
               title: 'SMB Website',
               subtitle: 'Up to 5 pages or sections',
-              price: 'Diagnostic from $49.990',
+              price: 'Diagnostic from $49.990 CLP',
               description:
                 'We audit your current website and define the exact improvement plan before implementation.',
               includes: [
@@ -86,7 +86,7 @@ function ServicesGrid() {
               id: 'grow',
               title: 'SMB Plus Website',
               subtitle: '6-15 pages + modules',
-              price: 'Diagnostic from $99.990',
+              price: 'Diagnostic from $99.990 CLP',
               description:
                 'For websites with integrations and critical flows that need a complete review.',
               includes: [
@@ -102,7 +102,7 @@ function ServicesGrid() {
               id: 'pro',
               title: 'Enterprise Website',
               subtitle: 'More than 15 pages or ecommerce',
-              price: 'Diagnostic from $149.990',
+              price: 'Diagnostic from $149.990 CLP',
               description:
                 'For complex projects: ecommerce, multi-site platforms, or advanced business logic.',
               includes: [

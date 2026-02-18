@@ -125,7 +125,7 @@ function WhatWeDoSection() {
         <div className="text-base md:text-lg text-gray-700 mb-4">
           <div className="font-semibold text-gray-900 mb-4">{t.servicesTitle}</div>
           <div className="marquee">
-            <div className="marquee-track" style={{ '--marquee-duration': '28s' }}>
+            <div className="marquee-track" style={{ '--marquee-duration': '45s' }}>
               {repeatedServices.map((item, i) => {
                 const Icon = icons[i % t.services.length];
                 const isDuplicate = i >= t.services.length;

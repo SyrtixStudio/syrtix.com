@@ -48,7 +48,7 @@ const TermsAndConditions = () => {
                 'Unless expressly agreed, hosting, domain, SSL certificates, backups, infrastructure, third-party licenses, and operational costs are not included.',
                 'Post-launch support generally includes bug fixes attributable to delivered development for a limited period. Extended support requires a specific plan.',
                 'Any new integration, feature, or scope change not included in the accepted proposal will be quoted separately.',
-                'Maintenance services start from $49.990 and final value depends on project complexity and magnitude.',
+                'Maintenance services start from $49.990 CLP and final value depends on project complexity and magnitude.',
               ],
             },
             {

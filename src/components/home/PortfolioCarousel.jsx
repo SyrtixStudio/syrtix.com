@@ -227,21 +227,13 @@ function PortfolioCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
                       <span className="text-primary text-xs font-bold mb-1">{category}</span>
                       <h3 className="text-white font-bold text-lg mb-2">{title}</h3>
-                      {project.url ? (
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-primary text-sm font-bold"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {copy.viewProject} <ExternalLink size={14} className="ml-1" />
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center text-primary text-sm font-bold opacity-50 cursor-not-allowed">
-                          {copy.viewProject} <ExternalLink size={14} className="ml-1" />
-                        </span>
-                      )}
+                      <span
+                        className={`inline-flex items-center text-primary text-sm font-bold ${
+                          project.url ? '' : 'opacity-50 cursor-not-allowed'
+                        }`}
+                      >
+                        {copy.viewProject} <ExternalLink size={14} className="ml-1" />
+                      </span>
                     </div>
 
                     <div className="p-4 bg-base">

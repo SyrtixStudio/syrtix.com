@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { ChevronLeft, ChevronRight, ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
 
 import { useLanguage } from '../i18n/index.jsx';
 
@@ -20,28 +20,16 @@ const heroImages = [
 
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const { t } = useLanguage();
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % heroImages.length);
   }, []);
 
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  }, []);
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
   useEffect(() => {
-    if (!isAutoPlaying) return;
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide]);
+  }, [nextSlide]);
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center">
@@ -64,32 +52,14 @@ function Hero() {
         ))}
       </div>
 
-      {/* Controles del carrusel */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-primary p-3 transition duration-300 group"
-        aria-label={t('hero.carousel.prev')}
-      >
-        <ChevronLeft size={24} className="text-white group-hover:text-gray-900" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-primary p-3 transition duration-300 group"
-        aria-label={t('hero.carousel.next')}
-      >
-        <ChevronRight size={24} className="text-white group-hover:text-gray-900" />
-      </button>
-
-      {/* Indicadores */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroImages.map((_, index) => (
-          <button
+          <div
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 transition-all duration-300 ${
-              index === currentIndex ? 'bg-primary w-8' : 'bg-white/50 hover:bg-white'
+            className={`h-3 transition-all duration-300 ${
+              index === currentIndex ? 'bg-primary w-8' : 'bg-white/50 w-3'
             }`}
-            aria-label={`${t('hero.carousel.goTo')} ${index + 1}`}
+            aria-hidden="true"
           />
         ))}
       </div>

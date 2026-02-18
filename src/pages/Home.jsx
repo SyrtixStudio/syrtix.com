@@ -33,7 +33,7 @@ function Home() {
       return {
         ...common,
         title: 'Business Website',
-        price: 'From $99.990',
+        price: 'From $99.990 CLP',
         description: 'Modern and scalable technology.',
         list: [
           'Personal design',

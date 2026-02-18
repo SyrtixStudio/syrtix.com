@@ -48,7 +48,7 @@ export default function ModalPublicidad({
           close: 'Close',
           sideLabel: 'Designs that convert',
           sideTags: 'UI/UX · Branding · Contact · Social · SEO',
-          marquee: 'Professional website from $99.990 - limited slots - free consulting',
+          marquee: 'Professional website from $99.990 CLP - limited slots - free consulting',
           promoEnds: 'Offer ends on Feb 15',
           promoOver: 'Offer ended.',
           namePlaceholder: 'Your name',
