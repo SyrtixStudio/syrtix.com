@@ -118,7 +118,9 @@ const portfolio = [
 function PortfolioCarousel() {
   const { lang } = useLanguage();
   const [portfolioIndex, setPortfolioIndex] = useState(0);
-  const itemsPerView = 6;
+  const [itemsPerView, setItemsPerView] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 6,
+  );
   const totalPages = Math.ceil(portfolio.length / itemsPerView);
 
   const copy =
@@ -167,6 +169,27 @@ function PortfolioCarousel() {
     return () => clearInterval(interval);
   }, [nextPortfolio]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const handleMediaChange = (event) => {
+      setItemsPerView(event.matches ? 1 : 6);
+    };
+
+    setItemsPerView(mediaQuery.matches ? 1 : 6);
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange);
+      return () => mediaQuery.removeEventListener('change', handleMediaChange);
+    }
+
+    mediaQuery.addListener(handleMediaChange);
+    return () => mediaQuery.removeListener(handleMediaChange);
+  }, []);
+
+  useEffect(() => {
+    setPortfolioIndex((prev) => prev % totalPages);
+  }, [totalPages]);
+
   const getVisibleItems = () => {
     const startIndex = portfolioIndex * itemsPerView;
     const items = [];
@@ -194,7 +217,7 @@ function PortfolioCarousel() {
         <div className="relative" data-aos="fade-up" data-aos-delay="200">
           <button
             onClick={prevPortfolio}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-3 transition duration-300 group -ml-8"
+            className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-2 sm:p-3 transition duration-300 group sm:-ml-8"
             aria-label={copy.prevProject}
           >
             <ChevronLeft size={24} className="text-gray-900 group-hover:text-white" />
@@ -202,13 +225,13 @@ function PortfolioCarousel() {
 
           <button
             onClick={nextPortfolio}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-3 transition duration-300 group -mr-8"
+            className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-2 sm:p-3 transition duration-300 group sm:-mr-8"
             aria-label={copy.nextProject}
           >
             <ChevronRight size={24} className="text-gray-900 group-hover:text-white" />
           </button>
 
-          <div className="overflow-hidden mx-8">
+          <div className="overflow-hidden mx-0 sm:mx-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {visibleItems.map((project, idx) => {
                 const title = lang === 'en' ? project.titleEn : project.titleEs;
@@ -266,8 +289,8 @@ function PortfolioCarousel() {
             </div>
           </div>
 
-          <div className="flex justify-center mt-8 gap-2">
-            {portfolio.map((_, idx) => (
+          <div className="hidden sm:flex justify-center mt-8 gap-2">
+            {Array.from({ length: totalPages }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setPortfolioIndex(idx)}

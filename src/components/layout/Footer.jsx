@@ -45,6 +45,9 @@ function Footer() {
           workHours: 'Mon-Fri 9:00-19:00',
           responseTime: 'Reply within 24h',
           followUs: 'Follow us',
+          entrepreneursLine:
+            'Are you an entrepreneur? Get affordable websites and basic ecommerce at Openwebs.',
+          openwebsBy: 'Openwebs by syrtix',
           rights: 'All rights reserved.',
           privacy: 'Privacy',
           terms: 'Terms',
@@ -74,6 +77,9 @@ function Footer() {
           workHours: 'Lun-Vie 9:00-19:00',
           responseTime: 'Respuesta en 24h',
           followUs: 'Siguenos',
+          entrepreneursLine:
+            'Eres emprendedor? Encuentra sitios web accesibles y ecommerce basico en Openwebs.',
+          openwebsBy: 'Openwebs by syrtix',
           rights: 'Todos los derechos reservados.',
           privacy: 'Privacidad',
           terms: 'Terminos',
@@ -224,6 +230,28 @@ function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="mb-8 p-4 border border-gray-700 bg-gray-800/40">
+            <a
+              href="https://openwebs.cl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 group"
+            >
+              <img
+                src="/img/logos/img-openwebs.cl.webp"
+                alt="openwebs.cl"
+                className="h-10 w-auto object-contain"
+                loading="lazy"
+              />
+              <div>
+                <p className="text-sm text-gray-300 group-hover:text-white transition duration-300">
+                  {copy.entrepreneursLine}
+                </p>
+                <p className="text-xs text-primary mt-1">{copy.openwebsBy}</p>
+              </div>
+            </a>
+          </div>
+
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} {COMPANY.name}. {copy.rights}
