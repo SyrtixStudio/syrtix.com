@@ -9,70 +9,98 @@ function Differentiators() {
       ? {
           titlePrefix: 'Why choose ',
           titleBrand: 'syrtix',
-          subtitle: 'We combine cutting-edge technology with results-driven design',
+          subtitle: 'Clear process, transparent pricing, and measurable outcomes.',
           cards: [
             {
-              id: 'ia',
-              icon: 'Zap',
-              title: 'AI-powered development',
+              id: 'scope',
+              icon: 'CheckCircle',
+              title: 'Clear scope from day one',
               description:
-                'We use artificial intelligence to speed up development and deliver your website in record time.',
+                'We define deliverables and timelines in writing before development starts.',
             },
             {
-              id: 'pricing',
+              id: 'payments',
               icon: 'DollarSign',
-              title: 'Affordable pricing',
+              title: 'Milestone-based payments',
               description:
-                'Plans for every budget without sacrificing quality or key features.',
+                'You pay by progress, with visibility on what is delivered at each stage.',
             },
             {
-              id: 'support',
-              icon: 'Clock',
-              title: '24/7 support',
+              id: 'ownership',
+              icon: 'Lock',
+              title: 'Full ownership and access',
               description:
-                'We are available when you need us. Ongoing technical support for your peace of mind.',
+                'Your website, assets, and project access stay in your control.',
             },
             {
-              id: 'conversion',
+              id: 'costs',
+              icon: 'Shield',
+              title: 'No hidden costs',
+              description:
+                'Transparent pricing with no surprise charges during the project.',
+            },
+            {
+              id: 'infra',
+              icon: 'Server',
+              title: 'Usage-based infrastructure',
+              description:
+                'Hosting and provider licenses are quoted separately based on real usage.',
+            },
+            {
+              id: 'results',
               icon: 'TrendingUp',
-              title: 'Conversion focus',
+              title: 'Conversion-focused execution',
               description:
-                'We design for outcomes. Every element is optimized to turn visitors into customers.',
+                'Design and development are focused on turning visits into leads and sales.',
             },
           ],
         }
       : {
           titlePrefix: 'Por que elegir ',
           titleBrand: 'syrtix',
-          subtitle: 'Combinamos tecnologia de vanguardia con Diseño centrado en resultados',
+          subtitle: 'Proceso claro, costos transparentes y resultados medibles.',
           cards: [
             {
-              id: 'ia',
-              icon: 'Zap',
-              title: 'Desarrollo con IA',
+              id: 'scope',
+              icon: 'CheckCircle',
+              title: 'Alcance claro desde el inicio',
               description:
-                'Utilizamos inteligencia artificial para acelerar el desarrollo y entregar tu sitio web en tiempo record.',
+                'Definimos entregables y plazos por escrito antes de comenzar.',
             },
             {
-              id: 'pricing',
+              id: 'payments',
               icon: 'DollarSign',
-              title: 'Precios accesibles',
+              title: 'Pagos por hitos',
               description:
-                'Planes disenados para cada presupuesto, sin sacrificar calidad ni funcionalidades.',
+                'Pagas por avance real, con visibilidad de cada etapa del proyecto.',
             },
             {
-              id: 'support',
-              icon: 'Clock',
-              title: 'Soporte 24/7',
+              id: 'ownership',
+              icon: 'Lock',
+              title: 'Propiedad y accesos para ti',
               description:
-                'Estamos disponibles cuando nos necesites. Soporte tecnico continuo para tu tranquilidad.',
+                'Tu sitio, recursos y accesos quedan bajo tu control.',
             },
             {
-              id: 'conversion',
+              id: 'costs',
+              icon: 'Shield',
+              title: 'Sin costos ocultos',
+              description:
+                'Cotizacion transparente, sin cobros sorpresa durante la implementacion.',
+            },
+            {
+              id: 'infra',
+              icon: 'Server',
+              title: 'Infraestructura segun uso real',
+              description:
+                'Hosting y licencias de proveedores se cotizan por separado segun consumo.',
+            },
+            {
+              id: 'results',
               icon: 'TrendingUp',
               title: 'Enfoque en conversion',
               description:
-                'Disenamos pensando en resultados. Cada elemento optimizado para convertir visitantes en clientes.',
+                'Disenamos y desarrollamos para transformar visitas en clientes.',
             },
           ],
         };
@@ -89,7 +117,7 @@ function Differentiators() {
           <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {copy.cards.map((item, idx) => (
             <div
               key={item.id}

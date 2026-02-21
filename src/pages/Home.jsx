@@ -9,7 +9,6 @@ import {
   PricingSection,
   SecuritySection,
   CtaSection,
-  TransparencySection,
 } from '../components/home';
 import PromocionContacto from '../components/home/PromocionContacto';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
@@ -17,6 +16,8 @@ import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { useLanguage } from '../i18n/index.jsx';
 import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
+
+const PROMO_MODAL_DELAY_MS = import.meta.env.DEV ? 1200 : 25000;
 
 function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -32,65 +33,82 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Business Website',
-        price: 'From $99.990 CLP',
-        description: 'Modern and scalable technology.',
+        title: 'Landing Starter',
+        oldPrice: '$299.990 CLP',
+        price: '$149.990 CLP',
+        promoLabel: 'MEGA LIMITED OFFER',
+        offerEndsAt: '2026-03-15T23:59:59-03:00',
+        description: 'Single-page website designed to capture leads fast.',
         list: [
-          'Personal design',
+          'Professional design',
           'Visual identity',
           'Responsive design',
           'Landing page',
-          'Initial SEO setup',
+          'Basic Google setup',
           'Contact form',
-          'Social media links',
-          'Integrated WhatsApp button',
-          'Integrated Google Maps location',
-          'Reviews section',
-          'Administrative email*',
-          'Free SSL certificate',
-          'Technical launch setup',
-          'Technical support',
+          'WhatsApp button',
+          'Google Maps integration',
+          'Business email setup*',
+          'Website launch configuration',
+          '30-day post-launch guidance',
         ],
         delivery: 'Delivery in 7 days',
       };
     }
 
-    return {
-      ...common,
-      title: 'Sitio web para negocios',
-      price: 'Desde $99.990',
-      description: 'Tecnología moderna y escalable.',
+      return {
+        ...common,
+      title: 'Landing Starter',
+      oldPrice: '$299.990',
+      price: '$149.990',
+      promoLabel: 'MEGA OFERTA LIMITADA',
+      offerEndsAt: '2026-03-15T23:59:59-03:00',
+      description: 'Sitio de una pagina para captar clientes de forma rapida.',
       list: [
-        'Diseño personalizado',
+        'Diseno profesional',
         'Identidad visual',
         'Diseño responsive',
         'Landing page',
-        'SEO esencial',
+        'Setup basico para Google',
         'Formulario de contacto',
-        'Redes sociales integradas',
         'WhatsApp integrado',
         'Ubicación en Google Maps',
-        'Apartado de reseñas',
-        'Correo administrativo*',
-        'SSL gratuito',
-        'Puesta en marcha técnica',
-        'Soporte técnico',
+        'Configuracion correo corporativo*',
+        'Configuracion y publicacion del sitio',
+        'Acompanamiento post-lanzamiento por 30 dias',
       ],
       delivery: 'Entrega en 7 días',
     };
   }, [lang]);
 
   useEffect(() => {
-    setShowModal(true);
+    const modalSeen = !import.meta.env.DEV && sessionStorage.getItem('promo_modal_seen') === '1';
+    if (modalSeen) return;
+
+    const timerId = setTimeout(() => {
+      setShowModal(true);
+    }, PROMO_MODAL_DELAY_MS);
+
+    return () => clearTimeout(timerId);
   }, []);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    if (!import.meta.env.DEV) {
+      sessionStorage.setItem('promo_modal_seen', '1');
+    }
+  };
 
   return (
     <div className="w-full overflow-hidden">
       <ModalPublicidad
         open={showModal}
-        onClose={() => setShowModal(false)}
+        onClose={handleCloseModal}
         title={publicidadWeb.title}
+        oldPrice={publicidadWeb.oldPrice}
         price={publicidadWeb.price}
+        promoLabel={publicidadWeb.promoLabel}
+        offerEndsAt={publicidadWeb.offerEndsAt}
         description={publicidadWeb.description}
         details={publicidadWeb.details}
         list={publicidadWeb.list}
@@ -100,18 +118,17 @@ function Home() {
         delivery={publicidadWeb.delivery}
       />
       <Hero />
-      <WhatWeDoSection />
       <main className="bg-base">
-        <Differentiators />
-        <TransparencySection />
-        <PricingSection />
-        <PromocionContacto data={publicidadWeb} />
+        <WhatWeDoSection />
         <PortfolioCarousel />
+        <Differentiators />
+        <PricingSection />
         <Testimonials />
+        <CtaSection />
+        <PromocionContacto data={publicidadWeb} />
         <ServicesGrid />
         <ProcessSteps />
         <SecuritySection />
-        <CtaSection />
         <Contact />
       </main>
     </div>
