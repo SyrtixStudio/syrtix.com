@@ -106,7 +106,7 @@ function Differentiators() {
         };
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-base">
+    <section className="py-16 px-4 sm:px-6 bg-base2">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">

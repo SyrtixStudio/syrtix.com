@@ -258,65 +258,6 @@ function ServicesGrid() {
           ))}
         </div>
 
-        <div className="mt-16" data-aos="fade-up">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              {copy.upgradeTitlePrefix}
-              <span className="text-primary">{copy.upgradeTitleHighlight}</span>
-              {copy.upgradeTitleSuffix}
-            </h3>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-3xl mx-auto">{copy.upgradeSubtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {copy.plans.map((plan, idx) => (
-              <div
-                key={plan.id}
-                data-aos="fade-up"
-                data-aos-delay={idx * 100}
-                className={`border-2 p-6 bg-base transition-all duration-300 hover:shadow-lg ${
-                  plan.featured
-                    ? 'border-primary shadow-md relative'
-                    : 'border-gray-200 hover:border-primary'
-                }`}
-              >
-                {plan.badge && (
-                  <span className="absolute -top-3 left-6 bg-primary text-gray-900 text-xs font-bold px-3 py-1">
-                    {plan.badge}
-                  </span>
-                )}
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900">{plan.title}</h4>
-                    <p className="text-xs text-gray-500">{plan.subtitle}</p>
-                  </div>
-                  <span className="text-primary font-bold text-sm">{plan.price}</span>
-                </div>
-                <p className="text-sm text-gray-600 mb-4">{plan.description}</p>
-                <ul className="space-y-2 text-sm text-gray-700 mb-6">
-                  {plan.includes.map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="text-primary font-bold mr-2">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/contacto"
-                  className={`inline-flex items-center text-sm font-bold transition-all duration-300 ${
-                    plan.featured
-                      ? 'bg-secondary text-white px-4 py-2 hover:bg-primary'
-                      : 'text-secondary hover:text-primary'
-                  }`}
-                >
-                  {copy.requestDiagnostic}
-                  <ArrowRight size={16} className="ml-2" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
 
         <div className="text-center mt-12">
           <Link
@@ -333,3 +274,4 @@ function ServicesGrid() {
 }
 
 export default ServicesGrid;
+

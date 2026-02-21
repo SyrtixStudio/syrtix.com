@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useLanguage } from '../../i18n/index.jsx';
 
@@ -66,6 +66,7 @@ export default function ModalPublicidad({
           subject: `Request - ${title}`,
           fromName: 'Interested lead',
           emailFootnote: '* Includes setup. Provider licenses are quoted separately.',
+          scrollDown: 'Scroll down',
         }
       : {
           close: 'Cerrar',
@@ -89,6 +90,7 @@ export default function ModalPublicidad({
           subject: `Solicitud - ${title}`,
           fromName: 'Interesado en paquete',
           emailFootnote: '* Incluye configuracion. Las licencias del proveedor se cotizan aparte.',
+          scrollDown: 'Desliza hacia abajo',
         };
 
   const whatsappSource =
@@ -110,7 +112,26 @@ export default function ModalPublicidad({
   const [message, setMessage] = useState(defaultMessage);
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
+  const [showScrollHint, setShowScrollHint] = useState(false);
+  const contentRef = useRef(null);
   const hasAsteriskFeature = Array.isArray(list) && list.some((item) => typeof item === 'string' && item.includes('*'));
+
+  const updateScrollHint = () => {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      setShowScrollHint(false);
+      return;
+    }
+
+    const contentEl = contentRef.current;
+    if (!contentEl) {
+      setShowScrollHint(false);
+      return;
+    }
+
+    const hasOverflow = contentEl.scrollHeight > contentEl.clientHeight + 8;
+    const nearBottom = contentEl.scrollTop + contentEl.clientHeight >= contentEl.scrollHeight - 16;
+    setShowScrollHint(hasOverflow && !nearBottom);
+  };
 
   useEffect(() => {
     if (open) {
@@ -140,6 +161,20 @@ export default function ModalPublicidad({
       setMessage(defaultMessage);
     }
   }, [open, defaultMessage]);
+
+  useEffect(() => {
+    if (!open) return;
+    updateScrollHint();
+
+    const onResize = () => updateScrollHint();
+    window.addEventListener('resize', onResize);
+    const rafId = window.requestAnimationFrame(updateScrollHint);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.cancelAnimationFrame(rafId);
+    };
+  }, [open, defaultMessage, description, details, delivery, list]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -196,9 +231,9 @@ export default function ModalPublicidad({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-4"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-3 sm:px-4 py-3"
     >
-      <div className="relative bg-white shadow-2xl max-w-xl w-full grid grid-cols-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[96vh] md:max-h-[96vh]">
+      <div className="relative bg-white shadow-2xl max-w-lg w-full grid grid-rows-[auto,minmax(0,1fr)] md:grid-rows-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[88vh] md:max-h-none">
         <button
           className="absolute top-2 right-2 md:top-3 md:right-3 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-gray-100/80 hover:bg-primary/90 transition-colors shadow-lg border border-gray-200 hover:border-primary group"
           onClick={onClose}
@@ -226,8 +261,12 @@ export default function ModalPublicidad({
           </div>
         </div>
 
-        <div className="relative z-10 p-3 md:p-4 overflow-visible">
-          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{title}</h3>}
+        <div
+          ref={contentRef}
+          onScroll={updateScrollHint}
+          className="modal-scrollbar relative z-10 p-3 md:p-4 overflow-y-auto md:overflow-visible min-h-0"
+        >
+          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-0">{title}</h3>}
           {price && <div className="text-base md:text-lg font-extrabold text-primary mb-1">{price}</div>}
 
           <div className="mb-2 overflow-hidden border border-primary">
@@ -288,7 +327,7 @@ export default function ModalPublicidad({
 
           {hasAsteriskFeature && <p className="text-[10px] text-gray-500 mb-3">{copy.emailFootnote}</p>}
 
-          <form onSubmit={handleSubmit} className="space-y-2 mb-3">
+          <form onSubmit={handleSubmit} className="space-y-2 mb-2">
             <input
               required
               value={name}
@@ -310,11 +349,11 @@ export default function ModalPublicidad({
               onChange={(e) => setMessage(e.target.value)}
               className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs h-16"
             />
-            <div className="flex flex-col sm:flex-row gap-2">
+            <div className={`grid gap-2 ${whatsappHref ? 'grid-cols-2' : 'grid-cols-1'}`}>
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className={`w-full sm:w-auto bg-primary text-white px-3 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-xs ${
+                className={`w-full bg-primary text-white px-2 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-[11px] sm:text-xs ${
                   status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >
@@ -325,7 +364,7 @@ export default function ModalPublicidad({
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto border border-green-500 text-green-700 px-3 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-xs text-center flex items-center justify-center gap-2"
+                  className="w-full border border-green-500 text-green-700 px-2 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-[11px] sm:text-xs text-center flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -351,6 +390,22 @@ export default function ModalPublicidad({
           <div className="mt-2">
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}
           </div>
+
+          {showScrollHint && (
+            <div className="md:hidden pointer-events-none sticky bottom-1 mt-2 flex justify-center">
+              <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white/95 px-2 py-1 text-[10px] font-semibold text-gray-600 shadow-sm">
+                {copy.scrollDown}
+                <svg
+                  className="w-3 h-3 animate-bounce"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 8l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -372,6 +427,20 @@ export default function ModalPublicidad({
         }
         .promo-marquee__text {
           white-space: nowrap;
+        }
+        .modal-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(18, 41, 122, 0.5) rgba(243, 244, 246, 1);
+        }
+        .modal-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .modal-scrollbar::-webkit-scrollbar-track {
+          background: #f3f4f6;
+        }
+        .modal-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(18, 41, 122, 0.5);
+          border-radius: 9999px;
         }
         .from-primary { --color-primary-dark: #0b6e6e; }
       `}</style>

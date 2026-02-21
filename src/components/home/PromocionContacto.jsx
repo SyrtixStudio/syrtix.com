@@ -203,7 +203,7 @@ export default function PromocionContacto({ data }) {
 
   return (
     <section className="max-w-7xl mx-auto py-12 px-6">
-      <div className="relative overflow-hidden rounded-xl border border-secondary/30 bg-white p-6 shadow-lg">
+      <div className="relative overflow-hidden border border-secondary/30 bg-white p-6 shadow-lg">
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -257,7 +257,7 @@ export default function PromocionContacto({ data }) {
           </div>
 
           <div>
-            <div className="bg-base/50 p-4 rounded-md border border-gray-200">
+            <div className="bg-base/50 p-4 border border-gray-200">
               <form onSubmit={handleSubmit} className="space-y-3">
                 <input
                   required
@@ -285,15 +285,15 @@ export default function PromocionContacto({ data }) {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className={`bg-secondary text-white px-4 py-2 rounded-md text-sm font-semibold transition ${
-                      status === 'sending' ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-900'
+                    className={`bg-primary text-white px-4 py-2 text-sm font-semibold transition ${
+                      status === 'sending' ? 'opacity-70 cursor-not-allowed' : 'hover:bg-secondary'
                     }`}
                   >
                     {status === 'sending' ? copy.submitSending : copy.submit}
                   </button>
                   {whatsapp && (
                     <a
-                      className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center hover:bg-green-600 transition"
+                      className="bg-green-500 text-white px-4 py-2 text-sm font-semibold flex items-center hover:bg-green-600 transition"
                       href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(copy.waMessage)}`}
                       target="_blank"
                       rel="noreferrer"

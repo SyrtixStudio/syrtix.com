@@ -92,7 +92,7 @@ function WhatWeDoSection() {
   const repeatedServices = [...t.services, ...t.services];
 
   return (
-    <section className="bg-base py-16">
+    <section className="bg-base2 py-16">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           {t.title} <span className="text-primary">{t.company}</span>?

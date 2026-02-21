@@ -10,7 +10,7 @@ export default {
         primary: '#c8aa5a',
         secondary: '#0021ad',
         base: '#fdfdfd',
-        base2: '#efefef',
+        base2: '#f7f7f7',
       },
     },
   },
