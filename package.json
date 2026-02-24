@@ -2,8 +2,11 @@
   "name": "syrtix-platform",
   "private": true,
   "version": "1.0.0",
+  "packageManager": "pnpm@9.12.0",
   "scripts": {
     "dev": "npm run dev:frontend",
+    "build": "pnpm --dir frontend install --frozen-lockfile && pnpm --dir frontend run build",
+    "start": "pnpm --dir frontend run start",
     "dev:frontend": "npm --prefix frontend run dev",
     "build:frontend": "npm --prefix frontend run build",
     "preview:frontend": "npm --prefix frontend run preview",
