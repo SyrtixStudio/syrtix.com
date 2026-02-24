@@ -33,8 +33,31 @@ import {
   BookOpen,
   Megaphone,
 } from 'lucide-react';
+import {
+  SiCss3,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiVite,
+} from 'react-icons/si';
 
 import { useLanguage } from '../i18n/index.jsx';
+
+const TECH_LOGOS = {
+  React: { Icon: SiReact, color: 'text-[#61DAFB]' },
+  'Next.js': { Icon: SiNextdotjs, color: 'text-white' },
+  'Node.js': { Icon: SiNodedotjs, color: 'text-[#5FA04E]' },
+  JavaScript: { Icon: SiJavascript, color: 'text-[#F7DF1E]' },
+  TypeScript: { Icon: SiTypescript, color: 'text-[#3178C6]' },
+  CSS: { Icon: SiCss3, color: 'text-[#1572B6]' },
+  'Tailwind CSS': { Icon: SiTailwindcss, color: 'text-[#06B6D4]' },
+  PostgreSQL: { Icon: SiPostgresql, color: 'text-[#336791]' },
+  Vite: { Icon: SiVite, color: 'text-[#646CFF]' },
+};
 
 function Services() {
   const { lang } = useLanguage();
@@ -93,7 +116,7 @@ function Services() {
                 'Figma delivery with style guide',
                 'Review with design revisions included',
               ],
-              price: 'From $149.990 CLP',
+              price: 'From $149.000 CLP',
             },
             {
               title: 'Web Development',
@@ -107,7 +130,8 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Serious landing pages from $349.990 CLP. Corporate websites from $799.990 CLP. Advanced web development from $1.499.990 CLP.',
+              note:
+                'Launch offer from $149.000 CLP until Mar 31, 2026 (10 slots). Standard web development starts from $299.000 CLP. Corporate websites from $799.000 CLP. Advanced web development from $1.499.000 CLP.',
               features: [
                 'Landing pages optimized for conversion',
                 'Corporate and institutional websites',
@@ -118,7 +142,7 @@ function Services() {
                 'Educational platforms (LMS) & news/magazine sites',
                 'Custom requirements: blogs, forums, events',
               ],
-              price: 'From $349.990 CLP',
+              price: 'From $299.000 CLP',
             },
             {
               title: 'E-commerce & Marketplaces',
@@ -145,7 +169,7 @@ function Services() {
                 'Commission automation (PREMIUM)',
               ],
               note: 'Available in Basic, Professional, and Premium (marketplace) tiers.',
-              price: 'From $899.990 CLP',
+              price: 'From $899.000 CLP',
             },
             {
               title: 'Mobile Applications',
@@ -175,7 +199,7 @@ function Services() {
                 'Firebase & custom backend options',
                 'Maintenance & continuous updates',
               ],
-              price: 'From $1.899.990 CLP',
+              price: 'From $499.000 CLP',
             },
             {
               title: 'Security & Performance Audit',
@@ -199,7 +223,7 @@ function Services() {
                 'A/B testing & conversion analysis (funnel, abandonment points)',
                 'Complete audit report with action plan & recommendations',
               ],
-              price: 'From $99.990 CLP',
+              price: 'From $99.000 CLP',
             },
             {
               title: 'SEO Strategy Setup',
@@ -223,7 +247,7 @@ function Services() {
                 'Implementation recommendations',
                 'Basic training and handover',
               ],
-              price: 'From $499.990 CLP',
+              price: 'From $499.000 CLP',
             },
             {
               title: 'SEO Monthly Retainer',
@@ -247,7 +271,7 @@ function Services() {
                 'Technical performance monitoring',
                 'Monthly strategy calls and support',
               ],
-              price: 'From $199.990 CLP/month',
+              price: 'From $199.000 CLP/month',
             },
             {
               title: 'Maintenance & Support',
@@ -272,7 +296,7 @@ function Services() {
                 'Priority technical support',
               ],
               note: 'Available in Basic, Professional, and Premium (99.9% uptime SLA) plans.',
-              price: 'From $59.990 CLP/month',
+              price: 'From $49.000 CLP/month',
             },
             {
               title: 'Rebranding & Strategy',
@@ -297,7 +321,7 @@ function Services() {
                 'Market positioning consultation',
               ],
               note: 'Available as complete rebranding or light refresh option.',
-              price: 'From $799.990 CLP',
+              price: 'From $199.000 CLP',
             },
             {
               title: 'Strategy & Analysis',
@@ -322,7 +346,7 @@ function Services() {
                 'Data-driven recommendations',
               ],
               note: 'Includes research, testing, and actionable recommendations.',
-              price: 'From $199.990 CLP',
+              price: 'From $199.000 CLP',
             },
             {
               title: 'Complementary Services',
@@ -456,11 +480,31 @@ function Services() {
             },
           ],
           whyItems: [
-            'Agile and transparent methodology: active client participation throughout the process.',
-            'Frequent deliveries and room for changes: flexibility to adapt the project to your needs.',
-            'Clear documentation and defined timeline: you always know what is being done and when.',
-            'Modern design optimized for performance: elegant, fast and stable sites.',
-            'Professional and updated team: software engineering, machine learning, security and PM expertise.',
+            {
+              icon: <BarChart size={18} />,
+              title: 'Results-focused approach',
+              desc: 'Each delivery is designed to capture more leads or improve sales conversion.',
+            },
+            {
+              icon: <Calendar size={18} />,
+              title: 'Clear scope and timelines',
+              desc: 'You know what is included, delivery phases, and dates from day one.',
+            },
+            {
+              icon: <Layers size={18} />,
+              title: 'Design and development in one team',
+              desc: 'Less friction, faster execution, and visual plus technical consistency.',
+            },
+            {
+              icon: <Shield size={18} />,
+              title: 'Fast, secure, and scalable websites',
+              desc: 'Performance and security foundations prepared for continuous growth.',
+            },
+            {
+              icon: <Settings size={18} />,
+              title: 'Post-launch support and maintenance',
+              desc: 'Guidance after go-live plus monthly maintenance plans for ongoing improvement.',
+            },
           ],
           process: [
             {
@@ -484,10 +528,12 @@ function Services() {
             'React',
             'Next.js',
             'Node.js',
+            'JavaScript',
             'TypeScript',
+            'CSS',
             'Tailwind CSS',
             'PostgreSQL',
-            'MongoDB',
+            'Vite',
           ],
         }
       : {
@@ -546,7 +592,7 @@ function Services() {
                 'Entrega en Figma con guía de estilos',
                 'Revisión con rondas de cambios incluidas',
               ],
-              price: 'Desde $149.990',
+              price: 'Desde $149.000',
             },
             {
               title: 'Desarrollo Web',
@@ -562,7 +608,8 @@ function Services() {
                   </div>
                 </>
               ),
-              note: 'Landing seria desde $349.990. Web corporativa desde $799.990. Desarrollo web avanzado desde $1.499.990.',
+              note:
+                'Oferta lanzamiento desde $149.000 hasta el 31 de marzo de 2026 (10 cupos). Desarrollo web base desde $299.000. Web corporativa desde $799.000. Desarrollo web avanzado desde $1.499.000.',
               features: [
                 'Landing pages optimizadas para conversión',
                 'Sitios web corporativos e institucionales',
@@ -573,7 +620,7 @@ function Services() {
                 'Plataformas educativas (LMS) y sitios de noticias',
                 'Requisitos personalizados: blogs, foros, eventos',
               ],
-              price: 'Desde $349.990',
+              price: 'Desde $299.000',
             },
             {
               title: 'E-commerce & Marketplaces',
@@ -602,7 +649,7 @@ function Services() {
                 'Automatización de comisiones (PREMIUM)',
               ],
               note: 'Disponible en niveles Básico, Profesional y Premium (marketplace).',
-              price: 'Desde $899.990',
+              price: 'Desde $899.000',
             },
             {
               title: 'Aplicaciones Móviles',
@@ -634,7 +681,7 @@ function Services() {
                 'Firebase e integración de backend personalizado',
                 'Mantenimiento y actualizaciones continuas',
               ],
-              price: 'Desde $1.899.990',
+              price: 'Desde $499.000',
             },
             {
               title: 'Auditoría de Seguridad & Performance',
@@ -660,7 +707,7 @@ function Services() {
                 'Testing A/B y conversiones (análisis de funnel, puntos de abandono)',
                 'Reporte completo de auditoría (recomendaciones detalladas y plan de acción)',
               ],
-              price: 'Desde $99.990',
+              price: 'Desde $99.000',
             },
             {
               title: 'Setup SEO Estratégico',
@@ -686,7 +733,7 @@ function Services() {
                 'Recomendaciones de implementación',
                 'Capacitación básica y entrega',
               ],
-              price: 'Desde $499.990',
+              price: 'Desde $499.000',
             },
             {
               title: 'SEO Retainer Mensual',
@@ -712,7 +759,7 @@ function Services() {
                 'Monitoreo técnico y performance',
                 'Llamadas estratégicas mensuales y soporte',
               ],
-              price: 'Desde $199.990/mes',
+              price: 'Desde $199.000/mes',
             },
             {
               title: 'Mantenimiento & Soporte',
@@ -739,7 +786,7 @@ function Services() {
                 'Soporte técnico prioritario',
               ],
               note: 'Disponible en planes Básico, Profesional y Premium (SLA 99.9% uptime).',
-              price: 'Desde $59.990 por mes',
+              price: 'Desde $49.000 por mes',
             },
             {
               title: 'Rebranding & Estrategia',
@@ -766,7 +813,7 @@ function Services() {
                 'Consultoría de posicionamiento en mercado',
               ],
               note: 'Disponible como rebranding completo o opción de refreshing ligero.',
-              price: 'Desde $799.990',
+              price: 'Desde $199.000',
             },
             {
               title: 'Estrategia & Análisis',
@@ -793,7 +840,7 @@ function Services() {
                 'Recomendaciones basadas en datos',
               ],
               note: 'Incluye investigación, testing y recomendaciones accionables.',
-              price: 'Desde $199.990',
+              price: 'Desde $199.000',
             },
             {
               title: 'Servicios Complementarios',
@@ -929,11 +976,31 @@ function Services() {
             },
           ],
           whyItems: [
-            'Metodología ágil y transparente: participación activa del cliente en todo el proceso.',
-            'Entregas frecuentes y posibilidad de cambios: flexibilidad para adaptar el proyecto a tus necesidades.',
-            'Documentación clara y cronogramas definidos: siempre sabrás qué se está haciendo y cuándo.',
-            'Diseño moderno y optimizado para rendimiento: sitios elegantes, rápidos y estables.',
-            'Equipo profesional y actualizado: ingeniería, machine learning, seguridad y gestión de proyectos.',
+            {
+              icon: <BarChart size={18} />,
+              title: 'Enfoque en resultados',
+              desc: 'Cada entrega busca captar más contactos o mejorar la conversión comercial.',
+            },
+            {
+              icon: <Calendar size={18} />,
+              title: 'Alcance y tiempos claros',
+              desc: 'Desde el inicio sabes qué incluye el proyecto, etapas de entrega y fechas.',
+            },
+            {
+              icon: <Layers size={18} />,
+              title: 'Diseño y desarrollo en un solo equipo',
+              desc: 'Menos fricción, más velocidad de ejecución y coherencia visual con técnica.',
+            },
+            {
+              icon: <Shield size={18} />,
+              title: 'Sitios rápidos, seguros y escalables',
+              desc: 'Base técnica optimizada en performance y seguridad para crecer sin frenos.',
+            },
+            {
+              icon: <Settings size={18} />,
+              title: 'Soporte post-lanzamiento y mantenciones',
+              desc: 'Te acompañamos tras publicar y puedes escalar con plan mensual de mantención.',
+            },
           ],
           process: [
             {
@@ -961,10 +1028,12 @@ function Services() {
             'React',
             'Next.js',
             'Node.js',
+            'JavaScript',
             'TypeScript',
+            'CSS',
             'Tailwind CSS',
             'PostgreSQL',
-            'MongoDB',
+            'Vite',
           ],
         };
 
@@ -1141,17 +1210,33 @@ function Services() {
       </section>
 
       <section className="py-16 px-4 sm:px-6 bg-base2">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            {copy.whyTitlePrefix}
-            <span className="text-primary">{copy.whyTitleHighlight}</span>
-          </h2>
-          <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <ul className="text-left text-gray-700 space-y-2 max-w-2xl mx-auto">
-            {copy.whyItems.map((item) => (
-              <li key={item}>{item}</li>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              {copy.whyTitlePrefix}
+              <span className="text-primary">{copy.whyTitleHighlight}</span>
+            </h2>
+            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {copy.whyItems.map((item, idx) => (
+              <article
+                key={`${item.title}-${idx}`}
+                className="border border-gray-200 bg-base px-4 py-4 shadow-sm hover:border-secondary/50 hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-white flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">{item.desc}</p>
+                  </div>
+                </div>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -1187,15 +1272,26 @@ function Services() {
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-8"></div>
 
-          <div className="flex flex-wrap justify-center items-center gap-8 text-white/80">
-            {copy.tech.map((tech, idx) => (
-              <span
-                key={idx}
-                className="text-lg font-bold hover:text-primary transition-colors duration-300"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="marquee marquee--secondary">
+            <div className="marquee-track" style={{ '--marquee-duration': '30s' }}>
+              {[...copy.tech, ...copy.tech].map((tech, idx) => {
+                const techLogo = TECH_LOGOS[tech];
+                const Icon = techLogo?.Icon;
+                const iconColor = techLogo?.color || 'text-primary';
+                const isDuplicate = idx >= copy.tech.length;
+
+                return (
+                  <div
+                    key={`${tech}-${idx}`}
+                    className="marquee-card inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-2 text-white/90 hover:border-primary/60 hover:bg-white/10 transition-all duration-300 min-w-[170px] justify-center"
+                    aria-hidden={isDuplicate ? 'true' : undefined}
+                  >
+                    {Icon && <Icon size={18} className={iconColor} aria-hidden />}
+                    <span className="text-sm sm:text-base font-semibold">{tech}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -1226,4 +1322,6 @@ function Services() {
 }
 
 export default Services;
+
+
 

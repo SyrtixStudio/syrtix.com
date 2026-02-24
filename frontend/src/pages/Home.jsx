@@ -10,7 +10,6 @@ import {
   SecuritySection,
   CtaSection,
 } from '../components/home';
-import PromocionContacto from '../components/home/PromocionContacto';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { useLanguage } from '../i18n/index.jsx';
@@ -34,11 +33,12 @@ function Home() {
       return {
         ...common,
         title: 'Starter Solution',
-        oldPrice: '$299.990 CLP',
-        price: '$149.990 CLP',
-        promoLabel: 'MEGA LIMITED OFFER',
-        offerEndsAt: '2026-03-15T23:59:59-03:00',
+        oldPrice: '$299.000 CLP',
+        price: '$149.000 CLP',
+        promoLabel: 'LAUNCH OFFER',
+        offerEndsAt: '2026-03-31T23:59:59-03:00',
         description: 'Single-page website designed to capture leads fast.',
+        details: '10 slots available. Launch offer valid until Mar 31, 2026.',
         list: [
           'Professional design',
           'Visual identity',
@@ -50,7 +50,7 @@ function Home() {
           'Google Maps integration',
           'Business email setup*',
           'Website launch configuration',
-          '30-day post-launch guidance',
+          '15-day post-launch guidance',
         ],
         delivery: 'Delivery in 7 days',
       };
@@ -59,11 +59,12 @@ function Home() {
       return {
         ...common,
       title: 'Solucion Inicio',
-      oldPrice: '$299.990',
-      price: '$149.990',
-      promoLabel: 'MEGA OFERTA LIMITADA',
-      offerEndsAt: '2026-03-15T23:59:59-03:00',
+      oldPrice: '$299.000',
+      price: '$149.000',
+      promoLabel: 'OFERTA LANZAMIENTO',
+      offerEndsAt: '2026-03-31T23:59:59-03:00',
       description: 'Sitio de una pagina para captar clientes de forma rapida.',
+      details: '10 cupos disponibles. Oferta lanzamiento valida hasta el 31 de marzo de 2026.',
       list: [
         'Diseno profesional',
         'Identidad visual',
@@ -75,7 +76,7 @@ function Home() {
         'Ubicación en Google Maps',
         'Configuracion correo corporativo*',
         'Configuracion y publicacion del sitio',
-        'Acompanamiento post-lanzamiento por 30 dias',
+        'Acompanamiento post-lanzamiento por 15 dias',
       ],
       delivery: 'Entrega en 7 días',
     };
@@ -125,7 +126,6 @@ function Home() {
         <PricingSection />
         <Testimonials />
         <CtaSection />
-        <PromocionContacto data={publicidadWeb} />
         <ServicesGrid />
         <ProcessSteps />
         <SecuritySection />
@@ -136,3 +136,4 @@ function Home() {
 }
 
 export default Home;
+

@@ -63,6 +63,14 @@
   background: linear-gradient(to left, var(--color-base) 0%, rgba(253, 253, 253, 0) 100%);
 }
 
+.marquee--secondary::before {
+  background: linear-gradient(to right, var(--color-secondary) 0%, rgba(0, 33, 173, 0) 100%);
+}
+
+.marquee--secondary::after {
+  background: linear-gradient(to left, var(--color-secondary) 0%, rgba(0, 33, 173, 0) 100%);
+}
+
 .marquee-track {
   display: flex;
   gap: 12px;

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 import { ArrowRight } from 'lucide-react';
 
@@ -15,6 +15,10 @@ function ServicesGrid() {
           sectionTitleHighlight: 'on demand',
           sectionSubtitle:
             'Choose exactly what you need. Standalone services or bundled solutions for your project.',
+          pricingDisclaimer:
+            '* Service-on-demand prices are reference values. Final pricing varies based on your current site size, technical complexity, and requested scope.',
+          whatsappDisclaimer:
+            '* For better guidance based on your needs, contact us on WhatsApp. 24/7 human assistance.',
           viewService: 'View service',
           upgradeTitlePrefix: 'Already have a website? ',
           upgradeTitleHighlight: 'Improve it',
@@ -29,42 +33,42 @@ function ServicesGrid() {
               icon: 'Palette',
               title: 'Web design',
               description: 'Unique custom designs that reflect your brand identity.',
-              price: 'From $99.990 CLP',
+              price: 'From $149.000 CLP',
             },
             {
               id: 'development',
               icon: 'Code',
               title: 'Custom development',
               description: 'Custom solutions with the latest technologies.',
-              price: 'From $199.990 CLP',
+              price: 'From $199\.000 CLP',
             },
             {
               id: 'ecommerce',
               icon: 'ShoppingCart',
               title: 'E-commerce',
               description: 'Basic online stores with payments and inventory management.',
-              price: 'From $299.990 CLP',
+              price: 'From $649.000 CLP',
             },
             {
               id: 'seo',
               icon: 'Search',
               title: 'SEO',
               description: 'Search optimization to improve your visibility on Google.',
-              price: 'From $79.990 CLP/month',
+              price: 'From $79\.000 CLP/month',
             },
             {
               id: 'apps',
               icon: 'Smartphone',
               title: 'Mobile apps',
               description: 'Native apps and PWAs for iOS and Android.',
-              price: 'From $499.990 CLP',
+              price: 'From $499\.000 CLP',
             },
             {
               id: 'maintenance',
               icon: 'Settings',
               title: 'Maintenance',
               description: 'Updates, backups, and ongoing technical support.',
-              price: 'From $49.990 CLP/month',
+              price: 'From $49\.000 CLP/month',
             },
           ],
           plans: [
@@ -72,7 +76,7 @@ function ServicesGrid() {
               id: 'start',
               title: 'SMB Website',
               subtitle: 'Up to 5 pages or sections',
-              price: 'Diagnostic from $49.990 CLP',
+              price: 'Diagnostic from $49\.000 CLP',
               description:
                 'We audit your current website and define the exact improvement plan before implementation.',
               includes: [
@@ -86,7 +90,7 @@ function ServicesGrid() {
               id: 'grow',
               title: 'SMB Plus Website',
               subtitle: '6-15 pages + modules',
-              price: 'Diagnostic from $99.990 CLP',
+              price: 'Diagnostic from $99\.000 CLP',
               description:
                 'For websites with integrations and critical flows that need a complete review.',
               includes: [
@@ -102,7 +106,7 @@ function ServicesGrid() {
               id: 'pro',
               title: 'Enterprise Website',
               subtitle: 'More than 15 pages or ecommerce',
-              price: 'Diagnostic from $149.990 CLP',
+              price: 'Diagnostic from $149\.000 CLP',
               description:
                 'For complex projects: ecommerce, multi-site platforms, or advanced business logic.',
               includes: [
@@ -119,6 +123,10 @@ function ServicesGrid() {
           sectionTitleHighlight: 'a la carta',
           sectionSubtitle:
             'Elige exactamente lo que necesitas. Servicios individuales o combinados segun tu proyecto.',
+          pricingDisclaimer:
+            '* Los valores de servicios a la carta son referenciales. El precio final varia segun el tamano de tu sitio actual, su complejidad tecnica y el alcance solicitado.',
+          whatsappDisclaimer:
+            '* Se sugiere contactar por WhatsApp para una mejor orientacion segun tu necesidad. WhatsApp 24/7: te atendera una persona.',
           viewService: 'Ver servicio',
           upgradeTitlePrefix: 'Ya tienes una web? ',
           upgradeTitleHighlight: 'Mejorala',
@@ -131,44 +139,44 @@ function ServicesGrid() {
             {
               id: 'design',
               icon: 'Palette',
-              title: 'Diseño web',
-              description: 'Diseños unicos y personalizados que reflejan la identidad de tu marca.',
-              price: 'Desde $99.990',
+              title: 'Diseno web',
+              description: 'Disenos unicos y personalizados que reflejan la identidad de tu marca.',
+              price: 'Desde $149.000',
             },
             {
               id: 'development',
               icon: 'Code',
               title: 'Desarrollo a medida',
               description: 'Soluciones personalizadas con las ultimas tecnologias del mercado.',
-              price: 'Desde $199.990',
+              price: 'Desde $199\.000',
             },
             {
               id: 'ecommerce',
               icon: 'ShoppingCart',
               title: 'E-commerce',
               description: 'Tiendas online basicas con pasarelas de pago y gestion de inventario.',
-              price: 'Desde $299.990',
+              price: 'Desde $649.000',
             },
             {
               id: 'seo',
               icon: 'Search',
               title: 'SEO',
               description: 'Optimizacion para buscadores que mejora tu visibilidad en Google.',
-              price: 'Desde $79.990/mes',
+              price: 'Desde $79\.000/mes',
             },
             {
               id: 'apps',
               icon: 'Smartphone',
               title: 'Apps moviles',
               description: 'Aplicaciones nativas y PWA para iOS y Android.',
-              price: 'Desde $499.990',
+              price: 'Desde $499\.000',
             },
             {
               id: 'maintenance',
               icon: 'Settings',
               title: 'Mantenimiento',
               description: 'Actualizaciones, backups y soporte tecnico continuo.',
-              price: 'Desde $49.990/mes',
+              price: 'Desde $49\.000/mes',
             },
           ],
           plans: [
@@ -176,7 +184,7 @@ function ServicesGrid() {
               id: 'start',
               title: 'Sitio Pyme',
               subtitle: 'Hasta 5 paginas o secciones',
-              price: 'Diagnostico desde $49.990',
+              price: 'Diagnostico desde $49\.000',
               description:
                 'Revisamos tu web actual y definimos el plan exacto de mejora antes de intervenir.',
               includes: [
@@ -190,7 +198,7 @@ function ServicesGrid() {
               id: 'grow',
               title: 'Sitio Pyme Plus',
               subtitle: '6-15 paginas + modulos',
-              price: 'Diagnostico desde $99.990',
+              price: 'Diagnostico desde $99\.000',
               description:
                 'Para sitios con integraciones y flujos criticos que requieren una revision completa.',
               includes: [
@@ -206,7 +214,7 @@ function ServicesGrid() {
               id: 'pro',
               title: 'Sitio Empresa',
               subtitle: 'Mas de 15 paginas o ecommerce',
-              price: 'Diagnostico desde $149.990',
+              price: 'Diagnostico desde $149\.000',
               description:
                 'Para proyectos complejos: ecommerce, multi-sitio o plataformas con logica avanzada.',
               includes: [
@@ -258,6 +266,13 @@ function ServicesGrid() {
           ))}
         </div>
 
+        <p className="mt-6 text-xs sm:text-sm text-gray-600 text-center max-w-4xl mx-auto">
+          {copy.pricingDisclaimer}
+        </p>
+        <p className="mt-2 text-xs sm:text-sm text-secondary text-center max-w-4xl mx-auto font-medium">
+          {copy.whatsappDisclaimer}
+        </p>
+
 
         <div className="text-center mt-12">
           <Link
@@ -274,4 +289,5 @@ function ServicesGrid() {
 }
 
 export default ServicesGrid;
+
 

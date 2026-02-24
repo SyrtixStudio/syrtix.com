@@ -138,6 +138,7 @@ export default function PromocionContacto({ data }) {
     typeof currentPriceValue === 'number' &&
     oldPriceValue > currentPriceValue;
   const savingsValue = hasSavings ? oldPriceValue - currentPriceValue : 0;
+  const discountPercent = hasSavings ? Math.round((savingsValue / oldPriceValue) * 100) : 0;
 
   const displayOldPrice = oldPrice || (oldPriceValue ? formatCLP(oldPriceValue, lang) : '');
   const displayCurrentPrice = price || (currentPriceValue ? formatCLP(currentPriceValue, lang) : '');
@@ -225,8 +226,13 @@ export default function PromocionContacto({ data }) {
                 {copy.now}: {displayCurrentPrice}
               </div>
               {hasSavings && (
-                <div className="inline-flex mt-2 items-center rounded-full bg-primary/10 text-primary text-xs font-bold px-3 py-1">
-                  {copy.save}: {formatCLP(savingsValue, lang)}
+                <div className="mt-2 flex items-center gap-2">
+                  <div className="inline-flex items-center rounded-full bg-primary/10 text-primary text-xs font-bold px-3 py-1">
+                    {copy.save}: {formatCLP(savingsValue, lang)}
+                  </div>
+                  <div className="inline-flex items-center rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-3 py-1">
+                    -{discountPercent}%
+                  </div>
                 </div>
               )}
             </div>

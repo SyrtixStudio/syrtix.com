@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+﻿import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useLanguage } from '../../i18n/index.jsx';
 
-const getPromoDeadline = () => {
-  // Deadline fijo de esta campana: 15 de marzo de 2026, 23:59:59 (hora local)
-  return new Date(2026, 2, 15, 23, 59, 59);
+const getPromoDeadline = (offerEndsAt) => {
+  const fallback = new Date(2026, 2, 31, 23, 59, 59);
+  if (!offerEndsAt) return fallback;
+  const parsed = new Date(offerEndsAt);
+  return Number.isNaN(parsed.getTime()) ? fallback : parsed;
 };
 
 const getTimeLeft = (deadline) => {
@@ -25,11 +27,32 @@ const getTimeLeft = (deadline) => {
 
 const formatUnit = (value) => String(value).padStart(2, '0');
 
+const parsePriceNumber = (value) => {
+  if (typeof value !== 'string') return null;
+  const digits = value.replace(/[^0-9]/g, '');
+  if (!digits) return null;
+  return Number(digits);
+};
+
+const formatCLP = (value, lang) => {
+  if (typeof value !== 'number' || Number.isNaN(value)) return '';
+  const formatted = new Intl.NumberFormat(lang === 'en' ? 'en-US' : 'es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    minimumFractionDigits: 0,
+  }).format(value);
+
+  return lang === 'en' ? `${formatted} CLP` : formatted;
+};
+
 export default function ModalPublicidad({
   open,
   onClose,
   title,
+  oldPrice,
   price,
+  promoLabel,
+  offerEndsAt,
   description,
   details,
   list,
@@ -43,9 +66,9 @@ export default function ModalPublicidad({
       ? {
           close: 'Close',
           sideLabel: 'Designs that convert',
-          sideTags: 'UI/UX · Branding · Contact · Social · SEO',
-          marquee: 'Professional website from $99.990 CLP - limited slots - free consulting',
-          promoEnds: 'Offer ends on Mar 15',
+          sideTags: 'UI/UX Â· Branding Â· Contact Â· Social Â· SEO',
+          marquee: 'Professional website from $99\.000 CLP - limited slots - free consulting',
+          promoEnds: 'Offer ends:',
           promoOver: 'Offer has ended.',
           namePlaceholder: 'Your name',
           emailPlaceholder: 'Email',
@@ -63,13 +86,17 @@ export default function ModalPublicidad({
           fromName: 'Interested lead',
           emailFootnote: '* Includes setup. Provider licenses are quoted separately.',
           scrollDown: 'Scroll down',
+          before: 'Before',
+          now: 'Now',
+          launchOffer: 'Launch offer',
+          save: 'You save',
         }
       : {
           close: 'Cerrar',
-          sideLabel: 'Diseños que convierten',
-          sideTags: 'UI/UX · Identidad · Contacto · RRSS · SEO',
-          marquee: 'Web profesional desde $99.990 - cupos limitados - asesoria gratuita',
-          promoEnds: 'Promo termina el 15 mar',
+          sideLabel: 'DiseÃ±os que convierten',
+          sideTags: 'UI/UX Â· Identidad Â· Contacto Â· RRSS Â· SEO',
+          marquee: 'Web profesional desde $99\.000 - cupos limitados - asesoria gratuita',
+          promoEnds: 'Promo termina:',
           promoOver: 'Ha finalizado la promo.',
           namePlaceholder: 'Tu nombre',
           emailPlaceholder: 'Email',
@@ -87,6 +114,10 @@ export default function ModalPublicidad({
           fromName: 'Interesado en paquete',
           emailFootnote: '* Incluye configuracion. Las licencias del proveedor se cotizan aparte.',
           scrollDown: 'Desliza hacia abajo',
+          before: 'Antes',
+          now: 'Ahora',
+          launchOffer: 'Oferta lanzamiento',
+          save: 'Ahorras',
         };
 
   const whatsappSource =
@@ -97,7 +128,16 @@ export default function ModalPublicidad({
     ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(copy.waMessage)}`
     : '';
 
-  const promoDeadline = useMemo(() => getPromoDeadline(), []);
+  const promoDeadline = useMemo(() => getPromoDeadline(offerEndsAt), [offerEndsAt]);
+  const promoDateLabel = useMemo(
+    () =>
+      new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-CL', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      }).format(promoDeadline),
+    [lang, promoDeadline],
+  );
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(promoDeadline));
   const defaultMessage = useMemo(
     () => `${copy.fallbackMessage} ${title || 'web'} (${price || copy.fallbackPrice}).`,
@@ -110,6 +150,16 @@ export default function ModalPublicidad({
   const [feedback, setFeedback] = useState('');
   const [showScrollHint, setShowScrollHint] = useState(false);
   const contentRef = useRef(null);
+  const oldPriceValue = parsePriceNumber(oldPrice);
+  const currentPriceValue = parsePriceNumber(price);
+  const hasSavings =
+    typeof oldPriceValue === 'number' &&
+    typeof currentPriceValue === 'number' &&
+    oldPriceValue > currentPriceValue;
+  const savingsValue = hasSavings ? oldPriceValue - currentPriceValue : 0;
+  const discountPercent = hasSavings ? Math.round((savingsValue / oldPriceValue) * 100) : 0;
+  const displayOldPrice = oldPrice || (oldPriceValue ? formatCLP(oldPriceValue, lang) : '');
+  const displayCurrentPrice = price || (currentPriceValue ? formatCLP(currentPriceValue, lang) : '');
   const hasAsteriskFeature = Array.isArray(list) && list.some((item) => typeof item === 'string' && item.includes('*'));
 
   const updateScrollHint = () => {
@@ -229,7 +279,7 @@ export default function ModalPublicidad({
       aria-modal="true"
       className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm px-3 sm:px-4 py-3"
     >
-      <div className="relative bg-white shadow-2xl max-w-lg w-full grid grid-rows-[auto,minmax(0,1fr)] md:grid-rows-1 md:grid-cols-2 overflow-hidden animate-fadeIn max-h-[88vh] md:max-h-none">
+      <div className="relative bg-white shadow-2xl w-full max-w-lg md:max-w-5xl grid grid-rows-[auto,minmax(0,1fr)] md:grid-rows-1 md:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.25fr)] overflow-hidden animate-fadeIn max-h-[88vh] md:max-h-[90vh]">
         <button
           className="absolute top-2 right-2 md:top-3 md:right-3 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-gray-100/80 hover:bg-primary/90 transition-colors shadow-lg border border-gray-200 hover:border-primary group"
           onClick={onClose}
@@ -260,10 +310,35 @@ export default function ModalPublicidad({
         <div
           ref={contentRef}
           onScroll={updateScrollHint}
-          className="modal-scrollbar relative z-10 p-3 md:p-4 overflow-y-auto md:overflow-visible min-h-0"
+          className="modal-scrollbar relative z-10 p-3 md:p-6 overflow-y-auto min-h-0"
         >
           {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-0">{title}</h3>}
-          {price && <div className="text-base md:text-lg font-extrabold text-primary mb-1">{price}</div>}
+          <div className="mb-2">
+            {displayOldPrice && (
+              <div className="text-[11px] text-gray-500">
+                {copy.before}:{' '}
+                <span className="line-through decoration-gray-400">{displayOldPrice}</span>
+              </div>
+            )}
+            {displayCurrentPrice && (
+              <div className="text-base md:text-lg font-extrabold text-primary">
+                {copy.now}: {displayCurrentPrice}
+              </div>
+            )}
+            <div className="mt-1 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+              {promoLabel || copy.launchOffer}
+            </div>
+            {hasSavings && (
+              <div className="mt-1 flex items-center gap-2">
+                <div className="text-[11px] font-semibold text-green-700">
+                  {copy.save}: {formatCLP(savingsValue, lang)}
+                </div>
+                <div className="inline-flex items-center rounded-full bg-red-50 border border-red-200 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                  -{discountPercent}%
+                </div>
+              </div>
+            )}
+          </div>
 
           <div className="mb-2 overflow-hidden border border-primary">
             <div className="promo-marquee flex items-center">
@@ -279,7 +354,9 @@ export default function ModalPublicidad({
           {timeLeft.totalSeconds > 0 ? (
             <div className="mb-2 flex items-center gap-2 text-xs text-red-700">
               <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse" aria-hidden />
-              <span className="font-semibold">{copy.promoEnds}</span>
+              <span className="font-semibold">
+                {copy.promoEnds} {promoDateLabel}
+              </span>
               <div className="flex items-center gap-1 text-[11px] font-bold bg-red-50 border border-red-200 rounded-full px-2 py-1">
                 <span>{formatUnit(timeLeft.days)}d</span>
                 <span>:</span>
@@ -443,3 +520,4 @@ export default function ModalPublicidad({
     </div>
   );
 }
+

@@ -6,9 +6,13 @@ import { Check, X, Zap, Star, ArrowRight, Building2, ShoppingCart } from 'lucide
 
 import { COMPANY } from '../constants/index.js';
 import { useLanguage } from '../i18n/index.jsx';
+import PackageDetailModal from '../components/pricing/PackageDetailModal.jsx';
+
+const USD_REFERENCE_RATE = 950;
 
 function Packages() {
   const [billingCycle, setBillingCycle] = useState('monthly');
+  const [selectedDetailPlan, setSelectedDetailPlan] = useState(null);
   const { lang } = useLanguage();
 
   const copy =
@@ -24,12 +28,24 @@ function Packages() {
           badgePopular: 'MOST POPULAR',
           paymentMonthly: 'single setup payment',
           paymentYearly: 'single payment including annual maintenance',
-          emailFootnote: '* Hosting, domains, and provider licenses are billed separately.',
+          emailFootnote:
+            '* Hosting, domains, and provider licenses are billed separately. Need continuous growth? Ask for our monthly maintenance plan.',
           customTitle: 'Need something more custom?',
           customDescription:
             'Every project is unique. If you need special requirements or additional features, contact us for a tailored quote.',
           customCta: 'Request custom quote',
           moreInfoCta: 'Need more information?',
+          detailToggleShow: 'View details',
+          detailSubtitle: 'Package scope',
+          detailClose: 'Close details',
+          detailLabels: {
+            audience: 'For whom',
+            objective: 'Objective',
+            focus: 'Focus',
+            includes: 'Includes',
+            excludes: 'Excludes (scope)',
+            webTypes: 'Web Types That Fit',
+          },
           guarantees: [
             {
               title: 'Satisfaction guarantee',
@@ -49,23 +65,58 @@ function Packages() {
               name: 'Starter Solution',
               icon: <Zap size={32} />,
               description: 'Single-page landing focused on conversion with basic integrations. No custom development.',
-              priceMonthly: 299990,
-              priceYearly: 899990,
+              priceMonthly: 149000,
+              oldPriceMonthly: 299000,
+              offerMeta: 'Launch offer: 10 slots until Mar 31, 2026.',
+              priceYearly: 899000,
               popular: false,
               cycleNoteMonthly: 'Project implementation only.',
               cycleNoteYearly: 'Includes 12 months Basic Maintenance plan.',
-              conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
+              conditionNote:
+                'Hosting, domains, and transactional email providers are billed by usage. Optional features are quoted separately.',
+              scopeDetails: {
+                audience:
+                  'Entrepreneurs, professionals, and small businesses that need a fast professional online presence.',
+                objective:
+                  'Launch a conversion-focused page to capture leads and open direct contact channels from day one.',
+                focus:
+                  'Speed, visual clarity, and essential integrations to publish quickly without custom development.',
+                includes: [
+                  'Landing page (single page)',
+                  'Professional design + visual identity',
+                  '3 logo concepts',
+                  'Responsive development',
+                  'Buttons to WhatsApp and social media',
+                  'Testimonials section',
+                  'Contact form connected to your email',
+                  'Google Maps + YouTube embeds',
+                  'Basic Google visibility + visits tracking',
+                  'Up to 10 products in catalog',
+                  'Free domain (1st year)',
+                  'Website launch configuration',
+                  '15-day post-launch guidance',
+                  'Business email setup*',
+                ],
+                excludes: [
+                  'Custom system development',
+                  'E-commerce module',
+                  'Priority support',
+                ],
+              },
               features: [
                 { name: 'Landing page (single page)', included: true },
                 { name: 'Professional design + visual identity', included: true },
+                { name: '3 logo concepts', included: true },
                 { name: 'Responsive development', included: true },
                 { name: 'Buttons to WhatsApp and social media', included: true },
+                { name: 'Testimonials section', included: true },
                 { name: 'Contact form connected to your email', included: true },
                 { name: 'Google Maps + YouTube embeds', included: true },
                 { name: 'Basic Google visibility + visits tracking', included: true },
+                { name: 'Up to 10 products in catalog', included: true },
                 { name: 'Free domain (1st year)', included: true },
                 { name: 'Website launch configuration', included: true },
-                { name: '30-day post-launch guidance', included: true },
+                { name: '15-day post-launch guidance', included: true },
                 { name: 'Business email setup*', included: true },
                 { name: 'Custom system development', included: false },
                 { name: 'E-commerce module', included: false },
@@ -77,76 +128,183 @@ function Packages() {
               name: 'SMB Solution',
               icon: <Building2 size={32} />,
               description: 'Corporate website (multi-page) for business positioning and lead generation.',
-              priceMonthly: 599990,
-              priceYearly: 1299990,
-              popular: false,
+              priceMonthly: 299000,
+              oldPriceMonthly: 599000,
+              priceYearly: 1299000,
+              popular: true,
               cycleNoteMonthly: 'Project implementation only.',
               cycleNoteYearly: 'Includes 12 months Basic Maintenance plan.',
-              conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
+              conditionNote:
+                'Hosting, domains, and transactional email providers are billed by usage. Optional features are quoted separately.',
+              scopeDetails: {
+                audience:
+                  'Growing small and medium businesses that need a stronger digital presence and better lead capture.',
+                objective:
+                  'Build a professional multi-page website that communicates services clearly and converts visits into inquiries.',
+                focus:
+                  'Brand credibility, clear information architecture, and conversion points across key pages.',
+                webTypes: [
+                  'Corporate services website',
+                  'Website for clinic, studio, consultancy, or agency',
+                  'Professional/company portfolio',
+                  'Commercial catalog without checkout',
+                  'Restaurant website (menu + external bookings)',
+                  'Campaign landing pages or brand microsites',
+                  'Website for events or informational courses',
+                ],
+                includes: [
+                  'Everything from Starter Solution',
+                  'Website up to 5 sections',
+                  'Up to 20 products in catalog',
+                  'Online booking (Calendly) - optional, quoted separately',
+                  'Floating WhatsApp button',
+                  'Testimonials section',
+                  'Basic bilingual setup (ES/EN) - optional, quoted separately',
+                  'Speed optimization',
+                  'Mandatory HTTPS + proper SSL',
+                  'Essential pre-launch audit - optional, quoted separately',
+                  'Broken-link mitigation: custom 404 page + redirect to Home',
+                  'Service and company pages',
+                  'Conversion-focused contact sections',
+                  'Essential on-page SEO for Google',
+                  '15-day post-launch guidance',
+                  'Custom feature development (optional, quoted separately)',
+                ],
+                excludes: [
+                  'Full e-commerce flow with product catalog and checkout',
+                ],
+              },
               features: [
                 { name: 'Everything in Starter Solution', included: true },
-                { name: 'Up to 8 pages', included: true },
-                { name: 'Service and about pages', included: true },
+                { name: 'Website up to 5 sections', included: true },
+                { name: 'Up to 20 products in catalog', included: true },
+                { name: 'Online booking (Calendly) - optional, quoted separately', included: true },
+                { name: 'Floating WhatsApp button', included: true },
+                { name: 'Testimonials section', included: true },
+                { name: 'Basic bilingual setup (ES/EN) - optional, quoted separately', included: true },
+                { name: 'Speed optimization', included: true },
+                { name: 'Mandatory HTTPS + proper SSL', included: true },
+                { name: 'Essential pre-launch audit - optional, quoted separately', included: true },
+                { name: 'Broken-link mitigation: custom 404 page + redirect to Home', included: true },
+                { name: 'Service and company pages', included: true },
                 { name: 'Conversion-focused contact sections', included: true },
-                { name: 'Blog/news module (optional)', included: true },
-                { name: 'Basic Google visibility by page', included: true },
-                { name: '30-day post-launch guidance', included: true },
-                { name: 'Custom system development', included: false },
-                { name: 'E-commerce module', included: false },
-                { name: 'Priority support', included: false },
+                { name: 'Essential on-page SEO for Google', included: true },
+                { name: '15-day post-launch guidance', included: true },
+                { name: 'Custom feature development (optional, quoted separately)', included: true },
               ],
               cta: 'Choose SMB',
             },
             {
               name: 'Business Solution',
               icon: <ShoppingCart size={32} />,
-              description: 'Online store with admin tools to manage products, orders, and payments.',
-              priceMonthly: 999990,
-              priceYearly: 1999990,
-              popular: true,
+              description:
+                'Self-manageable corporate website or basic ecommerce with backend control for content, products, orders, and payments.',
+              priceMonthly: 899000,
+              oldPriceMonthly: 1299000,
+              priceYearly: 1999000,
+              popular: false,
               cycleNoteMonthly: 'Project implementation only.',
               cycleNoteYearly: 'Includes 12 months Professional Maintenance plan.',
-              conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
+              conditionNote:
+                'Hosting, domains, and transactional email providers are billed by usage. Optional features are quoted separately.',
+              scopeDetails: {
+                audience:
+                  'Businesses that need backend control to run a self-manageable corporate website or a basic ecommerce.',
+                objective:
+                  'Launch a backend-enabled platform that lets your team manage content autonomously and optionally sell online with a basic ecommerce flow.',
+                focus:
+                  'Operational autonomy, clear admin workflows, and reliable core sales operations.',
+                includes: [
+                  'Everything from SMB Solution',
+                  'Self-manageable corporate website mode (pages, content, service sections)',
+                  'Basic ecommerce flow with catalog, cart, and secure checkout',
+                  'Payment gateway integration and order management',
+                  'Admin panel for content, products, inventory, and customers',
+                  'Basic sales dashboard and post-launch guidance',
+                  'Custom feature development (optional, quoted separately)',
+                ],
+                excludes: [
+                  'Advanced custom automations and enterprise integrations',
+                ],
+              },
               features: [
                 { name: 'Everything in SMB Solution', included: true },
+                { name: 'Corporate website + self-manageable admin', included: true },
                 { name: 'Up to 10 pages', included: true },
-                { name: 'E-commerce + secure checkout', included: true },
+                { name: 'Basic ecommerce + secure checkout', included: true },
                 { name: 'Payment gateway integration', included: true },
-                { name: 'Admin panel for products and stock', included: true },
+                { name: 'Admin panel for content, products, and stock', included: true },
                 { name: 'Order and customer management', included: true },
                 { name: 'Email center in admin panel', included: true },
                 { name: 'Payment voucher/receipt generation (non-tax)', included: true },
                 { name: 'Basic sales dashboard (orders, revenue, avg ticket)', included: true },
                 { name: 'Essential Google visibility setup', included: true },
-                { name: '30-day post-launch guidance', included: true },
-                { name: 'Legal e-invoicing with SII (quoted separately)', included: false },
-                { name: 'Priority support', included: false },
+                { name: '15-day post-launch guidance', included: true },
+                { name: 'Custom feature development (optional, quoted separately)', included: true },
+                { name: 'Priority support', included: true },
               ],
               cta: 'Choose Business',
             },
             {
               name: 'Enterprise Solution',
               icon: <Star size={32} />,
-              description: 'Advanced ecommerce with custom modules, integrations, and automation.',
-              priceMonthly: 1699990,
-              priceYearly: 3099990,
+              description: 'Pro ecommerce platform to scale operations, automate processes, and make data-driven decisions.',
+              priceMonthly: 1599000,
+              oldPriceMonthly: 1899000,
+              priceYearly: 3099000,
               popular: false,
               cycleNoteMonthly: 'Project implementation only.',
               cycleNoteYearly: 'Includes 12 months Premium Maintenance plan.',
-              conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
+              conditionNote:
+                'Hosting, domains, and transactional email providers are billed by usage. Optional features are quoted separately.',
+              scopeDetails: {
+                audience:
+                  'Companies with complex operations, higher traffic, and advanced needs beyond standard ecommerce flows.',
+                objective:
+                  'Build an enterprise-grade ecommerce platform that supports multi-team execution, advanced automation, and strategic business growth.',
+                focus:
+                  'Scalability, security, automation, and executive visibility with reliable operational workflows.',
+                includes: [
+                  'Everything from Business Solution',
+                  'Multi-role admin panel with permissions (admin, sales, operations, marketing)',
+                  'Automated workflows (post-purchase emails, cart recovery, and order status updates)',
+                  'Executive KPI dashboard (revenue, conversion, average order value, recurrence)',
+                  'Advanced security setup (hardening, essential audit, and backup strategy)',
+                  'Staging environment + QA process before production releases',
+                  'Commercial CRO and UX optimization (checkout flow, funnels, basic A/B tests)',
+                  'Technical documentation + enablement training for your internal team',
+                  'Pro integrations with sync (ERP/CRM/logistics/payments) - optional, quoted separately',
+                  'Scalable high-traffic architecture + monitoring - optional, quoted separately',
+                  'Priority support with SLA (active maintenance plan required) - optional, quoted separately',
+                  'Monthly strategic follow-up (during active maintenance contract) - optional, quoted separately',
+                ],
+                excludes: [
+                  'Third-party licenses or provider services billed externally',
+                  'New major scope requests outside approved roadmap',
+                ],
+              },
               features: [
                 { name: 'Everything in Business Solution', included: true },
-                { name: 'Up to 20 pages / advanced modules', included: true },
-                { name: 'Custom modules for your business', included: true },
-                { name: 'Email template editor in admin panel', included: true },
-                { name: 'Custom PDF vouchers/payment receipts', included: true },
-                { name: 'Advanced sales dashboard with custom filters', included: true },
-                { name: 'Integrations with common tools (payments, shipping, analytics)', included: true },
-                { name: 'High-traffic ready setup + monitoring', included: true },
-                { name: 'Priority support', included: true },
-                { name: 'Monthly strategic follow-up', included: true },
-                { name: 'Strategic scope iterations', included: true },
-                { name: 'Legal e-invoicing with SII (quoted separately)', included: false },
+                { name: 'Multi-role admin panel with granular permissions', included: true },
+                { name: 'Automated workflows (cart recovery and post-purchase)', included: true },
+                { name: 'Executive KPI dashboard with strategic metrics', included: true },
+                { name: 'Advanced security setup + essential audit', included: true },
+                { name: 'Staging environment + QA before go-live', included: true },
+                { name: 'CRO and UX optimization for conversion', included: true },
+                { name: 'Technical documentation + team training', included: true },
+                { name: 'Pro integrations with sync (ERP/CRM/logistics/payments) - optional, quoted separately', included: true },
+                {
+                  name: 'Scalable high-traffic architecture + monitoring - optional, quoted separately',
+                  included: true,
+                },
+                {
+                  name: 'Priority support with SLA (active maintenance plan required) - optional, quoted separately',
+                  included: true,
+                },
+                {
+                  name: 'Monthly strategic follow-up (during active maintenance contract) - optional, quoted separately',
+                  included: true,
+                },
               ],
               cta: 'Choose Enterprise',
             },
@@ -163,12 +321,24 @@ function Packages() {
           badgePopular: 'MAS POPULAR',
           paymentMonthly: 'pago unico de implementacion',
           paymentYearly: 'pago unico con mantenimiento anual incluido',
-          emailFootnote: '* Hosting, dominio y licencias de proveedores se cotizan por separado.',
+          emailFootnote:
+            '* Hosting, dominio y licencias de proveedores se cotizan por separado. Para mejoras continuas, soporte y evolucion mensual, activa nuestro plan de mantenciones.',
           customTitle: 'Necesitas algo mas personalizado?',
           customDescription:
             'Cada proyecto es unico. Si tienes requerimientos especiales o necesitas funcionalidades adicionales, contactaños para una cotizacion a medida.',
           customCta: 'Solicitar cotizacion personalizada',
           moreInfoCta: '¿Necesitas mas informacion?',
+          detailToggleShow: 'Ver detalle',
+          detailSubtitle: 'Alcance del paquete',
+          detailClose: 'Cerrar detalle',
+          detailLabels: {
+            audience: 'Dirigido a',
+            objective: 'Objetivo',
+            focus: 'Enfoque',
+            includes: 'Incluye',
+            excludes: 'No incluye (alcance)',
+            webTypes: 'Tipos de webs que si calzan',
+          },
           guarantees: [
             {
               title: 'Garantia de satisfaccion',
@@ -188,24 +358,59 @@ function Packages() {
               name: 'Solucion Inicio',
               icon: <Zap size={32} />,
               description: 'Landing page de una sola pantalla enfocada en conversion con integraciones basicas. Sin desarrollo a medida.',
-              priceMonthly: 299990,
-              priceYearly: 899990,
+              priceMonthly: 149000,
+              oldPriceMonthly: 299000,
+              offerMeta: 'Oferta lanzamiento: 10 cupos hasta el 31 de marzo de 2026.',
+              priceYearly: 899000,
               popular: false,
               cycleNoteMonthly: 'Incluye solo implementacion del proyecto.',
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Basico.',
-              conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
+              conditionNote:
+                'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
+              scopeDetails: {
+                audience:
+                  'Emprendedores, profesionales y pequenos negocios que necesitan presencia digital profesional rapida.',
+                objective:
+                  'Lanzar una pagina enfocada en conversion para captar contactos y abrir canales directos con clientes.',
+                focus:
+                  'Velocidad de salida, claridad visual e integraciones esenciales sin desarrollo personalizado.',
+                includes: [
+                  'Landing page (single page)',
+                  'Diseno profesional + identidad visual',
+                  '3 propuestas de logo',
+                  'Sitio adaptable a celular y computador',
+                  'Botones de WhatsApp y redireccion a redes',
+                  'Seccion de resenas',
+                  'Formulario de contacto conectado a tu correo',
+                  'Integracion Google Maps + videos YouTube',
+                  'Hasta 10 productos en catalogo',
+                  'Dominio gratis (primer ano)',
+                  'Configuracion y publicacion del sitio',
+                  'Acompanamiento post-lanzamiento por 15 dias',
+                  'Configuracion de correo corporativo*',
+                ],
+                excludes: [
+                  'Visibilidad esencial en Google (SEO)',
+                  'Desarrollo de funciones a medida',
+                  'Modulo e-commerce',
+                  'Soporte prioritario',
+                ],
+              },
               features: [
                 { name: 'Landing page (single page)', included: true },
                 { name: 'Diseno profesional + identidad visual', included: true },
+                { name: '3 propuestas de logo', included: true },
                 { name: 'Sitio adaptable a celular y computador', included: true },
                 { name: 'Botones de WhatsApp y redireccion a redes', included: true },
+                { name: 'Seccion de resenas', included: true },
                 { name: 'Formulario de contacto conectado a tu correo', included: true },
                 { name: 'Integracion Google Maps + videos YouTube', included: true },
-                { name: 'Visibilidad basica en Google + medicion de visitas', included: true },
+                { name: 'Hasta 10 productos en catalogo', included: true },
                 { name: 'Dominio gratis (primer ano)', included: true },
                 { name: 'Configuracion y publicacion del sitio', included: true },
-                { name: 'Acompanamiento post-lanzamiento por 30 dias', included: true },
+                { name: 'Acompanamiento post-lanzamiento por 15 dias', included: true },
                 { name: 'Configuracion de correo corporativo*', included: true },
+                { name: 'Visibilidad esencial en Google (SEO)', included: false },
                 { name: 'Desarrollo de funciones a medida', included: false },
                 { name: 'Modulo e-commerce', included: false },
                 { name: 'Soporte prioritario', included: false },
@@ -216,76 +421,193 @@ function Packages() {
               name: 'Solucion Pyme',
               icon: <Building2 size={32} />,
               description: 'Sitio corporativo multipagina para posicionamiento de marca y generacion de leads.',
-              priceMonthly: 599990,
-              priceYearly: 1299990,
-              popular: false,
+              priceMonthly: 299000,
+              oldPriceMonthly: 599000,
+              priceYearly: 1299000,
+              popular: true,
               cycleNoteMonthly: 'Incluye solo implementacion del proyecto.',
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Basico.',
-              conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
+              conditionNote:
+                'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
+              scopeDetails: {
+                audience:
+                  'Pymes en crecimiento que necesitan una presencia digital mas solida y mejor captacion de contactos.',
+                objective:
+                  'Construir un sitio corporativo multipagina que comunique servicios con claridad y convierta visitas en consultas.',
+                focus:
+                  'Credibilidad de marca, arquitectura clara de informacion y puntos de conversion en paginas clave.',
+                webTypes: [
+                  'Web corporativa de servicios',
+                  'Web para clinica, estudio, consultora o agencia',
+                  'Portafolio profesional/empresa',
+                  'Catalogo comercial sin checkout',
+                  'Web de restaurante (menu + reservas externas)',
+                  'Landing de campanas o micrositios de marca',
+                  'Sitio para eventos o cursos informativos',
+                ],
+                includes: [
+                  'Todo lo de Solucion Inicio',
+                  'Sitio de hasta 5 secciones',
+                  'Hasta 20 productos en catalogo',
+                  'Agendamiento online (Calendly) - opcional, se cotiza aparte',
+                  'Boton flotante de WhatsApp',
+                  'Seccion de testimonios',
+                  'Multiidioma basico (ES/EN) - opcional, se cotiza aparte',
+                  'Optimizacion de velocidad',
+                  'HTTPS obligatorio + SSL correcto',
+                  'Auditoria esencial pre-lanzamiento - opcional, se cotiza aparte',
+                  'Mitigacion de navegacion rota: pagina 404 personalizada + redireccion a Home',
+                  'Paginas de servicios y empresa',
+                  'Secciones de contacto orientadas a conversion',
+                  'SEO on-page esencial Google',
+                  'Acompanamiento post-lanzamiento por 15 dias',
+                  'Desarrollo de funciones a medida (opcional, se cotiza aparte)',
+                ],
+                excludes: [
+                  'Flujo completo e-commerce con catalogo y checkout',
+                ],
+              },
               features: [
                 { name: 'Todo lo de Solucion Inicio', included: true },
-                { name: 'Hasta 8 paginas', included: true },
+                { name: 'Sitio de hasta 5 secciones', included: true },
+                { name: 'Hasta 20 productos en catalogo', included: true },
+                { name: 'Agendamiento online (Calendly) - opcional, se cotiza aparte', included: true },
+                { name: 'Boton flotante de WhatsApp', included: true },
+                { name: 'Seccion de testimonios', included: true },
+                { name: 'Multiidioma basico (ES/EN) - opcional, se cotiza aparte', included: true },
+                { name: 'Optimizacion de velocidad', included: true },
+                { name: 'HTTPS obligatorio + SSL correcto', included: true },
+                { name: 'Auditoria esencial pre-lanzamiento - opcional, se cotiza aparte', included: true },
+                { name: 'Mitigacion de navegacion rota: pagina 404 personalizada + redireccion a Home', included: true },
                 { name: 'Paginas de servicios y empresa', included: true },
                 { name: 'Secciones de contacto orientadas a conversion', included: true },
-                { name: 'Modulo blog/noticias (opcional)', included: true },
-                { name: 'Visibilidad basica en Google por seccion', included: true },
-                { name: 'Acompanamiento post-lanzamiento por 30 dias', included: true },
-                { name: 'Desarrollo de funciones a medida', included: false },
-                { name: 'Modulo e-commerce', included: false },
-                { name: 'Soporte prioritario', included: false },
+                { name: 'SEO on-page esencial Google', included: true },
+                { name: 'Acompanamiento post-lanzamiento por 15 dias', included: true },
+                { name: 'Desarrollo de funciones a medida (opcional, se cotiza aparte)', included: true },
               ],
               cta: 'Elegir Pyme',
             },
             {
               name: 'Solucion Negocio',
               icon: <ShoppingCart size={32} />,
-              description: 'Tienda online con herramientas de administracion para gestionar catalogo, pedidos y pagos.',
-              priceMonthly: 999990,
-              priceYearly: 1999990,
-              popular: true,
+              description:
+                'Sitio corporativo autoadministrable o ecommerce basico con backend para gestionar contenidos, productos, pedidos y pagos.',
+              priceMonthly: 899000,
+              oldPriceMonthly: 1299000,
+              priceYearly: 1999000,
+              popular: false,
               cycleNoteMonthly: 'Incluye solo implementacion del proyecto.',
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Profesional.',
-              conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
+              conditionNote:
+                'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
+              scopeDetails: {
+                audience:
+                  'Negocios que necesitan control backend para operar un sitio corporativo autoadministrable o un ecommerce basico.',
+                objective:
+                  'Lanzar una plataforma con backend que permita a tu equipo gestionar contenido de forma autonoma y vender online con ecommerce basico.',
+                focus:
+                  'Autonomia operativa, flujo admin claro y gestion confiable de ventas base.',
+                includes: [
+                  'Todo lo de Solucion Pyme',
+                  'Sitio corporativo + panel autoadministrable',
+                  'Hasta 10 paginas',
+                  'E-commerce basico + checkout seguro',
+                  'Integracion de pasarela de pago y gestion de pedidos',
+                  'Panel administrador para contenido, productos, stock y clientes',
+                  'Gestion de pedidos y clientes',
+                  'Centro de emails en panel administrador',
+                  'Generacion de comprobante/voucher de pago (no tributario)',
+                  'Dashboard de ventas basico (pedidos, ingresos, ticket promedio)',
+                  'Visibilidad esencial en Google',
+                  'Acompanamiento post-lanzamiento por 15 dias',
+                  'Desarrollo de funciones a medida (opcional, se cotiza aparte)',
+                  'Soporte prioritario',
+                ],
+                excludes: [
+                  'Automatizaciones avanzadas e integraciones enterprise a medida',
+                ],
+              },
               features: [
                 { name: 'Todo lo de Solucion Pyme', included: true },
+                { name: 'Sitio corporativo + panel autoadministrable', included: true },
                 { name: 'Hasta 10 paginas', included: true },
-                { name: 'E-commerce + checkout seguro', included: true },
+                { name: 'E-commerce basico + checkout seguro', included: true },
                 { name: 'Integracion de pasarela de pago', included: true },
-                { name: 'Panel para gestionar productos y stock', included: true },
+                { name: 'Panel para gestionar contenido, productos y stock', included: true },
                 { name: 'Gestion de pedidos y clientes', included: true },
                 { name: 'Centro de emails en panel administrador', included: true },
                 { name: 'Generacion de comprobante/voucher de pago (no tributario)', included: true },
                 { name: 'Dashboard de ventas basico (pedidos, ingresos, ticket promedio)', included: true },
                 { name: 'Visibilidad esencial en Google', included: true },
-                { name: 'Acompanamiento post-lanzamiento por 30 dias', included: true },
-                { name: 'Facturacion electronica legal con SII (cotizacion aparte)', included: false },
-                { name: 'Soporte prioritario', included: false },
+                { name: 'Acompanamiento post-lanzamiento por 15 dias', included: true },
+                { name: 'Desarrollo de funciones a medida (opcional, se cotiza aparte)', included: true },
+                { name: 'Soporte prioritario', included: true },
               ],
               cta: 'Elegir Negocio',
             },
             {
               name: 'Solucion Empresa',
               icon: <Star size={32} />,
-              description: 'Ecommerce avanzado con modulos personalizados, integraciones y automatizaciones.',
-              priceMonthly: 1699990,
-              priceYearly: 3099990,
+              description: 'Plataforma ecommerce pro para escalar operaciones, automatizar procesos y tomar decisiones con datos.',
+              priceMonthly: 1599000,
+              oldPriceMonthly: 1899000,
+              priceYearly: 3099000,
               popular: false,
               cycleNoteMonthly: 'Incluye solo implementacion del proyecto.',
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Premium.',
-              conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
+              conditionNote:
+                'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
+              scopeDetails: {
+                audience:
+                  'Empresas con operaciones mas complejas, mayor trafico y necesidades avanzadas fuera del ecommerce estandar.',
+                objective:
+                  'Construir una plataforma ecommerce empresarial que soporte trabajo multi-equipo, automatizacion avanzada y crecimiento estrategico.',
+                focus:
+                  'Escalabilidad, seguridad, automatizacion y visibilidad ejecutiva con operaciones confiables.',
+                includes: [
+                  'Todo lo de Solucion Negocio',
+                  'Panel multi-rol con permisos (admin, ventas, operaciones y marketing)',
+                  'Flujos automatizados (correo post-compra, recuperacion de carrito y estados de pedido)',
+                  'Dashboard ejecutivo de KPIs (ventas, conversion, ticket promedio y recurrencia)',
+                  'Seguridad avanzada (hardening, auditoria esencial y estrategia de respaldos)',
+                  'Ambiente staging + proceso QA antes de publicar cambios',
+                  'CRO y UX comercial (checkout optimizado, embudos y pruebas A/B basicas)',
+                  'Documentacion tecnica + capacitacion a tu equipo interno',
+                  'Integraciones pro con sincronizacion (ERP/CRM/logistica/pagos) - opcional, se cotiza aparte',
+                  'Arquitectura escalable + monitoreo de alto trafico - opcional, se cotiza aparte',
+                  'Soporte prioritario con SLA (solo con plan de mantenimiento activo) - opcional, se cotiza aparte',
+                  'Seguimiento estrategico mensual (durante vigencia del mantenimiento contratado) - opcional, se cotiza aparte',
+                ],
+                excludes: [
+                  'Licencias de terceros o servicios de proveedores cobrados externamente',
+                  'Nuevos requerimientos mayores fuera de la hoja de ruta aprobada',
+                ],
+              },
               features: [
                 { name: 'Todo lo de Solucion Negocio', included: true },
-                { name: 'Hasta 20 paginas o modulos avanzados', included: true },
-                { name: 'Modulos personalizados para tu negocio', included: true },
-                { name: 'Editor de plantillas de email desde panel admin', included: true },
-                { name: 'Comprobantes/vouchers PDF personalizados', included: true },
-                { name: 'Dashboard de ventas avanzado con filtros personalizados', included: true },
-                { name: 'Integraciones con herramientas comunes (pagos, envios, analitica)', included: true },
-                { name: 'Sitio preparado para alto trafico + monitoreo', included: true },
-                { name: 'Soporte prioritario', included: true },
-                { name: 'Seguimiento estrategico mensual', included: true },
-                { name: 'Iteraciones estrategicas de alcance', included: true },
-                { name: 'Facturacion electronica legal con SII (cotizacion aparte)', included: false },
+                { name: 'Panel multi-rol con permisos granulares', included: true },
+                { name: 'Flujos automatizados (carrito y post-compra)', included: true },
+                { name: 'Dashboard ejecutivo con KPIs estrategicos', included: true },
+                { name: 'Seguridad avanzada + auditoria esencial', included: true },
+                { name: 'Ambiente staging + QA antes de produccion', included: true },
+                { name: 'Optimizacion CRO y UX para conversion', included: true },
+                { name: 'Documentacion tecnica + capacitacion de equipo', included: true },
+                {
+                  name: 'Integraciones pro con sincronizacion (ERP/CRM/logistica/pagos) - opcional, se cotiza aparte',
+                  included: true,
+                },
+                {
+                  name: 'Arquitectura escalable + monitoreo de alto trafico - opcional, se cotiza aparte',
+                  included: true,
+                },
+                {
+                  name: 'Soporte prioritario con SLA (solo con plan de mantenimiento activo) - opcional, se cotiza aparte',
+                  included: true,
+                },
+                {
+                  name: 'Seguimiento estrategico mensual (durante vigencia del mantenimiento contratado) - opcional, se cotiza aparte',
+                  included: true,
+                },
               ],
               cta: 'Elegir Empresa',
             },
@@ -300,6 +622,16 @@ function Packages() {
     }).format(price);
 
     return lang === 'en' ? `${formatted} CLP` : formatted;
+  };
+
+  const formatUsdPrice = (price) => {
+    const usdValue = Math.round(price / USD_REFERENCE_RATE);
+    const formatted = new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(usdValue);
+
+    return `US$${formatted}`;
   };
 
   const whatsappDigits = (() => {
@@ -379,6 +711,15 @@ function Packages() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
           {copy.plans.map((pkg, index) => {
+            const selectedPrice = billingCycle === 'monthly' ? pkg.priceMonthly : pkg.priceYearly;
+            const hasMonthlyOffer =
+              billingCycle === 'monthly' &&
+              typeof pkg.oldPriceMonthly === 'number' &&
+              pkg.oldPriceMonthly > selectedPrice;
+            const discountPercent = hasMonthlyOffer
+              ? Math.round(((pkg.oldPriceMonthly - selectedPrice) / pkg.oldPriceMonthly) * 100)
+              : null;
+            const hasScopeDetails = Boolean(pkg.scopeDetails);
             const packageWhatsappHref = buildPackageWhatsappHref(pkg);
 
             return (
@@ -408,11 +749,29 @@ function Packages() {
                 <p className="text-sm text-gray-600 mt-2">{pkg.description}</p>
               </div>
 
-              <div className="text-center mb-6">
+                <div className="text-center mb-6">
+                {hasMonthlyOffer && (
+                  <div className="mb-2 flex flex-col items-center gap-1">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center px-3 py-1 text-[10px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full">
+                        {lang === 'en' ? 'SPECIAL OFFER' : 'OFERTA ESPECIAL'}
+                      </span>
+                      <span className="inline-flex items-center px-2 py-1 text-[10px] font-bold text-white bg-secondary rounded-full">
+                        -{discountPercent}%
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      {lang === 'en' ? 'Before' : 'Antes'}{' '}
+                      <span className="line-through decoration-gray-400">{formatPrice(pkg.oldPriceMonthly)}</span>
+                    </span>
+                    {pkg.offerMeta && <span className="text-[11px] text-secondary font-semibold">{pkg.offerMeta}</span>}
+                  </div>
+                )}
                 <div className="text-3xl sm:text-4xl font-bold text-gray-900">
-                  {formatPrice(billingCycle === 'monthly' ? pkg.priceMonthly : pkg.priceYearly)}
+                  {formatPrice(selectedPrice)}
                 </div>
-                <div className="text-sm text-gray-500">
+                <div className="text-xs text-gray-500 mt-1">~ {formatUsdPrice(selectedPrice)}</div>
+                <div className="text-sm text-gray-500 mt-1">
                   {billingCycle === 'monthly' ? copy.paymentMonthly : copy.paymentYearly}
                 </div>
                 <div className="text-xs text-gray-500 mt-1">
@@ -436,20 +795,34 @@ function Packages() {
                   ))}
                 </ul>
 
-                {pkg.conditionNote && <p className="text-[11px] text-gray-500 mb-6">{pkg.conditionNote}</p>}
+                <div className="min-h-[44px] mb-4">
+                  {pkg.conditionNote && <p className="text-[11px] text-gray-500">{pkg.conditionNote}</p>}
+                </div>
               </div>
 
-              <Link
-                to="/contacto"
-                className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 mt-auto ${
-                  pkg.popular
-                    ? 'bg-secondary text-white hover:bg-blue-900'
-                    : 'bg-primary text-gray-900 hover:bg-amber-600'
-                }`}
-              >
-                {pkg.cta}
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
+              <div className="space-y-3">
+                {hasScopeDetails && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedDetailPlan({ name: pkg.name, details: pkg.scopeDetails })}
+                    className="w-full inline-flex items-center justify-center py-2 text-xs font-semibold text-gray-800 bg-base2/70 border border-gray-300 hover:border-secondary hover:bg-secondary/10 hover:text-secondary transition-all duration-300"
+                  >
+                    {copy.detailToggleShow}
+                  </button>
+                )}
+
+                <Link
+                  to="/contacto"
+                  className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 ${
+                    pkg.popular
+                      ? 'bg-secondary text-white hover:bg-blue-900'
+                      : 'bg-primary text-gray-900 hover:bg-amber-600'
+                  }`}
+                >
+                  {pkg.cta}
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+              </div>
 
               {packageWhatsappHref && (
                 <a
@@ -493,8 +866,23 @@ function Packages() {
           ))}
         </div>
       </div>
+
+      <PackageDetailModal
+        isOpen={Boolean(selectedDetailPlan)}
+        onClose={() => setSelectedDetailPlan(null)}
+        title={selectedDetailPlan?.name || ''}
+        subtitle={copy.detailSubtitle}
+        details={selectedDetailPlan?.details || null}
+        labels={copy.detailLabels}
+        closeLabel={copy.detailClose}
+      />
     </main>
   );
 }
 
 export default Packages;
+
+
+
+
+
