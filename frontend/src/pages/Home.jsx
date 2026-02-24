@@ -33,7 +33,7 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Landing Starter',
+        title: 'Starter Solution',
         oldPrice: '$299.990 CLP',
         price: '$149.990 CLP',
         promoLabel: 'MEGA LIMITED OFFER',
@@ -58,7 +58,7 @@ function Home() {
 
       return {
         ...common,
-      title: 'Landing Starter',
+      title: 'Solucion Inicio',
       oldPrice: '$299.990',
       price: '$149.990',
       promoLabel: 'MEGA OFERTA LIMITADA',

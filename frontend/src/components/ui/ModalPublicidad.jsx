@@ -3,12 +3,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLanguage } from '../../i18n/index.jsx';
 
 const getPromoDeadline = () => {
-  const now = new Date();
-  let target = new Date(now.getFullYear(), 1, 15, 23, 59, 59);
-  if (target.getTime() < now.getTime()) {
-    target = new Date(now.getFullYear() + 1, 1, 15, 23, 59, 59);
-  }
-  return target;
+  // Deadline fijo de esta campana: 15 de marzo de 2026, 23:59:59 (hora local)
+  return new Date(2026, 2, 15, 23, 59, 59);
 };
 
 const getTimeLeft = (deadline) => {
@@ -49,8 +45,8 @@ export default function ModalPublicidad({
           sideLabel: 'Designs that convert',
           sideTags: 'UI/UX · Branding · Contact · Social · SEO',
           marquee: 'Professional website from $99.990 CLP - limited slots - free consulting',
-          promoEnds: 'Offer ends on Feb 15',
-          promoOver: 'Offer ended.',
+          promoEnds: 'Offer ends on Mar 15',
+          promoOver: 'Offer has ended.',
           namePlaceholder: 'Your name',
           emailPlaceholder: 'Email',
           submitSending: 'Sending...',
@@ -73,8 +69,8 @@ export default function ModalPublicidad({
           sideLabel: 'Diseños que convierten',
           sideTags: 'UI/UX · Identidad · Contacto · RRSS · SEO',
           marquee: 'Web profesional desde $99.990 - cupos limitados - asesoria gratuita',
-          promoEnds: 'Promo termina el 15 feb',
-          promoOver: 'Promocion finalizada.',
+          promoEnds: 'Promo termina el 15 mar',
+          promoOver: 'Ha finalizado la promo.',
           namePlaceholder: 'Tu nombre',
           emailPlaceholder: 'Email',
           submitSending: 'Enviando...',

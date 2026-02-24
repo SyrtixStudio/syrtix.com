@@ -4,6 +4,40 @@ import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 import { useLanguage } from '../../i18n/index.jsx';
 
+const ferreteriaMockups = [
+  '/img/img-proyectos/mockups-ferreteria-maestro/mock-general.webp',
+  '/img/img-proyectos/mockups-ferreteria-maestro/mock-imac.webp',
+  '/img/img-proyectos/mockups-ferreteria-maestro/mock-macbook.webp',
+  '/img/img-proyectos/mockups-ferreteria-maestro/mock-ipad.webp',
+  '/img/img-proyectos/mockups-ferreteria-maestro/mock-iphone.webp',
+];
+
+const barberBlackMockups = [
+  '/img/img-proyectos/mockup-barberblack/mock-general.webp',
+  '/img/img-proyectos/mockup-barberblack/mock-imac.webp',
+  '/img/img-proyectos/mockup-barberblack/mock-macbook.webp',
+  '/img/img-proyectos/mockup-barberblack/mock-ipad.webp',
+  '/img/img-proyectos/mockup-barberblack/mock.iphone.webp',
+];
+
+const clinicaDentMockups = [
+  '/img/img-proyectos/mockups-clinicadent/mock-general.webp',
+  '/img/img-proyectos/mockups-clinicadent/mock-imac.webp',
+  '/img/img-proyectos/mockups-clinicadent/mock-macbook.webp',
+  '/img/img-proyectos/mockups-clinicadent/mock-ipad.webp',
+  '/img/img-proyectos/mockups-clinicadent/mock-iphone.webp',
+];
+
+const eatburgerMockups = [
+  '/img/img-proyectos/mockups-eatburger/img-general.webp',
+  '/img/img-proyectos/mockups-eatburger/mock-imac.webp',
+  '/img/img-proyectos/mockups-eatburger/mock-macbook.webp',
+  '/img/img-proyectos/mockups-eatburger/mock-ipad.webp',
+  '/img/img-proyectos/mockups-eatburger/mock-iphone.webp',
+];
+
+const MOCKUP_PROJECT_IDS = new Set(['ferreteria', 'barberblack', 'clinica', 'burger']);
+
 const portfolio = [
   {
     id: 'bikes',
@@ -24,7 +58,8 @@ const portfolio = [
     titleEs: 'EatBurger',
     titleEn: 'EatBurger',
     category: 'landing',
-    image: '/img/img-proyectos/mockup-eatburger.webp',
+    image: eatburgerMockups[0],
+    mockupImages: eatburgerMockups,
     url: 'https://eatburger-cl.vercel.app/',
   },
   {
@@ -47,7 +82,9 @@ const portfolio = [
     titleEs: 'Clinica dental',
     titleEn: 'Dental clinic',
     category: 'corporate',
-    image: '/img/img-proyectos/clinica.png',
+    image: clinicaDentMockups[0],
+    mockupImages: clinicaDentMockups,
+    url: 'https://clinicadent-cl.vercel.app/',
   },
   {
     id: 'clothes',
@@ -68,14 +105,16 @@ const portfolio = [
     titleEs: 'Ferreteria online',
     titleEn: 'Online hardware store',
     category: 'ecommerce',
-    image: '/img/img-proyectos/ferreteria.png',
+    image: ferreteriaMockups[0],
+    mockupImages: ferreteriaMockups,
   },
   {
     id: 'barberblack',
     titleEs: 'Barbería Black',
     titleEn: 'Barber Black',
     category: 'landing',
-    image: '/img/img-proyectos/mockup-barberblack.webp',
+    image: barberBlackMockups[0],
+    mockupImages: barberBlackMockups,
     url: 'https://barber-black-cl.vercel.app/',
   },
   {
@@ -118,10 +157,17 @@ const portfolio = [
 function PortfolioCarousel() {
   const { lang } = useLanguage();
   const [portfolioIndex, setPortfolioIndex] = useState(0);
+  const [sharedMockupIndex, setSharedMockupIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(() =>
     typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 6,
   );
   const totalPages = Math.ceil(portfolio.length / itemsPerView);
+  const sharedMockupCount = Math.min(
+    ferreteriaMockups.length,
+    barberBlackMockups.length,
+    clinicaDentMockups.length,
+    eatburgerMockups.length,
+  );
 
   const copy =
     lang === 'en'
@@ -165,11 +211,6 @@ function PortfolioCarousel() {
   }, [totalPages]);
 
   useEffect(() => {
-    const interval = setInterval(nextPortfolio, 5000);
-    return () => clearInterval(interval);
-  }, [nextPortfolio]);
-
-  useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
     const handleMediaChange = (event) => {
       setItemsPerView(event.matches ? 1 : 6);
@@ -185,6 +226,14 @@ function PortfolioCarousel() {
     mediaQuery.addListener(handleMediaChange);
     return () => mediaQuery.removeListener(handleMediaChange);
   }, []);
+
+  useEffect(() => {
+    const sharedInterval = setInterval(() => {
+      setSharedMockupIndex((prev) => (prev + 1) % sharedMockupCount);
+    }, 3000);
+
+    return () => clearInterval(sharedInterval);
+  }, [sharedMockupCount]);
 
   useEffect(() => {
     setPortfolioIndex((prev) => prev % totalPages);
@@ -236,14 +285,24 @@ function PortfolioCarousel() {
               {visibleItems.map((project, idx) => {
                 const title = lang === 'en' ? project.titleEn : project.titleEs;
                 const category = copy.categories[project.category] || project.category;
+                const hasMockupRotation = MOCKUP_PROJECT_IDS.has(project.id);
+                const projectMockupIndex = hasMockupRotation ? sharedMockupIndex : 0;
+                const projectImage = hasMockupRotation
+                  ? project.mockupImages?.[projectMockupIndex] || project.image
+                  : project.image;
+                const isPortraitMockup =
+                  hasMockupRotation &&
+                  /mock[-.](ipad|iphone)\.webp$/i.test(projectImage);
 
                 const cardContent = (
                   <>
-                    <div className="aspect-video bg-gray-100 overflow-hidden">
+                    <div className="aspect-video bg-base overflow-hidden">
                       <img
-                        src={project.image}
+                        src={projectImage}
                         alt={title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className={`w-full h-full ${
+                          isPortraitMockup ? 'object-contain' : 'object-cover'
+                        } group-hover:scale-105 transition-transform duration-500`}
                       />
                     </div>
 

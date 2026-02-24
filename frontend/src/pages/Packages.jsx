@@ -46,7 +46,7 @@ function Packages() {
           ],
           plans: [
             {
-              name: 'Landing Starter',
+              name: 'Starter Solution',
               icon: <Zap size={32} />,
               description: 'Single-page landing focused on conversion with basic integrations. No custom development.',
               priceMonthly: 299990,
@@ -74,7 +74,7 @@ function Packages() {
               cta: 'Start',
             },
             {
-              name: 'Corporate Web',
+              name: 'SMB Solution',
               icon: <Building2 size={32} />,
               description: 'Corporate website (multi-page) for business positioning and lead generation.',
               priceMonthly: 599990,
@@ -84,7 +84,7 @@ function Packages() {
               cycleNoteYearly: 'Includes 12 months Basic Maintenance plan.',
               conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
               features: [
-                { name: 'Everything in Landing Starter', included: true },
+                { name: 'Everything in Starter Solution', included: true },
                 { name: 'Up to 8 pages', included: true },
                 { name: 'Service and about pages', included: true },
                 { name: 'Conversion-focused contact sections', included: true },
@@ -95,10 +95,10 @@ function Packages() {
                 { name: 'E-commerce module', included: false },
                 { name: 'Priority support', included: false },
               ],
-              cta: 'Choose Corporate',
+              cta: 'Choose SMB',
             },
             {
-              name: 'Ecommerce Standard',
+              name: 'Business Solution',
               icon: <ShoppingCart size={32} />,
               description: 'Online store with admin tools to manage products, orders, and payments.',
               priceMonthly: 999990,
@@ -108,7 +108,7 @@ function Packages() {
               cycleNoteYearly: 'Includes 12 months Professional Maintenance plan.',
               conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
               features: [
-                { name: 'Everything in Corporate Web', included: true },
+                { name: 'Everything in SMB Solution', included: true },
                 { name: 'Up to 10 pages', included: true },
                 { name: 'E-commerce + secure checkout', included: true },
                 { name: 'Payment gateway integration', included: true },
@@ -122,10 +122,10 @@ function Packages() {
                 { name: 'Legal e-invoicing with SII (quoted separately)', included: false },
                 { name: 'Priority support', included: false },
               ],
-              cta: 'Choose Ecommerce',
+              cta: 'Choose Business',
             },
             {
-              name: 'Ecommerce Advanced',
+              name: 'Enterprise Solution',
               icon: <Star size={32} />,
               description: 'Advanced ecommerce with custom modules, integrations, and automation.',
               priceMonthly: 1699990,
@@ -135,7 +135,7 @@ function Packages() {
               cycleNoteYearly: 'Includes 12 months Premium Maintenance plan.',
               conditionNote: 'Hosting, domains, and transactional email providers are billed by usage.',
               features: [
-                { name: 'Everything in Ecommerce Standard', included: true },
+                { name: 'Everything in Business Solution', included: true },
                 { name: 'Up to 20 pages / advanced modules', included: true },
                 { name: 'Custom modules for your business', included: true },
                 { name: 'Email template editor in admin panel', included: true },
@@ -148,7 +148,7 @@ function Packages() {
                 { name: 'Strategic scope iterations', included: true },
                 { name: 'Legal e-invoicing with SII (quoted separately)', included: false },
               ],
-              cta: 'Choose Advanced',
+              cta: 'Choose Enterprise',
             },
           ],
         }
@@ -185,7 +185,7 @@ function Packages() {
           ],
           plans: [
             {
-              name: 'Landing Starter',
+              name: 'Solucion Inicio',
               icon: <Zap size={32} />,
               description: 'Landing page de una sola pantalla enfocada en conversion con integraciones basicas. Sin desarrollo a medida.',
               priceMonthly: 299990,
@@ -213,7 +213,7 @@ function Packages() {
               cta: 'Comenzar',
             },
             {
-              name: 'Web Corporativa',
+              name: 'Solucion Pyme',
               icon: <Building2 size={32} />,
               description: 'Sitio corporativo multipagina para posicionamiento de marca y generacion de leads.',
               priceMonthly: 599990,
@@ -223,7 +223,7 @@ function Packages() {
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Basico.',
               conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
               features: [
-                { name: 'Todo lo de Landing Starter', included: true },
+                { name: 'Todo lo de Solucion Inicio', included: true },
                 { name: 'Hasta 8 paginas', included: true },
                 { name: 'Paginas de servicios y empresa', included: true },
                 { name: 'Secciones de contacto orientadas a conversion', included: true },
@@ -234,10 +234,10 @@ function Packages() {
                 { name: 'Modulo e-commerce', included: false },
                 { name: 'Soporte prioritario', included: false },
               ],
-              cta: 'Elegir Corporativa',
+              cta: 'Elegir Pyme',
             },
             {
-              name: 'Ecommerce Standard',
+              name: 'Solucion Negocio',
               icon: <ShoppingCart size={32} />,
               description: 'Tienda online con herramientas de administracion para gestionar catalogo, pedidos y pagos.',
               priceMonthly: 999990,
@@ -247,7 +247,7 @@ function Packages() {
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Profesional.',
               conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
               features: [
-                { name: 'Todo lo de Web Corporativa', included: true },
+                { name: 'Todo lo de Solucion Pyme', included: true },
                 { name: 'Hasta 10 paginas', included: true },
                 { name: 'E-commerce + checkout seguro', included: true },
                 { name: 'Integracion de pasarela de pago', included: true },
@@ -261,10 +261,10 @@ function Packages() {
                 { name: 'Facturacion electronica legal con SII (cotizacion aparte)', included: false },
                 { name: 'Soporte prioritario', included: false },
               ],
-              cta: 'Elegir Ecommerce',
+              cta: 'Elegir Negocio',
             },
             {
-              name: 'Ecommerce Avanzado',
+              name: 'Solucion Empresa',
               icon: <Star size={32} />,
               description: 'Ecommerce avanzado con modulos personalizados, integraciones y automatizaciones.',
               priceMonthly: 1699990,
@@ -274,7 +274,7 @@ function Packages() {
               cycleNoteYearly: 'Incluye 12 meses de plan de mantenimiento Premium.',
               conditionNote: 'Hosting y proveedores de correo transaccional se cobran segun uso.',
               features: [
-                { name: 'Todo lo de Ecommerce Standard', included: true },
+                { name: 'Todo lo de Solucion Negocio', included: true },
                 { name: 'Hasta 20 paginas o modulos avanzados', included: true },
                 { name: 'Modulos personalizados para tu negocio', included: true },
                 { name: 'Editor de plantillas de email desde panel admin', included: true },
@@ -287,7 +287,7 @@ function Packages() {
                 { name: 'Iteraciones estrategicas de alcance', included: true },
                 { name: 'Facturacion electronica legal con SII (cotizacion aparte)', included: false },
               ],
-              cta: 'Elegir Avanzado',
+              cta: 'Elegir Empresa',
             },
           ],
         };
