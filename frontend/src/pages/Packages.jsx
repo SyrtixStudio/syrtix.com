@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Check, X, Zap, Star, ArrowRight, Building2, ShoppingCart } from 'lucide-react';
 
+import PackageDetailModal from '../components/pricing/PackageDetailModal.jsx';
 import { COMPANY } from '../constants/index.js';
 import { useLanguage } from '../i18n/index.jsx';
-import PackageDetailModal from '../components/pricing/PackageDetailModal.jsx';
 
 const USD_REFERENCE_RATE = 950;
 
