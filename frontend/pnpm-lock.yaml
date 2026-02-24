@@ -29,9 +29,6 @@ importers:
       react-router-dom:
         specifier: ^7.1.1
         version: 7.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      syrtix-platform:
-        specifier: file:..
-        version: file:..
     devDependencies:
       '@eslint/js':
         specifier: ^9.39.2
@@ -1896,9 +1893,6 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-
-  syrtix-platform@file:..:
-    resolution: {directory: .., type: directory}
 
   tailwindcss@3.4.19:
     resolution: {integrity: sha512-3ofp+LL8E+pK/JuPLPggVAIaEuhvIz4qNcf3nA1Xn2o/7fb7s/TYpHhwGDv1ZU3PkBluUVaF8PyCHcm48cKLWQ==}
@@ -4018,8 +4012,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  syrtix-platform@file:..: {}
 
   tailwindcss@3.4.19:
     dependencies:
