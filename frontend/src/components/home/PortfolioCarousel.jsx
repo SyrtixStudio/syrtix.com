@@ -36,7 +36,15 @@ const eatburgerMockups = [
   '/img/img-proyectos/mockups-eatburger/mock-iphone.webp',
 ];
 
-const MOCKUP_PROJECT_IDS = new Set(['ferreteria', 'barberblack', 'clinica', 'burger']);
+const kuchenCafeMockups = [
+  '/img/img-proyectos/mockups-kuchenycafe/mock-general.webp',
+  '/img/img-proyectos/mockups-kuchenycafe/mock-imac.webp',
+  '/img/img-proyectos/mockups-kuchenycafe/mock-macbook.webp',
+  '/img/img-proyectos/mockups-kuchenycafe/mock-ipad.webp',
+  '/img/img-proyectos/mockups-kuchenycafe/mock-iphone.webp',
+];
+
+const MOCKUP_PROJECT_IDS = new Set(['ferreteria', 'barberblack', 'clinica', 'burger', 'kuchenycafe']);
 
 const portfolio = [
   {
@@ -67,7 +75,8 @@ const portfolio = [
     titleEs: 'Kuchen y Café',
     titleEn: 'Kuchen & Coffee',
     category: 'landing',
-    image: '/img/img-proyectos/mockup-cafeykuchen.webp',
+    image: kuchenCafeMockups[0],
+    mockupImages: kuchenCafeMockups,
     url: 'https://kuchen-cafe-cl.vercel.app/',
   },
   {
@@ -167,6 +176,7 @@ function PortfolioCarousel() {
     barberBlackMockups.length,
     clinicaDentMockups.length,
     eatburgerMockups.length,
+    kuchenCafeMockups.length,
   );
 
   const copy =
