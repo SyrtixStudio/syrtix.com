@@ -18,6 +18,7 @@ const Packages = lazy(() => import('./pages/Packages'));
 const Services = lazy(() => import('./pages/Services'));
 const Contact = lazy(() => import('./sections/Contact'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const PrivacyPolicyBloqueo600800 = lazy(() => import('./pages/PrivacyPolicyBloqueo600800'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const LegalNotice = lazy(() => import('./pages/LegalNotice'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -60,6 +61,10 @@ function App() {
               <Route path="/servicios" element={<Services />} />
               <Route path="/contacto" element={<Contact />} />
               <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+              <Route
+                path="/privacidad/bloqueo-600-y-800"
+                element={<PrivacyPolicyBloqueo600800 />}
+              />
               <Route path="/terminos-condiciones" element={<TermsAndConditions />} />
               <Route path="/aviso-legal" element={<LegalNotice />} />
               <Route path="/404" element={<NotFound />} />
