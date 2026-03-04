@@ -44,23 +44,24 @@ const kuchenCafeMockups = [
   '/img/img-proyectos/mockups-kuchenycafe/mock-iphone.webp',
 ];
 
-const MOCKUP_PROJECT_IDS = new Set(['ferreteria', 'barberblack', 'clinica', 'burger', 'kuchenycafe']);
+const sushiHookMockups = [
+  '/img/img-proyectos/mockups-sushi-hook/mock-general.webp',
+  '/img/img-proyectos/mockups-sushi-hook/mock-imac.webp',
+  '/img/img-proyectos/mockups-sushi-hook/mock-macbook.webp',
+  '/img/img-proyectos/mockups-sushi-hook/mock-ipad.webp',
+  '/img/img-proyectos/mockups-sushi-hook/mock-iphone.webp',
+];
+
+const MOCKUP_PROJECT_IDS = new Set([
+  'ferreteria',
+  'barberblack',
+  'clinica',
+  'burger',
+  'kuchenycafe',
+  'sushihook',
+]);
 
 const portfolio = [
-  {
-    id: 'bikes',
-    titleEs: 'Tienda de bicicletas',
-    titleEn: 'Bicycle store',
-    category: 'ecommerce',
-    image: '/img/img-proyectos/bikes.png',
-  },
-  {
-    id: 'build',
-    titleEs: 'Constructora premium',
-    titleEn: 'Premium construction company',
-    category: 'corporate',
-    image: '/img/img-proyectos/buid.png',
-  },
   {
     id: 'burger',
     titleEs: 'EatBurger',
@@ -80,11 +81,13 @@ const portfolio = [
     url: 'https://kuchen-cafe-cl.vercel.app/',
   },
   {
-    id: 'cars',
-    titleEs: 'Concesionario de autos',
-    titleEn: 'Car dealership',
-    category: 'ecommerce',
-    image: '/img/img-proyectos/cars.png',
+    id: 'sushihook',
+    titleEs: 'Sushi Hook',
+    titleEn: 'Sushi Hook',
+    category: 'landing',
+    image: sushiHookMockups[0],
+    mockupImages: sushiHookMockups,
+    url: 'https://sushihook-cl.vercel.app/',
   },
   {
     id: 'clinica',
@@ -94,20 +97,6 @@ const portfolio = [
     image: clinicaDentMockups[0],
     mockupImages: clinicaDentMockups,
     url: 'https://clinicadent-cl.vercel.app/',
-  },
-  {
-    id: 'clothes',
-    titleEs: 'Boutique de moda',
-    titleEn: 'Fashion boutique',
-    category: 'ecommerce',
-    image: '/img/img-proyectos/clothes.png',
-  },
-  {
-    id: 'constructora',
-    titleEs: 'Constructora elite',
-    titleEn: 'Elite construction company',
-    category: 'corporate',
-    image: '/img/img-proyectos/constructora.png',
   },
   {
     id: 'ferreteria',
@@ -126,41 +115,6 @@ const portfolio = [
     mockupImages: barberBlackMockups,
     url: 'https://barber-black-cl.vercel.app/',
   },
-  {
-    id: 'mascotas',
-    titleEs: 'Pet shop',
-    titleEn: 'Pet shop',
-    category: 'ecommerce',
-    image: '/img/img-proyectos/mascotas.png',
-  },
-  {
-    id: 'notebooks',
-    titleEs: 'Tech store',
-    titleEn: 'Tech store',
-    category: 'ecommerce',
-    image: '/img/img-proyectos/notebooks.png',
-  },
-  {
-    id: 'pasteles',
-    titleEs: 'Pasteleria artesanal',
-    titleEn: 'Artisan bakery',
-    category: 'landing',
-    image: '/img/img-proyectos/pasteles.png',
-  },
-  {
-    id: 'pizzeria',
-    titleEs: 'Pizzeria italiana',
-    titleEn: 'Italian pizzeria',
-    category: 'landing',
-    image: '/img/img-proyectos/pizzeria.png',
-  },
-  {
-    id: 'veterinaria',
-    titleEs: 'Clinica veterinaria',
-    titleEn: 'Veterinary clinic',
-    category: 'corporate',
-    image: '/img/img-proyectos/verinaria.png',
-  },
 ];
 
 function PortfolioCarousel() {
@@ -177,13 +131,14 @@ function PortfolioCarousel() {
     clinicaDentMockups.length,
     eatburgerMockups.length,
     kuchenCafeMockups.length,
+    sushiHookMockups.length,
   );
 
   const copy =
     lang === 'en'
       ? {
-          titlePrefix: 'Check our mockups for ',
-          titleHighlight: 'your website',
+          titlePrefix: 'Your next website could look like ',
+          titleHighlight: 'this',
           subtitle:
             'Templates ready to launch your website quickly with the best quality/price ratio.',
           prevProject: 'Previous project',
@@ -197,8 +152,8 @@ function PortfolioCarousel() {
           },
         }
       : {
-          titlePrefix: 'Revisa nuestros mockups para ',
-          titleHighlight: 'tu web',
+          titlePrefix: 'Tu proxima web puede verse ',
+          titleHighlight: 'asi',
           subtitle:
             'Plantillas listas para entregar tu web lo mas rapido posible y con la mejor calidad/precio del mercado.',
           prevProject: 'Proyecto anterior',
@@ -306,13 +261,15 @@ function PortfolioCarousel() {
 
                 const cardContent = (
                   <>
-                    <div className="aspect-video bg-base overflow-hidden">
+                    <div className="aspect-video bg-white overflow-hidden relative">
                       <img
+                        key={hasMockupRotation ? `${project.id}-${projectMockupIndex}` : project.id}
                         src={projectImage}
                         alt={title}
-                        className={`w-full h-full ${
-                          isPortraitMockup ? 'object-contain' : 'object-cover'
-                        } group-hover:scale-105 transition-transform duration-500`}
+                        className={`absolute inset-0 w-full h-full ${
+                          hasMockupRotation || isPortraitMockup ? 'object-contain p-2 sm:p-3' : 'object-cover'
+                        } group-hover:scale-[1.02] transition-transform duration-500`}
+                        style={hasMockupRotation ? { animation: 'mockupFadeIn 480ms ease-out forwards' } : undefined}
                       />
                     </div>
 
@@ -372,6 +329,13 @@ function PortfolioCarousel() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes mockupFadeIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+      `}</style>
     </section>
   );
 }

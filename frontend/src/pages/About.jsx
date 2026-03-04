@@ -70,11 +70,12 @@ function About() {
             'Quality focus: we collect context deeply to deliver modern, fast, and stable products.',
             'Security and trust: SSL and security best practices included by default.',
           ],
-          expertiseTitle: 'Technical expertise and trust',
+          expertiseBadge: 'TECH EXPERTISE',
+          expertiseTitle: 'Technical experience you can trust',
           expertiseText1:
-            'Our team has strong background in software engineering, databases, machine learning, cybersecurity, and project management.',
+            'We build fast, secure, and scalable websites focused on business outcomes.',
           expertiseText2:
-            'We stay updated continuously to integrate modern technologies and methodologies into every project.',
+            'We combine software engineering, data, AI, and cybersecurity to reduce risk and accelerate growth.',
           processTitlePrefix: 'Our work ',
           processTitleHighlight: 'methodology',
           processTitleSuffix: '',
@@ -169,7 +170,7 @@ function About() {
           whyTitlePrefix: 'Por que trabajar con ',
           whyTitleHighlight: 'nosotros',
           whyItems: [
-            'Equipo multidisciplinario con experiencia comprobada',
+            'Equipo multidisciplinario con experiencia',
             'Tecnologia de punta con IA integrada',
             'Precios transparentes sin sorpresas',
             'Soporte tecnico incluido en todos los planes',
@@ -193,11 +194,12 @@ function About() {
             'Enfoque en calidad: producto moderno, elegante, rapido y estable.',
             'Seguridad y confianza: SSL y buenas practicas de seguridad por defecto.',
           ],
-          expertiseTitle: 'Especializacion tecnica y confianza',
+          expertiseBadge: 'EXPERTISE TECNICO',
+          expertiseTitle: 'Experiencia tecnica que da confianza',
           expertiseText1:
-            'Nuestro equipo esta formado por profesionales con formacion en ingenieria de software, bases de datos, machine learning, seguridad informatica y gestion de proyectos.',
+            'Construimos sitios rapidos, seguros y escalables con foco en resultados de negocio.',
           expertiseText2:
-            'Estamos en constante actualizacion para integrar nuevas tecnologias y metodologias en cada proyecto.',
+            'Combinamos ingenieria de software, datos, IA y ciberseguridad para reducir riesgos y acelerar tu crecimiento.',
           processTitlePrefix: 'Nuestra ',
           processTitleHighlight: 'metodologia',
           processTitleSuffix: ' de trabajo',
@@ -359,19 +361,39 @@ function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {copy.team.map((member, idx) => (
-              <div
-                key={idx}
-                className="bg-base border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300 group"
-              >
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
-                  <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
-                  <p className="text-xs text-gray-500 mb-2">{member.profession}</p>
-                  <p className="text-sm text-gray-600 mb-4">{member.description}</p>
+            {copy.team.map((member, idx) => {
+              const showDuocLogo =
+                typeof member.profession === 'string' &&
+                member.profession.toLowerCase().includes('duoc uc');
+              const professionLabel =
+                typeof member.profession === 'string'
+                  ? member.profession.replace(/\s*-\s*duoc uc/i, '').trim()
+                  : member.profession;
+
+              return (
+                <div
+                  key={idx}
+                  className="bg-base border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300 group"
+                >
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
+                    <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
+                    <div className="mb-2 flex items-center gap-2">
+                      <p className="text-xs text-gray-500">{professionLabel}</p>
+                      {showDuocLogo && (
+                        <img
+                          src="/img/Logo_DuocUC.svg.png"
+                          alt="Duoc UC"
+                          className="h-4 w-auto"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4">{member.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -426,64 +448,23 @@ function About() {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 bg-base">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              {copy.howTitlePrefix}
-              <span className="text-primary">{copy.howTitleHighlight}</span>?
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-base text-gray-700 mb-6">{copy.methodologyText}</p>
-            <ul className="text-left text-gray-700 space-y-2 max-w-2xl mx-auto">
-              {copy.methodologyItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8 px-4 sm:px-6 bg-base2">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-xl font-bold text-gray-900 mb-3">{copy.expertiseTitle}</h3>
-          <p className="text-base text-gray-700 mb-2">{copy.expertiseText1}</p>
-          <p className="text-base text-gray-700">{copy.expertiseText2}</p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base2">
+      <section className="py-12 px-4 sm:px-6 bg-base2">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              {copy.processTitlePrefix}
-              <span className="text-primary">{copy.processTitleHighlight}</span>
-              {copy.processTitleSuffix}
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.processSubtitle}</p>
+          <div className="border-2 border-secondary/20 bg-gradient-to-r from-secondary/5 via-base to-primary/5 p-6 sm:p-8 text-center">
+            <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
+              {copy.expertiseBadge}
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.expertiseTitle}</h3>
+            <p className="text-base text-gray-700 mb-2 max-w-3xl mx-auto">{copy.expertiseText1}</p>
+            <p className="text-base text-gray-700 max-w-3xl mx-auto">{copy.expertiseText2}</p>
           </div>
-
-          <ol className="relative border-l-4 border-primary pl-8 space-y-12">
-            {copy.process.map((item, index) => (
-              <li key={item.title} className="group">
-                <div className="absolute -left-5 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-gray-900 font-bold text-lg border-4 border-white shadow-lg">
-                  {index + 1}
-                </div>
-                <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm group-hover:border-primary transition-all duration-300">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-700 text-sm">{item.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 bg-base2">
+      <section className="py-16 px-4 sm:px-6 bg-secondary">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.ctaTitle}</h2>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">{copy.ctaDescription}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">{copy.ctaTitle}</h2>
+          <p className="text-base mb-8 max-w-xl mx-auto">{copy.ctaDescription}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
@@ -494,7 +475,7 @@ function About() {
             </Link>
             <Link
               to="/paquetes"
-              className="border-2 border-secondary text-secondary font-bold px-8 py-4 hover:bg-secondary hover:text-white transition duration-300"
+              className="border-2 border-primary text-base font-bold px-8 py-4 hover:bg-primary hover:text-white transition duration-300"
             >
               {copy.viewPackages}
             </Link>

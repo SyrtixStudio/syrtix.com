@@ -40,35 +40,35 @@ function ServicesGrid() {
               icon: 'Code',
               title: 'Custom development',
               description: 'Custom solutions with the latest technologies.',
-              price: 'From $199\.000 CLP',
+              price: 'From $49.000 CLP',
             },
             {
               id: 'ecommerce',
               icon: 'ShoppingCart',
               title: 'E-commerce',
               description: 'Basic online stores with payments and inventory management.',
-              price: 'From $649.000 CLP',
+              price: 'From $699.000 CLP',
             },
             {
               id: 'seo',
               icon: 'Search',
               title: 'SEO',
               description: 'Search optimization to improve your visibility on Google.',
-              price: 'From $79\.000 CLP/month',
+              price: 'From $79.000 CLP/month',
             },
             {
               id: 'apps',
               icon: 'Smartphone',
               title: 'Mobile apps',
               description: 'Native apps and PWAs for iOS and Android.',
-              price: 'From $499\.000 CLP',
+              price: 'From $499.000 CLP',
             },
             {
               id: 'maintenance',
               icon: 'Settings',
               title: 'Maintenance',
               description: 'Updates, backups, and ongoing technical support.',
-              price: 'From $49\.000 CLP/month',
+              price: 'From $49.000 CLP/month',
             },
           ],
           plans: [
@@ -76,7 +76,7 @@ function ServicesGrid() {
               id: 'start',
               title: 'SMB Website',
               subtitle: 'Up to 5 pages or sections',
-              price: 'Diagnostic from $49\.000 CLP',
+              price: 'Diagnostic from $49.000 CLP',
               description:
                 'We audit your current website and define the exact improvement plan before implementation.',
               includes: [
@@ -90,7 +90,7 @@ function ServicesGrid() {
               id: 'grow',
               title: 'SMB Plus Website',
               subtitle: '6-15 pages + modules',
-              price: 'Diagnostic from $99\.000 CLP',
+              price: 'Diagnostic from $99.000 CLP',
               description:
                 'For websites with integrations and critical flows that need a complete review.',
               includes: [
@@ -106,7 +106,7 @@ function ServicesGrid() {
               id: 'pro',
               title: 'Enterprise Website',
               subtitle: 'More than 15 pages or ecommerce',
-              price: 'Diagnostic from $149\.000 CLP',
+              price: 'Diagnostic from $149.000 CLP',
               description:
                 'For complex projects: ecommerce, multi-site platforms, or advanced business logic.',
               includes: [
@@ -148,35 +148,35 @@ function ServicesGrid() {
               icon: 'Code',
               title: 'Desarrollo a medida',
               description: 'Soluciones personalizadas con las ultimas tecnologias del mercado.',
-              price: 'Desde $199\.000',
+              price: 'Desde $49.000',
             },
             {
               id: 'ecommerce',
               icon: 'ShoppingCart',
               title: 'E-commerce',
               description: 'Tiendas online basicas con pasarelas de pago y gestion de inventario.',
-              price: 'Desde $649.000',
+              price: 'Desde $699.000',
             },
             {
               id: 'seo',
               icon: 'Search',
               title: 'SEO',
               description: 'Optimizacion para buscadores que mejora tu visibilidad en Google.',
-              price: 'Desde $79\.000/mes',
+              price: 'Desde $79.000/mes',
             },
             {
               id: 'apps',
               icon: 'Smartphone',
               title: 'Apps moviles',
               description: 'Aplicaciones nativas y PWA para iOS y Android.',
-              price: 'Desde $499\.000',
+              price: 'Desde $499.000',
             },
             {
               id: 'maintenance',
               icon: 'Settings',
               title: 'Mantenimiento',
               description: 'Actualizaciones, backups y soporte tecnico continuo.',
-              price: 'Desde $49\.000/mes',
+              price: 'Desde $49.000/mes',
             },
           ],
           plans: [
@@ -184,7 +184,7 @@ function ServicesGrid() {
               id: 'start',
               title: 'Sitio Pyme',
               subtitle: 'Hasta 5 paginas o secciones',
-              price: 'Diagnostico desde $49\.000',
+              price: 'Diagnostico desde $49.000',
               description:
                 'Revisamos tu web actual y definimos el plan exacto de mejora antes de intervenir.',
               includes: [
@@ -198,7 +198,7 @@ function ServicesGrid() {
               id: 'grow',
               title: 'Sitio Pyme Plus',
               subtitle: '6-15 paginas + modulos',
-              price: 'Diagnostico desde $99\.000',
+              price: 'Diagnostico desde $99.000',
               description:
                 'Para sitios con integraciones y flujos criticos que requieren una revision completa.',
               includes: [
@@ -214,7 +214,7 @@ function ServicesGrid() {
               id: 'pro',
               title: 'Sitio Empresa',
               subtitle: 'Mas de 15 paginas o ecommerce',
-              price: 'Diagnostico desde $149\.000',
+              price: 'Diagnostico desde $149.000',
               description:
                 'Para proyectos complejos: ecommerce, multi-sitio o plataformas con logica avanzada.',
               includes: [

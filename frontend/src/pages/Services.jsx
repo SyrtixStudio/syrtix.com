@@ -67,22 +67,22 @@ function Services() {
       ? {
           heroBadge: 'Web development services',
           heroTitleLine1: 'Digital solutions',
-          heroTitleLine2: 'tailored to you',
+          heroTitleLine2: 'for service SMBs',
           heroDescription:
-            'From design to development, we deliver everything you need for a professional and effective digital presence.',
+            'From strategy to launch, we build websites and automation that help service SMBs in Chile capture more qualified leads.',
           viewPackages: 'View packages',
           requestQuote: 'Request quote',
           sectionTitlePrefix: 'Our ',
           sectionTitleHighlight: 'services',
-          sectionSubtitle: 'Complete solutions for each stage of your digital project',
+          sectionSubtitle: 'Complete solutions for service SMBs at each growth stage',
           requestService: 'Request service',
           additionalTitlePrefix: 'Additional ',
           additionalTitleHighlight: 'services',
-          additionalSubtitle: 'Enhance your project with these specialized services',
+          additionalSubtitle: 'Add strategic services to strengthen your commercial operation',
           maintenanceTitlePrefix: 'Maintenance and ',
           maintenanceTitleHighlight: 'continuous growth',
           maintenanceSubtitle:
-            'We support you after launch so your site stays fast, secure, and conversion-ready. Monthly plan recommended.',
+            'Post-launch support so your site stays fast, secure, and conversion-ready for your service business.',
           maintenanceCta: 'Request monthly plan',
           whyTitlePrefix: 'Why ',
           whyTitleHighlight: 'choose us',
@@ -92,7 +92,7 @@ function Services() {
           techTitleHighlight: 'master',
           ctaTitle: 'Do you have a project in mind?',
           ctaDescription:
-            'Tell us your idea and we will help you make it real. Free quote with no commitment.',
+            'Tell us about your service business and we will propose the best roadmap. Free quote with no commitment.',
           services: [
             {
               title: 'Web Design & UX/UI',
@@ -539,24 +539,24 @@ function Services() {
       : {
           heroBadge: 'Servicios de desarrollo web',
           heroTitleLine1: 'Soluciones digitales',
-          heroTitleLine2: 'a tu medida',
+          heroTitleLine2: 'para pymes de servicios',
           heroDescription:
-            'Desde Diseño hasta desarrollo, ofrecemos todo lo que necesitas para crear una presencia digital profesional y efectiva.',
+            'Desde estrategia hasta desarrollo, construimos sitios y automatizaciones para que las pymes de servicios en Chile capten mas leads calificados.',
           viewPackages: 'Ver paquetes',
           requestQuote: 'Solicitar cotización',
           sectionTitlePrefix: 'Nuestros ',
           sectionTitleHighlight: 'servicios',
           sectionSubtitle:
-            'Soluciones completas para cada etapa de tu proyecto digital',
+            'Soluciones completas para pymes de servicios en cada etapa de crecimiento',
           requestService: 'Solicitar servicio',
           additionalTitlePrefix: 'Servicios ',
           additionalTitleHighlight: 'adicionales',
           additionalSubtitle:
-            'Complementa tu proyecto con estos servicios especializados',
+            'Complementa tu proyecto con servicios estrategicos para fortalecer tu operacion comercial',
           maintenanceTitlePrefix: 'Mantenimiento y ',
           maintenanceTitleHighlight: 'crecimiento continuo',
           maintenanceSubtitle:
-            'Te acompañamos después del lanzamiento para que tu sitio siga rápido, seguro y convirtiendo. Plan mensual recomendado.',
+            'Te acompanamos despues del lanzamiento para que tu sitio siga rapido, seguro y convirtiendo para tu negocio de servicios.',
           maintenanceCta: 'Solicitar plan mensual',
           whyTitlePrefix: 'Por qué ',
           whyTitleHighlight: 'elegirnos',
@@ -566,7 +566,7 @@ function Services() {
           techTitleHighlight: 'dominamos',
           ctaTitle: '¿Tienes un proyecto en mente?',
           ctaDescription:
-            'Cuéntanos tu idea y te ayudaremos a hacerla realidad. Cotización gratuita y sin compromiso.',
+            'Cuentanos sobre tu negocio de servicios y te propondremos la mejor hoja de ruta. Cotizacion gratuita y sin compromiso.',
           services: [
             {
               title: 'Diseño Web & UX/UI',

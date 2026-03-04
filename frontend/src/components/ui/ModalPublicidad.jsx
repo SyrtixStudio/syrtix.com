@@ -1,5 +1,7 @@
 ﻿import { useEffect, useMemo, useRef, useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { useLanguage } from '../../i18n/index.jsx';
 
 const getPromoDeadline = (offerEndsAt) => {
@@ -66,24 +68,12 @@ export default function ModalPublicidad({
       ? {
           close: 'Close',
           sideLabel: 'Designs that convert',
-          sideTags: 'UI/UX Â· Branding Â· Contact Â· Social Â· SEO',
-          marquee: 'Professional website from $99\.000 CLP - limited slots - free consulting',
+          sideTags: 'UI/UX - Branding - Contact - Social - SEO',
           promoEnds: 'Offer ends:',
           promoOver: 'Offer has ended.',
-          namePlaceholder: 'Your name',
-          emailPlaceholder: 'Email',
-          submitSending: 'Sending...',
-          submit: 'Send quote request',
+          quoteCta: 'Get quote',
           whatsapp: 'WhatsApp',
-          missingAccessKey:
-            'VITE_WEB3FORMS_ACCESS_KEY is missing. The form cannot be submitted.',
-          success: 'Your message was sent. We will contact you soon.',
-          error: 'There was a problem sending your message. Please try again.',
-          fallbackMessage: 'I am interested in this package',
           fallbackPrice: 'Check pricing',
-          waMessage: `Hi, I want information about ${title} - ${price}`,
-          subject: `Request - ${title}`,
-          fromName: 'Interested lead',
           emailFootnote: '* Includes setup. Provider licenses are quoted separately.',
           scrollDown: 'Scroll down',
           before: 'Before',
@@ -93,30 +83,18 @@ export default function ModalPublicidad({
         }
       : {
           close: 'Cerrar',
-          sideLabel: 'DiseÃ±os que convierten',
-          sideTags: 'UI/UX Â· Identidad Â· Contacto Â· RRSS Â· SEO',
-          marquee: 'Web profesional desde $99\.000 - cupos limitados - asesoria gratuita',
-          promoEnds: 'Promo termina:',
-          promoOver: 'Ha finalizado la promo.',
-          namePlaceholder: 'Tu nombre',
-          emailPlaceholder: 'Email',
-          submitSending: 'Enviando...',
-          submit: 'Enviar cotizacion',
+          sideLabel: 'Diseños que convierten',
+          sideTags: 'UI/UX - Identidad - Contacto - RRSS - SEO',
+          promoEnds: 'La promo termina:',
+          promoOver: 'La promo ha finalizado.',
+          quoteCta: 'Cotizar',
           whatsapp: 'WhatsApp',
-          missingAccessKey:
-            'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
-          success: 'Tu mensaje fue enviado. Te contactaremos pronto.',
-          error: 'Hubo un problema al enviar. Intentalo nuevamente.',
-          fallbackMessage: 'Estoy interesado en este paquete',
           fallbackPrice: 'Consultar precio',
-          waMessage: `Hola, quiero informacion sobre ${title} - ${price}`,
-          subject: `Solicitud - ${title}`,
-          fromName: 'Interesado en paquete',
-          emailFootnote: '* Incluye configuracion. Las licencias del proveedor se cotizan aparte.',
+          emailFootnote: '* Incluye configuración. Las licencias del proveedor se cotizan aparte.',
           scrollDown: 'Desliza hacia abajo',
           before: 'Antes',
           now: 'Ahora',
-          launchOffer: 'Oferta lanzamiento',
+          launchOffer: 'Oferta de lanzamiento',
           save: 'Ahorras',
         };
 
@@ -124,8 +102,13 @@ export default function ModalPublicidad({
     typeof whatsapp === 'string' && whatsapp.trim() ? whatsapp : import.meta.env.VITE_WHATSAPP_PHONE;
   const whatsappDigits =
     typeof whatsappSource === 'string' ? whatsappSource.replace(/[^0-9]/g, '') : '';
+  const messagePrice = price || copy.fallbackPrice;
+  const whatsappMessage =
+    lang === 'en'
+      ? `Hi, I want information about ${title || 'this package'} - ${messagePrice}`
+      : `Hola, quiero información sobre ${title || 'este paquete'} - ${messagePrice}`;
   const whatsappHref = whatsappDigits
-    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(copy.waMessage)}`
+    ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(whatsappMessage)}`
     : '';
 
   const promoDeadline = useMemo(() => getPromoDeadline(offerEndsAt), [offerEndsAt]);
@@ -139,15 +122,6 @@ export default function ModalPublicidad({
     [lang, promoDeadline],
   );
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(promoDeadline));
-  const defaultMessage = useMemo(
-    () => `${copy.fallbackMessage} ${title || 'web'} (${price || copy.fallbackPrice}).`,
-    [copy.fallbackMessage, copy.fallbackPrice, title, price],
-  );
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState(defaultMessage);
-  const [status, setStatus] = useState('idle');
-  const [feedback, setFeedback] = useState('');
   const [showScrollHint, setShowScrollHint] = useState(false);
   const contentRef = useRef(null);
   const oldPriceValue = parsePriceNumber(oldPrice);
@@ -160,7 +134,8 @@ export default function ModalPublicidad({
   const discountPercent = hasSavings ? Math.round((savingsValue / oldPriceValue) * 100) : 0;
   const displayOldPrice = oldPrice || (oldPriceValue ? formatCLP(oldPriceValue, lang) : '');
   const displayCurrentPrice = price || (currentPriceValue ? formatCLP(currentPriceValue, lang) : '');
-  const hasAsteriskFeature = Array.isArray(list) && list.some((item) => typeof item === 'string' && item.includes('*'));
+  const hasAsteriskFeature =
+    Array.isArray(list) && list.some((item) => typeof item === 'string' && item.includes('*'));
 
   const updateScrollHint = () => {
     if (window.matchMedia('(min-width: 768px)').matches) {
@@ -203,12 +178,6 @@ export default function ModalPublicidad({
   }, [promoDeadline]);
 
   useEffect(() => {
-    if (open) {
-      setMessage(defaultMessage);
-    }
-  }, [open, defaultMessage]);
-
-  useEffect(() => {
     if (!open) return;
     updateScrollHint();
 
@@ -220,56 +189,7 @@ export default function ModalPublicidad({
       window.removeEventListener('resize', onResize);
       window.cancelAnimationFrame(rafId);
     };
-  }, [open, defaultMessage, description, details, delivery, list]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (status === 'sending') return;
-
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-    const targetEmail = import.meta.env.VITE_CONTACT_EMAIL || 'contacto@syrtix.com';
-
-    if (!accessKey) {
-      setStatus('error');
-      setFeedback(copy.missingAccessKey);
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('access_key', accessKey);
-    formData.append('email', targetEmail);
-    formData.append('replyTo', targetEmail);
-    formData.append('subject', copy.subject);
-    formData.append('from_name', name || copy.fromName);
-    if (email) formData.append('from', email);
-    if (message) formData.append('message', message);
-
-    try {
-      setStatus('sending');
-      setFeedback('');
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFeedback(copy.success);
-        setName('');
-        setEmail('');
-        setMessage(defaultMessage);
-      } else {
-        throw new Error('Request failed');
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus('error');
-      setFeedback(copy.error);
-    } finally {
-      setStatus('idle');
-    }
-  };
+  }, [open, description, details, delivery, list]);
 
   if (!open) return null;
 
@@ -312,8 +232,23 @@ export default function ModalPublicidad({
           onScroll={updateScrollHint}
           className="modal-scrollbar relative z-10 p-3 md:p-6 overflow-y-auto min-h-0"
         >
-          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-0">{title}</h3>}
-          <div className="mb-2">
+          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{title}</h3>}
+          <div className="mb-3 rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary/5 via-white to-primary/5 p-3 md:p-4">
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                {promoLabel || copy.launchOffer}
+              </span>
+              {hasSavings && (
+                <>
+                  <span className="inline-flex items-center rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-[10px] font-semibold text-green-700">
+                    {copy.save}: {formatCLP(savingsValue, lang)}
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                    -{discountPercent}%
+                  </span>
+                </>
+              )}
+            </div>
             {displayOldPrice && (
               <div className="text-[11px] text-gray-500">
                 {copy.before}:{' '}
@@ -321,43 +256,19 @@ export default function ModalPublicidad({
               </div>
             )}
             {displayCurrentPrice && (
-              <div className="text-base md:text-lg font-extrabold text-primary">
+              <div className="mt-0.5 text-xl md:text-2xl font-extrabold text-primary">
                 {copy.now}: {displayCurrentPrice}
               </div>
             )}
-            <div className="mt-1 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
-              {promoLabel || copy.launchOffer}
-            </div>
-            {hasSavings && (
-              <div className="mt-1 flex items-center gap-2">
-                <div className="text-[11px] font-semibold text-green-700">
-                  {copy.save}: {formatCLP(savingsValue, lang)}
-                </div>
-                <div className="inline-flex items-center rounded-full bg-red-50 border border-red-200 px-2 py-0.5 text-[10px] font-bold text-red-700">
-                  -{discountPercent}%
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="mb-2 overflow-hidden border border-primary">
-            <div className="promo-marquee flex items-center">
-              <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                {copy.marquee}
-              </span>
-              <span className="promo-marquee__text px-4 py-2 text-[11px] font-bold uppercase tracking-wide text-primary">
-                {copy.marquee}
-              </span>
-            </div>
           </div>
 
           {timeLeft.totalSeconds > 0 ? (
-            <div className="mb-2 flex items-center gap-2 text-xs text-red-700">
-              <span className="inline-flex h-2 w-2 rounded-full bg-red-600 animate-pulse" aria-hidden />
-              <span className="font-semibold">
+            <div className="mb-3 flex flex-wrap items-center gap-2 rounded-lg border border-secondary/25 bg-secondary/5 px-3 py-2 text-xs text-secondary">
+              <span className="inline-flex h-2 w-2 rounded-full bg-primary animate-pulse" aria-hidden />
+              <span className="font-semibold text-secondary">
                 {copy.promoEnds} {promoDateLabel}
               </span>
-              <div className="flex items-center gap-1 text-[11px] font-bold bg-red-50 border border-red-200 rounded-full px-2 py-1">
+              <div className="flex items-center gap-1 text-[11px] font-bold rounded-full border border-secondary/35 bg-white px-2 py-1 text-secondary">
                 <span>{formatUnit(timeLeft.days)}d</span>
                 <span>:</span>
                 <span>{formatUnit(timeLeft.hours)}h</span>
@@ -368,31 +279,37 @@ export default function ModalPublicidad({
               </div>
             </div>
           ) : (
-            <div className="mb-2 rounded-lg border border-gray-200 bg-gray-50 px-2 py-1 text-xs text-gray-600">
+            <div className="mb-3 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs text-gray-600">
               {copy.promoOver}
             </div>
           )}
 
-          {description && <p className="text-xs text-gray-700 mb-2">{description}</p>}
-          {details && <p className="text-xs text-gray-600 mb-2">{details}</p>}
+          {(description || details) && (
+            <div className="mb-3 rounded-lg border border-gray-200 bg-gray-50/70 p-3">
+              {description && <p className="text-xs text-gray-600 leading-relaxed">{description}</p>}
+              {details && <p className="mt-1 text-xs text-gray-500 leading-relaxed">{details}</p>}
+            </div>
+          )}
 
           {Array.isArray(list) && list.length > 0 && (
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 mb-3">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-1.5 gap-x-4 mb-3">
               {list.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <svg
-                    className="mt-1 w-3.5 h-3.5 text-primary flex-shrink-0"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.545a1 1 0 111.414-1.414L8.12 11.54l6.657-6.657a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-[11px] text-gray-700 leading-tight">{item}</span>
+                <li key={idx} className="flex items-start gap-2.5">
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary/10 text-primary flex-shrink-0">
+                    <svg
+                      className="w-2.5 h-2.5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.545a1 1 0 111.414-1.414L8.12 11.54l6.657-6.657a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span className="text-[12px] text-gray-700 leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
@@ -400,65 +317,35 @@ export default function ModalPublicidad({
 
           {hasAsteriskFeature && <p className="text-[10px] text-gray-500 mb-3">{copy.emailFootnote}</p>}
 
-          <form onSubmit={handleSubmit} className="space-y-2 mb-2">
-            <input
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={copy.namePlaceholder}
-              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
-            />
-            <input
-              required
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={copy.emailPlaceholder}
-              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs"
-            />
-            <textarea
-              required
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full border border-gray-200 rounded-md px-3 py-2 text-xs h-16"
-            />
-            <div className={`grid gap-2 ${whatsappHref ? 'grid-cols-2' : 'grid-cols-1'}`}>
-              <button
-                type="submit"
-                disabled={status === 'sending'}
-                className={`w-full bg-primary text-white px-2 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-[11px] sm:text-xs ${
-                  status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''
-                }`}
+          <div className={`grid gap-2 mb-2 ${whatsappHref ? 'grid-cols-2' : 'grid-cols-1'}`}>
+            <Link
+              to="/contacto"
+              onClick={onClose}
+              className="w-full bg-primary text-white px-2 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-[11px] sm:text-xs text-center"
+            >
+              {copy.quoteCta}
+            </Link>
+            {whatsappHref && (
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full border border-green-500 text-green-700 px-2 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-[11px] sm:text-xs text-center flex items-center justify-center gap-2"
               >
-                {status === 'sending' ? copy.submitSending : copy.submit}
-              </button>
-              {whatsappHref && (
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full border border-green-500 text-green-700 px-2 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-[11px] sm:text-xs text-center flex items-center justify-center gap-2"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z"
-                      fill="#fff"
-                    />
-                  </svg>
-                  {copy.whatsapp}
-                </a>
-              )}
-            </div>
-            {feedback && (
-              <p className={`text-xs ${status === 'error' ? 'text-red-600' : 'text-green-600'}`}>
-                {feedback}
-              </p>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z"
+                    fill="#fff"
+                  />
+                </svg>
+                {copy.whatsapp}
+              </a>
             )}
-          </form>
+          </div>
 
           <div className="mt-2">
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}
@@ -487,19 +374,8 @@ export default function ModalPublicidad({
           0% { opacity: 0; transform: translateY(6px) scale(0.995); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
-        @keyframes promo-marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
         .animate-fadeIn {
           animation: animate-fadeIn 260ms cubic-bezier(.4,0,.2,1);
-        }
-        .promo-marquee {
-          width: max-content;
-          animation: promo-marquee 12s linear infinite;
-        }
-        .promo-marquee__text {
-          white-space: nowrap;
         }
         .modal-scrollbar {
           scrollbar-width: thin;
@@ -515,9 +391,7 @@ export default function ModalPublicidad({
           background: rgba(18, 41, 122, 0.5);
           border-radius: 9999px;
         }
-        .from-primary { --color-primary-dark: #0b6e6e; }
       `}</style>
     </div>
   );
 }
-

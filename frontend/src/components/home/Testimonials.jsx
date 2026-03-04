@@ -2,91 +2,44 @@
 
 import { Star } from 'lucide-react';
 
+import { testimonials } from '../../data/testimonials.js';
 import { useLanguage } from '../../i18n/index.jsx';
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'Maria Gonzalez',
-    company: 'Boutique Elena',
-    textEs: 'Excelente trabajo. Mi tienda online aumento las ventas un 150% en el primer mes.',
-    textEn: 'Excellent work. My online store increased sales by 150% in the first month.',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Carlos Rodriguez',
-    company: 'Consultora CR',
-    textEs: 'Profesionales y rapidos. Entregaron antes de tiempo y el resultado supero mis expectativas.',
-    textEn: 'Professional and fast. They delivered ahead of time and exceeded my expectations.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Ana Martinez',
-    company: 'Clinica Dental Sonrie',
-    textEs: 'El mejor equipo con el que he trabajado. Soporte increible y Diseño impecable.',
-    textEn: 'The best team I have worked with. Amazing support and flawless design.',
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Alan Iturra',
-    company: 'Eat Burger',
-    textEs: 'Grande chicos, solucionaron mi problema de años en semanas.',
-    textEn: 'Great team, they solved a long-standing issue in just weeks.',
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: 'Marcela Concha',
-    company: 'Tech Solutions',
-    textEs: 'Totalmente recomendables, indagaron a fondo y entregaron el producto que queria.',
-    textEn: 'Highly recommended. They went deep and delivered exactly what I needed.',
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: 'Antonio Vega',
-    company: 'Innova Corp',
-    textEs: 'Muy profesionales, Diseños modernos y funcionalidades excepcionales.',
-    textEn: 'Very professional, modern designs and exceptional functionality.',
-    rating: 5,
-  },
-  {
-    id: 7,
-    name: 'Sebastian Mella',
-    company: 'Startup XYZ',
-    textEs:
-      'Tengo 4 paginas e-commerce con ellos y todas funcionan excelente. Ellos mantienen mis sitios web.',
-    textEn:
-      'I have 4 e-commerce websites with them and all run perfectly. They also maintain my websites.',
-    rating: 5,
-  },
-  {
-    id: 8,
-    name: 'Alexis Rodriguez',
-    company: 'Servicios Financieros AR',
-    textEs: 'Valio cada peso invertido, superaron mis expectativas en Diseño y funcionalidad.',
-    textEn: 'Worth every peso. They exceeded my expectations in design and functionality.',
-    rating: 5,
-  },
-  {
-    id: 9,
-    name: 'Cristian Castro',
-    company: 'Barber Shop CC',
-    textEs:
-      'No sabia como ordenar mis reservas hasta que este equipo me ayudo a crear mi web con reservas integradas.',
-    textEn:
-      'I did not know how to organize my bookings until this team helped me build my website with integrated booking.',
-    rating: 5,
-  },
-];
+const REVIEW_REFERENCE_DATE = new Date('2026-03-03T23:59:59-03:00');
+
+const formatRelativeReviewTime = (createdAt, lang) => {
+  const parsed = new Date(createdAt);
+  if (Number.isNaN(parsed.getTime())) {
+    return lang === 'en' ? '3 hours ago' : 'hace 3 horas';
+  }
+
+  let diffHours = Math.floor((REVIEW_REFERENCE_DATE.getTime() - parsed.getTime()) / (1000 * 60 * 60));
+  if (diffHours < 0) diffHours = 0;
+
+  if (diffHours < 24) {
+    const hours = Math.max(1, diffHours);
+    return lang === 'en'
+      ? `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`
+      : `hace ${hours} ${hours === 1 ? 'hora' : 'horas'}`;
+  }
+
+  const days = Math.floor(diffHours / 24);
+  const hours = diffHours % 24;
+
+  if (hours === 0) {
+    return lang === 'en'
+      ? `${days} ${days === 1 ? 'day' : 'days'} ago`
+      : `hace ${days} ${days === 1 ? 'dia' : 'dias'}`;
+  }
+
+  return lang === 'en' ? `${days}d ${hours}h ago` : `hace ${days} dias ${hours} horas`;
+};
 
 function Testimonials() {
   const { lang } = useLanguage();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
+  const avatarPalette = ['bg-violet-500', 'bg-sky-500', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-500'];
 
   const copy =
     lang === 'en'
@@ -146,10 +99,10 @@ function Testimonials() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-secondary">
+    <section className="py-16 px-4 sm:px-6 bg-base2">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
             {copy.titleSuffix}
@@ -164,20 +117,41 @@ function Testimonials() {
                 key={testimonial.id}
                 data-aos="zoom-in"
                 data-aos-delay={idx * 150}
-                className="bg-white/10 backdrop-blur-sm p-6 border border-white/20 hover:border-primary transition-all duration-300"
+                className="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm hover:shadow-md hover:border-secondary/40 transition-all duration-300 min-h-[220px]"
               >
-                <div className="flex mb-4">
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`h-10 w-10 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
+                        avatarPalette[(testimonial.id - 1) % avatarPalette.length]
+                      }`}
+                    >
+                      {testimonial.name.charAt(0).toLowerCase()}
+                    </span>
+                    <div>
+                      <p className="text-base font-semibold text-gray-900 leading-none">{testimonial.name}</p>
+                      <p className="mt-1 text-xs text-gray-500">
+                        {formatRelativeReviewTime(testimonial.createdAt, lang)}
+                      </p>
+                    </div>
+                  </div>
+                  <img
+                    src="/img/logo-google.webp"
+                    alt="Google"
+                    className="h-6 w-6 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="flex mb-3 gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="text-primary fill-current" />
+                    <Star key={i} size={16} className="text-amber-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-white/90 text-sm mb-4 italic">
-                  &quot;{lang === 'en' ? testimonial.textEn : testimonial.textEs}&quot;
+
+                <p className="text-gray-800 text-sm leading-relaxed">
+                  {lang === 'en' ? testimonial.textEn : testimonial.textEs}
                 </p>
-                <div>
-                  <p className="text-white font-bold text-sm">{testimonial.name}</p>
-                  <p className="text-white/60 text-xs">{testimonial.company}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -188,7 +162,7 @@ function Testimonials() {
                 <button
                   type="button"
                   onClick={goPrev}
-                  className="h-9 w-9 border border-white/30 text-white hover:border-primary hover:text-primary transition"
+                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:border-secondary hover:text-secondary transition"
                   aria-label={copy.prev}
                 >
                   ‹
@@ -199,8 +173,8 @@ function Testimonials() {
                       key={idx}
                       type="button"
                       onClick={() => setActiveIndex(idx)}
-                      className={`h-2.5 w-2.5  transition ${
-                        idx === activeIndex ? 'bg-primary' : 'bg-white/30'
+                      className={`h-2.5 w-2.5 transition ${
+                        idx === activeIndex ? 'bg-secondary' : 'bg-gray-300'
                       }`}
                       aria-label={`${copy.goToGroup} ${idx + 1}`}
                     />
@@ -209,7 +183,7 @@ function Testimonials() {
                 <button
                   type="button"
                   onClick={goNext}
-                  className="h-9 w-9 border border-white/30 text-white hover:border-primary hover:text-primary transition"
+                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:border-secondary hover:text-secondary transition"
                   aria-label={copy.next}
                 >
                   ›

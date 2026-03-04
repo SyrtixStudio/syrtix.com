@@ -32,12 +32,12 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Starter Solution',
+        title: 'Entrepreneur Solution',
         oldPrice: '$299.000 CLP',
         price: '$149.000 CLP',
         promoLabel: 'LAUNCH OFFER',
         offerEndsAt: '2026-03-31T23:59:59-03:00',
-        description: 'Single-page website designed to capture leads fast.',
+        description: 'Single-page website for entrepreneurs and service professionals who need fast lead capture.',
         details: '10 slots available. Launch offer valid until Mar 31, 2026.',
         list: [
           'Professional design',
@@ -51,6 +51,7 @@ function Home() {
           'Business email setup*',
           'Website launch configuration',
           '15-day post-launch guidance',
+          'Free hosting for 1 year',
         ],
         delivery: 'Delivery in 7 days',
       };
@@ -58,15 +59,15 @@ function Home() {
 
       return {
         ...common,
-      title: 'Solucion Inicio',
+      title: 'Solución Emprendedor',
       oldPrice: '$299.000',
       price: '$149.000',
       promoLabel: 'OFERTA LANZAMIENTO',
       offerEndsAt: '2026-03-31T23:59:59-03:00',
-      description: 'Sitio de una pagina para captar clientes de forma rapida.',
-      details: '10 cupos disponibles. Oferta lanzamiento valida hasta el 31 de marzo de 2026.',
+      description: 'Pagina web para emprendedores y pymes de servicios que necesitan captar clientes rapido.',
+      details: '10 cupos disponibles. Oferta de lanzamiento valida hasta el 31 de marzo de 2026.',
       list: [
-        'Diseno profesional',
+        'Enfoque UX/U',
         'Identidad visual',
         'Diseño responsive',
         'Landing page',
@@ -77,6 +78,7 @@ function Home() {
         'Configuracion correo corporativo*',
         'Configuracion y publicacion del sitio',
         'Acompanamiento post-lanzamiento por 15 dias',
+        'Hosting gratis por 1 año',
       ],
       delivery: 'Entrega en 7 días',
     };

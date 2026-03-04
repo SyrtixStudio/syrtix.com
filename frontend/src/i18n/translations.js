@@ -16,7 +16,7 @@ export const translations = {
     'hero.title.emphasis': 'convierten visitantes',
     'hero.title.line2': 'en clientes',
     'hero.subtitle':
-      'Agencia de desarrollo web premium. Diseño elegante, tecnología moderna y resultados medibles para hacer crecer tu negocio. Si buscas crear página web o contratar página web, te ayudamos.',
+      'Agencia web para pymes de servicios en Chile. Creamos paginas web orientadas a conversion para captar clientes y hacer crecer tu negocio.',
     'hero.cta.primary': 'Ver paquetes y precios',
     'hero.cta.secondary': 'Solicitar cotización',
     'hero.carousel.prev': 'Imagen anterior',
@@ -47,7 +47,7 @@ export const translations = {
     'hero.title.emphasis': 'turn visitors',
     'hero.title.line2': 'into customers',
     'hero.subtitle':
-      'Premium web development agency. Elegant design, modern technology, and measurable results to grow your business.',
+      'Web agency for service SMBs in Chile. We build conversion-focused websites that turn traffic into qualified leads.',
     'hero.cta.primary': 'View packages and pricing',
     'hero.cta.secondary': 'Request a quote',
     'hero.carousel.prev': 'Previous image',
