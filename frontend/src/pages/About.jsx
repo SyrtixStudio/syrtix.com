@@ -40,7 +40,7 @@ function About() {
           stats: [
             { value: '+10', label: 'Projects delivered' },
             { value: '100%', label: 'Satisfied clients' },
-            { value: '+5', label: 'Years of experience' },
+            { value: '+5', label: 'Years of combined team experience' },
             { value: '24/7', label: 'Support available' },
           ],
           whyTitlePrefix: 'Why work with ',
@@ -125,9 +125,9 @@ function About() {
             },
             {
               name: 'Sebastian Mella',
-              role: 'Tech Lead / Software Architect',
+              role: 'Full Stack Developer',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Defines technical architecture and ensures scalable, maintainable solutions.',
+              description: 'Leads technical decisions and ensures scalable, maintainable solutions.',
             },
             {
               name: 'Alexis Rodriguez',
@@ -137,9 +137,9 @@ function About() {
             },
             {
               name: 'Cristian Castro',
-              role: 'QA & Security Engineer',
+              role: 'QA Engineer',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Ensures quality, testing coverage, and security best practices in every release.',
+              description: 'Ensures quality, testing coverage, and secure development practices in every release.',
             },
           ],
         }
@@ -164,7 +164,7 @@ function About() {
           stats: [
             { value: '+10', label: 'Proyectos entregados' },
             { value: '100%', label: 'Clientes satisfechos' },
-            { value: '+5', label: 'años de experiencia' },
+            { value: '+5', label: 'anos de experiencia acumulada del equipo' },
             { value: '24/7', label: 'Soporte disponible' },
           ],
           whyTitlePrefix: 'Por que trabajar con ',
@@ -249,9 +249,9 @@ function About() {
             },
             {
               name: 'Sebastian Mella',
-              role: 'Tech Lead / Arquitecto de Software',
+              role: 'Full Stack Developer',
               profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Define la arquitectura tecnica y asegura soluciones escalables y mantenibles.',
+              description: 'Lidera decisiones tecnicas y asegura soluciones escalables y mantenibles.',
             },
             {
               name: 'Alexis Rodriguez',
@@ -261,9 +261,9 @@ function About() {
             },
             {
               name: 'Cristian Castro',
-              role: 'Ingeniero QA y Seguridad',
+              role: 'QA y Seguridad',
               profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Asegura calidad, cobertura de pruebas y buenas practicas de seguridad en cada entrega.',
+              description: 'Asegura calidad, cobertura de pruebas y practicas de desarrollo seguro en cada entrega.',
             },
           ],
         };

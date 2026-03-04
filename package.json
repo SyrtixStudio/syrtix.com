@@ -4,15 +4,15 @@
   "version": "1.0.0",
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "dev": "npm run dev:frontend",
+    "dev": "pnpm run dev:frontend",
     "build": "pnpm --dir frontend install --frozen-lockfile && pnpm --dir frontend run build",
     "start": "pnpm --dir frontend run start",
-    "dev:frontend": "npm --prefix frontend run dev",
-    "build:frontend": "npm --prefix frontend run build",
-    "preview:frontend": "npm --prefix frontend run preview",
-    "lint:frontend": "npm --prefix frontend run lint",
-    "dev:backend": "npm --prefix backend run dev",
-    "start:backend": "npm --prefix backend run start",
-    "install:all": "npm install --prefix frontend && npm install --prefix backend"
+    "dev:frontend": "pnpm --dir frontend run dev",
+    "build:frontend": "pnpm --dir frontend run build",
+    "preview:frontend": "pnpm --dir frontend run preview",
+    "lint:frontend": "pnpm --dir frontend run lint",
+    "dev:backend": "pnpm --dir backend run dev",
+    "start:backend": "pnpm --dir backend run start",
+    "install:all": "pnpm --dir frontend install && pnpm --dir backend install"
   }
 }
