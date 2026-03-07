@@ -1,6 +1,12 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 import { useLanguage } from '../../i18n/index.jsx';
 
@@ -119,13 +125,8 @@ const portfolio = [
 
 function PortfolioCarousel() {
   const { lang } = useLanguage();
-  const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedMockupIndex, setSelectedMockupIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 6,
-  );
-  const totalPages = Math.ceil(portfolio.length / itemsPerView);
 
   const copy =
     lang === 'en'
@@ -167,35 +168,6 @@ function PortfolioCarousel() {
             landing: 'Landing page',
           },
         };
-
-  const nextPortfolio = useCallback(() => {
-    setPortfolioIndex((prev) => (prev + 1) % totalPages);
-  }, [totalPages]);
-
-  const prevPortfolio = useCallback(() => {
-    setPortfolioIndex((prev) => (prev - 1 + totalPages) % totalPages);
-  }, [totalPages]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)');
-    const handleMediaChange = (event) => {
-      setItemsPerView(event.matches ? 1 : 6);
-    };
-
-    setItemsPerView(mediaQuery.matches ? 1 : 6);
-
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleMediaChange);
-      return () => mediaQuery.removeEventListener('change', handleMediaChange);
-    }
-
-    mediaQuery.addListener(handleMediaChange);
-    return () => mediaQuery.removeListener(handleMediaChange);
-  }, []);
-
-  useEffect(() => {
-    setPortfolioIndex((prev) => prev % totalPages);
-  }, [totalPages]);
 
   useEffect(() => {
     if (!selectedProject) {
@@ -256,114 +228,83 @@ function PortfolioCarousel() {
     );
   };
 
-  const getVisibleItems = () => {
-    const startIndex = portfolioIndex * itemsPerView;
-    const items = [];
-    for (let i = 0; i < itemsPerView; i++) {
-      const index = (startIndex + i) % portfolio.length;
-      items.push({ ...portfolio[index], originalIndex: index });
-    }
-    return items;
-  };
-
-  const visibleItems = getVisibleItems();
-
   return (
-    <section className="py-16 px-4 sm:px-6 bg-base">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12" data-aos="fade-up">
+    <section className="py-16 bg-base">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
+          <p className="text-sm text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
         </div>
 
-        <div className="relative" data-aos="fade-up" data-aos-delay="200">
-          <button
-            onClick={prevPortfolio}
-            className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-2 sm:p-3 transition duration-300 group sm:-ml-8"
-            aria-label={copy.prevProject}
-          >
-            <ChevronLeft size={24} className="text-gray-900 group-hover:text-white" />
-          </button>
+        <div data-aos="fade-up" data-aos-delay="200" className="portfolio-swiper-wrapper">
+        <Swiper
+          effect="coverflow"
+          grabCursor
+          centeredSlides
+          loop
+          slidesPerView="auto"
+          initialSlide={1}
+          coverflowEffect={{
+            rotate: 30,
+            stretch: 10,
+            depth: 120,
+            modifier: 1.2,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          modules={[EffectCoverflow, Pagination]}
+          className="portfolio-swiper"
+        >
+          {portfolio.map((project) => {
+            const title = lang === 'en' ? project.titleEn : project.titleEs;
+            const category = copy.categories[project.category] || project.category;
+            const hasMockups =
+              MOCKUP_PROJECT_IDS.has(project.id) && Array.isArray(project.mockupImages);
 
-          <button
-            onClick={nextPortfolio}
-            className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-primary p-2 sm:p-3 transition duration-300 group sm:-mr-8"
-            aria-label={copy.nextProject}
-          >
-            <ChevronRight size={24} className="text-gray-900 group-hover:text-white" />
-          </button>
-
-          <div className="overflow-hidden mx-0 sm:mx-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {visibleItems.map((project, idx) => {
-                const title = lang === 'en' ? project.titleEn : project.titleEs;
-                const category = copy.categories[project.category] || project.category;
-                const hasMockups =
-                  MOCKUP_PROJECT_IDS.has(project.id) && Array.isArray(project.mockupImages);
-
-                const cardContent = (
-                  <>
-                    <div className="aspect-video bg-white overflow-hidden relative">
+            return (
+              <SwiperSlide key={project.id} className="portfolio-slide">
+                <button
+                  type="button"
+                  onClick={() => (hasMockups ? openProjectModal(project) : undefined)}
+                  className={`group block w-full h-full text-left ${
+                    hasMockups ? 'cursor-pointer' : 'opacity-70 cursor-not-allowed'
+                  }`}
+                  disabled={!hasMockups}
+                >
+                  <div className="relative overflow-hidden bg-white">
+                    <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={project.image}
                         alt={title}
-                        className="absolute inset-0 w-full h-full object-contain p-2 sm:p-3 group-hover:scale-[1.02] transition-transform duration-500"
+                        className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-500"
                       />
                     </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 pointer-events-none">
                       <span className="text-primary text-xs font-bold mb-1">{category}</span>
-                      <h3 className="text-white font-bold text-lg mb-2">{title}</h3>
-                      <span
-                        className={`inline-flex items-center text-primary text-sm font-bold ${
-                          project.url ? '' : 'opacity-50 cursor-not-allowed'
-                        }`}
-                      >
-                        {copy.viewProject} <ExternalLink size={14} className="ml-1" />
+                      <h3 className="text-white font-bold text-base mb-2">{title}</h3>
+                      <span className="inline-flex items-center text-primary text-xs font-bold">
+                        {copy.viewProject} <ExternalLink size={13} className="ml-1" />
                       </span>
                     </div>
+                  </div>
 
-                    <div className="p-4 bg-base">
-                      <span className="text-primary text-xs font-bold">{category}</span>
-                      <h3 className="text-gray-900 font-bold">{title}</h3>
-                    </div>
-                  </>
-                );
-
-                return (
-                  <button
-                    key={`${project.originalIndex}-${idx}`}
-                    type="button"
-                    onClick={() => (hasMockups ? openProjectModal(project) : undefined)}
-                    className={`group relative overflow-hidden border border-gray-200 hover:border-primary transition-all duration-300 block w-full text-left ${
-                      hasMockups ? 'cursor-pointer' : 'opacity-70 cursor-not-allowed'
-                    }`}
-                    disabled={!hasMockups}
-                  >
-                    {cardContent}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="hidden sm:flex justify-center mt-8 gap-2">
-            {Array.from({ length: totalPages }).map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setPortfolioIndex(idx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  idx === portfolioIndex ? 'bg-primary w-6' : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`${copy.goToProject} ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+                  <div className="py-3 px-1 bg-base text-center">
+                    <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
+                      {category}
+                    </span>
+                    <h3 className="text-gray-900 font-bold text-sm mt-0.5">{title}</h3>
+                  </div>
+                </button>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
       </div>
 
       {selectedProject && (
@@ -461,6 +402,66 @@ function PortfolioCarousel() {
           </div>
         </div>
       )}
+
+      <style>{`
+        .portfolio-swiper-wrapper {
+          position: relative;
+          overflow: hidden;
+        }
+        .portfolio-swiper-wrapper::before,
+        .portfolio-swiper-wrapper::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 15%;
+          z-index: 10;
+          pointer-events: none;
+        }
+        .portfolio-swiper-wrapper::before {
+          left: 0;
+          background: linear-gradient(to right, #fdfdfd 40%, transparent 100%);
+        }
+        .portfolio-swiper-wrapper::after {
+          right: 0;
+          background: linear-gradient(to left, #fdfdfd 40%, transparent 100%);
+        }
+        @media (max-width: 768px) {
+          .portfolio-swiper-wrapper::before,
+          .portfolio-swiper-wrapper::after {
+            width: 6%;
+          }
+        }
+        .portfolio-swiper {
+          width: 100%;
+          padding: 30px 0 60px !important;
+        }
+        .portfolio-slide {
+          width: 320px !important;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 8px 30px rgba(15,23,42,0.10);
+          background: #fff;
+        }
+        @media (min-width: 640px) {
+          .portfolio-slide { width: 380px !important; }
+        }
+        @media (min-width: 1024px) {
+          .portfolio-slide { width: 420px !important; }
+        }
+        .portfolio-swiper .swiper-pagination-bullet {
+          background: #9ca3af;
+          opacity: 1;
+        }
+        .portfolio-swiper .swiper-pagination-bullet-active {
+          background: #c8aa5a;
+          width: 24px;
+          border-radius: 4px;
+        }
+        .portfolio-swiper .swiper-slide-shadow-left,
+        .portfolio-swiper .swiper-slide-shadow-right {
+          border-radius: 0;
+        }
+      `}</style>
     </section>
   );
 }
