@@ -5,15 +5,14 @@ import { Star } from 'lucide-react';
 import { testimonials } from '../../data/testimonials.js';
 import { useLanguage } from '../../i18n/index.jsx';
 
-const REVIEW_REFERENCE_DATE = new Date('2026-03-03T23:59:59-03:00');
-
 const formatRelativeReviewTime = (createdAt, lang) => {
   const parsed = new Date(createdAt);
+  const referenceDate = new Date();
   if (Number.isNaN(parsed.getTime())) {
     return lang === 'en' ? '3 hours ago' : 'hace 3 horas';
   }
 
-  let diffHours = Math.floor((REVIEW_REFERENCE_DATE.getTime() - parsed.getTime()) / (1000 * 60 * 60));
+  let diffHours = Math.floor((referenceDate.getTime() - parsed.getTime()) / (1000 * 60 * 60));
   if (diffHours < 0) diffHours = 0;
 
   if (diffHours < 24) {
