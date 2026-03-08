@@ -17,9 +17,9 @@ function PricingSection() {
   const copy =
     lang === 'en'
       ? {
-          titlePrefix: 'SaaS ',
+          titlePrefix: 'Packages & ',
           titleHighlight: 'Pricing',
-          subtitle: 'Choose the SaaS plan that fits your project type and current business stage.',
+          subtitle: 'Choose the package that fits your project type and current business stage.',
           helper:
             'Complete solutions for service SMBs: planning, design, development, launch, and post-launch guidance.',
           growthTip: 'Want ongoing growth? We recommend a monthly maintenance plan.',
@@ -48,9 +48,9 @@ function PricingSection() {
           packages: [
             {
               id: 'landing-starter',
-              name: 'SaaS Landing',
+              name: 'Entrepreneur Solution',
               icon: 'Zap',
-              description: 'Landing page SaaS for simple projects that need fast lead capture.',
+              description: 'Single-page website for service SMBs that need fast lead capture.',
               price: 149000,
               oldPrice: 299000,
               offerMeta: 'Launch offer: 10 slots until Mar 31, 2026.',
@@ -117,9 +117,9 @@ function PricingSection() {
             },
             {
               id: 'corporate-web',
-              name: 'SaaS Corporate',
+              name: 'SMB Solution',
               icon: 'Code',
-              description: 'Corporate website SaaS for businesses that need stronger positioning and lead generation.',
+              description: 'Multi-page corporate website for service SMB positioning and lead generation.',
               price: 299000,
               oldPrice: 599000,
               paymentType: 'one-time setup payment',
@@ -140,7 +140,7 @@ function PricingSection() {
                   'Website for events or informational courses',
                 ],
                 includes: [
-                  'Everything in SaaS Landing',
+                  'Everything in Entrepreneur Solution',
                   'Website up to 5 sections',
                   'Up to 50 products in catalog',
                   'Floating WhatsApp button',
@@ -166,7 +166,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting and transactional email providers are billed by usage. Optional features are quoted separately.',
               features: [
-                { text: 'Everything in SaaS Landing', included: true },
+                { text: 'Everything in Entrepreneur Solution', included: true },
                 { text: 'Website up to 5 sections', included: true },
                 { text: 'Up to 50 products in catalog', included: true },
                 { text: 'Testimonials section', included: true },
@@ -187,7 +187,7 @@ function PricingSection() {
             },
             {
               id: 'ecommerce-standard',
-              name: 'SaaS Ecommerce',
+              name: 'Business Solution',
               icon: 'ShoppingCart',
               description:
                 'Self-manageable website for service businesses, with backend control for content, leads, orders, and payments.',
@@ -202,7 +202,7 @@ function PricingSection() {
                 focus:
                   'Operational autonomy, clear admin workflows, and reliable core commercial operations.',
                 includes: [
-                  'Everything in SaaS Corporate',
+                  'Everything in SMB Solution',
                   'Self-manageable corporate website mode (pages, content, service sections)',
                   'Basic ecommerce flow with catalog, cart, and secure checkout',
                   '100+ products in catalog or self-manageable catalog',
@@ -220,7 +220,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting and transactional email providers are billed by usage. Optional features are quoted separately.',
               features: [
-                { text: 'Everything in SaaS Corporate', included: true },
+                { text: 'Everything in SMB Solution', included: true },
                 { text: 'Corporate website + self-manageable admin', included: true },
                 { text: 'Up to 10 pages', included: true },
                 { text: 'Basic ecommerce + secure checkout', included: true },
@@ -254,7 +254,7 @@ function PricingSection() {
                 focus:
                   'Scalability, security, automation, and executive visibility with reliable operational workflows.',
                 includes: [
-                  'Everything in SaaS Ecommerce',
+                  'Everything in Business Solution',
                   'Multi-role admin panel with permissions (admin, sales, operations, marketing)',
                   'Automated workflows (post-purchase emails, cart recovery, and order status updates)',
                   'Executive KPI dashboard (revenue, conversion, average order value, recurrence)',
@@ -277,7 +277,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting and transactional email providers are billed by usage. Optional features are quoted separately.',
               features: [
-                { text: 'Everything in SaaS Ecommerce', included: true },
+                { text: 'Everything in Business Solution', included: true },
                 { text: 'Multi-role admin panel with granular permissions', included: true },
                 { text: 'Automated workflows (cart recovery and post-purchase)', included: true },
                 { text: 'Executive KPI dashboard with strategic metrics', included: true },
@@ -306,9 +306,9 @@ function PricingSection() {
           ],
         }
       : {
-          titlePrefix: 'Planes ',
-          titleHighlight: 'SaaS',
-          subtitle: 'Elige el plan SaaS que mejor se adapta al tipo de proyecto que necesitas.',
+          titlePrefix: 'Paquetes y ',
+          titleHighlight: 'Precios',
+          subtitle: 'Elige el paquete que mejor se adapta al tipo de proyecto que necesitas.',
           helper:
             'Soluciones completas para pymes de servicios: planificación, diseño, desarrollo, publicación y acompañamiento post-lanzamiento.',
           growthTip: '¿Quieres crecimiento continuo? Recomendamos un plan mensual de mantenimiento.',
@@ -337,9 +337,9 @@ function PricingSection() {
           packages: [
             {
               id: 'landing-starter',
-              name: 'SaaS Landing',
+              name: 'Solución Emprendedor',
               icon: 'Zap',
-              description: 'SaaS de landing page para proyectos simples que necesitan captar leads rapido.',
+              description: 'Pagina web para emprendedores y pymes de servicios que necesitan captar leads rapido.',
               price: 149000,
               oldPrice: 299000,
               offerMeta: 'Oferta lanzamiento: 10 cupos hasta el 31 de marzo de 2026.',
@@ -406,9 +406,9 @@ function PricingSection() {
             },
             {
               id: 'web-corporativa',
-              name: 'SaaS Corporativo',
+              name: 'Solución Pyme',
               icon: 'Code',
-              description: 'SaaS para sitios corporativos orientados a posicionamiento y generacion de leads.',
+              description: 'Sitio corporativo multipagina para pymes de servicios enfocadas en posicionamiento y leads.',
               price: 299000,
               oldPrice: 599000,
               paymentType: 'pago unico de implementacion',
@@ -429,7 +429,7 @@ function PricingSection() {
                   'Sitio para eventos o cursos informativos',
                 ],
                 includes: [
-                  'Todo lo de SaaS Landing',
+                  'Todo lo de Solución Emprendedor',
                   'Sitio de hasta 5 secciones',
                   'Hasta 50 productos en catalogo',
                   'Boton flotante de WhatsApp',
@@ -455,7 +455,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
               features: [
-                { text: 'Todo lo de SaaS Landing', included: true },
+                { text: 'Todo lo de Solución Emprendedor', included: true },
                 { text: 'Sitio de hasta 5 secciones', included: true },
                 { text: 'Hasta 50 productos en catalogo', included: true },
                 { text: 'Seccion de testimonios', included: true },
@@ -476,7 +476,7 @@ function PricingSection() {
             },
             {
               id: 'ecommerce-standard',
-              name: 'SaaS Ecommerce',
+              name: 'Solución Negocio',
               icon: 'ShoppingCart',
               description:
                 'Sitio autoadministrable para negocios de servicios, con backend para gestionar contenido, leads, pedidos y pagos.',
@@ -491,7 +491,7 @@ function PricingSection() {
                 focus:
                   'Autonomia operativa, flujo admin claro y gestion confiable de la operacion comercial base.',
                 includes: [
-                  'Todo lo de SaaS Corporativo',
+                  'Todo lo de Solución Pyme',
                   'Sitio corporativo + panel autoadministrable',
                   'Hasta 10 paginas',
                   'E-commerce + checkout seguro',
@@ -516,7 +516,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
               features: [
-                { text: 'Todo lo de SaaS Corporativo', included: true },
+                { text: 'Todo lo de Solución Pyme', included: true },
                 { text: 'Sitio corporativo + panel autoadministrable', included: true },
                 { text: 'Hasta 10 paginas', included: true },
                 { text: 'E-commerce + checkout seguro', included: true },
@@ -539,7 +539,7 @@ function PricingSection() {
             {
               id: 'ecommerce-avanzado',
               enterpriseOnly: true,
-              name: 'Solucion Empresa',
+              name: 'Solución Empresa',
               icon: 'Crown',
               description: 'Plataforma avanzada de ecommerce y automatizacion para empresas que escalan mas alla de una operacion pyme estandar.',
               price: 999000,
@@ -553,7 +553,7 @@ function PricingSection() {
                 focus:
                   'Escalabilidad, seguridad, automatizacion y visibilidad ejecutiva con operaciones confiables.',
                 includes: [
-                  'Todo lo de SaaS Ecommerce',
+                  'Todo lo de Solución Negocio',
                   'Panel multi-rol con permisos (admin, ventas, operaciones y marketing)',
                   'Flujos automatizados (correo post-compra, recuperacion de carrito y estados de pedido)',
                   'Dashboard ejecutivo de KPIs (ventas, conversion, ticket promedio y recurrencia)',
@@ -576,7 +576,7 @@ function PricingSection() {
               conditionNote:
                 'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
               features: [
-                { text: 'Todo lo de SaaS Ecommerce', included: true },
+                { text: 'Todo lo de Solución Negocio', included: true },
                 { text: 'Panel multi-rol con permisos granulares', included: true },
                 { text: 'Flujos automatizados (carrito y post-compra)', included: true },
                 { text: 'Dashboard ejecutivo con KPIs estrategicos', included: true },

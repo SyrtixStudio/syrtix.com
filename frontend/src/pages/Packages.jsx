@@ -53,6 +53,37 @@ function Packages() {
             excludes: 'Excludes (scope)',
             webTypes: 'Web Types That Fit',
           },
+          saasOffer: {
+            badge: 'NEW SAAS',
+            title: 'SaaS Home Page',
+            subtitle:
+              'A multi-tenant subscription platform for businesses that need a professional home page they can manage themselves without commissioning a separate project.',
+            setupLabel: 'Initial setup',
+            monthlyLabel: 'Base monthly plan',
+            setupNote: 'Includes onboarding, tenant setup, initial branding, and publishing.',
+            monthlyNote: 'Includes platform access, operation, and service continuity.',
+            includesTitle: 'Includes',
+            includes: [
+              'Self-manageable home page',
+              'Editable colors, images, titles, and descriptions',
+              'Self-manageable menu or catalog',
+              'Contact form',
+              '3 content sections',
+              'Initial launch and configuration',
+            ],
+            primaryCta: 'Request SaaS demo',
+            secondaryCta: 'Talk to sales',
+          },
+          saasSection: {
+            title: 'SaaS Services',
+            description:
+              'Subscription-based products built on a shared platform. You do not buy a separate codebase: you access and manage your business space within our system.',
+          },
+          customSection: {
+            title: 'Custom Services',
+            description:
+              'These 3 solutions are custom implementation services. We define scope, build the project for your business, and launch it according to the package level you need.',
+          },
           guarantees: [
             {
               title: 'Satisfaction guarantee',
@@ -367,6 +398,37 @@ function Packages() {
             includes: 'Incluye',
             excludes: 'No incluye (alcance)',
             webTypes: 'Tipos de webs que si calzan',
+          },
+          saasOffer: {
+            badge: 'NUEVO SAAS',
+            title: 'SaaS Home Page',
+            subtitle:
+              'Una plataforma SaaS multi-tenant por suscripcion para negocios que necesitan una home page profesional y autogestionable, sin contratar un proyecto distinto cada vez.',
+            setupLabel: 'Setup inicial',
+            monthlyLabel: 'Plan mensual base',
+            setupNote: 'Incluye onboarding, configuracion del tenant, branding inicial y publicacion.',
+            monthlyNote: 'Incluye acceso a la plataforma, operacion y continuidad del servicio.',
+            includesTitle: 'Incluye',
+            includes: [
+              'Home page autogestionable',
+              'Edicion de colores, imagenes, titulos y descripciones',
+              'Menu o catalogo autogestionable',
+              'Formulario de contacto',
+              '3 secciones de contenido',
+              'Configuracion y publicacion inicial',
+            ],
+            primaryCta: 'Solicitar demo SaaS',
+            secondaryCta: 'Hablar con ventas',
+          },
+          saasSection: {
+            title: 'Servicios SaaS',
+            description:
+              'Productos por suscripcion construidos sobre una plataforma compartida. No compras un codigo separado: accedes y administras tu espacio dentro de nuestro sistema.',
+          },
+          customSection: {
+            title: 'Servicios a Medida',
+            description:
+              'Estas 3 soluciones son servicios de implementacion a medida. Definimos el alcance, desarrollamos el proyecto para tu negocio y lo publicamos segun el nivel de paquete que necesites.',
           },
           guarantees: [
             {
@@ -731,6 +793,77 @@ function Packages() {
         </div>
       </section>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 p-8">
+        <div className="mb-6 max-w-3xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.saasSection.title}</h2>
+          <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800">{copy.saasSection.description}</p>
+        </div>
+
+        <div className="mb-10 border-2 border-secondary/20 bg-gradient-to-br from-base via-white to-base2/70 p-6 sm:p-8 shadow-sm">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
+                {copy.saasOffer.badge}
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.saasOffer.title}</h2>
+              <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800 max-w-2xl">{copy.saasOffer.subtitle}</p>
+
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+                <div className="border border-gray-200 bg-white p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
+                    {copy.saasOffer.setupLabel}
+                  </p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900">{formatPrice(149000)}</p>
+                  <p className="mt-2 text-sm leading-6 text-gray-700">{copy.saasOffer.setupNote}</p>
+                </div>
+                <div className="border border-secondary/30 bg-secondary/5 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
+                    {copy.saasOffer.monthlyLabel}
+                  </p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900">{formatPrice(39900)}</p>
+                  <p className="mt-2 text-sm leading-6 text-gray-700">{copy.saasOffer.monthlyNote}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-[420px] border border-gray-200 bg-white p-5">
+              <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-gray-900 mb-4">
+                {copy.saasOffer.includesTitle}
+              </h3>
+              <ul className="space-y-3">
+                {copy.saasOffer.includes.map((item) => (
+                  <li key={item} className="flex items-start text-sm text-gray-700">
+                    <Check size={18} className="text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center justify-center bg-secondary text-white font-bold px-5 py-3 hover:bg-blue-900 transition-all duration-300"
+                >
+                  {copy.saasOffer.primaryCta}
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+                <a
+                  href={COMPANY.whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center border border-secondary/40 text-secondary font-bold px-5 py-3 hover:bg-secondary/10 transition-all duration-300"
+                >
+                  {copy.saasOffer.secondaryCta}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-6 max-w-3xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.customSection.title}</h2>
+          <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800">{copy.customSection.description}</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {visiblePlans.map((pkg, index) => {
             const selectedPrice = pkg.priceMonthly;
