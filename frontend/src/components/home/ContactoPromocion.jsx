@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const WHATSAPP = '+56945432006';
+const WHATSAPP = '+56988126316';
 const EMAIL = 'contacto@syrtix.com';
 
 export default function ContactoPromocion() {
