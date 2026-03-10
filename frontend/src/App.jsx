@@ -22,6 +22,9 @@ const PrivacyPolicyBloqueo600800 = lazy(() => import('./pages/PrivacyPolicyBloqu
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const LegalNotice = lazy(() => import('./pages/LegalNotice'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Blog = lazy(() => import('./pages/blog/Blog'));
+const CuantoCuestaPaginaWeb = lazy(() => import('./pages/blog/CuantoCuestaUnaPaginaWeb'));
+const PorQueNecesitoUnaPaginaWeb = lazy(() => import('./pages/blog/PorQueNecesitoUnaPaginaWeb'));
 
 // Loading fallback component
 function PageLoader() {
@@ -67,6 +70,9 @@ function App() {
               />
               <Route path="/terminos-condiciones" element={<TermsAndConditions />} />
               <Route path="/aviso-legal" element={<LegalNotice />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/cuanto-cuesta-una-pagina-web-en-chile" element={<CuantoCuestaPaginaWeb />} />
+              <Route path="/blog/por-que-necesito-una-pagina-web" element={<PorQueNecesitoUnaPaginaWeb />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

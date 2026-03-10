@@ -10,5 +10,6 @@ export const ROUTES = {
   PRIVACY_POLICY: '/politica-privacidad',
   TERMS: '/terminos-condiciones',
   LEGAL: '/aviso-legal',
+  BLOG: '/blog',
   NOT_FOUND: '/404',
 };

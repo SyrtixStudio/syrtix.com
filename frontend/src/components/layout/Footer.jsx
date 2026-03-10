@@ -33,6 +33,7 @@ function Footer() {
             { to: '/paquetes', label: 'Packages and pricing' },
             { to: '/servicios', label: 'Services' },
             { to: '/nosotros', label: 'About us' },
+            { to: '/blog', label: 'Blog' },
             { to: '/contacto', label: 'Contact' },
           ],
           services: [
@@ -65,6 +66,7 @@ function Footer() {
             { to: '/paquetes', label: 'Paquetes y precios' },
             { to: '/servicios', label: 'Servicios' },
             { to: '/nosotros', label: 'Nosotros' },
+            { to: '/blog', label: 'Blog' },
             { to: '/contacto', label: 'Contacto' },
           ],
           services: [

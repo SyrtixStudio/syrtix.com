@@ -7,15 +7,22 @@ import { ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
 import { useLanguage } from '../i18n/index.jsx';
 
 const heroImages = [
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80',
-  'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1920&q=80',
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&q=80',
-  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80',
-  'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1920&q=80',
-  'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&q=80',
-  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80',
-  'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&q=80',
+  // Diseño web / UI en laptop — agencia digital
+  'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
+  // Equipo de trabajo colaborativo en oficina moderna
+  'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=85',
+  // Código en pantalla — desarrollo profesional
+  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
+  // Diseño UI/UX en tablet — experiencia de usuario
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=85',
+  // Análisis de datos / conversión / gráficos de negocio
+  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
+  // Startup / emprendedor trabajando con laptop
+  'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=85',
+  // Diseño gráfico / branding creativo
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=85',
+  // Responsive design — múltiples dispositivos
+  'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&q=85',
 ];
 
 function Hero() {

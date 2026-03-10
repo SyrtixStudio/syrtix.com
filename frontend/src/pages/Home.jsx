@@ -12,6 +12,7 @@ import {
 } from '../components/home';
 import WhatWeDoSection from '../components/home/WhatWeDoSection';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
+import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
 import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
@@ -25,7 +26,7 @@ function Home() {
   const publicidadWeb = useMemo(() => {
     const common = {
       contactEmail: 'contacto@syrtix.com',
-      whatsapp: '+56945432006',
+      whatsapp: COMPANY.phone,
       address: '5151 Los Militares, Las Condes, Region Metropolitana, Chile',
     };
 

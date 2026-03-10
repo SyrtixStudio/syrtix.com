@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
-import { Home, Package, Users, Briefcase, Mail, Phone } from 'lucide-react';
+import { Home, Package, Users, Briefcase, Mail, Phone, BookOpen } from 'lucide-react';
 
+import { COMPANY } from '../../constants';
 import { useLanguage } from '../../i18n/index.jsx';
 
 function Header() {
@@ -86,6 +87,7 @@ function Header() {
     { path: '/paquetes', labelKey: 'nav.packages', icon: <Package size={20} /> },
     { path: '/nosotros', labelKey: 'nav.about', icon: <Users size={20} /> },
     { path: '/servicios', labelKey: 'nav.services', icon: <Briefcase size={20} /> },
+    { path: '/blog', labelKey: 'nav.blog', icon: <BookOpen size={20} /> },
     { path: '/contacto', labelKey: 'nav.contact', icon: <Mail size={20} /> },
   ];
 
@@ -103,7 +105,7 @@ function Header() {
             <div className="flex items-center space-x-3 text-sm">
               <div className="flex items-center">
                 <Phone size={14} className="mr-1.5" />
-                <span>+56945432006</span>
+                <span>{COMPANY.phoneFormatted || COMPANY.phone}</span>
               </div>
               <div className="flex items-center">
                 <Mail size={14} className="mr-1.5" />
@@ -163,7 +165,7 @@ function Header() {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Phone size={14} className="mr-1.5" />
-              <span className="text-xs">+56945432006</span>
+              <span className="text-xs">{COMPANY.phoneFormatted || COMPANY.phone}</span>
             </div>
             <div className="flex items-center space-x-2 text-xs">
               <span>syrtix.com</span>

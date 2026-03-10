@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const WHATSAPP = '+56988126316';
+import { COMPANY } from '../../constants';
+
 const EMAIL = 'contacto@syrtix.com';
 
 export default function ContactoPromocion() {
@@ -98,7 +99,7 @@ export default function ContactoPromocion() {
       <div className="flex flex-col sm:flex-row gap-2 items-center justify-between">
         <a
           className="bg-green-500 text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto"
-          href={`https://wa.me/${WHATSAPP.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola, quiero información sobre diseño web.')}`}
+          href={`https://wa.me/${COMPANY.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hola, quiero información sobre diseño web.')}`}
           target="_blank"
           rel="noreferrer"
         >
