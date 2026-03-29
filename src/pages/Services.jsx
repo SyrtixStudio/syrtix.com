@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import {
   Code,
@@ -34,7 +34,7 @@ import {
   Megaphone,
 } from 'lucide-react';
 import {
-  SiCss3,
+  SiCss,
   SiJavascript,
   SiNextdotjs,
   SiNodedotjs,
@@ -53,7 +53,7 @@ const TECH_LOGOS = {
   'Node.js': { Icon: SiNodedotjs, color: 'text-[#5FA04E]' },
   JavaScript: { Icon: SiJavascript, color: 'text-[#F7DF1E]' },
   TypeScript: { Icon: SiTypescript, color: 'text-[#3178C6]' },
-  CSS: { Icon: SiCss3, color: 'text-[#1572B6]' },
+  CSS: { Icon: SiCss, color: 'text-[#1572B6]' },
   'Tailwind CSS': { Icon: SiTailwindcss, color: 'text-[#06B6D4]' },
   PostgreSQL: { Icon: SiPostgresql, color: 'text-[#336791]' },
   Vite: { Icon: SiVite, color: 'text-[#646CFF]' },
