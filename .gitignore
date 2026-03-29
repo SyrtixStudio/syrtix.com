@@ -14,3 +14,6 @@ frontend/.env
 backend/node_modules/
 backend/dist/
 backend/.env
+
+# Documentación interna ignorada
+doc/
