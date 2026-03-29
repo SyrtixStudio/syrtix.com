@@ -1,18 +1,43 @@
 {
-  "name": "syrtix-platform",
+  "name": "syrtix-com",
   "private": true,
   "version": "1.0.0",
   "packageManager": "pnpm@9.12.0",
+  "type": "module",
   "scripts": {
-    "dev": "pnpm run dev:frontend",
-    "build": "pnpm --dir frontend install --frozen-lockfile && pnpm --dir frontend run build",
-    "start": "pnpm --dir frontend run start",
-    "dev:frontend": "pnpm --dir frontend run dev",
-    "build:frontend": "pnpm --dir frontend run build",
-    "preview:frontend": "pnpm --dir frontend run preview",
-    "lint:frontend": "pnpm --dir frontend run lint",
-    "dev:backend": "pnpm --dir backend run dev",
-    "start:backend": "pnpm --dir backend run start",
-    "install:all": "pnpm --dir frontend install && pnpm --dir backend install"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,json,css}\""
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "lucide-react": "^0.468.0",
+    "pocketbase": "^0.26.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.71.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.1.1",
+    "swiper": "^12.1.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.2.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.8.1",
+    "serve": "^14.2.5",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7"
   }
 }

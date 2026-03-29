@@ -128,3 +128,39 @@
 2. Actualizar WhatWeDoSection.jsx cuando esté listo
 3. Agregar a la página Services.jsx
 4. Capacitar en uso y configuración
+
+
+Voy a revisar tu portafolio actual para no repetir lo que ya tienes.
+
+Ya vi tu portafolio actual. Tienes: barbería, clínica dental, hamburguesería, ferretería, cafetería de kuchen, sushi y pizzería. Todos muy de rubro gastronómico o local físico. Aquí van ideas que complementan y amplían el rango:
+
+Ideas de proyectos para portafolio
+1. Estudio de Tatuajes / Piercing
+Tipo: Sitio corporativo + sistema de reservas
+Por qué es interesante: Rubro visualmente muy rico. Dark aesthetic, galería de trabajos, perfil de cada artista, calendario de citas. No tienes nada en este nicho.
+Diferenciador técnico: Galería con filtros por estilo (realismo, tradicional, blackwork) + modal con detalle del trabajo.
+
+2. Agencia de Viajes / Tour Operador Local
+Tipo: Landing page / sitio corporativo
+Por qué es interesante: Chile tiene ecoturismo, desierto, patagonia, etc. Un diseño con imágenes full-screen, buscador de destinos y formulario de cotización demuestra manejo de layouts complejos.
+Diferenciador técnico: Buscador con filtros (precio, destino, duración) sobre un array de tours estático.
+
+3. Gimnasio / Box de CrossFit
+Tipo: Homepage + membresías
+Por qué es interesante: Rubro con alta energía visual. Video de fondo, tabla de planes, galería de clases, integración de horarios.
+Diferenciador técnico: Tabla de membresías comparativa + modal de inscripción con validación (react-hook-form).
+
+4. Tienda de Ropa Urbana / Streetwear
+Tipo: E-commerce (catálogo + carrito)
+Por qué es interesante: Muestra que puedes hacer e-commerce, que es lo más pedido. Streetwear tiene identidad visual fuerte.
+Diferenciador técnico: Carrito con Context API, filtros por talla/color, checkout básico. Sin need de backend real.
+
+5. Psicólogo / Terapeuta Online
+Tipo: Sitio de servicios + agenda
+Por qué es interesante: Rubro en alza post-pandemia. Diseño calmado, confiable, minimalista. Completamente diferente al resto de tu portafolio.
+Diferenciador técnico: Formulario de agendar sesión con selección de horario disponible (UI simulada), sección de especialidades.
+
+6. Constructora / Empresa Inmobiliaria
+Tipo: Sitio corporativo elegante
+Por qué es interesante: Los rubros B2B/inmobiliarios pagan mejor. Muestra que no solo haces PYMES gastronómicas.
+Diferenciador técnico: Card de proyectos con filtro (en construcción / terminados), galería lightbox, formulario de contacto por proyecto.

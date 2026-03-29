@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: ['syrtix.com', 'www.syrtix.com', '.railway.app'],
+    allowedHosts: ['syrtix.com', 'www.syrtix.com'],
   },
 })
