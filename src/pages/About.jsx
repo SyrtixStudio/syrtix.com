@@ -164,7 +164,7 @@ function About() {
           stats: [
             { value: '+10', label: 'Proyectos entregados' },
             { value: '100%', label: 'Clientes satisfechos' },
-            { value: '+5', label: 'anos de experiencia acumulada del equipo' },
+            { value: '+5', label: 'Años de experiencia acumulada del equipo' },
             { value: '24/7', label: 'Soporte disponible' },
           ],
           whyTitlePrefix: 'Por que trabajar con ',

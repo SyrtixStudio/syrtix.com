@@ -105,7 +105,7 @@ const sections = [
   {
     title: '12. Menores de edad',
     paragraphs: [
-      'La app esta dirigida a personas de 13 anos o mas y no esta orientada a menores de 13 anos. Si se detecta informacion de menores de 13, se adoptaran medidas razonables para eliminarla, si corresponde.',
+      'La app esta dirigida a personas de 13 años o mas y no esta orientada a menores de 13 años. Si se detecta informacion de menores de 13, se adoptaran medidas razonables para eliminarla, si corresponde.',
     ],
   },
   {

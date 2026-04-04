@@ -39,7 +39,7 @@ function Hero() {
       subtitle: 'Premium engineering and strategic design. We build custom websites tailored to your business goals.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?w=1920&q=85',
       badge: 'Strategic Digital Solutions',
       titleLine1: 'High-end',
       titleEmphasis: 'custom websites',
@@ -47,7 +47,7 @@ function Hero() {
       subtitle: 'We don\'t just sell websites, we engineer the digital authority and visibility your brand deserves.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
       badge: '24/7 Support & Maintenance',
       titleLine1: 'Scalable and',
       titleEmphasis: 'optimized',
@@ -55,7 +55,7 @@ function Hero() {
       subtitle: 'Clean code and modern technology to ensure your digital presence reaches the entire world.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e90ece2cd3?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
       badge: 'Engineering vs. Templates',
       titleLine1: 'Stop using',
       titleEmphasis: 'slow templates',
@@ -72,7 +72,7 @@ function Hero() {
       subtitle: 'Ingeniería de software y diseño estratégico. Desarrollamos sitios web personalizados que garantizan el crecimiento de tu marca.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?w=1920&q=85',
       badge: 'Soluciones Digitales Estratégicas',
       titleLine1: 'Sitios web',
       titleEmphasis: 'de alto impacto',
@@ -80,7 +80,7 @@ function Hero() {
       subtitle: 'En Syrtix no solo vendemos webs, desarrollamos la identidad y el futuro digital que tu marca merece.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
       badge: 'Soporte y Mantenimiento 24/7',
       titleLine1: 'Infraestructura',
       titleEmphasis: 'escalable y',
@@ -88,7 +88,7 @@ function Hero() {
       subtitle: 'Código limpio y tecnología moderna para asegurar que tu presencia digital llegue a todo el mundo.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e90ece2cd3?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
       badge: 'Ingeniería vs Plantillas',
       titleLine1: '¿Webs de',
       titleEmphasis: 'usar y tirar?',
