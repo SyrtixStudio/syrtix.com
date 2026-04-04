@@ -23,21 +23,39 @@ export default function CuantoCuestaUnaPaginaWeb() {
 
       <main className="bg-base min-h-screen">
         {/* Hero del artículo */}
-        <section className="bg-gray-900 text-white py-16 px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-2 text-sm text-primary mb-4">
+        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
+          <div className="absolute inset-0">
+            <img
+              src="/img/acuerdo.avif"
+              alt="precios background"
+              className="w-full h-full object-cover opacity-30"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
+
+          <div className="relative max-w-3xl mx-auto px-4">
+            <div className="flex items-center gap-2 text-sm text-primary mb-6">
               <Link to="/blog" className="hover:underline">Blog</Link>
               <ChevronRight size={14} />
               <span>Precios y costos</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               ¿Cuánto cuesta una página web en Chile?{' '}
+              <br />
               <span className="text-primary">Guía de precios 2026</span>
             </h1>
-            <p className="text-gray-300 text-lg mb-6">{DESCRIPTION}</p>
+
+            <p className="text-white/80 text-lg mb-8">{DESCRIPTION}</p>
+            
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <span>Syrtix · Marzo 2026</span>
-              <span>·</span>
+              <div className="flex items-center gap-2 font-medium text-white">
+                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-900 font-bold">S</span>
+                Syrtix
+              </div>
+              <span className="text-gray-500">·</span>
+              <span>Marzo 2026</span>
+              <span className="text-gray-500">·</span>
               <span>8 min de lectura</span>
             </div>
           </div>

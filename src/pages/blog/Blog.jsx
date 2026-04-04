@@ -38,17 +38,29 @@ export default function Blog() {
 
       <main className="bg-base min-h-screen">
         {/* Hero */}
-        <section className="bg-gray-900 text-white py-16 px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 text-primary text-sm mb-4">
-              <BookOpen size={16} />
-              <span>Blog Syrtix</span>
+        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920&q=85"
+              alt="blog background"
+              className="w-full h-full object-cover opacity-30"
+              style={{ objectPosition: 'center' }}
+            />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">
+              <BookOpen size={16} className="text-primary mr-2" />
+              <span className="text-primary text-xs sm:text-sm font-medium">Blog Syrtix</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
               Recursos sobre{' '}
+              <br />
               <span className="text-primary">desarrollo web en Chile</span>
             </h1>
-            <p className="text-gray-300 text-lg max-w-xl mx-auto">
+
+            <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
               Guías prácticas, precios reales y estrategias para que tu negocio crezca
               en internet.
             </p>
