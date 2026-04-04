@@ -32,19 +32,19 @@ function Hero() {
   const heroContent = lang === 'en' ? [
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-      badge: 'Create & Buy Websites with AI',
-      titleLine1: 'The easiest way to',
-      titleEmphasis: 'create and buy',
-      titleLine2: 'your website',
-      subtitle: 'From requirements and logo to final launch. We build high-performance websites focused on conversion and real growth.'
+      badge: 'Professional Web Development with AI',
+      titleLine1: 'Expert',
+      titleEmphasis: 'design & development',
+      titleLine2: 'for your website',
+      subtitle: 'From strategy and branding to high-performance code. We build custom websites tailored to your business goals.'
     },
     {
       image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
       badge: 'Strategic Digital Solutions',
-      titleLine1: 'Professional',
-      titleEmphasis: 'web design',
-      titleLine2: 'ready to sell',
-      subtitle: 'At Syrtix we don\'t just sell websites, we build the future and visibility your brand needs in the digital age.'
+      titleLine1: 'High-end',
+      titleEmphasis: 'custom websites',
+      titleLine2: 'built to scale',
+      subtitle: 'We don\'t just sell websites, we engineer the digital authority and visibility your brand deserves.'
     },
     {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
@@ -65,19 +65,19 @@ function Hero() {
   ] : [
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-      badge: 'Crea y Compra tu web con IA',
-      titleLine1: 'La mejor forma de',
-      titleEmphasis: 'crear y comprar',
-      titleLine2: 'tu página web',
-      subtitle: 'Servicio integral punta a punta: desde el logo y diseño hasta el desarrollo y publicación en 7 días.'
+      badge: 'Desarrollo Web Profesional con IA',
+      titleLine1: 'Expertos en',
+      titleEmphasis: 'diseño y desarrollo',
+      titleLine2: 'de sitios a medida',
+      subtitle: 'De la estrategia al código de alto rendimiento. Construimos sitios web personalizados que garantizan el crecimiento de tu marca.'
     },
     {
       image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
       badge: 'Soluciones Digitales Estratégicas',
-      titleLine1: 'Diseño web',
-      titleEmphasis: 'que vende',
+      titleLine1: 'Sitios web',
+      titleEmphasis: 'de alto impacto',
       titleLine2: 'para tu negocio',
-      subtitle: 'No solo vendemos webs, diseñamos tu identidad completa. Branding, logo, UX/UI y desarrollo de alto impacto.'
+      subtitle: 'En Syrtix no solo vendemos webs, desarrollamos la identidad y el futuro digital que tu marca merece.'
     },
     {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',

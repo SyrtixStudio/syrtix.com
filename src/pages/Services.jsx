@@ -348,11 +348,11 @@ function Services() {
           tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Vite'],
         }
       : {
-          heroBadge: 'Soluciones Web Profesionales',
-          heroTitleLine1: 'Soluciones digitales',
-          heroTitleLine2: 'para pymes de servicios',
+          heroBadge: 'Soluciones Web de Alta Ingeniería',
+          heroTitleLine1: 'Desarrollo de Software',
+          heroTitleLine2: 'y Sitios Web a Medida',
           heroDescription:
-            'Desarrollamos sitios web y automatizaciones diseñadas para que las pymes en Chile capten más leads y escalen su operación.',
+            'Desarrollamos infraestructura digital y sitios web de alto rendimiento. En Syrtix no usamos plantillas; construimos soluciones escalables que garantizan el dominio de tu marca.',
           viewPackages: 'Ver paquetes',
           requestQuote: 'Solicitar cotización',
           sectionTitlePrefix: 'Nuestras ',
@@ -373,9 +373,9 @@ function Services() {
           workTitleHighlight: 'trabajamos',
           techTitlePrefix: 'Tecnologías que ',
           techTitleHighlight: 'dominamos',
-          ctaTitle: '¿Tienes un proyecto en mente?',
+          ctaTitle: '¿Listo para tu próximo desarrollo?',
           ctaDescription:
-            'Cuéntanos sobre tu negocio de servicios y te propondremos la mejor hoja de ruta. Cotización gratuita.',
+            'Cuéntanos sobre tu negocio y diseñaremos la hoja de ruta técnica ideal. Ingeniería de software chilena enfocada en resultados.',
           services: [
             {
               title: 'Landing Pages',

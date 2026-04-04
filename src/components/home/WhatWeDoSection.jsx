@@ -25,42 +25,58 @@ import { useLanguage } from '../../i18n/index.jsx';
 
 const content = {
   es: {
-    title: '¿Quieres crear o comprar una web en',
+    title: '¿Buscas desarrollar o contratar un sitio web en',
     company: 'syrtix',
     intro:
-      'Somos expertos en ayudarte a crear y comprar páginas web profesionales de alto rendimiento para vender más hoy mismo.',
-    servicesTitle: 'Todo lo que necesitas para tu web:',
+      'Somos una agencia de ingeniería encargada de desarrollar experiencias digitales de alto rendimiento. Diseñamos soluciones a medida que garantizan resultados comerciales reales.',
+    servicesTitle: 'Nuestra ingeniería de software incluye:',
     services: [
-      'Crear Landing Pages (Logo incluido)',
-      'Comprar Sitios Web Corporativos Pro',
-      'Crear Tiendas Online (E-commerce)',
-      'SEO de alta autoridad para Google',
-      'Branding y Diseño de Logotipos',
-      'Auditorías de Performance y UX',
-      'Hosting y Correo Corporativo',
-      'Mantenimiento y Soporte 24/7',
+      'Desarrollar Landing Pages de alta conversión',
+      'Desarrollo de Sitios Web Corporativos Pro',
+      'Desarrollo de Tiendas Online (E-commerce)',
+      'SEO de alta autoridad y arquitectura técnica',
+      'Branding, Logotipos e Identidad Visual',
+      'Auditorías de Perfomance, Seguridad y UX',
+      'Hosting de alta velocidad y correo Pro',
+      'Soporte técnico y mantenimiento 24/7',
     ],
     closing:
-      'Dile adiós a las plantillas genéricas. Aplicamos ingeniería y diseño real para que tu negocio domine Google.',
+      'Dile adiós a las plantillas genéricas. Aplicamos ingeniería y diseño estratégico para que tu marca domine el mercado digital.',
+    whyEngineering: {
+      title: '¿Por qué Ingeniería y no Plantillas?',
+      items: [
+        { title: 'Velocidad Extrema', desc: 'Nuestros sitios cargan en ms, no segundos. Una plantilla genérica suele pesar 10 veces más.' },
+        { title: 'Seguridad Blindada', desc: 'El código a medida no tiene las vulnerabilidades públicas de los plugins de WordPress.' },
+        { title: 'Escalabilidad Real', desc: 'Tu web crece contigo. Sin límites técnicos impuestos por un tema pre-hecho.' }
+      ]
+    }
   },
   en: {
-    title: 'Want to create or buy a web at',
+    title: 'Looking to develop or contract a website at',
     company: 'syrtix',
     intro:
-      'We are experts in helping you create and buy high-performance professional websites to sell more right now.',
-    servicesTitle: 'Everything you need for your web:',
+      'We are an engineering agency dedicated to developing high-performance digital experiences. We design custom solutions that guarantee real business results.',
+    servicesTitle: 'Our software engineering includes:',
     services: [
-      'Create high-conversion landing pages',
-      'Buy Corporate Websites',
-      'Create Online Stores (Ecommerce)',
-      'Advanced SEO for Google',
-      'Intuitive admin panel',
-      'Payment and WhatsApp integrations',
-      'Business email configuration',
-      'Maintenance and technical support',
+      'Develop high-conversion Landing Pages',
+      'Professional Corporate Web Development',
+      'Online Store Development (E-commerce)',
+      'High-authority SEO and technical architecture',
+      'Branding, Logos and Visual Identity',
+      'Performance, Security and UX Audits',
+      'High-speed Hosting and Business Email',
+      '24/7 Technical Support and Maintenance',
     ],
     closing:
-      'Say goodbye to slow templates. We build the engineering your business needs to dominate Search Engines.',
+      'Say goodbye to generic templates. We apply engineering and strategic design so your brand dominates the digital market.',
+    whyEngineering: {
+      title: 'Why Engineering and not Templates?',
+      items: [
+        { title: 'Extreme Speed', desc: 'Our sites load in ms, not seconds. Generic templates usually weigh 10 times more.' },
+        { title: 'Shielded Security', desc: 'Custom code doesn’t have the public vulnerabilities of common WordPress plugins.' },
+        { title: 'Real Scalability', desc: 'Your web grows with you. No technical limits imposed by a pre-made theme.' }
+      ]
+    }
   },
 };
 
@@ -125,6 +141,26 @@ function WhatWeDoSection() {
           </div>
         </div>
         <p className="text-gray-700 md:text-lg text-gray-700 mt-4">{t.closing}</p>
+
+        {/* Sección de Valor: Ingeniería vs Plantillas */}
+        <div className="mt-16 pt-12 border-t border-gray-200">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+            {t.whyEngineering.title}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {t.whyEngineering.items.map((item, i) => (
+              <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="text-primary font-bold mb-2 flex items-center gap-2">
+                  <ShieldCheck size={20} />
+                  {item.title}
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
