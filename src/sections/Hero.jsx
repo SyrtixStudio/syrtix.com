@@ -32,68 +32,68 @@ function Hero() {
   const heroContent = lang === 'en' ? [
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-      badge: 'Professional Web Development with IA',
+      badge: 'Software Engineering',
       titleLine1: 'The easiest way to',
-      titleEmphasis: 'buy or contract',
-      titleLine2: 'your website',
-      subtitle: 'Premium engineering and strategic design. We build custom websites tailored to your business goals.'
+      titleEmphasis: 'contract or buy',
+      titleLine2: 'your custom website',
+      subtitle: 'High-performance digital infrastructure and strategic design. We develop custom software solutions to grow your brand.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?w=1920&q=85',
-      badge: 'Strategic Digital Solutions',
-      titleLine1: 'High-end',
-      titleEmphasis: 'custom websites',
-      titleLine2: 'built to scale',
-      subtitle: 'We don\'t just sell websites, we engineer the digital authority and visibility your brand deserves.'
+      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?q=1920&q=85',
+      badge: 'E-commerce & Business',
+      titleLine1: 'Solutions to',
+      titleEmphasis: 'sell and scale',
+      titleLine2: 'your business online',
+      subtitle: 'Self-manageable platforms with payment gateway integration, inventory control, and optimized conversion funnels.'
     },
     {
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
-      badge: '24/7 Support & Maintenance',
-      titleLine1: 'Scalable and',
-      titleEmphasis: 'optimized',
-      titleLine2: 'infrastructure',
-      subtitle: 'Clean code and modern technology to ensure your digital presence reaches the entire world.'
+      badge: 'SEO & Strategy',
+      titleLine1: 'Invest in',
+      titleEmphasis: 'digital authority',
+      titleLine2: 'and SEO positioning',
+      subtitle: 'We don\'t just deploy code; we position your brand on the first page of Google to capture qualified organic traffic.'
     },
     {
       image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
-      badge: 'Engineering vs. Templates',
-      titleLine1: 'Stop using',
-      titleEmphasis: 'slow templates',
-      titleLine2: 'Choose engineering',
-      subtitle: 'Don\'t settle for slow 20MB WordPress sites. At Syrtix we build high-performance code that never breaks.'
+      badge: 'Infrastructure & Security',
+      titleLine1: 'Proactive',
+      titleEmphasis: '24/7 technical',
+      titleLine2: 'support & maintenance',
+      subtitle: 'Security hardening, daily backups, and server monitoring. Your corporate infrastructure always online and protected.'
     }
   ] : [
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-      badge: 'Desarrollo Web Profesional con IA',
+      badge: 'Ingeniería de Software',
       titleLine1: 'La mejor forma de',
       titleEmphasis: 'comprar y contratar',
       titleLine2: 'tu sitio a medida',
-      subtitle: 'Ingeniería de software y diseño estratégico. Desarrollamos sitios web personalizados que garantizan el crecimiento de tu marca.'
+      subtitle: 'Infraestructura digital de alto rendimiento y diseño estratégico. Desarrollamos soluciones de software que garantizan el éxito de tu marca.'
     },
     {
       image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?w=1920&q=85',
-      badge: 'Soluciones Digitales Estratégicas',
-      titleLine1: 'Sitios web',
-      titleEmphasis: 'de alto impacto',
-      titleLine2: 'para tu negocio',
-      subtitle: 'En Syrtix no solo vendemos webs, desarrollamos la identidad y el futuro digital que tu marca merece.'
+      badge: 'E-commerce & Negocio',
+      titleLine1: 'Soluciones para',
+      titleEmphasis: 'vender y escalar',
+      titleLine2: 'tu pyme en internet',
+      subtitle: 'Plataformas autogestionables con integración de pagos, control de stock y embudos de conversión optimizados.'
     },
     {
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
-      badge: 'Soporte y Mantenimiento 24/7',
-      titleLine1: 'Infraestructura',
-      titleEmphasis: 'escalable y',
-      titleLine2: 'optimizada',
-      subtitle: 'Código limpio y tecnología moderna para asegurar que tu presencia digital llegue a todo el mundo.'
+      badge: 'SEO & Estrategia Branding',
+      titleLine1: 'Invierta hoy en',
+      titleEmphasis: 'autoridad digital',
+      titleLine2: 'y posicionamiento SEO',
+      subtitle: 'No solo lanzamos código; posicionamos tu marca en los primeros puestos de Google para atraer tráfico orgánico calificado.'
     },
     {
       image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
-      badge: 'Ingeniería vs Plantillas',
-      titleLine1: '¿Webs de',
-      titleEmphasis: 'usar y tirar?',
-      titleLine2: 'Elige Ingeniería',
-      subtitle: 'No te conformes con plantillas lentas de 20MB. En Syrtix vendemos ingeniería: webs que vuelan y no se rompen.'
+      badge: 'Infraestructura & Ciberseguridad',
+      titleLine1: 'Mantenimiento y',
+      titleEmphasis: 'soporte técnico',
+      titleLine2: 'proactivo 24/7',
+      subtitle: 'Hardening de seguridad, respaldos diarios y monitoreo de servidores. Tu infraestructura corporativa siempre online y segura.'
     }
   ];
 
@@ -149,7 +149,7 @@ function Hero() {
             <div key={currentIndex} className="animate-in fade-in duration-700">
               {/* Badge */}
               <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-[0.55rem] py-[0.25rem] mb-2 sm:mb-3">
-                <Zap size={16} className="text-primary mr-2" />
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse mr-2 md:mr-3" />
                 <span className="text-primary text-[0.7rem] sm:text-[0.85rem] font-medium tracking-wide">
                   {currentSlide.badge}
                 </span>
@@ -190,31 +190,39 @@ function Hero() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 max-w-3xl">
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
-                  <Zap size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.ai.title')}</span>
+                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
+                    <Code size={14} />
+                  </div>
+                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">CRM / ERP</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.ai.desc')}</span>
+                <span className="text-white/60 text-[0.75rem] leading-tight">Integraciones avanzadas para tu negocio.</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
-                  <TrendingUp size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.conversion.title')}</span>
+                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
+                    <Zap size={14} />
+                  </div>
+                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">Performance</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.conversion.desc')}</span>
+                <span className="text-white/60 text-[0.75rem] leading-tight">Carga en milisegundos y código limpio.</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
-                  <Clock size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.support.title')}</span>
+                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
+                    <TrendingUp size={14} />
+                  </div>
+                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">SEO Pro</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.support.desc')}</span>
+                <span className="text-white/60 text-[0.75rem] leading-tight">Posicionamiento real en Google Chile.</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
-                  <Code size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.code.title')}</span>
+                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
+                    <Clock size={14} />
+                  </div>
+                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">24/7 Soporte</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.code.desc')}</span>
+                <span className="text-white/60 text-[0.75rem] leading-tight">Tu empresa siempre online y bajo control.</span>
               </div>
             </div>
           </div>
