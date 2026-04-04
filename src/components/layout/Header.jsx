@@ -85,8 +85,8 @@ function Header() {
   const navItems = [
     { path: '/', labelKey: 'nav.home', icon: <Home size={20} /> },
     { path: '/paquetes', labelKey: 'nav.packages', icon: <Package size={20} /> },
-    { path: '/nosotros', labelKey: 'nav.about', icon: <Users size={20} /> },
     { path: '/servicios', labelKey: 'nav.services', icon: <Briefcase size={20} /> },
+    { path: '/nosotros', labelKey: 'nav.about', icon: <Users size={20} /> },
     { path: '/blog', labelKey: 'nav.blog', icon: <BookOpen size={20} /> },
     { path: '/contacto', labelKey: 'nav.contact', icon: <Mail size={20} /> },
   ];

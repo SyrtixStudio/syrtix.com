@@ -650,28 +650,10 @@ function Services() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            {copy.heroTitleLine1}
-            <br />
-            <span className="text-primary">{copy.heroTitleLine2}</span>
+            {copy.heroTitleLine1} <span className="text-primary">{copy.heroTitleLine2}</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">{copy.heroDescription}</p>
-
-          <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-4 w-full max-w-xl mx-auto">
-            <Link
-              to="/paquetes"
-              className="flex-1 bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center min-w-[180px]"
-            >
-              {copy.viewPackages}
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-            <Link
-              to="/contacto"
-              className="flex-1 border-2 border-white text-white font-bold px-8 py-4 hover:bg-white hover:text-gray-900 transition duration-300 min-w-[180px]"
-            >
-              {copy.requestQuote}
-            </Link>
-          </div>
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto">{copy.heroDescription}</p>
         </div>
       </section>
 
