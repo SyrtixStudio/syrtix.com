@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -46,6 +47,8 @@ import {
 } from 'react-icons/si';
 
 import { useLanguage } from '../i18n/index.jsx';
+import AuditModal from '../components/services/AuditModal.jsx';
+import { auditsData } from '../data/auditsData.jsx';
 
 const TECH_LOGOS = {
   React: { Icon: SiReact, color: 'text-[#61DAFB]' },
@@ -61,397 +64,237 @@ const TECH_LOGOS = {
 
 function Services() {
   const { lang } = useLanguage();
+  const [selectedAudit, setSelectedAudit] = useState(null);
 
   const copy =
     lang === 'en'
       ? {
-          heroBadge: 'Web development services',
+          heroBadge: 'Professional Web Solutions',
           heroTitleLine1: 'Digital solutions',
           heroTitleLine2: 'for service SMBs',
           heroDescription:
-            'From strategy to launch, we build websites and automation that help service SMBs in Chile capture more qualified leads.',
+            'We build websites and automation that help service SMBs in Chile capture more qualified leads and scale their operation.',
           viewPackages: 'View packages',
           requestQuote: 'Request quote',
           sectionTitlePrefix: 'Our ',
-          sectionTitleHighlight: 'services',
-          sectionSubtitle: 'Complete solutions for service SMBs at each growth stage',
+          sectionTitleHighlight: 'solutions',
+          sectionSubtitle: 'Simplified solutions designed for each stage of your business',
           requestService: 'Request service',
-          additionalTitlePrefix: 'Additional ',
-          additionalTitleHighlight: 'services',
-          additionalSubtitle: 'Add strategic services to strengthen your commercial operation',
+          additionalTitlePrefix: 'Strategic ',
+          additionalTitleHighlight: 'add-ons',
+          additionalSubtitle: 'Complement your project with tools that boost your commercial performance',
           maintenanceTitlePrefix: 'Maintenance and ',
-          maintenanceTitleHighlight: 'continuous growth',
+          maintenanceTitleHighlight: 'growth',
           maintenanceSubtitle:
-            'Post-launch support so your site stays fast, secure, and conversion-ready for your service business.',
-          maintenanceCta: 'Request monthly plan',
+            'Post-launch support so your site stays fast, secure, and ready for new customers.',
+          maintenanceCta: 'View maintenance plans',
           whyTitlePrefix: 'Why ',
-          whyTitleHighlight: 'choose us',
+          whyTitleHighlight: 'Syrtix',
           workTitlePrefix: 'How we ',
           workTitleHighlight: 'work',
-          techTitlePrefix: 'Technologies we ',
+          techTitlePrefix: 'Tech we ',
           techTitleHighlight: 'master',
-          ctaTitle: 'Do you have a project in mind?',
+          ctaTitle: 'Ready to start your project?',
           ctaDescription:
-            'Tell us about your service business and we will propose the best roadmap. Free quote with no commitment.',
+            'Tell us about your business and we will propose the best roadmap. Free quote with no commitment.',
           services: [
             {
-              title: 'Web Design & UX/UI',
-              icon: <Palette size={32} />,
-              description: (
-                <>
-                  Professional UX/UI design: visual identity, prototypes, and user experience ready for development.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is web design important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Good web design creates a strong first impression, builds trust, and guides users to conversion. It's essential for brand identity and user experience.
-                  </div>
-                </>
-              ),
+              title: 'Landing Pages',
+              icon: <Zap size={32} />,
+              description: 'Optimized for high conversion. Ideal for specific marketing campaigns and quick lead capture.',
               features: [
-                'Professional web design & UX/UI',
-                'Logo and visual identity design',
-                'Complete branding (colors, typography, guidelines)',
-                'Wireframes and clickable prototypes',
-                'Accessible design (WCAG compliance)',
-                'Responsive & mobile-ready design',
-                'Figma delivery with style guide',
-                'Review with design revisions included',
+                'Conversion-oriented UI/UX design',
+                'Optimized capture forms',
+                'CRM and WhatsApp integration',
+                'Perfect mobile visualization',
+                'Extreme loading speed (90+ Lighthouse)',
+                'Basic SEO technical setup',
               ],
               price: 'From $149.000 CLP',
             },
             {
-              title: 'Web Development',
-              icon: <Code size={32} />,
-              description: (
-                <>
-                  Fast, secure, and scalable websites with modern technologies. From landing pages to complex applications.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is web development important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Robust development ensures your site works reliably, loads quickly, and adapts to growth. It's the foundation for business success online.
-                  </div>
-                </>
-              ),
-              note:
-                'Launch offer from $149.000 CLP until Mar 31, 2026 (10 slots). Standard web development starts from $299.000 CLP. Corporate websites from $799.000 CLP. Advanced web development from $1.499.000 CLP.',
+              title: 'Corporate Websites',
+              icon: <Building size={32} />,
+              description: 'Professional authority for your business. Ideal for service companies requiring trust and complex content.',
               features: [
-                'Landing pages optimized for conversion',
-                'Corporate and institutional websites',
-                'Complex web applications, dashboards & CRM/ERP',
-                'Membership portals & communities',
-                'Multi-language support (i18n)',
-                'Booking and reservation systems',
-                'Educational platforms (LMS) & news/magazine sites',
-                'Custom requirements: blogs, forums, events',
+                'Full professional branding',
+                'Multi-page structure (Home, Services, Blog)',
+                'Appointment & booking systems',
+                'Portfolio or project gallery',
+                'High-performance technical infrastructure',
+                'Managed scalable hosting',
               ],
               price: 'From $299.000 CLP',
             },
             {
-              title: 'E-commerce & Marketplaces',
+              title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: (
-                <>
-                  Complete online stores and multi-vendor platforms with everything needed to sell and scale.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is e-commerce important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    E-commerce lets you reach more customers, automate sales, and grow your business 24/7. It's key for modern commercial success.
-                  </div>
-                </>
-              ),
+              description: 'Robust online stores. Everything you need to sell 24/7 with automated payments and inventory.',
               features: [
-                'Basic and advanced online stores',
                 'Shopping cart and secure checkout',
-                'Payment integration (Stripe, PayPal, crypto)',
-                'Inventory management & automation',
-                'Order tracking & fulfillment',
-                'Shipping integration & labels',
-                'Sales analytics & reporting',
-                'Affiliate and referral programs',
-                'Multi-vendor platform (PREMIUM)',
-                'Commission automation (PREMIUM)',
+                'Full payment gateway integration',
+                'Automated inventory management',
+                'Customer accounts & order history',
+                'Shipping platform integration',
+                'Sales & conversion analytics',
               ],
-              note: 'Available in Basic, Professional, and Premium (marketplace) tiers.',
-              price: 'From $899.000 CLP',
+              price: 'From $699.000 CLP',
             },
             {
-              title: 'Mobile Applications',
-              icon: <Smartphone size={32} />,
-              description: (
-                <>
-                  Native apps and PWA for iOS and Android to expand your digital reach and engage users on all devices.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why are mobile apps important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Mobile apps connect you with users wherever they are, boost engagement, and unlock new business models. They're vital for digital presence.
-                  </div>
-                </>
-              ),
-              note: 'Native, hybrid (React Native/Flutter), and PWA options available. MVP and rapid prototyping available.',
-              features: [
-                'iOS and Android native apps',
-                'Hybrid apps (React Native/Flutter)',
-                'Progressive Web Apps (PWA)',
-                'MVP and rapid prototyping',
-                'Geolocation & GPS integration',
-                'Push notifications & engagement',
-                'In-app purchases & monetization',
-                'App Store optimization (ASO)',
-                'Camera, sensors & biometric integration',
-                'Offline sync & data persistence',
-                'QA testing on multiple devices',
-                'Firebase & custom backend options',
-                'Maintenance & continuous updates',
-              ],
-              price: 'From $499.000 CLP',
-            },
-            {
-              title: 'Security & Performance Audit',
-              icon: <Shield size={32} />,
-              description: (
-                <>
-                  Complete security and performance audit to identify vulnerabilities, speed issues, and accessibility gaps. Get actionable recommendations to improve your site.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why audit your site?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Regular security and performance audits prevent data breaches, improve load times, and ensure accessibility. Critical for user experience and trust.
-                  </div>
-                </>
-              ),
-              features: [
-                'Security audit (OWASP Top 10, SSL, vulnerabilities)',
-                'Accessibility audit (WCAG, digital inclusion)',
-                'UX/UI audit (user testing, heatmaps, behavior mapping)',
-                'Performance optimization (load speed, Core Web Vitals, Lighthouse)',
-                'Image optimization (compression, WebP & AVIF formats)',
-                'Database optimization (queries, indexes, caching)',
-                'A/B testing & conversion analysis (funnel, abandonment points)',
-                'Complete audit report with action plan & recommendations',
-              ],
-              price: 'From $99.000 CLP',
-            },
-            {
-              title: 'SEO Strategy Setup',
+              title: 'SEO & Positioning',
               icon: <Search size={32} />,
-              description: (
-                <>
-                  Complete SEO audit and optimization setup to get your site ready for search visibility. Initial one-time setup includes strategy and implementation.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is SEO setup important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    A solid SEO foundation is critical for visibility. Setup includes technical fixes, keyword strategy, and GA4 tracking so you can measure success from day one.
-                  </div>
-                </>
-              ),
-              note: 'One-time setup. After completion, optional monthly retainer available for ongoing optimization.',
+              description: 'Organic growth for your brand. We optimize your structure and content to reach the top search results.',
               features: [
-                'Complete site technical audit',
-                'Keyword strategy (15-20 keywords)',
-                'Full site on-page optimization',
-                'GA4 + Search Console setup',
-                'Initial positioning report',
-                'Implementation recommendations',
-                'Basic training and handover',
+                'Search Generative Experience (SGE) Optimization',
+                'Keyword Research & Top 1-3 Google Positioning',
+                'Fast Indexing with Immediate Response API',
+                'Advanced Analytics Setup (GA4 & Search Console)',
+                'Local SEO & Google Business Profile Management',
+                'Monthly ROI Reports & Position Tracking',
               ],
-              price: 'From $499.000 CLP',
-            },
-            {
-              title: 'SEO Monthly Retainer',
-              icon: <BarChart size={32} />,
-              description: (
-                <>
-                  Continuous SEO maintenance and optimization to protect and improve your search rankings every month. Builds on your SEO setup foundation.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why monthly SEO maintenance?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    SEO is not one-time. Competitors change, algorithms update, and your site needs continuous monitoring and optimization to stay competitive and maintain rankings.
-                  </div>
-                </>
-              ),
-              note: 'Monthly retainer. Perfect for sites already with SEO setup or those wanting continuous optimization.',
-              features: [
-                'Monthly on-page optimization',
-                'Link building and backlink strategy',
-                'Competitive monitoring and analysis',
-                'GA4 + positioning reports',
-                'Content optimization recommendations',
-                'Technical performance monitoring',
-                'Monthly strategy calls and support',
-              ],
-              price: 'From $199.000 CLP/month',
+              price: 'Custom Monthly Plan',
             },
             {
               title: 'Maintenance & Support',
               icon: <Settings size={32} />,
-              description: (
-                <>
-                  Your site always updated, secure, and running at top performance. Available in multiple plan levels.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is maintenance important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Ongoing maintenance prevents downtime, keeps your site secure, and ensures optimal performance. It's essential for protecting your investment.
-                  </div>
-                </>
-              ),
+              description: 'Security and continuity. Your site always updated, secure, and running at peak performance.',
               features: [
+                '24/7 Uptime monitoring',
+                'Daily automated backups',
                 'Security updates & patches',
-                'Automatic daily backups',
-                'Uptime monitoring 24/7',
-                'Performance optimization',
-                'Dependency & library updates',
-                'Database optimization & cleaning',
-                'Monthly health reports & analytics',
+                'Proactive performance tuning',
                 'Priority technical support',
+                'Monthly health reports',
               ],
-              note: 'Available in Basic, Professional, and Premium (99.9% uptime SLA) plans.',
               price: 'From $49.000 CLP/month',
             },
             {
-              title: 'Rebranding & Strategy',
-              icon: <Brush size={32} />,
-              description: (
-                <>
-                  Complete brand transformation and market positioning strategy to strengthen your market presence.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is rebranding important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Rebranding helps you stay competitive, attract new audiences, and communicate your evolution. It's essential when pivoting, merging, or reaching new markets.
-                  </div>
-                </>
-              ),
+              title: 'Integrations & Automation',
+              icon: <Workflow size={32} />,
+              description: 'Scale your operation. We connect your site with CRM, Chatbots, and automated workflows using AI.',
               features: [
-                'Complete brand audit and analysis',
-                'Visual identity redesign',
-                'Logo and color palette design',
-                'Website redesign',
-                'Brand guidelines and documentation',
-                'Brand positioning strategy',
-                'Refresh or complete rebranding',
-                'Market positioning consultation',
+                'Advanced AI Chatbots (OpenAI)',
+                'Automated CRM lead injection',
+                'Marketing automation (n8n/Make)',
+                'Custom API & Webhook connectors',
+                'Ticketing & Helpdesk systems',
+                'Email marketing automation',
               ],
-              note: 'Available as complete rebranding or light refresh option.',
-              price: 'From $199.000 CLP',
+              price: 'Custom Quote',
             },
             {
-              title: 'Strategy & Analysis',
-              icon: <Lightbulb size={32} />,
-              description: (
-                <>
-                  Strategic consulting and data-driven analysis to optimize conversions and competitive positioning.
-                  <div className="mt-3 text-primary text-sm font-semibold">Why is strategic analysis important?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Strategy and analysis uncover hidden opportunities and help you make data-driven decisions. They're essential for competitive advantage and growth.
-                  </div>
-                </>
-              ),
+              title: 'Digital Audits',
+              icon: <Search size={32} />,
+              description: 'Exhaustive check of your current digital presence to unlock its full potential.',
               features: [
-                'UX/UI audit with user testing',
-                'Conversion Rate Optimization (CRO)',
-                'Competitive benchmarking analysis',
-                'User behavior mapping',
-                'Funnel analysis & optimization',
-                'A/B testing strategy',
-                'Market positioning analysis',
-                'Data-driven recommendations',
+                'Performance Audit (Speed & Load)',
+                'UX/UI Audit (User Experience)',
+                'Technical SEO & Indexing Audit',
+                'Conversion Audit (CRO)',
+                'Code & Scalability Audit (Technical Health)',
+                'Accessibility Audit (WCAG)',
               ],
-              note: 'Includes research, testing, and actionable recommendations.',
-              price: 'From $199.000 CLP',
+              price: 'Custom Quote',
             },
             {
-              title: 'Complementary Services',
-              icon: <Layers size={32} />,
-              description: (
-                <>
-                  Strategic add-on services to strengthen your digital operation with integrations, automation, and support tools.
-                  <div className="mt-3 text-primary text-sm font-semibold">What do these complementary services include?</div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    These are optional modules you can add based on your project stage and growth goals.
-                  </div>
-                </>
-              ),
+              title: 'Strategic Rebranding',
+              icon: <Palette size={32} />,
+              description: 'Revitalize your brand identity to transmit trust and professional value.',
               features: [
-                'Professional dynamic QR codes with tracking',
-                'Lead capture forms with CRM integrations',
-                'Basic chatbots (FAQ and automated responses)',
-                'OpenAI AI chatbots (advanced conversational flows)',
-                'Helpdesk and ticketing systems',
-                'CRM setup and workflow configuration',
-                'Video hosting with custom player and analytics',
-                'Tool integrations (GA4, Search Console, Calendly, Zapier)',
-                'Custom webhooks and API connectors',
-                'n8n/Make automation workflows',
-                'Newsletter setup and email templates',
+                'Logo modernization & Redesign',
+                'Professional color palette & Typography',
+                'Brand voice & Messaging strategy',
+                'Visual identity system (Brandbook)',
+                'Social media assets package',
+                'Consistent brand application audit',
               ],
-              note: 'Available as add-ons with custom scope and quote.',
-              price: 'Custom quote',
+              price: 'Custom Quote',
+            },
+            {
+              title: 'PWA & Mobile Solutions',
+              icon: <Smartphone size={32} />,
+              description: 'Modern mobile experiences without the complexity of traditional app stores.',
+              features: [
+                'Progressive Web App (PWA) development',
+                'Installable icon on mobile home screen',
+                'Offline access & Fast transitions',
+                'Push notifications support',
+                'Native-like look and feel',
+                'No app store download required',
+              ],
+              price: 'Custom Quote',
             },
           ],
-          additional: [
+          audits: [
             {
-              icon: <ArrowRight size={24} />,
-              title: 'QR Codes',
-              desc: 'Professional dynamic QR codes with tracking and analytics',
-            },
-            {
-              icon: <Monitor size={24} />,
-              title: 'Lead Capture',
-              desc: 'Professional forms, lead capture, CRM integration automation',
-            },
-            {
-              icon: <Globe size={24} />,
-              title: 'Chatbots & AI',
-              desc: 'OpenAI chatbots, helpdesk systems, customer support automation',
-            },
-            {
-              icon: <Database size={24} />,
-              title: 'CRM Setup',
-              desc: 'Implementation and configuration of CRM systems and workflows',
-            },
-            {
+              id: 'performance',
+              title: 'Performance & Speed',
               icon: <Zap size={24} />,
-              title: 'Automation',
-              desc: 'Workflows with n8n/Make, API integrations, data synchronization',
+              what: 'Deep analysis of load times, Core Web Vitals, server response, and asset optimization.',
+              result: 'A fast-loading site that improves SEO rankings and reduces visitor bounce rates.',
             },
             {
-              icon: <Layers size={24} />,
-              title: 'Integrations',
-              desc: 'Custom webhooks and API connectors for external services',
+              id: 'uxui',
+              title: 'UX/UI & UX Design',
+              icon: <Monitor size={24} />,
+              what: 'Evaluation of user flow, mobile usability, visual hierarchy, and CTA effectiveness.',
+              result: 'A friction-less interface that guides users naturally toward conversion.',
             },
             {
-              icon: <Ticket size={24} />,
-              title: 'Helpdesk & Support',
-              desc: 'Ticketing systems and customer support automation',
+              id: 'seo',
+              title: 'Technical SEO',
+              icon: <Search size={24} />,
+              what: 'Review of indexing, sitemaps, headers (H1-H4), metadata, and keyword reach.',
+              result: 'A site visibility map that Google loves and ranks higher on search results.',
             },
             {
-              icon: <Video size={24} />,
-              title: 'Video Hosting',
-              desc: 'Professional video hosting with player customization and analytics',
+              id: 'security',
+              title: 'Security & Privacy',
+              icon: <Shield size={24} />,
+              what: 'Vulnerability scans (OWASP), SSL configuration, and data protection compliance.',
+              result: 'A secure digital fortress protecting your business and client information.',
             },
             {
-              icon: <Plug size={24} />,
-              title: 'Webhooks & APIs',
-              desc: 'Custom API connectors and webhooks for external services',
+              id: 'code',
+              title: 'Code & Scalability',
+              icon: <Code size={24} />,
+              what: 'Quality review of current architecture, technical debt, and growth potential.',
+              result: 'Clear understanding of your technical foundation to add new features or scale.',
             },
             {
-              icon: <Workflow size={24} />,
-              title: 'n8n/Make Automation',
-              desc: 'Advanced automation workflows and data synchronization',
+              id: 'accessibility',
+              title: 'Digital Accessibility',
+              icon: <Users size={24} />,
+              what: 'Audit of WCAG 2.1 compliance, color contrast, and keyboard navigation.',
+              result: 'An inclusive site for everyone that also boosts your brand prestige and SEO.',
             },
             {
-              icon: <Mail size={24} />,
-              title: 'Newsletter Setup',
-              desc: 'Professional email templates, automation, and list management',
+              id: 'rebranding',
+              title: 'Strategic Rebranding',
+              icon: <Palette size={24} />,
+              what: 'Visual identity audit, logo revitalization, professional color palette, and brand voice consistency.',
+              result: 'A premium and modern brand image that reflects the true value of your business.',
+            },
+            {
+              id: 'pwa',
+              title: 'PWA & Mobile Solutions',
+              icon: <Smartphone size={24} />,
+              what: 'Conversion of your website into a Progressive Web App (PWA) that installs on mobile without app stores.',
+              result: 'Increased user loyalty with an app-like experience, push notifications, and offline access.',
             },
           ],
-          webTypesTitlePrefix: 'Website types we ',
-          webTypesTitleHighlight: 'specialize in',
-          webTypesSubtitle: 'Check the most in-demand website types and use cases',
+          webTypesTitlePrefix: 'Websites we ',
+          webTypesTitleHighlight: 'build',
+          webTypesSubtitle: 'The most in-demand solutions for service businesses in Chile',
           webTypes: [
             { icon: <Rocket size={20} />, title: 'Landing Pages' },
-            { icon: <ShoppingCart size={20} />, title: 'E-commerce Stores' },
+            { icon: <ShoppingCart size={20} />, title: 'E-commerce' },
             { icon: <Building size={20} />, title: 'Corporate Sites' },
-            { icon: <Newspaper size={20} />, title: 'Blogs & News' },
-            { icon: <Gift size={20} />, title: 'Membership Portal' },
-            { icon: <Briefcase size={20} />, title: 'Portfolio' },
             { icon: <Calendar size={20} />, title: 'Booking Systems' },
-            { icon: <BookOpen size={20} />, title: 'Learning Platforms' },
-            { icon: <Megaphone size={20} />, title: 'Event Platforms' },
-            { icon: <Users size={20} />, title: 'Community Forum' },
-            { icon: <Globe size={20} />, title: 'Catalog' },
-            { icon: <Code size={20} />, title: 'Custom Web Apps' },
-            { icon: <Monitor size={20} />, title: 'Microsite Campaign' },
-            { icon: <Zap size={20} />, title: 'Web Solutions' },
+            { icon: <BookOpen size={20} />, title: 'LMS Platform' },
+            { icon: <Briefcase size={20} />, title: 'Portfolios' },
+            { icon: <Users size={20} />, title: 'Member Portals' },
+            { icon: <Newspaper size={20} />, title: 'Blogs & News' },
           ],
           maintenanceCards: [
             {
@@ -466,44 +309,22 @@ function Services() {
               title: 'Monthly report',
               desc: 'Metrics summary, progress and next steps.',
             },
-            {
-              title: 'Priority support',
-              desc: 'Preferred response times and minor adjustments.',
-            },
-            {
-              title: 'Managed hosting/domain (add-on)',
-              desc: 'Optional add-on: setup and ongoing management.',
-            },
-            {
-              title: 'Loyalty benefits',
-              desc: 'Improvements or discounts for continuity.',
-            },
           ],
           whyItems: [
             {
               icon: <BarChart size={18} />,
-              title: 'Results-focused approach',
+              title: 'Results-focused',
               desc: 'Each delivery is designed to capture more leads or improve sales conversion.',
             },
             {
               icon: <Calendar size={18} />,
-              title: 'Clear scope and timelines',
+              title: 'Clear Timelines',
               desc: 'You know what is included, delivery phases, and dates from day one.',
             },
             {
               icon: <Layers size={18} />,
-              title: 'Design and development in one team',
+              title: 'Unified Team',
               desc: 'Less friction, faster execution, and visual plus technical consistency.',
-            },
-            {
-              icon: <Shield size={18} />,
-              title: 'Fast, secure, and scalable websites',
-              desc: 'Performance and security foundations prepared for continuous growth.',
-            },
-            {
-              icon: <Settings size={18} />,
-              title: 'Post-launch support and maintenance',
-              desc: 'Guidance after go-live plus monthly maintenance plans for ongoing improvement.',
             },
           ],
           process: [
@@ -524,430 +345,235 @@ function Services() {
             },
             { step: '04', title: 'Delivery', desc: 'We launch and onboard you' },
           ],
-          tech: [
-            'React',
-            'Next.js',
-            'Node.js',
-            'JavaScript',
-            'TypeScript',
-            'CSS',
-            'Tailwind CSS',
-            'PostgreSQL',
-            'Vite',
-          ],
+          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Vite'],
         }
       : {
-          heroBadge: 'Servicios de desarrollo web',
+          heroBadge: 'Soluciones Web Profesionales',
           heroTitleLine1: 'Soluciones digitales',
           heroTitleLine2: 'para pymes de servicios',
           heroDescription:
-            'Desde estrategia hasta desarrollo, construimos sitios y automatizaciones para que las pymes de servicios en Chile capten mas leads calificados.',
+            'Desarrollamos sitios web y automatizaciones diseñadas para que las pymes en Chile capten más leads y escalen su operación.',
           viewPackages: 'Ver paquetes',
           requestQuote: 'Solicitar cotización',
-          sectionTitlePrefix: 'Nuestros ',
-          sectionTitleHighlight: 'servicios',
-          sectionSubtitle:
-            'Soluciones completas para pymes de servicios en cada etapa de crecimiento',
+          sectionTitlePrefix: 'Nuestras ',
+          sectionTitleHighlight: 'soluciones',
+          sectionSubtitle: 'Sistemas simplificados diseñados para cada etapa de tu negocio',
           requestService: 'Solicitar servicio',
-          additionalTitlePrefix: 'Servicios ',
-          additionalTitleHighlight: 'adicionales',
-          additionalSubtitle:
-            'Complementa tu proyecto con servicios estrategicos para fortalecer tu operacion comercial',
+          additionalTitlePrefix: 'Complementos ',
+          additionalTitleHighlight: 'estratégicos',
+          additionalSubtitle: 'Potencia tu presencia digital con herramientas que impulsan tus ventas',
           maintenanceTitlePrefix: 'Mantenimiento y ',
-          maintenanceTitleHighlight: 'crecimiento continuo',
+          maintenanceTitleHighlight: 'crecimiento',
           maintenanceSubtitle:
-            'Te acompanamos despues del lanzamiento para que tu sitio siga rapido, seguro y convirtiendo para tu negocio de servicios.',
-          maintenanceCta: 'Solicitar plan mensual',
+            'Soporte post-lanzamiento para que tu sitio siga rápido, seguro y listo para nuevos clientes.',
+          maintenanceCta: 'Ver planes de mantenimiento',
           whyTitlePrefix: 'Por qué ',
-          whyTitleHighlight: 'elegirnos',
+          whyTitleHighlight: 'Syrtix',
           workTitlePrefix: 'Cómo ',
           workTitleHighlight: 'trabajamos',
           techTitlePrefix: 'Tecnologías que ',
           techTitleHighlight: 'dominamos',
           ctaTitle: '¿Tienes un proyecto en mente?',
           ctaDescription:
-            'Cuentanos sobre tu negocio de servicios y te propondremos la mejor hoja de ruta. Cotizacion gratuita y sin compromiso.',
+            'Cuéntanos sobre tu negocio de servicios y te propondremos la mejor hoja de ruta. Cotización gratuita.',
           services: [
             {
-              title: 'Diseño Web & UX/UI',
-              icon: <Palette size={32} />,
-              description: (
-                <>
-                  Diseños profesionales UX/UI: identidad visual, prototipos y experiencia de usuario lista para desarrollo.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el diseño web?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Un buen diseño web genera confianza, refuerza tu marca y guía al usuario hacia la conversión. Es clave para destacar y lograr resultados.
-                  </div>
-                </>
-              ),
+              title: 'Landing Pages',
+              icon: <Rocket size={32} />,
+              description: 'Máxima conversión para tus campañas. Incluye diseño visual de alto impacto, copy persuasivo y desarrollo técnico optimizado.',
               features: [
-                'Diseño web profesional UX/UI',
-                'Diseño de logo e identidad visual',
-                'Identidad visual completa (colores, tipografía, manual de marca)',
-                'Wireframes y prototipos navegables',
-                'Diseño accesible (cumplimiento WCAG)',
-                'Diseño responsive y adaptado a móvil',
-                'Entrega en Figma con guía de estilos',
-                'Revisión con rondas de cambios incluidas',
+                'Diseño UX/UI enfocado en resultados',
+                'Diseño de Logotipo básico incluido',
+                'Integración completa con CRM y WhatsApp',
+                'Optimización extrema de carga y SEO',
+                'Formularios de captura de alta performance',
+                'Setup técnico de analítica (GA4/GSC)',
               ],
-              price: 'Desde $149.000',
+              price: 'Desde $149.000 CLP',
             },
             {
-              title: 'Desarrollo Web',
-              icon: <Code size={32} />,
-              description: (
-                <>
-                  Sitios web rápidos, seguros y escalables con las últimas tecnologías del mercado. Desde landing pages hasta aplicaciones complejas.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el desarrollo web?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Un desarrollo robusto garantiza que tu sitio funcione bien, sea rápido y crezca contigo. Es la base del éxito digital.
-                  </div>
-                </>
-              ),
-              note:
-                'Oferta lanzamiento desde $149.000 hasta el 31 de marzo de 2026 (10 cupos). Desarrollo web base desde $299.000. Web corporativa desde $799.000. Desarrollo web avanzado desde $1.499.000.',
+              title: 'Web Corporativa',
+              icon: <Building size={32} />,
+              description: 'Autoridad y confianza para tu marca. Un sistema digital sólido que proyecta el valor real de tu negocio.',
               features: [
-                'Landing pages optimizadas para conversión',
-                'Sitios web corporativos e institucionales',
-                'Aplicaciones web complejas, dashboards, CRM y ERP',
-                'Portales de membresía y comunidades',
-                'Soporte multiidioma (i18n)',
-                'Sistemas de reservas y citas',
-                'Plataformas educativas (LMS) y sitios de noticias',
-                'Requisitos personalizados: blogs, foros, eventos',
+                'Diseño de Identidad Visual y Logo Pro',
+                'Estructura multi-página estratégica',
+                'Sistemas de agendamiento y reservas',
+                'Arquitectura técnica de alta velocidad',
+                'Hosting escalable y seguridad gestionada',
+                'Estrategia de contenidos inicial',
               ],
-              price: 'Desde $299.000',
+              price: 'Desde $299.000 CLP',
             },
             {
-              title: 'E-commerce & Marketplaces',
+              title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: (
-                <>
-                  Tiendas online completas y plataformas multi-vendedor con todo lo necesario para vender y escalar.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el e-commerce?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    El e-commerce te permite llegar a más clientes, automatizar ventas y crecer 24/7. Es fundamental para el éxito comercial moderno.
-                  </div>
-                </>
-              ),
+              description: 'Tu tienda lista para escalar. Nos encargamos de todo el ecosistema de venta, pagos y logística.',
               features: [
-                'Tiendas online básicas y avanzadas',
-                'Carrito de compras y checkout seguro',
-                'Integración de pagos (Stripe, PayPal, cripto)',
-                'Gestión de inventario y automatización',
-                'Seguimiento de pedidos y cumplimiento',
-                'Integración de plataformas de envío',
-                'Analytics y reportes de ventas',
-                'Programas de afiliados y referidos',
-                'Plataforma multi-vendedor (PREMIUM)',
-                'Automatización de comisiones (PREMIUM)',
+                'Branding y Manual de Estilo incluido',
+                'Pasarelas de pago (Webpay/Stripe)',
+                'Gestión de inventario y stock automático',
+                'Integración con plataformas de despacho',
+                'Dashboard de analítica de ventas Pro',
+                'Optimización de embudo de conversión',
               ],
-              note: 'Disponible en niveles Básico, Profesional y Premium (marketplace).',
-              price: 'Desde $899.000',
+              price: 'Desde $699.000 CLP',
             },
             {
-              title: 'Aplicaciones Móviles',
-              icon: <Smartphone size={32} />,
-              description: (
-                <>
-                  Apps nativas y PWA para iOS y Android que extienden tu presencia digital y engancha usuarios en todos los dispositivos.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué son importantes las apps móviles?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Las apps móviles te conectan con usuarios donde sea, aumentan el engagement y abren nuevas oportunidades de negocio. Son vitales para tu presencia digital.
-                  </div>
-                </>
-              ),
-              note: 'Apps nativas, híbridas (React Native/Flutter) y PWA disponibles. MVP y prototipado rápido disponibles.',
-              features: [
-                'Apps nativas iOS y Android',
-                'Apps híbridas (React Native/Flutter)',
-                'Progressive Web Apps (PWA)',
-                'MVP y prototipado rápido',
-                'Integración de geolocalización y GPS',
-                'Push notifications y engagement',
-                'Compras dentro de la app y monetización',
-                'Optimización App Store (ASO)',
-                'Integración de cámara, sensores y biometría',
-                'Sincronización offline y persistencia de datos',
-                'QA testing en múltiples dispositivos',
-                'Firebase e integración de backend personalizado',
-                'Mantenimiento y actualizaciones continuas',
-              ],
-              price: 'Desde $499.000',
-            },
-            {
-              title: 'Auditoría de Seguridad & Performance',
-              icon: <Shield size={32} />,
-              description: (
-                <>
-                  Auditoría completa de seguridad y performance para identificar vulnerabilidades, problemas de velocidad y brechas de accesibilidad. Recomendaciones accionables.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué auditar tu sitio?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Las auditorías regulares previenen brechas de seguridad, mejoran velocidad y aseguran accesibilidad. Crítico para experiencia de usuario y confianza.
-                  </div>
-                </>
-              ),
-              features: [
-                'Auditoría de seguridad (OWASP Top 10, SSL, vulnerabilidades)',
-                'Auditoría de accesibilidad (WCAG, inclusión digital)',
-                'Auditoría UX/UI (testing con usuarios, mapas de calor, comportamiento)',
-                'Optimización de rendimiento (velocidad de carga, Core Web Vitals, Lighthouse)',
-                'Optimización de imágenes (compresión, formatos WebP y AVIF)',
-                'Optimización de base de datos (queries, índices, caché)',
-                'Testing A/B y conversiones (análisis de funnel, puntos de abandono)',
-                'Reporte completo de auditoría (recomendaciones detalladas y plan de acción)',
-              ],
-              price: 'Desde $99.000',
-            },
-            {
-              title: 'Setup SEO Estratégico',
+              title: 'SEO & Posicionamiento',
               icon: <Search size={32} />,
-              description: (
-                <>
-                  Auditoría completa y setup SEO para posicionar tu sitio en búsquedas. Setup inicial único que incluye estrategia e implementación.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el setup SEO?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Una base SEO sólida es crítica para visibilidad. Incluye fixes técnicos, estrategia de keywords y GA4 para medir resultados desde el primer día.
-                  </div>
-                </>
-              ),
-              note: 'Setup único. Después de completar, retainer mensual disponible para optimización continua.',
+              description: 'Crecimiento orgánico para tu marca. Optimizamos tu estructura y contenido para alcanzar los primeros lugares.',
               features: [
-                'Auditoría técnica completa del sitio',
-                'Estrategia de 15-20 palabras clave',
-                'Optimización on-page de todo el sitio',
-                'GA4 + Search Console configuración',
-                'Reporte inicial de posicionamiento',
-                'Recomendaciones de implementación',
-                'Capacitación básica y entrega',
+                'Optimización para Búsqueda con IA (Google SGE)',
+                'Investigación de Keywords y Posicionamiento Top 1-3',
+                'Indexación Rápida con API de Respuesta Inmediata',
+                'Configuración Avanzada de GA4 y Search Console',
+                'Posicionamiento en Google Maps y Búsqueda Local',
+                'Reportes Mensuales de ROI y Seguimiento de Posiciones',
               ],
-              price: 'Desde $499.000',
-            },
-            {
-              title: 'SEO Retainer Mensual',
-              icon: <BarChart size={32} />,
-              description: (
-                <>
-                  Mantenimiento y optimización SEO continua cada mes para proteger y mejorar tu posicionamiento en búsquedas. Construye sobre tu setup SEO.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué mantenimiento SEO mensual?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    SEO no es de una sola vez. Los competidores cambian, los algoritmos se actualizan y tu sitio necesita monitoreo continuo para mantener posiciones competitivas.
-                  </div>
-                </>
-              ),
-              note: 'Retainer mensual. Ideal para sitios con setup SEO listo o que quieren optimización continua.',
-              features: [
-                'Optimización on-page mensual',
-                'Link building y estrategia de backlinks',
-                'Monitoreo competitivo y análisis',
-                'Reportes GA4 y posicionamiento',
-                'Recomendaciones de contenido',
-                'Monitoreo técnico y performance',
-                'Llamadas estratégicas mensuales y soporte',
-              ],
-              price: 'Desde $199.000/mes',
+              price: 'Plan Mensual Personalizado',
             },
             {
               title: 'Mantenimiento & Soporte',
               icon: <Settings size={32} />,
-              description: (
-                <>
-                  Tu sitio siempre actualizado, seguro y funcionando al máximo rendimiento. Disponible en múltiples niveles.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el mantenimiento?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    El mantenimiento continuo previene caídas, mantiene tu sitio seguro y asegura el mejor rendimiento. Es esencial para proteger tu inversión.
-                  </div>
-                </>
-              ),
+              description: 'Seguridad y continuidad. Tu sitio siempre actualizado, protegido y funcionando al máximo rendimiento.',
               features: [
-                'Actualizaciones de seguridad y patches',
-                'Backups automáticos diarios',
                 'Monitoreo de uptime 24/7',
-                'Optimización de performance',
-                'Actualizaciones de dependencias y librerías',
-                'Optimización de base de datos y limpieza',
-                'Reportes mensuales de salud del sitio',
+                'Backups automatizados diarios',
+                'Actualizaciones de seguridad y parches',
+                'Optimización técnica proactiva',
                 'Soporte técnico prioritario',
+                'Reportes mensuales de salud web',
               ],
-              note: 'Disponible en planes Básico, Profesional y Premium (SLA 99.9% uptime).',
-              price: 'Desde $49.000 por mes',
+              price: 'Desde $49.000 CLP/mes',
             },
             {
-              title: 'Rebranding & Estrategia',
-              icon: <Brush size={32} />,
-              description: (
-                <>
-                  Transformación completa de marca y estrategia de posicionamiento para fortalecer tu presencia en el mercado.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el rebranding?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    El rebranding te ayuda a mantenerte competitivo, atraer nuevas audiencias y comunicar tu evolución. Es esencial al pivotar, fusionarse o llegar a nuevos mercados.
-                  </div>
-                </>
-              ),
+              title: 'Integraciones & Automatización',
+              icon: <Workflow size={32} />,
+              description: 'Escala tu operación. Conectamos tu web con CRM, Chatbots inteligentes y flujos de trabajo automáticos.',
               features: [
-                'Auditoría y análisis completo de marca',
-                'Rediseño de identidad visual',
-                'Diseño de logo y paleta de colores',
-                'Rediseño de sitio web',
-                'Guía de marca y documentación',
-                'Estrategia de posicionamiento',
-                'Refreshing o rebranding completo',
-                'Consultoría de posicionamiento en mercado',
+                'Chatbots con IA (OpenAI)',
+                'Inyección automática de leads en CRM',
+                'Automatización de marketing (n8n/Make)',
+                'Conectores API y Webhooks personalizados',
+                'Sistemas de tickets y Helpdesk',
+                'Email marketing automatizado',
               ],
-              note: 'Disponible como rebranding completo o opción de refreshing ligero.',
-              price: 'Desde $199.000',
+              price: 'Cotización Personalizada',
             },
             {
-              title: 'Estrategia & Análisis',
-              icon: <Lightbulb size={32} />,
-              description: (
-                <>
-                  Consultoría estratégica y análisis basado en datos para optimizar conversiones y posicionamiento competitivo.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Por qué es importante el análisis estratégico?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    La estrategia y análisis descubren oportunidades ocultas y te ayudan a tomar decisiones basadas en datos. Son esenciales para ventaja competitiva y crecimiento.
-                  </div>
-                </>
-              ),
+              title: 'Auditorías',
+              icon: <Search size={32} />,
+              description: 'Chequeo exhaustivo de tu presencia digital actual para desbloquear todo su potencial.',
               features: [
-                'Auditoría UX/UI con testing de usuarios',
-                'Optimización de Tasa de Conversión (CRO)',
-                'Análisis de benchmarking competitivo',
-                'Mapeo de comportamiento de usuarios',
-                'Análisis de funnel y optimización',
-                'Estrategia de testing A/B',
-                'Análisis de posicionamiento en mercado',
-                'Recomendaciones basadas en datos',
+                'Auditoría de Performance (Velocidad & Carga)',
+                'Auditoría UX/UI (Experiencia de Usuario)',
+                'Auditoría SEO (Posicionamiento Técnico)',
+                'Auditoría de Conversión (CRO)',
+                'Auditoría de Código & Escalabilidad (Salud Técnica)',
+                'Auditoría de Accesibilidad',
               ],
-              note: 'Incluye investigación, testing y recomendaciones accionables.',
-              price: 'Desde $199.000',
+              price: 'Cotización Personalizada',
             },
             {
-              title: 'Servicios Complementarios',
-              icon: <Layers size={32} />,
-              description: (
-                <>
-                  Servicios add-on estratégicos para potenciar tu operación digital con integraciones, automatización y herramientas de soporte.
-                  <div className="mt-3 text-primary text-sm font-semibold">
-                    ¿Qué incluyen estos servicios complementarios?
-                  </div>
-                  <div className="text-gray-700 text-xs mb-2">
-                    Son módulos opcionales que puedes activar según la etapa de tu proyecto y objetivos de crecimiento.
-                  </div>
-                </>
-              ),
+              title: 'Rebranding Estratégico',
+              icon: <Palette size={32} />,
+              description: 'Revitaliza tu identidad visual para transmitir confianza y el valor real de tu negocio.',
               features: [
-                'Creación de QRs profesionales dinámicos con tracking',
-                'Formularios y captura de leads con integración CRM',
-                'Chatbots básicos (FAQ y respuestas automáticas)',
-                'Chatbots IA con OpenAI (flujos conversacionales avanzados)',
-                'Sistemas de helpdesk y tickets',
-                'Setup CRM y configuración de workflows',
-                'Video hosting con player personalizado y analytics',
-                'Integración de herramientas (GA4, Search Console, Calendly, Zapier)',
-                'Webhooks y conectores de APIs personalizadas',
-                'Automatización con n8n/Make',
-                'Newsletter setup y templates de email',
+                'Modernización y rediseño de logo',
+                'Paleta de colores y tipografía profesional',
+                'Estrategia de voz de marca y mensajes',
+                'Sistema de identidad visual (Brandbook)',
+                'Pack de recursos para redes sociales',
+                'Auditoría de aplicación de marca coherente',
               ],
-              note: 'Disponible como add-ons con alcance y cotización personalizada.',
-              price: 'Cotización personalizada',
+              price: 'Cotización Personalizada',
+            },
+            {
+              title: 'PWA & Soluciones Móviles',
+              icon: <Smartphone size={32} />,
+              description: 'Experiencias móviles modernas sin la complejidad de las tiendas de aplicaciones.',
+              features: [
+                'Desarrollo de Progressive Web App (PWA)',
+                'Icono instalable en pantalla de inicio móvil',
+                'Acceso offline y transiciones rápidas',
+                'Soporte para notificaciones push',
+                'Look and feel nativo en cualquier dispositivo',
+                'Sin descargas en App Store o Google Play',
+              ],
+              price: 'Cotización Personalizada',
             },
           ],
-          additional: [
+          audits: [
             {
-              icon: <ArrowRight size={24} />,
-              title: 'Códigos QR',
-              desc: 'Códigos QR profesionales dinámicos con tracking y analytics',
-            },
-            {
-              icon: <Monitor size={24} />,
-              title: 'Captura de Leads',
-              desc: 'Formularios profesionales, captura de leads y automatización CRM',
-            },
-            {
-              icon: <Globe size={24} />,
-              title: 'Chatbots & IA',
-              desc: 'Chatbots OpenAI, sistemas de helpdesk, automatización de soporte',
-            },
-            {
-              icon: <Database size={24} />,
-              title: 'Setup CRM',
-              desc: 'Implementación y configuración de sistemas CRM y workflows',
-            },
-            {
+              id: 'performance',
+              title: 'Performance & Velocidad',
               icon: <Zap size={24} />,
-              title: 'Automatización',
-              desc: 'Flujos con n8n/Make, integraciones de APIs, sincronización de datos',
+              what: 'Análisis profundo de tiempos de carga, Core Web Vitals y optimización de recursos.',
+              result: 'Un sitio ultrarrápido que mejora el ranking en Google y retiene a tus visitantes.',
             },
             {
-              icon: <Layers size={24} />,
-              title: 'Integraciones',
-              desc: 'Webhooks personalizados y conectores de APIs externas',
+              id: 'uxui',
+              title: 'UX/UI & Experiencia',
+              icon: <Monitor size={24} />,
+              what: 'Evaluación de flujos de usuario, usabilidad móvil y efectividad de llamados a la acción.',
+              result: 'Una interfaz sin fricciones que guía al usuario naturalmente hacia la conversión.',
             },
             {
-              icon: <Ticket size={24} />,
-              title: 'Helpdesk & Soporte',
-              desc: 'Sistemas de ticketing y automatización de soporte al cliente',
+              id: 'seo',
+              title: 'SEO Técnico',
+              icon: <Search size={24} />,
+              what: 'Revisión de indexación, sitemaps, arquitectura de encabezados y meta-etiquetas.',
+              result: 'Un mapa de visibilidad optimizado para que Google te ponga en los primeros puestos.',
             },
             {
-              icon: <Video size={24} />,
-              title: 'Video Hosting',
-              desc: 'Video hosting profesional con personalización de player y analytics',
+              id: 'security',
+              title: 'Seguridad & Privacidad',
+              icon: <Shield size={24} />,
+              what: 'Escaneo de vulnerabilidades, configuración SSL y cumplimiento de protección de datos.',
+              result: 'Un entorno digital blindado que protege la información de tu negocio y clientes.',
             },
             {
-              icon: <Plug size={24} />,
-              title: 'Webhooks & APIs',
-              desc: 'Conectores de APIs personalizados y webhooks para servicios externos',
+              id: 'code',
+              title: 'Código & Escalabilidad',
+              icon: <Code size={24} />,
+              what: 'Revisión de calidad de arquitectura, deuda técnica y potencial de crecimiento.',
+              result: 'Claridad total sobre tu base técnica para añadir nuevas funciones o escalar sin riesgos.',
             },
             {
-              icon: <Workflow size={24} />,
-              title: 'Automatización n8n/Make',
-              desc: 'Flujos avanzados de automatización y sincronización de datos',
+              id: 'accessibility',
+              title: 'Accesibilidad Digital',
+              icon: <Users size={24} />,
+              what: 'Auditoría de cumplimiento WCAG 2.1, contraste de colores y navegación asistida.',
+              result: 'Un sitio inclusivo para todos que además potencia tu imagen de marca y SEO.',
             },
             {
-              icon: <Mail size={24} />,
-              title: 'Newsletter Setup',
-              desc: 'Templates profesionales, automatización y gestión de listas de email',
+              id: 'rebranding',
+              title: 'Rebranding Estratégico',
+              icon: <Palette size={24} />,
+              what: 'Auditoría de identidad visual, revitalización de logo, paletas de colores y coherencia en la voz de marca.',
+              result: 'Una imagen de marca premium y moderna que transmite confianza y el valor real de tu negocio.',
+            },
+            {
+              id: 'pwa',
+              title: 'PWA & Soluciones Móviles',
+              icon: <Smartphone size={24} />,
+              what: 'Conversión de tu sitio web en una Progressive Web App (PWA) instalable en móviles sin pasar por las tiendas.',
+              result: 'Mayor fidelización de usuarios con una experiencia de app, notificaciones push y acceso offline.',
             },
           ],
-          webTypesTitlePrefix: 'Tipos de webs en las que nos ',
-          webTypesTitleHighlight: 'especializamos',
-          webTypesSubtitle: 'Conoce los tipos de sitios más demandados y casos de uso',
+          webTypesTitlePrefix: 'Tipos de webs que ',
+          webTypesTitleHighlight: 'creamos',
+          webTypesSubtitle: 'Las soluciones más demandadas para negocios de servicios en Chile',
           webTypes: [
             { icon: <Rocket size={20} />, title: 'Landing Pages' },
-            { icon: <ShoppingCart size={20} />, title: 'Tiendas E-commerce' },
+            { icon: <ShoppingCart size={20} />, title: 'E-commerce' },
             { icon: <Building size={20} />, title: 'Sitios Corporativos' },
-            { icon: <Newspaper size={20} />, title: 'Blogs y Noticias' },
-            { icon: <Gift size={20} />, title: 'Portal de Membresía' },
-            { icon: <Briefcase size={20} />, title: 'Portfolio Profesional' },
             { icon: <Calendar size={20} />, title: 'Sistemas de Reservas' },
             { icon: <BookOpen size={20} />, title: 'Plataformas Educativas' },
-            { icon: <Megaphone size={20} />, title: 'Plataformas de Eventos' },
-            { icon: <Users size={20} />, title: 'Foro de Comunidad' },
-            { icon: <Globe size={20} />, title: 'Catálogos y Directorios' },
-            { icon: <Code size={20} />, title: 'Aplicaciones Web' },
-            { icon: <Monitor size={20} />, title: 'Micrositios' },
-            { icon: <Zap size={20} />, title: 'Soluciones Digitales' },
+            { icon: <Briefcase size={20} />, title: 'Portafolios' },
+            { icon: <Users size={20} />, title: 'Portales de Miembros' },
+            { icon: <Newspaper size={20} />, title: 'Blogs & Noticias' },
           ],
           maintenanceCards: [
             {
@@ -962,44 +588,22 @@ function Services() {
               title: 'Reporte mensual',
               desc: 'Resumen de métricas, avances y próximos pasos.',
             },
-            {
-              title: 'Soporte prioritario',
-              desc: 'Tiempos de respuesta preferentes y ajustes menores.',
-            },
-            {
-              title: 'Hosting/dominio gestionado (add-on)',
-              desc: 'Add-on opcional: setup y administración continua.',
-            },
-            {
-              title: 'Beneficios por permanencia',
-              desc: 'Mejoras o descuentos por continuidad.',
-            },
           ],
           whyItems: [
             {
               icon: <BarChart size={18} />,
-              title: 'Enfoque en resultados',
+              title: 'Foco en resultados',
               desc: 'Cada entrega busca captar más contactos o mejorar la conversión comercial.',
             },
             {
               icon: <Calendar size={18} />,
-              title: 'Alcance y tiempos claros',
+              title: 'Tiempos Claros',
               desc: 'Desde el inicio sabes qué incluye el proyecto, etapas de entrega y fechas.',
             },
             {
               icon: <Layers size={18} />,
-              title: 'Diseño y desarrollo en un solo equipo',
+              title: 'Equipo Unificado',
               desc: 'Menos fricción, más velocidad de ejecución y coherencia visual con técnica.',
-            },
-            {
-              icon: <Shield size={18} />,
-              title: 'Sitios rápidos, seguros y escalables',
-              desc: 'Base técnica optimizada en performance y seguridad para crecer sin frenos.',
-            },
-            {
-              icon: <Settings size={18} />,
-              title: 'Soporte post-lanzamiento y mantenciones',
-              desc: 'Te acompañamos tras publicar y puedes escalar con plan mensual de mantención.',
             },
           ],
           process: [
@@ -1024,17 +628,7 @@ function Services() {
               desc: 'Lanzamos y te capacitamos',
             },
           ],
-          tech: [
-            'React',
-            'Next.js',
-            'Node.js',
-            'JavaScript',
-            'TypeScript',
-            'CSS',
-            'Tailwind CSS',
-            'PostgreSQL',
-            'Vite',
-          ],
+          tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Vite'],
         };
 
   return (
@@ -1093,55 +687,72 @@ function Services() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {copy.services.map((service, idx) => {
-              const isLastService = idx === copy.services.length - 1;
-              const hasSingleRemainderOnLg = copy.services.length % 3 === 1;
-              const spanFullRowOnLg = isLastService && hasSingleRemainderOnLg;
-
-              return (
-                <div
-                  key={idx}
-                  className={`bg-base border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 group ${
-                    spanFullRowOnLg ? 'lg:col-span-3' : ''
-                  }`}
-                >
-                <div className="flex items-center mb-4">
-                  <div className="bg-primary/10 p-3 mr-4 group-hover:bg-primary transition-all duration-300">
-                    <div className="text-primary group-hover:text-gray-900 transition-all duration-300">
-                      {service.icon}
+            {copy.services.map((service, idx) => (
+              <div
+                key={idx}
+                className="bg-base border-2 border-gray-200 hover:border-primary p-6 transition-all duration-300 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center mb-4">
+                    <div className="bg-primary/10 p-3 mr-4 group-hover:bg-primary transition-all duration-300">
+                      <div className="text-primary group-hover:text-gray-900 transition-all duration-300">
+                        {service.icon}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 leading-tight">{service.title}</h3>
+                      <p className="text-primary font-bold text-xs mt-1">{service.price}</p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900">{service.title}</h3>
-                    <p className="text-primary font-bold text-sm">{service.price}</p>
-                  </div>
+
+                  <p className="text-sm text-gray-600 mb-6 min-h-[40px]">{service.description}</p>
+
+                  <ul className="space-y-2 mb-8">
+                    {service.features.map((feature, i) => {
+                      // Check if it's the "360° Digital Audit" card (usually the 7th item, index 6)
+                      const isAuditCard = service.title.includes('Auditoría') || service.title.includes('Digital Audit');
+                      
+                      if (isAuditCard) {
+                        // Find the relevant audit data based on index or title match
+                        const auditItem = auditsData[lang][i];
+
+                        return (
+                          <li key={i} className="flex items-start text-sm text-gray-700">
+                            <CheckCircle size={14} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <button 
+                              onClick={() => setSelectedAudit(auditItem)}
+                              className="text-left hover:text-secondary hover:underline transition-colors decoration-secondary underline-offset-4"
+                            >
+                              {feature}
+                            </button>
+                          </li>
+                        );
+                      }
+
+                      return (
+                        <li key={i} className="flex items-start text-sm text-gray-700">
+                          <CheckCircle size={14} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-
-                <div className="text-sm text-gray-600 mb-3">{service.description}</div>
-                {service.note && <p className="text-xs text-gray-500 mb-4">{service.note}</p>}
-
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-sm text-gray-700">
-                      <CheckCircle size={14} className="text-green-500 mr-2" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
 
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center text-secondary font-bold text-sm hover:text-primary transition-all duration-300"
+                  className="inline-flex items-center text-secondary font-bold text-sm hover:text-primary transition-all duration-300 group/link"
                 >
                   {copy.requestService}
-                  <ArrowRight size={16} className="ml-1" />
+                  <ArrowRight size={16} className="ml-1 group-hover/link:translate-x-1 transition-transform" />
                 </Link>
-                </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+
 
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-7xl mx-auto">
@@ -1317,6 +928,13 @@ function Services() {
           </div>
         </div>
       </section>
+
+      <AuditModal 
+        isOpen={selectedAudit !== null} 
+        onClose={() => setSelectedAudit(null)} 
+        auditData={selectedAudit}
+        lang={lang}
+      />
     </main>
   );
 }

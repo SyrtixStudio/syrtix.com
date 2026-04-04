@@ -25,42 +25,42 @@ import { useLanguage } from '../../i18n/index.jsx';
 
 const content = {
   es: {
-    title: 'Que hacemos en',
+    title: '¿Quieres crear o comprar una web en',
     company: 'syrtix',
     intro:
-      'Creamos soluciones digitales enfocadas en resultados: sitios web, ecommerce y mejoras continuas para vender mas.',
-    servicesTitle: 'Servicios integrales:',
+      'Somos expertos en ayudarte a crear y comprar páginas web profesionales de alto rendimiento para vender más hoy mismo.',
+    servicesTitle: 'Todo lo que necesitas para tu web:',
     services: [
-      'Landing pages de conversion',
-      'Sitios web corporativos',
-      'Tiendas online (ecommerce)',
-      'SEO inicial y analitica',
-      'Panel administrador y reportes de ventas',
-      'Integracion de pagos y WhatsApp',
-      'Correos corporativos',
-      'Mantenimiento mensual',
+      'Crear Landing Pages (Logo incluido)',
+      'Comprar Sitios Web Corporativos Pro',
+      'Crear Tiendas Online (E-commerce)',
+      'SEO de alta autoridad para Google',
+      'Branding y Diseño de Logotipos',
+      'Auditorías de Performance y UX',
+      'Hosting y Correo Corporativo',
+      'Mantenimiento y Soporte 24/7',
     ],
     closing:
-      'Nuestro objetivo es ayudarte a crecer, digitalizar tu negocio y convertir visitantes en clientes.',
+      'Dile adiós a las plantillas genéricas. Aplicamos ingeniería y diseño real para que tu negocio domine Google.',
   },
   en: {
-    title: 'What do we do at',
+    title: 'Want to create or buy a web at',
     company: 'syrtix',
     intro:
-      'We build digital solutions focused on results: websites, ecommerce, and continuous improvements to help you sell more.',
-    servicesTitle: 'Comprehensive services:',
+      'We are experts in helping you create and buy high-performance professional websites to sell more right now.',
+    servicesTitle: 'Everything you need for your web:',
     services: [
-      'Conversion-focused landing pages',
-      'Corporate websites',
-      'Online stores (ecommerce)',
-      'Initial SEO and analytics',
-      'Admin panel and sales reports',
+      'Create high-conversion landing pages',
+      'Buy Corporate Websites',
+      'Create Online Stores (Ecommerce)',
+      'Advanced SEO for Google',
+      'Intuitive admin panel',
       'Payment and WhatsApp integrations',
-      'Business email setup',
-      'Monthly maintenance',
+      'Business email configuration',
+      'Maintenance and technical support',
     ],
     closing:
-      'Our goal is to help you grow, digitize your business, and turn visitors into customers.',
+      'Say goodbye to slow templates. We build the engineering your business needs to dominate Search Engines.',
   },
 };
 

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -237,72 +237,7 @@ function PricingSection() {
               ctaText: 'Choose Ecommerce',
               ctaLink: '/contacto',
             },
-            {
-              id: 'ecommerce-advanced',
-              enterpriseOnly: true,
-              name: 'Enterprise Solution',
-              icon: 'Crown',
-              description: 'Advanced ecommerce and automation platform for companies scaling beyond standard SMB operations.',
-              price: 999000,
-              oldPrice: 1899000,
-              paymentType: 'one-time setup payment',
-              scopeDetails: {
-                audience:
-                  'Companies with complex operations, higher traffic, and advanced needs beyond standard SMB ecommerce flows.',
-                objective:
-                  'Build an enterprise-grade ecommerce platform that supports multi-team execution, advanced automation, and strategic business growth.',
-                focus:
-                  'Scalability, security, automation, and executive visibility with reliable operational workflows.',
-                includes: [
-                  'Everything in Business Solution',
-                  'Multi-role admin panel with permissions (admin, sales, operations, marketing)',
-                  'Automated workflows (post-purchase emails, cart recovery, and order status updates)',
-                  'Executive KPI dashboard (revenue, conversion, average order value, recurrence)',
-                  'Advanced security setup (hardening, essential audit, and backup strategy)',
-                  'Staging environment + QA process before production releases',
-                  'Commercial CRO and UX optimization (checkout flow, funnels, basic A/B tests)',
-                  'Technical documentation + enablement training for your internal team',
-                  'Continuous strategic iteration cycles (according to approved roadmap)',
-                  'Pro integrations with sync (ERP/CRM/logistics/payments) - optional, quoted separately',
-                  'Scalable high-traffic architecture + monitoring - optional, quoted separately',
-                  'Priority support with SLA (active maintenance plan required) - optional, quoted separately',
-                  'Monthly strategic follow-up (during active maintenance contract) - optional, quoted separately',
-                ],
-                excludes: [
-                  'Third-party licenses or provider services billed externally',
-                  'New major scope requests outside approved roadmap',
-                ],
-              },
-              featured: false,
-              conditionNote:
-                'Hosting and transactional email providers are billed by usage. Optional features are quoted separately.',
-              features: [
-                { text: 'Everything in Business Solution', included: true },
-                { text: 'Multi-role admin panel with granular permissions', included: true },
-                { text: 'Automated workflows (cart recovery and post-purchase)', included: true },
-                { text: 'Executive KPI dashboard with strategic metrics', included: true },
-                { text: 'Advanced security setup + essential audit', included: true },
-                { text: 'Staging environment + QA before go-live', included: true },
-                { text: 'CRO and UX optimization for conversion', included: true },
-                { text: 'Technical documentation + team training', included: true },
-                { text: 'Continuous strategic iteration cycles (according to approved roadmap)', included: true },
-                { text: 'Pro integrations with sync (ERP/CRM/logistics/payments) - optional, quoted separately', included: true },
-                {
-                  text: 'Scalable high-traffic architecture + monitoring - optional, quoted separately',
-                  included: true,
-                },
-                {
-                  text: 'Priority support with SLA (active maintenance plan required) - optional, quoted separately',
-                  included: true,
-                },
-                {
-                  text: 'Monthly strategic follow-up (during active maintenance contract) - optional, quoted separately',
-                  included: true,
-                },
-              ],
-              ctaText: 'Choose Enterprise',
-              ctaLink: '/contacto',
-            },
+
           ],
         }
       : {
@@ -536,75 +471,7 @@ function PricingSection() {
               ctaText: 'Elegir Ecommerce',
               ctaLink: '/contacto',
             },
-            {
-              id: 'ecommerce-avanzado',
-              enterpriseOnly: true,
-              name: 'Solución Empresa',
-              icon: 'Crown',
-              description: 'Plataforma avanzada de ecommerce y automatizacion para empresas que escalan mas alla de una operacion pyme estandar.',
-              price: 999000,
-              oldPrice: 1899000,
-              paymentType: 'pago unico de implementacion',
-              scopeDetails: {
-                audience:
-                  'Empresas con operaciones mas complejas, mayor trafico y necesidades avanzadas fuera de flujos pyme estandar.',
-                objective:
-                  'Construir una plataforma ecommerce empresarial que soporte trabajo multi-equipo, automatizacion avanzada y crecimiento estrategico.',
-                focus:
-                  'Escalabilidad, seguridad, automatizacion y visibilidad ejecutiva con operaciones confiables.',
-                includes: [
-                  'Todo lo de Solución Negocio',
-                  'Panel multi-rol con permisos (admin, ventas, operaciones y marketing)',
-                  'Flujos automatizados (correo post-compra, recuperacion de carrito y estados de pedido)',
-                  'Dashboard ejecutivo de KPIs (ventas, conversion, ticket promedio y recurrencia)',
-                  'Seguridad avanzada (hardening, auditoria esencial y estrategia de respaldos)',
-                  'Ambiente staging + proceso QA antes de publicar cambios',
-                  'CRO y UX comercial (checkout optimizado, embudos y pruebas A/B basicas)',
-                  'Documentacion tecnica + capacitacion a tu equipo interno',
-                  'Ciclos continuos de iteracion estrategica (segun roadmap aprobado)',
-                  'Integraciones pro con sincronizacion (ERP/CRM/logistica/pagos) - opcional ',
-                  'Arquitectura escalable + monitoreo de alto trafico - opcional ',
-                  'Soporte prioritario con SLA (solo con plan de mantenimiento activo) - opcional ',
-                  'Seguimiento estrategico mensual (durante vigencia del mantenimiento contratado) - opcional ',
-                ],
-                excludes: [
-                  'Licencias de terceros o servicios de proveedores cobrados externamente',
-                  'Nuevos requerimientos mayores fuera de la hoja de ruta aprobada',
-                ],
-              },
-              featured: false,
-              conditionNote:
-                'Hosting y proveedores de correo transaccional se cobran segun uso. Funciones opcionales se cotizan aparte.',
-              features: [
-                { text: 'Todo lo de Solución Negocio', included: true },
-                { text: 'Panel multi-rol con permisos granulares', included: true },
-                { text: 'Flujos automatizados (carrito y post-compra)', included: true },
-                { text: 'Dashboard ejecutivo con KPIs estrategicos', included: true },
-                { text: 'Seguridad avanzada + auditoria esencial', included: true },
-                { text: 'Ambiente staging + QA antes de produccion', included: true },
-                { text: 'Optimizacion CRO y UX para conversion', included: true },
-                { text: 'Documentacion tecnica + capacitacion de equipo', included: true },
-                { text: 'Ciclos continuos de iteracion estrategica (segun roadmap aprobado)', included: true },
-                {
-                  text: 'Integraciones pro con sincronizacion (ERP/CRM/logistica/pagos) - opcional ',
-                  included: true,
-                },
-                {
-                  text: 'Arquitectura escalable + monitoreo de alto trafico - opcional ',
-                  included: true,
-                },
-                {
-                  text: 'Soporte prioritario con SLA (solo con plan de mantenimiento activo) - opcional ',
-                  included: true,
-                },
-                {
-                  text: 'Seguimiento estrategico mensual (durante vigencia del mantenimiento contratado) - opcional ',
-                  included: true,
-                },
-              ],
-              ctaText: 'Elegir Empresa',
-              ctaLink: '/contacto',
-            },
+
           ],
         };
 
@@ -628,8 +495,7 @@ function PricingSection() {
     return `US$${formatted}`;
   };
 
-  const enterprisePackage = copy.packages.find((pkg) => pkg.enterpriseOnly);
-  const visiblePackages = copy.packages.filter((pkg) => !pkg.enterpriseOnly);
+  const visiblePackages = copy.packages;
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">
@@ -753,42 +619,7 @@ function PricingSection() {
           })}
         </div>
 
-        {enterprisePackage && (
-          <div
-            className="mt-8 border-2 border-secondary/30 bg-gradient-to-r from-secondary/10 via-base to-secondary/10 p-6 sm:p-8"
-            data-aos="fade-up"
-          >
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-              <div className="max-w-3xl">
-                <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-3">
-                  {copy.enterpriseBadge}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{copy.enterpriseTitle}</h3>
-                <p className="text-sm text-gray-700 mt-2">{copy.enterpriseDescription}</p>
-                <p className="text-sm text-gray-600 mt-3">
-                  {copy.enterpriseStartingFrom}{' '}
-                  <span className="font-bold text-gray-900">{formatPrice(enterprisePackage.price)}</span>{' '}
-                  <span className="text-xs text-gray-500">(~ {formatUsdPrice(enterprisePackage.price)})</span>
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  to={enterprisePackage.ctaLink}
-                  className="inline-flex items-center justify-center bg-secondary text-white font-bold px-6 py-3 hover:bg-blue-900 transition-all duration-300"
-                >
-                  {copy.enterprisePrimaryCta}
-                  <ArrowRight size={18} className="ml-2" />
-                </Link>
-                <Link
-                  to="/paquetes"
-                  className="inline-flex items-center justify-center bg-base border border-secondary/40 text-secondary font-bold px-6 py-3 hover:bg-secondary/10 transition-all duration-300"
-                >
-                  {copy.enterpriseSecondaryCta}
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
+
 
         <div className="text-center mt-8" data-aos="fade-up">
           <p className="text-xs sm:text-sm text-gray-600 mb-3">{copy.growthTip}</p>

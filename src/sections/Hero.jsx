@@ -27,22 +27,92 @@ const heroImages = [
 
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+
+  const heroContent = lang === 'en' ? [
+    {
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
+      badge: 'Create & Buy Websites with AI',
+      titleLine1: 'The easiest way to',
+      titleEmphasis: 'create and buy',
+      titleLine2: 'your website',
+      subtitle: 'From requirements and logo to final launch. We build high-performance websites focused on conversion and real growth.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
+      badge: 'Strategic Digital Solutions',
+      titleLine1: 'Professional',
+      titleEmphasis: 'web design',
+      titleLine2: 'ready to sell',
+      subtitle: 'At Syrtix we don\'t just sell websites, we build the future and visibility your brand needs in the digital age.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
+      badge: '24/7 Support & Maintenance',
+      titleLine1: 'Scalable and',
+      titleEmphasis: 'optimized',
+      titleLine2: 'infrastructure',
+      subtitle: 'Clean code and modern technology to ensure your digital presence reaches the entire world.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e90ece2cd3?w=1920&q=85',
+      badge: 'Engineering vs. Templates',
+      titleLine1: 'Stop using',
+      titleEmphasis: 'slow templates',
+      titleLine2: 'Choose engineering',
+      subtitle: 'Don\'t settle for slow 20MB WordPress sites. At Syrtix we build high-performance code that never breaks.'
+    }
+  ] : [
+    {
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
+      badge: 'Crea y Compra tu web con IA',
+      titleLine1: 'La mejor forma de',
+      titleEmphasis: 'crear y comprar',
+      titleLine2: 'tu página web',
+      subtitle: 'Servicio integral punta a punta: desde el logo y diseño hasta el desarrollo y publicación en 7 días.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
+      badge: 'Soluciones Digitales Estratégicas',
+      titleLine1: 'Diseño web',
+      titleEmphasis: 'que vende',
+      titleLine2: 'para tu negocio',
+      subtitle: 'No solo vendemos webs, diseñamos tu identidad completa. Branding, logo, UX/UI y desarrollo de alto impacto.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
+      badge: 'Soporte y Mantenimiento 24/7',
+      titleLine1: 'Infraestructura',
+      titleEmphasis: 'escalable y',
+      titleLine2: 'optimizada',
+      subtitle: 'Código limpio y tecnología moderna para asegurar que tu presencia digital llegue a todo el mundo.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e90ece2cd3?w=1920&q=85',
+      badge: 'Ingeniería vs Plantillas',
+      titleLine1: '¿Webs de',
+      titleEmphasis: 'usar y tirar?',
+      titleLine2: 'Elige Ingeniería',
+      subtitle: 'No te conformes con plantillas lentas de 20MB. En Syrtix vendemos ingeniería: webs que vuelan y no se rompen.'
+    }
+  ];
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % heroContent.length);
+  }, [heroContent.length]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  const currentSlide = heroContent[currentIndex];
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center">
       {/* Carrusel de imágenes */}
       <div className="absolute inset-0">
-        {heroImages.map((image, index) => (
+        {heroContent.map((item, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -50,8 +120,8 @@ function Hero() {
             }`}
           >
             <img
-              src={image}
-              alt={`${t('hero.carousel.alt')} ${index + 1}`}
+              src={item.image}
+              alt={item.titleEmphasis}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
@@ -60,7 +130,7 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {heroImages.map((_, index) => (
+        {heroContent.map((_, index) => (
           <div
             key={index}
             className={`h-3 transition-all duration-300 ${
@@ -72,80 +142,79 @@ function Hero() {
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6 lg:px-36">
-          <div className="max-w-xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
-            {/* Badge */}
-            <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-[0.55rem] py-[0.25rem] mb-2 sm:mb-3">
-              <Zap size={16} className="text-primary mr-2" />
-              <span className="text-primary text-[0.7rem] sm:text-[0.85rem] font-medium">
-                {t('hero.badge')}
-              </span>
+      <div className="relative z-10 w-full flex items-center">
+        <div className="w-full max-w-5xl pl-4 sm:pl-12 lg:pl-24 xl:pl-48 pr-4">
+          <div className="max-w-2xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
+            {/* Single Content Container with key for transition effect (optional) */}
+            <div key={currentIndex} className="animate-in fade-in duration-700">
+              {/* Badge */}
+              <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-[0.55rem] py-[0.25rem] mb-2 sm:mb-3">
+                <Zap size={16} className="text-primary mr-2" />
+                <span className="text-primary text-[0.7rem] sm:text-[0.85rem] font-medium tracking-wide">
+                  {currentSlide.badge}
+                </span>
+              </div>
+
+              {/* Título - Único H1 para toda la página */}
+              <h1 className="text-[clamp(1.4rem,3.8vw,2.6rem)] font-bold text-white mb-2 sm:mb-3 leading-[1.08] text-left">
+                {currentSlide.titleLine1}{' '}
+                <span className="text-primary">{currentSlide.titleEmphasis}</span>{' '}
+                {currentSlide.titleLine2}
+              </h1>
+
+              {/* Subtítulo */}
+              <p className="text-[clamp(0.95rem,1.5vw,1.15rem)] text-white/80 mb-4 sm:mb-6 max-w-[34rem] text-left leading-relaxed">
+                {currentSlide.subtitle}
+              </p>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-4 sm:mb-6">
+                <Link
+                  to="/paquetes"
+                  className="bg-primary text-gray-900 font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide group"
+                >
+                  {t('hero.cta.primary')}
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="border-2 border-white/40 text-white font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide"
+                >
+                  {t('hero.cta.secondary')}
+                </Link>
+              </div>
             </div>
 
-            {/* Título */}
-            <h1 className="text-[clamp(1.3rem,3.5vw,2.3rem)] font-bold text-white mb-2 sm:mb-3 leading-[1.08]">
-              {t('hero.title.line1')}
-              {' '}
-              <span className="text-primary">{t('hero.title.emphasis')}</span>{' '}
-              {t('hero.title.line2')}
-            </h1>
 
-            {/* Subtítulo */}
-            <p className="text-[clamp(0.95rem,1.5vw,1.1rem)] text-white/80 mb-3 sm:mb-4 max-w-[32rem]">
-              {t('hero.subtitle')}
-            </p>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <Link
-                to="/paquetes"
-                className="bg-primary text-gray-900 font-bold px-[0.9rem] py-[0.55rem] sm:px-[1.2rem] sm:py-[0.7rem] hover:bg-secondary transition duration-300 flex items-center justify-center text-[0.9rem] sm:text-[0.98rem]"
-              >
-                {t('hero.cta.primary')}
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-              <Link
-                to="/contacto"
-                className="border-2 border-white text-white font-bold px-[0.9rem] py-[0.55rem] sm:px-[1.2rem] sm:py-[0.7rem] hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-[0.9rem] sm:text-[0.98rem]"
-              >
-                {t('hero.cta.secondary')}
-              </Link>
-            </div>
-
-            {/* Info boxes */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2">
+            {/* Common Info boxes (Left Aligned) */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 max-w-3xl">
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Zap size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem]">{t('hero.info.ai.title')}</span>
+                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.ai.title')}</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem]">{t('hero.info.ai.desc')}</span>
+                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.ai.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <TrendingUp size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem]">
-                    {t('hero.info.conversion.title')}
-                  </span>
+                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.conversion.title')}</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem]">{t('hero.info.conversion.desc')}</span>
+                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.conversion.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Clock size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem]">
-                    {t('hero.info.support.title')}
-                  </span>
+                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.support.title')}</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem]">{t('hero.info.support.desc')}</span>
+                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.support.desc')}</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
                 <div className="flex items-center mb-1">
                   <Code size={18} className="text-primary mr-2" />
-                  <span className="text-white font-bold text-[0.95rem]">{t('hero.info.code.title')}</span>
+                  <span className="text-white font-bold text-[0.95rem] uppercase">{t('hero.info.code.title')}</span>
                 </div>
-                <span className="text-white/60 text-[0.85rem]">{t('hero.info.code.desc')}</span>
+                <span className="text-white/60 text-[0.85rem] leading-tight">{t('hero.info.code.desc')}</span>
               </div>
             </div>
           </div>
