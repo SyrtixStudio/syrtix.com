@@ -32,11 +32,11 @@ function Hero() {
   const heroContent = lang === 'en' ? [
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-      badge: 'Professional Web Development with AI',
-      titleLine1: 'Expert',
-      titleEmphasis: 'design & development',
-      titleLine2: 'for your website',
-      subtitle: 'From strategy and branding to high-performance code. We build custom websites tailored to your business goals.'
+      badge: 'Professional Web Development with IA',
+      titleLine1: 'The easiest way to',
+      titleEmphasis: 'buy or contract',
+      titleLine2: 'your website',
+      subtitle: 'Premium engineering and strategic design. We build custom websites tailored to your business goals.'
     },
     {
       image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
@@ -66,10 +66,10 @@ function Hero() {
     {
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
       badge: 'Desarrollo Web Profesional con IA',
-      titleLine1: 'Expertos en',
-      titleEmphasis: 'diseño y desarrollo',
-      titleLine2: 'de sitios a medida',
-      subtitle: 'De la estrategia al código de alto rendimiento. Construimos sitios web personalizados que garantizan el crecimiento de tu marca.'
+      titleLine1: 'La mejor forma de',
+      titleEmphasis: 'comprar y contratar',
+      titleLine2: 'tu sitio a medida',
+      subtitle: 'Ingeniería de software y diseño estratégico. Desarrollamos sitios web personalizados que garantizan el crecimiento de tu marca.'
     },
     {
       image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',

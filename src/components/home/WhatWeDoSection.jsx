@@ -25,13 +25,13 @@ import { useLanguage } from '../../i18n/index.jsx';
 
 const content = {
   es: {
-    title: '¿Buscas desarrollar o contratar un sitio web en',
+    title: '¿Buscas comprar o contratar un sitio web en',
     company: 'syrtix',
     intro:
-      'Somos una agencia de ingeniería encargada de desarrollar experiencias digitales de alto rendimiento. Diseñamos soluciones a medida que garantizan resultados comerciales reales.',
+      'Somos una agencia de ingeniería dedicada al desarrollo de experiencias digitales de alto rendimiento. Diseñamos soluciones a medida que garantizan resultados comerciales reales.',
     servicesTitle: 'Nuestra ingeniería de software incluye:',
     services: [
-      'Desarrollar Landing Pages de alta conversión',
+      'Desarrollo de Landing Pages de alta conversión',
       'Desarrollo de Sitios Web Corporativos Pro',
       'Desarrollo de Tiendas Online (E-commerce)',
       'SEO de alta autoridad y arquitectura técnica',
@@ -52,7 +52,7 @@ const content = {
     }
   },
   en: {
-    title: 'Looking to develop or contract a website at',
+    title: 'Looking to buy or contract a website at',
     company: 'syrtix',
     intro:
       'We are an engineering agency dedicated to developing high-performance digital experiences. We design custom solutions that guarantee real business results.',
