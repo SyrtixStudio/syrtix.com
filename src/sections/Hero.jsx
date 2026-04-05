@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Clock, Code, Briefcase, Activity } from 'lucide-react';
 
 import { useLanguage } from '../i18n/index.jsx';
 
@@ -28,15 +28,24 @@ function Hero() {
       subtitle: 'Self-manageable platforms with payment gateway integration, inventory control, and optimized conversion funnels.'
     },
     {
-      image: 'https://plus.unsplash.com/premium_photo-1764691246855-645ce640abed?q=80&w=1170&auto=format&fit=crop',
-      badge: 'SEO & Strategy',
-      titleLine1: 'Invest in',
-      titleEmphasis: 'digital authority',
-      titleLine2: 'and SEO positioning',
-      subtitle: 'We don\'t just deploy code; we position your brand on the first page of Google to capture qualified organic traffic.'
+      image: 'https://plus.unsplash.com/premium_photo-1754244539108-2ab0168f039c?q=80&w=1355&auto=format&fit=crop',
+      badge: 'Global Connectivity',
+      titleLine1: 'Your business',
+      titleEmphasis: 'visible worldwide',
+      titleLine2: 'from any city',
+      subtitle: 'Break geographic borders and expand your brand. Professional digital infrastructure allows you to capture clients in any city or country, 24/7.',
+      isDark: true
     },
     {
-      image: 'https://plus.unsplash.com/premium_photo-1661696460502-16e797daaef8?q=80&w=1919&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
+      badge: 'Basic SEO Strategy',
+      titleLine1: 'Help your brand',
+      titleEmphasis: 'appear on Google',
+      titleLine2: 'and find customers',
+      subtitle: 'We optimize your technical structure so search engines can find you. The essential first step to capture real organic traffic.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?q=80&w=1920&auto=format&fit=crop',
       badge: 'Infrastructure & Security',
       titleLine1: 'Proactive',
       titleEmphasis: '24/7 technical',
@@ -61,15 +70,24 @@ function Hero() {
       subtitle: 'Plataformas autogestionables con integración de pagos, control de stock y embudos de conversión optimizados.'
     },
     {
-      image: 'https://plus.unsplash.com/premium_photo-1764691246855-645ce640abed?q=80&w=1170&auto=format&fit=crop',
-      badge: 'SEO & Estrategia Branding',
-      titleLine1: 'Invierta hoy en',
-      titleEmphasis: 'autoridad digital',
-      titleLine2: 'y posicionamiento SEO',
-      subtitle: 'No solo lanzamos código; posicionamos tu marca en los primeros puestos de Google para atraer tráfico orgánico calificado.'
+      image: 'https://plus.unsplash.com/premium_photo-1754244539108-2ab0168f039c?q=80&w=1355&auto=format&fit=crop',
+      badge: 'Conectividad Global',
+      titleLine1: 'Tu negocio',
+      titleEmphasis: 'visible en todo el mundo',
+      titleLine2: 'desde cualquier ciudad',
+      subtitle: 'Rompa las fronteras geográficas y expanda su marca. Una infraestructura digital profesional le permite captar clientes en cualquier ciudad o país, las 24 horas del día.',
+      isDark: true
     },
     {
-      image: 'https://plus.unsplash.com/premium_photo-1661696460502-16e797daaef8?q=80&w=1919&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
+      badge: 'Buscadores y SEO',
+      titleLine1: 'Haz que tu marca',
+      titleEmphasis: 'aparezca en Google',
+      titleLine2: 'y atraiga clientes',
+      subtitle: 'Optimizamos tu estructura técnica para que seas visible en los buscadores. El primer paso esencial para captar tráfico orgánico real.'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
       badge: 'Infraestructura & Ciberseguridad',
       titleLine1: 'Mantenimiento y',
       titleEmphasis: 'soporte técnico',
@@ -103,7 +121,7 @@ function Hero() {
             <img
               src={item.image}
               alt={item.titleEmphasis}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
           </div>
@@ -125,7 +143,7 @@ function Hero() {
       {/* Contenido principal */}
       <div className="relative z-10 w-full flex items-center">
         <div className="w-full max-w-5xl pl-4 sm:pl-12 lg:pl-24 xl:pl-48 pr-4">
-          <div className="max-w-3xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
+          <div className="max-w-4xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
             {/* Single Content Container with key for transition effect (optional) */}
             <div key={currentIndex} className="animate-in fade-in duration-700">
               {/* Badge */}
@@ -167,8 +185,8 @@ function Hero() {
             </div>
 
 
-            {/* Info boxes - Restaurados a los 4 originales */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-4xl">
+            {/* Matriz 3x2 de Info Boxes */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 max-w-4xl">
               <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
                 <div className="flex items-center mb-0.5">
                   <Zap size={14} className="text-primary mr-1.5" />
@@ -188,7 +206,7 @@ function Hero() {
                   <Clock size={14} className="text-primary mr-1.5" />
                   <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Soporte 24/7</span>
                 </div>
-                <span className="text-white/60 text-[0.7rem] leading-tight">Tranquilidad para el cliente con asistencia constante.</span>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Tranquilidad con asistencia técnica constante.</span>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
                 <div className="flex items-center mb-0.5">
@@ -196,6 +214,20 @@ function Hero() {
                   <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Código Limpio</span>
                 </div>
                 <span className="text-white/60 text-[0.7rem] leading-tight">Ingeniería de software robusta y escalable.</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <Briefcase size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">CRM / ERP</span>
+                </div>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Integraciones con tus sistemas de gestión.</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <Activity size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Performance</span>
+                </div>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Velocidad garantizada en milisegundos.</span>
               </div>
             </div>
           </div>
