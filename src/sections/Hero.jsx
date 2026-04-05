@@ -6,32 +6,13 @@ import { ArrowRight, Zap, TrendingUp, Clock, Code } from 'lucide-react';
 
 import { useLanguage } from '../i18n/index.jsx';
 
-const heroImages = [
-  // Diseño web / UI en laptop — agencia digital
-  'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1920&q=85',
-  // Equipo de trabajo colaborativo en oficina moderna
-  'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=85',
-  // Código en pantalla — desarrollo profesional
-  'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
-  // Diseño UI/UX en tablet — experiencia de usuario
-  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=85',
-  // Análisis de datos / conversión / gráficos de negocio
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=85',
-  // Startup / emprendedor trabajando con laptop
-  'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=85',
-  // Diseño gráfico / branding creativo
-  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=85',
-  // Responsive design — múltiples dispositivos
-  'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&q=85',
-];
-
 function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { lang, t } = useLanguage();
 
   const heroContent = lang === 'en' ? [
     {
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1607706189992-eae578626c86?q=80&w=1170&auto=format&fit=crop',
       badge: 'Software Engineering',
       titleLine1: 'The easiest way to',
       titleEmphasis: 'contract or buy',
@@ -39,7 +20,7 @@ function Hero() {
       subtitle: 'High-performance digital infrastructure and strategic design. We develop custom software solutions to grow your brand.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?q=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=1170&auto=format&fit=crop',
       badge: 'E-commerce & Business',
       titleLine1: 'Solutions to',
       titleEmphasis: 'sell and scale',
@@ -47,7 +28,7 @@ function Hero() {
       subtitle: 'Self-manageable platforms with payment gateway integration, inventory control, and optimized conversion funnels.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
       badge: 'SEO & Strategy',
       titleLine1: 'Invest in',
       titleEmphasis: 'digital authority',
@@ -55,7 +36,7 @@ function Hero() {
       subtitle: 'We don\'t just deploy code; we position your brand on the first page of Google to capture qualified organic traffic.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
+      image: 'https://plus.unsplash.com/premium_photo-1661696460502-16e797daaef8?q=80&w=1919&auto=format&fit=crop',
       badge: 'Infrastructure & Security',
       titleLine1: 'Proactive',
       titleEmphasis: '24/7 technical',
@@ -64,7 +45,7 @@ function Hero() {
     }
   ] : [
     {
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1607706189992-eae578626c86?q=80&w=1170&auto=format&fit=crop',
       badge: 'Ingeniería de Software',
       titleLine1: 'La mejor forma de',
       titleEmphasis: 'comprar y contratar',
@@ -72,7 +53,7 @@ function Hero() {
       subtitle: 'Infraestructura digital de alto rendimiento y diseño estratégico. Desarrollamos soluciones de software que garantizan el éxito de tu marca.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1551288049-bbda48658a7d?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=1170&auto=format&fit=crop',
       badge: 'E-commerce & Negocio',
       titleLine1: 'Soluciones para',
       titleEmphasis: 'vender y escalar',
@@ -80,7 +61,7 @@ function Hero() {
       subtitle: 'Plataformas autogestionables con integración de pagos, control de stock y embudos de conversión optimizados.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=85',
+      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
       badge: 'SEO & Estrategia Branding',
       titleLine1: 'Invierta hoy en',
       titleEmphasis: 'autoridad digital',
@@ -88,7 +69,7 @@ function Hero() {
       subtitle: 'No solo lanzamos código; posicionamos tu marca en los primeros puestos de Google para atraer tráfico orgánico calificado.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85',
+      image: 'https://plus.unsplash.com/premium_photo-1661696460502-16e797daaef8?q=80&w=1919&auto=format&fit=crop',
       badge: 'Infraestructura & Ciberseguridad',
       titleLine1: 'Mantenimiento y',
       titleEmphasis: 'soporte técnico',
