@@ -125,7 +125,7 @@ function Hero() {
       {/* Contenido principal */}
       <div className="relative z-10 w-full flex items-center">
         <div className="w-full max-w-5xl pl-4 sm:pl-12 lg:pl-24 xl:pl-48 pr-4">
-          <div className="max-w-2xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
+          <div className="max-w-3xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
             {/* Single Content Container with key for transition effect (optional) */}
             <div key={currentIndex} className="animate-in fade-in duration-700">
               {/* Badge */}
@@ -149,7 +149,7 @@ function Hero() {
               </p>
 
               {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-4 sm:mb-6">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-8">
                 <Link
                   to="/paquetes"
                   className="bg-primary text-gray-900 font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide group"
@@ -167,43 +167,35 @@ function Hero() {
             </div>
 
 
-            {/* Common Info boxes (Left Aligned) */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 max-w-3xl">
-              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
-                <div className="flex items-center mb-1">
-                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
-                    <Code size={14} />
-                  </div>
-                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">CRM / ERP</span>
+            {/* Info boxes - Restaurados a los 4 originales */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 max-w-4xl">
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <Zap size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">IA Integrada</span>
                 </div>
-                <span className="text-white/60 text-[0.75rem] leading-tight">Integraciones avanzadas para tu negocio.</span>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Experiencia técnica en IA aplicada al desarrollo.</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
-                <div className="flex items-center mb-1">
-                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
-                    <Zap size={14} />
-                  </div>
-                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">Performance</span>
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <TrendingUp size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Conversión</span>
                 </div>
-                <span className="text-white/60 text-[0.75rem] leading-tight">Carga en milisegundos y código limpio.</span>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Foco en estrategias digitales para vender más.</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
-                <div className="flex items-center mb-1">
-                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
-                    <TrendingUp size={14} />
-                  </div>
-                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">SEO Pro</span>
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <Clock size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Soporte 24/7</span>
                 </div>
-                <span className="text-white/60 text-[0.75rem] leading-tight">Posicionamiento real en Google Chile.</span>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Tranquilidad para el cliente con asistencia constante.</span>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-[0.45rem] sm:p-[0.6rem] border-l-4 border-primary">
-                <div className="flex items-center mb-1">
-                  <div className="bg-primary p-1 rounded-sm mr-2 text-gray-900">
-                    <Clock size={14} />
-                  </div>
-                  <span className="text-white font-bold text-[0.85rem] uppercase tracking-tighter">24/7 Soporte</span>
+              <div className="bg-white/10 backdrop-blur-sm p-[0.5rem] border-l-2 border-primary">
+                <div className="flex items-center mb-0.5">
+                  <Code size={14} className="text-primary mr-1.5" />
+                  <span className="text-white font-bold text-[0.8rem] uppercase tracking-wider">Código Limpio</span>
                 </div>
-                <span className="text-white/60 text-[0.75rem] leading-tight">Tu empresa siempre online y bajo control.</span>
+                <span className="text-white/60 text-[0.7rem] leading-tight">Ingeniería de software robusta y escalable.</span>
               </div>
             </div>
           </div>
