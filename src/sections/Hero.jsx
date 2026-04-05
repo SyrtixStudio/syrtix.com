@@ -28,7 +28,7 @@ function Hero() {
       subtitle: 'Self-manageable platforms with payment gateway integration, inventory control, and optimized conversion funnels.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
+      image: 'https://plus.unsplash.com/premium_photo-1764691246855-645ce640abed?q=80&w=1170&auto=format&fit=crop',
       badge: 'SEO & Strategy',
       titleLine1: 'Invest in',
       titleEmphasis: 'digital authority',
@@ -61,7 +61,7 @@ function Hero() {
       subtitle: 'Plataformas autogestionables con integración de pagos, control de stock y embudos de conversión optimizados.'
     },
     {
-      image: 'https://images.unsplash.com/photo-1662947190722-5d272f82a526?q=80&w=1228&auto=format&fit=crop',
+      image: 'https://plus.unsplash.com/premium_photo-1764691246855-645ce640abed?q=80&w=1170&auto=format&fit=crop',
       badge: 'SEO & Estrategia Branding',
       titleLine1: 'Invierta hoy en',
       titleEmphasis: 'autoridad digital',
