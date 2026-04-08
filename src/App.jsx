@@ -10,6 +10,7 @@ import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Loader from './components/ui/Loader';
 import WhatsAppButton from './components/ui/WhatsAppButton';
+import AIChatbot from './components/AIChatbot';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -80,6 +81,7 @@ function App() {
         </div>
         <Footer />
         <WhatsAppButton />
+        <AIChatbot />
       </Router>
     </>
   );

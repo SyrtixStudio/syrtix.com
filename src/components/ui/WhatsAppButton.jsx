@@ -6,7 +6,7 @@ function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 group"
+      className="fixed bottom-[100px] right-8 z-[9999] group"
       aria-label="Contactar por WhatsApp"
     >
       {/* Tooltip */}

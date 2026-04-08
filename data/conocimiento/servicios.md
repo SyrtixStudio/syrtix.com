@@ -1,10 +1,35 @@
-# Servicios de Auditoría y Consultoría
+# Servicios de Syrtix Studio
 
-En **Syrtix** ofrecemos una gama completa de servicios de auditoría tecnológica y consultoría estratégica:
+Syrtix Studio ofrece soluciones digitales de alto impacto para emprendedores y empresas en Chile.
 
-- **Auditoría de Seguridad**: Evaluación de vulnerabilidades, pruebas de penetración y recomendaciones de mitigación.
-- **Auditoría de Performance**: Análisis de carga, pruebas de estrés y optimización de infraestructura.
-- **Consultoría Cloud**: Migración a entornos cloud, arquitectura serverless y costos optimizados.
-- **Consultoría de IA**: Implementación de modelos de lenguaje, pipelines RAG y automatización de procesos.
+## Paquetes y Precios de Sitios Web (Ofertas 2026)
 
-Nuestro enfoque está basado en metodologías ágiles y en la entrega de informes claros y accionables para nuestros clientes.
+### 1. Solución Emprendedor
+- **Precio Oferta:** $149.000 CLP (Pago único de implementación)
+- **Precio Normal:** $299.000 CLP
+- **Ideal para:** Emprendedores y pymes que necesitan presencia profesional rápida y captar leads. 
+- **Incluye:** Sitio de una sola página (One Page), diseño UX/UI optimizado para conversión, botones de WhatsApp, formulario de contacto, integración con Google Maps y dominio gratis el primer año.
+
+### 2. Solución Pyme
+- **Precio Oferta:** $299.000 CLP
+- **Precio Normal:** $599.000 CLP
+- **Ideal para:** Empresas que buscan posicionamiento y explicar servicios detalladamente.
+- **Incluye:** Sitio multipágina de hasta 5 secciones, optimización de velocidad, SEO on-page esencial y todo lo del plan emprendedor.
+
+### 3. Solución Negocio (E-commerce)
+- **Precio Oferta:** $699.000 CLP
+- **Precio Normal:** $999.000 CLP
+- **Ideal para:** Negocios que necesitan vender online y autogestionar su contenido.
+- **Incluye:** E-commerce con checkout seguro, panel administrador para productos y stock, gestión de pedidos y clientes, y soporte prioritario.
+
+### 4. Solución Empresa (Enterprise)
+- **Precio:** Desde $999.000 CLP
+- **Ideal para:** Operaciones complejas, automatización avanzada e integraciones ERP/CRM.
+- **Incluye:** Panel multi-rol, flujos automatizados, dashboard ejecutivo de KPIs y seguridad avanzada.
+
+---
+
+## Consultoría y Auditoría
+Ofrecemos servicios de auditoría tecnológica para mejorar la eficiencia operativa mediante inteligencia artificial, automatizaciones en n8n y optimización de infraestructura. 
+
+Para cotizaciones personalizadas o proyectos a medida, el contacto es contacto@syrtix.com.

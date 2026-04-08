@@ -1,11 +1,10 @@
-// ingest-data.js – Ingesta de documentos a una vector store (HNSWLib)
-
+// ingest-data.js – Ingesta de documentos a una store personalizada (SyrtixStore)
 import * as fs from "fs";
 import * as path from "path";
 import * as dotenv from "dotenv";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { OpenAIEmbeddings } from "@langchain/openai"; // Necesita OPENAI_API_KEY en .env
-import { HNSWLib } from "@langchain/vectorstores/hnswlib";
+import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
+import { SyrtixStore } from "./syrtix-store.js";
 
 dotenv.config();
 
@@ -30,18 +29,15 @@ const splitter = new RecursiveCharacterTextSplitter({
 const chunks = await splitter.splitDocuments(docs);
 console.log(`🔀 Divididos en ${chunks.length} fragmentos.`);
 
-// 4️⃣ Generar embeddings (requiere OPENAI_API_KEY)
-if (!process.env.OPENAI_API_KEY) {
-  console.error("⚠️ OPENAI_API_KEY no está configurada en .env. Añádela para generar embeddings.");
-  process.exit(1);
-}
-
-const embeddings = new OpenAIEmbeddings({
-  openAIApiKey: process.env.OPENAI_API_KEY,
-  modelName: "text-embedding-3-large", // modelo de embeddings de OpenAI
+// 4️⃣ Generar embeddings usando HuggingFace API
+const embeddings = new HuggingFaceInferenceEmbeddings({
+  model: "sentence-transformers/all-mpnet-base-v2",
+  apiKey: process.env.HF_API_KEY,
 });
 
-// 5️⃣ Crear y guardar la vector store
-const store = await HNSWLib.fromDocuments(chunks, embeddings);
-await store.save("vectorstore");
-console.log("✅ Ingesta completada. Vector store guardado en ./vectorstore");
+// 5️⃣ Crear y guardar la vector store usando nuestra clase personalizada
+const store = new SyrtixStore();
+await store.addDocuments(chunks, embeddings);
+store.save("vectorstore.json");
+
+console.log("✅ Ingesta completada. Conocimiento guardado en ./vectorstore.json");
