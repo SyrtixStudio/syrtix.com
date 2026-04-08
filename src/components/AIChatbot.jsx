@@ -93,7 +93,14 @@ const AIChatbot = () => {
   };
 
   return (
-    <div className="syrtix-chatbot-wrapper">
+    <div className="syrtix-chatbot-wrapper group relative">
+      {/* Tooltip */}
+      {!isOpen && (
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-gray-800 text-sm font-medium px-3 py-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          Asistencia con Syrtix IA
+        </span>
+      )}
+
       {/* Botón Flotante */}
       <button 
         className={`chat-bubble ${isOpen ? 'active' : ''}`} 
