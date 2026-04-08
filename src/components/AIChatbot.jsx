@@ -11,7 +11,8 @@ const AIChatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const SECRET = "syrtix_super_secret_123"; // En prod esto debería venir de una variable de entorno
+  const SECRET = import.meta.env.VITE_SYRTIX_SECRET || "syrtix_super_secret_123";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -30,7 +31,7 @@ const AIChatbot = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/ia/chat', {
+      const response = await fetch(`${API_URL}/api/ia/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +50,46 @@ const AIChatbot = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Función simple para parsear enlaces [Texto](URL) y transformarlos en <a>
+  const renderMessageText = (text) => {
+    if (!text) return '';
+    
+    // Regex para encontrar [Texto](URL)
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkRegex.exec(text)) !== null) {
+      // Agregar texto antes del match
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+      
+      // Agregar el enlace como un componente
+      parts.push(
+        <a 
+          key={match.index} 
+          href={match[2]} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="chat-link"
+        >
+          {match[1]}
+        </a>
+      );
+      
+      lastIndex = linkRegex.lastIndex;
+    }
+
+    // Agregar el resto del texto
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : text;
   };
 
   return (
@@ -80,10 +121,11 @@ const AIChatbot = () => {
                   {msg.role === 'ai' ? <Bot size={14} /> : <User size={14} />}
                 </div>
                 <div className="message-text">
-                  {msg.text}
+                  {renderMessageText(msg.text)}
                 </div>
               </div>
             ))}
+
             {isLoading && (
               <div className="message-row ai">
                 <div className="avatar"><Bot size={14} /></div>

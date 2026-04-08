@@ -145,6 +145,30 @@
   border-bottom-left-radius: 2px;
 }
 
+/* Estilos para Enlaces de Acción (Botones) */
+.chat-link {
+  display: inline-block;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #c8aa5a 0%, #a68b44 100%);
+  color: #0f172a !important;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+.chat-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(200, 170, 90, 0.4);
+  filter: brightness(1.1);
+}
+
+
 .typing {
   opacity: 0.7;
   font-style: italic;

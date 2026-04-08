@@ -1,0 +1,8 @@
+﻿Ôùç injected env (16) from .env // tip: Ôùê secrets for agents [www.dotenvx.com]
+­ƒÜÇ Probando respuesta del chatbot...
+­ƒñû Respuesta de la IA:
+------------------------
+┬íExcelente elecci├│n! Estamos emocionados de trabajar contigo. Puedes contactarnos a trav├®s de nuestro correo electr├│nico contacto@syrtix.com o llam├índonos al tel├®fono que encontrar├ís en nuestra p├ígina web. Tambi├®n puedes rellenar nuestro formulario de contacto en la misma p├ígina para que podamos atenderte lo antes posible.
+
+┬┐Quieres saber m├ís sobre nuestros planes y c├│mo podemos ayudarte a crear un sitio web incre├¡ble? Estoy aqu├¡ para ayudarte.
+------------------------

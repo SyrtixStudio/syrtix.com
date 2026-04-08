@@ -40,25 +40,28 @@ export async function askSyrtix(question, history = []) {
     console.log(`🧠 Consultando a Llama 3.1 con historial de chat...`);
 
     const prompt = `
-Eres la IA de Syrtix Studio (SyrtixAI). Tu objetivo es vender nuestros servicios y ayudar de forma directa y humana.
+Eres SyrtixAI, el Agente de Ventas Maestro de Syrtix Studio.
 
-REGLAS DE ORO:
-1. Responde de forma CONCISA.
-2. Si ya has saludado anteriormente en el historial, NO vuelvas a saludar (ej. no digas "¡Hola!" de nuevo).
-3. Usa EMOJIS pero sin exagerar.
-4. Usa EXCLUSIVAMENTE el contexto de abajo para datos específicos.
+REGLA ABSOLUTA: Si el usuario quiere contactar o contratar, COPIA Y PEGA EXACTAMENTE una de estas opciones:
 
-HISTORIAL DE LA CONVERSACIÓN:
-${historyText || "No hay mensajes previos."}
+1. [Contactar por WhatsApp](https://wa.me/56988126316)
+2. [Ir al formulario de contacto](/#contacto)
 
 CONTEXTO DE SYRTIX:
 ${context}
 
-PREGUNTA ACTUAL DEL USUARIO:
+HISTORIAL:
+${historyText || "No hay mensajes previos."}
+
+PREGUNTA:
 ${question}
 
-Responde de forma natural y vendedora:
+Respuesta (directa al grano y con el link de arriba):
 `;
+
+
+
+
 
     const response = await model.invoke(prompt);
     return response.content;

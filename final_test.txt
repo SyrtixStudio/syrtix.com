@@ -1,0 +1,12 @@
+﻿Ôùç injected env (16) from .env // tip: Ôîÿ multiple files { path: ['.env.local', '.env'] }
+­ƒÜÇ Probando respuesta del chatbot...
+­ƒñû Respuesta de la IA:
+------------------------
+Lo siento, pero no puedo proporcionar un enlace directo a WhatsApp para contratar nuestros servicios. Sin embargo, puedo ofrecerte una forma sencilla de ponerte en contacto con nosotros.
+
+Puedes visitar nuestra p├ígina web en [www.syrtix.com](http://www.syrtix.com) y rellenar el formulario de contacto en la secci├│n de "┬┐Quieres saber m├ís?" o "┬┐Tienes alguna pregunta?".
+
+De esta manera, podr├ís dejar tus datos y nosotros nos pondremos en contacto contigo para discutir tus necesidades y ofrecerte una soluci├│n personalizada.
+
+┬íEstoy aqu├¡ para ayudarte en cualquier momento!
+------------------------
