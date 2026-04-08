@@ -1,0 +1,12 @@
+﻿Ôùç injected env (16) from .env // tip: Ôîÿ suppress logs { quiet: true }
+­ƒÜÇ Probando respuesta del chatbot...
+­ƒñû Respuesta de la IA:
+------------------------
+Lo siento, pero no tengo acceso a un link de WhatsApp espec├¡fico para contratar nuestros servicios. Sin embargo, puedo ofrecerte varias opciones para ponerte en contacto con nosotros:
+
+1.  **Visita nuestra p├ígina web**: Puedes visitar nuestra p├ígina web en [www.syrtix.studio](http://www.syrtix.studio) y rellenar el formulario de contacto en la secci├│n "Contrataci├│n".
+2.  **Llama directamente**: Si prefieres hablar con nosotros directamente, puedes llamar a nuestro n├║mero de tel├®fono: (a├▒ade el n├║mero de tel├®fono de Syrtix Studio).
+3.  **Env├¡a un mensaje a trav├®s de nuestra p├ígina**: Puedes enviar un mensaje a trav├®s de nuestra p├ígina web en la secci├│n "Contacto" y nos pondremos en contacto contigo lo antes posible.
+
+┬┐Quieres saber m├ís sobre nuestros servicios o planificar una cita para discutir tus necesidades? Estoy aqu├¡ para ayudarte.
+------------------------

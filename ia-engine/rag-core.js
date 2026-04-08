@@ -1,15 +1,15 @@
 import * as dotenv from "dotenv";
 import { ChatGroq } from "@langchain/groq";
+import { SystemMessage, HumanMessage, AIMessage } from "@langchain/core/messages";
 import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 import { SyrtixStore } from "./syrtix-store.js";
 
 dotenv.config();
 
-// 1️⃣ Configuración del Cerebro (LLM) y Embeddings
 const model = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
   model: "llama-3.1-8b-instant",
-  temperature: 0.5, // Un poco más creativo pero enfocado
+  temperature: 0.1, // Bajamos la temperatura para minimizar alucinaciones
 });
 
 const embeddings = new HuggingFaceInferenceEmbeddings({
@@ -17,72 +17,58 @@ const embeddings = new HuggingFaceInferenceEmbeddings({
   apiKey: process.env.HF_API_KEY,
 });
 
-// 2️⃣ Cargar nuestra base de conocimiento
 const store = new SyrtixStore();
 store.load("vectorstore.json");
 
-/**
- * Función principal para preguntar a la IA de Syrtix
- * @param {string} question - La pregunta actual
- * @param {Array} history - Historial de mensajes previos [{role: 'user', text: '...'}, {role: 'ai', text: '...'}]
- */
 export async function askSyrtix(question, history = []) {
   try {
-    console.log(`\n🔍 Buscando contexto para: "${question}"...`);
-    
     const queryVector = await embeddings.embedQuery(question);
     const results = store.search(queryVector, 4);
     const context = results.map(r => r.content).join("\n\n---\n\n");
 
-    // Formatear el historial para el prompt
-    const historyText = history.map(h => `${h.role === 'user' ? 'Usuario' : 'IA'}: ${h.text}`).join("\n");
+    // Convertir historial a objetos de mensaje de LangChain
+    const chatHistory = history.map(h => 
+      h.role === 'user' ? new HumanMessage(h.text) : new AIMessage(h.text)
+    );
 
-    console.log(`🧠 Consultando a Llama 3.1 con historial de chat...`);
+    const systemPrompt = `Eres SyrtixAI, el Agente de Ventas de Syrtix Studio en Chile. 
+Tu única misión es ayudar a los clientes y cerrar ventas usando los enlaces de contacto.
 
-    const prompt = `
-Eres SyrtixAI, el Agente de Ventas de Syrtix Studio.
+REGLAS CRÍTICAS DE SEGURIDAD:
+- TELÉFONO REAL: +56988126316
+- EMAIL REAL: contacto@syrtix.com
+- UBICACIÓN: Chile Continental.
+- PROHIBIDO: Inventar números de teléfono, mencionar sucursales en Estados Unidos o dar información que no esté en el contexto.
+- BREVEDAD: Responde en MÁXIMO 2 frases. Sé directo.
 
-REGLAS DE ORO (ESTRICTAS):
-1. BREVEDAD EXTREMA: Responde en MÁXIMO 2 o 3 frases cortas.
-2. NO REPITAS: Si ya diste información en el historial, no la repitas. No uses frases de relleno como "Me alegra que estés interesado".
-3. VE AL GRANO: Responde la duda y cierra con una pregunta de cierre o un enlace de acción.
-4. PERSONALIDAD: Directo, profesional, minimalista.
-
-ENLACES DE ACCIÓN (Úsalos solo si el usuario quiere contactar):
+ENLACES OBLIGATORIOS PARA CONTACTO:
 - WhatsApp: [Contactar por WhatsApp](https://wa.me/56988126316)
 - Formulario: [Ir al formulario](/#contacto)
 
 CONTEXTO DE SYRTIX:
-${context}
+${context}`;
 
-HISTORIAL:
-${historyText || "No hay mensajes previos."}
+    const messages = [
+      new SystemMessage(systemPrompt),
+      ...chatHistory,
+      new HumanMessage(question)
+    ];
 
-PREGUNTA:
-${question}
+    const response = await model.invoke(messages);
+    let content = response.content;
 
-Respuesta directa (Máx 3 frases):
-`;
+    // PASO DE SEGURIDAD: Si el usuario quiere contacto/comprar y la IA falló en dar el link, lo forzamos.
+    const purchaseIntent = /contacto|whatsapp|contratar|comprar|precio|cotizar|llamar/i.test(question);
+    const hasLink = /wa\.me|#contacto/i.test(content);
 
+    if (purchaseIntent && !hasLink) {
+      content += "\n\n**Acciones rápidas:**\n- [Contactar por WhatsApp](https://wa.me/56988126316)\n- [Ir al formulario de contacto](/#contacto)";
+    }
 
-
-
-
-
-    const response = await model.invoke(prompt);
-    return response.content;
+    return content;
 
   } catch (error) {
     console.error("❌ Error en rag-core:", error);
-    return "Lo siento, ocurrió un error al procesar tu consulta.";
+    return "Lo siento, ocurrió un error. ¿Podrías intentar contactarnos por WhatsApp directamente?";
   }
-}
-
-// --- TEST DIRECTO (si ejecutas este archivo con node) ---
-if (process.argv[1].endsWith('rag-core.js')) {
-    const preguntaTest = process.argv[2] || "¿Qué servicios de inteligencia artificial ofrecen?";
-    const respuesta = await askSyrtix(preguntaTest);
-    console.log("\n================ SYRTIX AI ANSWER ================");
-    console.log(respuesta);
-    console.log("=================================================");
 }
