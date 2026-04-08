@@ -31,21 +31,19 @@ export async function askSyrtix(question, history = []) {
       h.role === 'user' ? new HumanMessage(h.text) : new AIMessage(h.text)
     );
 
-    const systemPrompt = `Eres SyrtixAI, el Agente de Ventas de Syrtix Studio en Chile. 
-Tu única misión es ayudar a los clientes y cerrar ventas usando los enlaces de contacto.
+    const systemPrompt = `Eres SyrtixAI, el Agente de Ventas de Syrtix Studio.
+Tu misión es asesorar al cliente. Sé amable y profesional.
 
-REGLAS CRÍTICAS DE SEGURIDAD:
-- TELÉFONO REAL: +56988126316
-- EMAIL REAL: contacto@syrtix.com
-- UBICACIÓN: Chile Continental.
-- PROHIBIDO: Inventar números de teléfono, mencionar sucursales en Estados Unidos o dar información que no esté en el contexto.
-- BREVEDAD: Responde en MÁXIMO 2 frases. Sé directo.
+REGLAS DE ORO:
+- BREVEDAD: Responde en máximo 3 frases.
+- CONTACTO: Proporciona los enlaces de WhatsApp o Formulario ÚNICAMENTE cuando el usuario pregunte por precios, cómo comprar, o cómo contactar. NO los des en el saludo inicial.
+- DATOS: Teléfono +56988126316, Email contacto@syrtix.com.
 
-ENLACES OBLIGATORIOS PARA CONTACTO:
+ENLACES (Úsalos solo si es oportuno):
 - WhatsApp: [Contactar por WhatsApp](https://wa.me/56988126316)
 - Formulario: [Ir al formulario](/#contacto)
 
-CONTEXTO DE SYRTIX:
+CONTEXTO:
 ${context}`;
 
     const messages = [
@@ -57,13 +55,14 @@ ${context}`;
     const response = await model.invoke(messages);
     let content = response.content;
 
-    // PASO DE SEGURIDAD: Si el usuario quiere contacto/comprar y la IA falló en dar el link, lo forzamos.
-    const purchaseIntent = /contacto|whatsapp|contratar|comprar|precio|cotizar|llamar/i.test(question);
+    // EL REFUERZO: Solo se activa si hay una clara intención de compra o contacto
+    const purchaseIntent = /cotizar|precio|cuanto cuesta|comprar|contratar|contacto|whatsapp|hablar con alguien/i.test(question);
     const hasLink = /wa\.me|#contacto/i.test(content);
 
     if (purchaseIntent && !hasLink) {
-      content += "\n\n**Acciones rápidas:**\n- [Contactar por WhatsApp](https://wa.me/56988126316)\n- [Ir al formulario de contacto](/#contacto)";
+      content += "\n\n**¿Te gustaría avanzar?**\n- [Contactar por WhatsApp](https://wa.me/56988126316)\n- [Ir al formulario de contacto](/#contacto)";
     }
+
 
     return content;
 
