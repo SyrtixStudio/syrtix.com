@@ -32,7 +32,7 @@ function TransparencySection() {
     <section className="py-16 px-4 sm:px-6 bg-base1">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
           </h2>

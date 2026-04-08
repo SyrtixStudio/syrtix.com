@@ -1,4 +1,4 @@
-﻿import { useLanguage } from '../../i18n/index.jsx';
+import { useLanguage } from '../../i18n/index.jsx';
 
 function ProcessSteps() {
   const { lang } = useLanguage();
@@ -40,9 +40,9 @@ function ProcessSteps() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {prefix}
             <span className="text-primary">{copy.highlight}</span>
             {suffix}
@@ -59,10 +59,10 @@ function ProcessSteps() {
               data-aos-delay={idx * 100}
               className="text-center border border-gray-200 bg-white transition-colors duration-300 hover:border-primary hover:bg-primary/20"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-900 font-bold text-xl mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-800 font-bold text-xl mb-4">
                 {item.step}
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+              <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
               <p className="text-sm text-gray-600">{item.desc}</p>
             </div>
           ))}

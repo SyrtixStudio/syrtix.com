@@ -81,9 +81,9 @@ function ServicesGrid() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base2">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.sectionTitlePrefix}
             <span className="text-primary">{copy.sectionTitleHighlight}</span>
           </h2>
@@ -106,7 +106,7 @@ function ServicesGrid() {
                   <div className="text-secondary">{getIcon(service.icon)}</div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-base font-bold text-gray-900 mb-1">{service.title}</h3>
+                  <h3 className="text-base font-bold text-gray-800 mb-1">{service.title}</h3>
                   <p className="text-sm text-gray-600 mb-3">{service.description}</p>
                   <p className="text-primary font-bold text-sm mb-2">{service.price}</p>
                   <span className="inline-flex items-center text-secondary font-semibold text-xs hover:text-primary">

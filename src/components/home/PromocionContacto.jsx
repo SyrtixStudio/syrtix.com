@@ -214,7 +214,7 @@ export default function PromocionContacto({ data }) {
               {promoLabel || copy.offerLimited}
             </div>
 
-            <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+            <h3 className="text-2xl font-bold text-gray-800">{title}</h3>
 
             <div className="mt-3 mb-4">
               {displayOldPrice && (
@@ -240,7 +240,7 @@ export default function PromocionContacto({ data }) {
             {timeLeft.totalSeconds > 0 && (
               <div className="mb-4">
                 <div className="text-xs font-semibold text-gray-600 mb-2">{copy.endsIn}</div>
-                <div className="flex gap-2 text-sm font-bold text-gray-900">
+                <div className="flex gap-2 text-sm font-bold text-gray-800">
                   <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.days)}d</span>
                   <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.hours)}h</span>
                   <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.minutes)}m</span>

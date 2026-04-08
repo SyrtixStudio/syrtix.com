@@ -778,7 +778,7 @@ function Packages() {
             style={{ objectPosition: 'center' }}
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">
             <Zap size={16} className="text-primary mr-2" />
             <span className="text-primary text-xs sm:text-sm font-medium">{copy.heroBadge}</span>
@@ -787,14 +787,14 @@ function Packages() {
             {copy.heroTitlePrefix}
             <span className="text-primary">{copy.heroTitleHighlight}</span>
           </h1>
-          <p className="text-gray-300 sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-300 sm:text-lg mb-8 max-w-2xl mx-auto">
             {copy.heroDescription}
           </p>
         </div>
       </section>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 p-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 p-8">
         <div className="mb-6 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.saasSection.title}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">{copy.saasSection.title}</h2>
           <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800">{copy.saasSection.description}</p>
         </div>
 
@@ -804,7 +804,7 @@ function Packages() {
               <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
                 {copy.saasOffer.badge}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.saasOffer.title}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">{copy.saasOffer.title}</h2>
               <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800 max-w-2xl">{copy.saasOffer.subtitle}</p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
@@ -812,21 +812,21 @@ function Packages() {
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
                     {copy.saasOffer.setupLabel}
                   </p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">{formatPrice(149000)}</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-800">{formatPrice(149000)}</p>
                   <p className="mt-2 text-sm leading-6 text-gray-700">{copy.saasOffer.setupNote}</p>
                 </div>
                 <div className="border border-secondary/30 bg-secondary/5 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
                     {copy.saasOffer.monthlyLabel}
                   </p>
-                  <p className="mt-2 text-3xl font-bold text-gray-900">{formatPrice(39900)}</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-800">{formatPrice(39900)}</p>
                   <p className="mt-2 text-sm leading-6 text-gray-700">{copy.saasOffer.monthlyNote}</p>
                 </div>
               </div>
             </div>
 
             <div className="lg:w-[420px] border border-gray-200 bg-white p-5">
-              <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-gray-900 mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-gray-800 mb-4">
                 {copy.saasOffer.includesTitle}
               </h3>
               <ul className="space-y-3">
@@ -860,7 +860,7 @@ function Packages() {
         </div>
 
         <div className="mb-6 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{copy.customSection.title}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">{copy.customSection.title}</h2>
           <p className="mt-3 text-sm sm:text-gray-700 leading-7 text-gray-800">{copy.customSection.description}</p>
         </div>
 
@@ -893,12 +893,12 @@ function Packages() {
               <div className="text-center mb-6">
                 <div
                   className={`inline-flex items-center justify-center w-16 h-16 mb-4 ${
-                    pkg.popular ? 'bg-secondary text-white' : 'bg-primary text-gray-900'
+                    pkg.popular ? 'bg-secondary text-white' : 'bg-primary text-gray-800'
                   }`}
                 >
                   {pkg.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{pkg.name}</h3>
+                <h3 className="text-xl font-bold text-gray-800">{pkg.name}</h3>
                 <p className="text-sm text-gray-600 mt-2">{pkg.description}</p>
               </div>
 
@@ -920,7 +920,7 @@ function Packages() {
                     {pkg.offerMeta && <span className="text-[11px] text-secondary font-semibold">{pkg.offerMeta}</span>}
                   </div>
                 )}
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-800">
                   <span className="mr-2 text-xs sm:text-sm font-bold uppercase tracking-[0.08em] text-secondary align-middle">
                     {copy.fromLabel}
                   </span>
@@ -967,7 +967,7 @@ function Packages() {
                   className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 ${
                     pkg.popular
                       ? 'bg-secondary text-white hover:bg-blue-900'
-                      : 'bg-primary text-gray-900 hover:bg-amber-600'
+                      : 'bg-primary text-gray-800 hover:bg-amber-600'
                   }`}
                 >
                   {pkg.cta}
@@ -997,11 +997,11 @@ function Packages() {
                 <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-3">
                   {copy.enterpriseBadge}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{copy.enterpriseTitle}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800">{copy.enterpriseTitle}</h3>
                 <p className="text-sm text-gray-700 mt-2">{copy.enterpriseDescription}</p>
                 <p className="text-sm text-gray-600 mt-3">
                   {copy.enterpriseStartingFrom}{' '}
-                  <span className="font-bold text-gray-900">{formatPrice(enterpriseSelectedPrice)}</span>{' '}
+                  <span className="font-bold text-gray-800">{formatPrice(enterpriseSelectedPrice)}</span>{' '}
                   <span className="text-xs text-gray-500">(~ {formatUsdPrice(enterpriseSelectedPrice)})</span>
                 </p>
               </div>
@@ -1034,8 +1034,8 @@ function Packages() {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-transparent shadow shadow-md shadow-gray-300 p-8 max-w-3xl mx-auto">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">{copy.customTitle}</h3>
+          <div className="bg-white shadow-md shadow-gray-300 p-8 max-w-3xl mx-auto">
+            <h3 className="text-lg font-bold text-gray-800 mb-4">{copy.customTitle}</h3>
             <p className="text-sm text-gray-600 mb-6">{copy.customDescription}</p>
             <Link
               to="/contacto"
@@ -1050,7 +1050,7 @@ function Packages() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {copy.guarantees.map((item) => (
             <div key={item.title} className="text-center p-6">
-              <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
+              <h4 className="font-bold text-gray-800 mb-2">{item.title}</h4>
               <p className="text-sm text-gray-600">{item.description}</p>
             </div>
           ))}

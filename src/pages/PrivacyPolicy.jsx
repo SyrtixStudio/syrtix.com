@@ -66,7 +66,7 @@ function PrivacyPolicy() {
     <main className="min-h-screen bg-base/50 mt-28">
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{copy.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{copy.title}</h1>
           <p className="text-xs text-gray-600 mt-2">
             {copy.updated}: {dateText}
           </p>
@@ -75,12 +75,12 @@ function PrivacyPolicy() {
 
         <div className="bg-base rounded-none border border-gray-200 p-4 md:p-6 text-gray-700 space-y-6">
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.introTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.introTitle}</h2>
             <p className="text-sm leading-relaxed">{copy.introText}</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.controllerTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.controllerTitle}</h2>
             <p className="text-sm leading-relaxed">
               <strong>syrtix.com</strong>
               <br />
@@ -92,27 +92,27 @@ function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.dataTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.dataTitle}</h2>
             <p className="text-sm leading-relaxed">{copy.dataText}</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.purposeTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.purposeTitle}</h2>
             <p className="text-sm leading-relaxed">{copy.purposeText}</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.thirdPartiesTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.thirdPartiesTitle}</h2>
             <p className="text-sm leading-relaxed">{copy.thirdPartiesText}</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.cookiesTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.cookiesTitle}</h2>
             <p className="text-sm leading-relaxed">{copy.cookiesText}</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{copy.rightsTitle}</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.rightsTitle}</h2>
             <p className="text-sm leading-relaxed">
               {copy.rightsText}{' '}
               <a href="mailto:contacto@syrtix.com" className="text-primary">

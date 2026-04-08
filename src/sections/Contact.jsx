@@ -360,8 +360,8 @@ function Contact() {
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-900/50 to-transparent"></div>
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-900/50 to-transparent"></div>
       </div>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6">
+        <div className="w-full">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               {copy.headerPrefix}
@@ -439,7 +439,7 @@ function Contact() {
 
             <div className="lg:col-span-2">
               <div className="bg-base p-6 border border-gray-200">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{copy.projectDetails}</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">{copy.projectDetails}</h3>
                 <p className="text-xs text-gray-500 mb-6">{copy.projectDetailsDescription}</p>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -625,7 +625,7 @@ function Contact() {
                     className={`w-full font-bold py-3 text-sm transition duration-300 flex items-center justify-center ${
                       status === 'loading'
                         ? 'bg-gray-400 text-white cursor-not-allowed'
-                        : 'bg-primary text-gray-900 hover:bg-secondary hover:text-white'
+                        : 'bg-primary text-gray-800 hover:bg-secondary hover:text-white'
                     }`}
                   >
                     {status === 'loading' ? (

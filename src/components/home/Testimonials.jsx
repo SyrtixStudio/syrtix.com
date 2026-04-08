@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { Star } from 'lucide-react';
 
@@ -99,9 +99,9 @@ function Testimonials() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base2">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
             {copy.titleSuffix}
@@ -128,7 +128,7 @@ function Testimonials() {
                       {testimonial.name.charAt(0).toLowerCase()}
                     </span>
                     <div>
-                      <p className="text-base font-semibold text-gray-900 leading-none">{testimonial.name}</p>
+                      <p className="text-base font-semibold text-gray-800 leading-none">{testimonial.name}</p>
                       <p className="mt-1 text-xs text-gray-500">
                         {formatRelativeReviewTime(testimonial.createdAt, lang)}
                       </p>

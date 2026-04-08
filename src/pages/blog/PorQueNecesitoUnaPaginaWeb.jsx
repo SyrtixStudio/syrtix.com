@@ -50,7 +50,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
 
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2 font-medium text-white">
-                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-900 font-bold">S</span>
+                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-800 font-bold">S</span>
                 Syrtix
               </div>
               <span className="text-gray-500">·</span>
@@ -86,7 +86,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             1. Tus clientes te buscan en Google, no en el directorio telefónico
           </h2>
           <p className="mb-6">
@@ -96,7 +96,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             ser tuyos.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             2. Las redes sociales no son suficientes
           </h2>
           <p className="mb-4">
@@ -117,7 +117,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             ))}
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             3. Una página web trabaja para ti las 24 horas, los 7 días
           </h2>
           <p className="mb-6">
@@ -127,7 +127,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             sin pagar sueldos.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             4. Genera credibilidad y confianza en tu marca
           </h2>
           <p className="mb-4">
@@ -148,7 +148,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             ))}
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             5. Apareces en Google Maps y búsquedas locales
           </h2>
           <p className="mb-6">
@@ -158,7 +158,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             de muy alta intención de compra.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             6. Compites con empresas grandes siendo una pyme
           </h2>
           <p className="mb-6">
@@ -167,7 +167,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             no discrimina por tamaño — discrimina por relevancia y calidad de contenido.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             7. Retorno de inversión comprobado
           </h2>
           <p className="mb-6">
@@ -178,7 +178,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             en el primer mes.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Cuándo es el mejor momento para crear tu página web?
           </h2>
           <p className="mb-6">
@@ -188,7 +188,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             es mejor que nada y puede lanzarse en 7 días.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             Preguntas frecuentes
           </h2>
           <div className="space-y-4 mb-10">
@@ -207,7 +207,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
               },
             ].map((faq, i) => (
               <details key={i} className="border border-gray-200 rounded p-4 group">
-                <summary className="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                <summary className="font-semibold text-gray-800 cursor-pointer list-none flex justify-between items-center">
                   {faq.q}
                   <ChevronRight size={16} className="text-primary group-open:rotate-90 transition-transform" />
                 </summary>
@@ -225,13 +225,13 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/paquetes"
-                className="bg-primary text-gray-900 font-bold px-6 py-3 hover:bg-yellow-400 transition flex items-center justify-center gap-2"
+                className="bg-primary text-gray-800 font-bold px-6 py-3 hover:bg-yellow-400 transition flex items-center justify-center gap-2"
               >
                 Ver paquetes y precios <ArrowRight size={18} />
               </Link>
               <Link
                 to="/contacto"
-                className="border-2 border-white text-white font-bold px-6 py-3 hover:bg-white hover:text-gray-900 transition"
+                className="border-2 border-white text-white font-bold px-6 py-3 hover:bg-white hover:text-gray-800 transition"
               >
                 Quiero mi página web
               </Link>

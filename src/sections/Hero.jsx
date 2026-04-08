@@ -142,8 +142,8 @@ function Hero() {
 
       {/* Contenido principal */}
       <div className="relative z-10 w-full flex items-center">
-        <div className="w-full max-w-5xl pl-4 sm:pl-12 lg:pl-24 xl:pl-48 pr-4">
-          <div className="max-w-4xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-24">
+          <div className="max-w-5xl pt-[3.5rem] sm:pt-[4.5rem] lg:pt-[5.5rem] pb-3 sm:pb-4">
             {/* Single Content Container with key for transition effect (optional) */}
             <div key={currentIndex} className="animate-in fade-in duration-700">
               {/* Badge */}
@@ -170,14 +170,14 @@ function Hero() {
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 sm:mb-8">
                 <Link
                   to="/paquetes"
-                  className="bg-primary text-gray-900 font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide group"
+                  className="bg-primary text-gray-800 font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide group"
                 >
                   {t('hero.cta.primary')}
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
                 <Link
                   to="/contacto"
-                  className="border-2 border-white/40 text-white font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white hover:text-gray-900 transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide"
+                  className="border-2 border-white/40 text-white font-bold px-[1.1rem] py-[0.6rem] sm:px-[1.4rem] sm:py-[0.8rem] hover:bg-white hover:text-gray-800 transition duration-300 flex items-center justify-center text-[0.95rem] sm:text-[1.05rem] uppercase tracking-wide"
                 >
                   {t('hero.cta.secondary')}
                 </Link>

@@ -499,14 +499,14 @@ function PricingSection() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-gray-900 text-gray-900 max-w-2xl mx-auto">{copy.subtitle}</p>
+          <p className="text-sm sm:text-gray-800 text-gray-800 max-w-2xl mx-auto">{copy.subtitle}</p>
           <p className="text-xs sm:text-sm text-gray-600 max-w-3xl mx-auto mt-2">{copy.helper}</p>
         </div>
 
@@ -534,12 +534,12 @@ function PricingSection() {
               <div className="text-center mb-6">
                 <div
                   className={`inline-flex items-center justify-center w-16 h-16 mb-4 ${
-                    pkg.featured ? 'bg-secondary text-white' : 'bg-primary text-gray-900'
+                    pkg.featured ? 'bg-secondary text-white' : 'bg-primary text-gray-800'
                   }`}
                 >
                   {getIcon(pkg.icon, 32)}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{pkg.name}</h3>
+                <h3 className="text-xl font-bold text-gray-800">{pkg.name}</h3>
                 <p className="text-sm text-gray-600 mt-2">{pkg.description}</p>
               </div>
 
@@ -561,7 +561,7 @@ function PricingSection() {
                     {pkg.offerMeta && <span className="text-[11px] text-secondary font-semibold">{pkg.offerMeta}</span>}
                   </div>
                 )}
-                <div className="text-3xl sm:text-4xl font-bold text-gray-900">
+                <div className="text-3xl sm:text-4xl font-bold text-gray-800">
                   <span className="mr-2 text-xs sm:text-sm font-bold uppercase tracking-[0.08em] text-secondary align-middle">
                     {copy.fromLabel}
                   </span>
@@ -608,7 +608,7 @@ function PricingSection() {
                   className={`w-full flex items-center justify-center py-3 font-bold text-sm transition-all duration-300 ${
                     pkg.featured
                       ? 'bg-secondary text-white hover:bg-blue-900'
-                      : 'bg-primary text-gray-900 hover:bg-amber-600'
+                      : 'bg-primary text-gray-800 hover:bg-amber-600'
                   }`}
                 >
                   {pkg.ctaText} <ArrowRight size={18} className="ml-2" />

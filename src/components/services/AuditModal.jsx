@@ -17,7 +17,7 @@ const AuditModal = ({ isOpen, onClose, auditData, lang }) => {
               {auditData.icon}
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{auditData.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{auditData.title}</h2>
               <p className="text-secondary font-bold text-sm uppercase tracking-wider">
                 {lang === 'es' ? 'Detalle del Servicio' : 'Service Detail'}
               </p>
@@ -28,7 +28,7 @@ const AuditModal = ({ isOpen, onClose, auditData, lang }) => {
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             aria-label="Close"
           >
-            <X size={24} className="text-gray-400 hover:text-gray-900" />
+            <X size={24} className="text-gray-400 hover:text-gray-800" />
           </button>
         </div>
 
@@ -42,7 +42,7 @@ const AuditModal = ({ isOpen, onClose, auditData, lang }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <section>
-              <h3 className="text-gray-900 font-bold mb-4 flex items-center gap-2">
+              <h3 className="text-gray-800 font-bold mb-4 flex items-center gap-2">
                 <CheckCircle size={18} className="text-secondary" />
                 {lang === 'es' ? '¿Qué auditamos?' : 'What do we audit?'}
               </h3>
@@ -56,7 +56,7 @@ const AuditModal = ({ isOpen, onClose, auditData, lang }) => {
             </section>
 
             <section className="bg-gray-50 p-6">
-              <h3 className="text-gray-900 font-bold mb-4 flex items-center gap-2">
+              <h3 className="text-gray-800 font-bold mb-4 flex items-center gap-2">
                 <ArrowRight size={18} className="text-green-600" />
                 {lang === 'es' ? 'Resultado Esperado' : 'Expected Result'}
               </h3>

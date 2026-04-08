@@ -15,7 +15,7 @@ function NotFound() {
             <AlertTriangle size={48} className="text-gray-400" />
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Página no encontrada
           </h1>
 
@@ -29,7 +29,7 @@ function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="flex items-center justify-center gap-2 bg-primary text-gray-900 font-bold px-8 py-4 rounded-none hover:bg-amber-600 transition duration-300"
+            className="flex items-center justify-center gap-2 bg-primary text-gray-800 font-bold px-8 py-4 rounded-none hover:bg-amber-600 transition duration-300"
           >
             <ArrowLeft size={20} />
             Volver al inicio
@@ -37,7 +37,7 @@ function NotFound() {
 
           <Link
             to="/paquetes"
-            className="flex items-center justify-center gap-2 border-2 border-gray-900 text-gray-900 font-bold px-8 py-4 rounded-none hover:bg-gray-900 hover:text-white transition duration-300"
+            className="flex items-center justify-center gap-2 border-2 border-gray-900 text-gray-800 font-bold px-8 py-4 rounded-none hover:bg-gray-900 hover:text-white transition duration-300"
           >
             <Package size={20} />
             Ver paquetes

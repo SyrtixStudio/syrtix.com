@@ -140,7 +140,7 @@ function PrivacyPolicyBloqueo600800() {
     <main className="min-h-screen bg-base/50 mt-28">
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
             Politica de Privacidad - Bloqueo 600 y 800
           </h1>
           <p className="text-xs text-gray-600 mt-2">
@@ -161,7 +161,7 @@ function PrivacyPolicyBloqueo600800() {
 
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h2>
+              <h2 className="text-lg font-bold text-gray-800 mb-2">{section.title}</h2>
 
               {section.content || null}
 
@@ -192,7 +192,7 @@ function PrivacyPolicyBloqueo600800() {
           ))}
 
           <section className="border-t border-gray-200 pt-4">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">Resumen corto para Play Console</h2>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">Resumen corto para Play Console</h2>
             <p className="text-sm leading-relaxed">Bloqueo 600 y 800 bloquea llamadas por prefijos 600, 800 y 809.</p>
             <p className="text-sm leading-relaxed">No grabamos llamadas ni accedemos a SMS o contactos.</p>
             <p className="text-sm leading-relaxed">El historial de llamadas bloqueadas se guarda localmente y cifrado (AES).</p>

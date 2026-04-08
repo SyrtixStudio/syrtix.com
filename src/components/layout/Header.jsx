@@ -140,7 +140,7 @@ function Header() {
                 />
               </div>
               <div>
-                <div className="text-lg font-bold text-gray-900">syrtix</div>
+                <div className="text-lg font-bold text-gray-800">syrtix</div>
                 <div className="text-sm text-gray-600">{t('brand.tagline')}</div>
               </div>
             </Link>

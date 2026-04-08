@@ -27,7 +27,7 @@ export default function Loader({ fadeOut = false }) {
 
         {/* Nombre de la empresa */}
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
             Desarrollo y soluciones <span className="text-primary">informáticas</span>
           </h2>
           

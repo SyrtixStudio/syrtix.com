@@ -85,7 +85,7 @@ export default function Blog() {
                     </span>
                     <span className="text-xs text-gray-400">{post.date}</span>
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors leading-snug">
+                  <h2 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors leading-snug">
                     {post.title}
                   </h2>
                   <p className="text-gray-500 text-sm mb-5 leading-relaxed">{post.description}</p>

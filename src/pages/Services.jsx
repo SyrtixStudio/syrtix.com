@@ -660,7 +660,7 @@ function Services() {
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.sectionTitlePrefix}
               <span className="text-primary">{copy.sectionTitleHighlight}</span>
             </h2>
@@ -677,12 +677,12 @@ function Services() {
                 <div>
                   <div className="flex items-center mb-4">
                     <div className="bg-primary/10 p-3 mr-4 group-hover:bg-primary transition-all duration-300">
-                      <div className="text-primary group-hover:text-gray-900 transition-all duration-300">
+                      <div className="text-primary group-hover:text-gray-800 transition-all duration-300">
                         {service.icon}
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 leading-tight">{service.title}</h3>
+                      <h3 className="text-lg font-bold text-gray-800 leading-tight">{service.title}</h3>
                       <p className="text-primary font-bold text-xs mt-1">{service.price}</p>
                     </div>
                   </div>
@@ -739,7 +739,7 @@ function Services() {
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.webTypesTitlePrefix}
               <span className="text-primary">{copy.webTypesTitleHighlight}</span>
             </h2>
@@ -773,7 +773,7 @@ function Services() {
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.maintenanceTitlePrefix}
               <span className="text-primary">{copy.maintenanceTitleHighlight}</span>
             </h2>
@@ -784,7 +784,7 @@ function Services() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {copy.maintenanceCards.map((item, idx) => (
               <div key={idx} className="border border-gray-200 bg-base p-5">
-                <h3 className="text-sm font-bold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="text-sm font-bold text-gray-800 mb-2">{item.title}</h3>
                 <p className="text-xs text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -805,7 +805,7 @@ function Services() {
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.whyTitlePrefix}
               <span className="text-primary">{copy.whyTitleHighlight}</span>
             </h2>
@@ -823,7 +823,7 @@ function Services() {
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">{item.title}</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">{item.title}</h3>
                     <p className="text-xs sm:text-sm text-gray-600">{item.desc}</p>
                   </div>
                 </div>
@@ -836,7 +836,7 @@ function Services() {
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.workTitlePrefix}
               <span className="text-primary">{copy.workTitleHighlight}</span>
             </h2>
@@ -846,10 +846,10 @@ function Services() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {copy.process.map((item, idx) => (
               <div key={idx} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-900 font-bold text-xl mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-800 font-bold text-xl mb-4">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -891,12 +891,12 @@ function Services() {
 
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.ctaTitle}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{copy.ctaTitle}</h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">{copy.ctaDescription}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
-              className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
+              className="bg-primary text-gray-800 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
             >
               {copy.requestQuote}
               <ArrowRight size={20} className="ml-2" />

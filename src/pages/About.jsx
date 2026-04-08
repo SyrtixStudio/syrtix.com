@@ -301,9 +301,9 @@ function About() {
             <div className="bg-base border-2 border-gray-200 hover:border-primary p-8 transition-all duration-300">
               <div className="flex items-center mb-4">
                 <div className="bg-primary p-3 mr-4">
-                  <Target size={28} className="text-gray-900" />
+                  <Target size={28} className="text-gray-800" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">{copy.missionTitle}</h2>
+                <h2 className="text-2xl font-bold text-gray-800">{copy.missionTitle}</h2>
               </div>
               <p className="text-gray-600">{copy.missionText}</p>
             </div>
@@ -313,7 +313,7 @@ function About() {
                 <div className="bg-secondary p-3 mr-4">
                   <Rocket size={28} className="text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">{copy.visionTitle}</h2>
+                <h2 className="text-2xl font-bold text-gray-800">{copy.visionTitle}</h2>
               </div>
               <p className="text-gray-600">{copy.visionText}</p>
             </div>
@@ -324,7 +324,7 @@ function About() {
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.valuesTitlePrefix}
               <span className="text-primary">{copy.valuesTitleHighlight}</span>
             </h2>
@@ -338,10 +338,10 @@ function About() {
                 key={idx}
                 className="bg-base p-6 border border-gray-200 hover:border-primary text-center transition-all duration-300 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-gray-900 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-gray-800 transition-all duration-300">
                   {value.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{value.title}</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-2">{value.title}</h3>
                 <p className="text-sm text-gray-600">{value.description}</p>
               </div>
             ))}
@@ -352,7 +352,7 @@ function About() {
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {copy.teamTitlePrefix}
               <span className="text-primary">{copy.teamTitleHighlight}</span>
             </h2>
@@ -376,7 +376,7 @@ function About() {
                   className="bg-base border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300 group"
                 >
                   <div className="p-4">
-                    <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
+                    <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
                     <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
                     <div className="mb-2 flex items-center gap-2">
                       <p className="text-xs text-gray-500">{professionLabel}</p>
@@ -415,7 +415,7 @@ function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
                 {copy.whyTitlePrefix}
                 <span className="text-primary">{copy.whyTitleHighlight}</span>?
               </h2>
@@ -433,7 +433,7 @@ function About() {
             <div className="bg-base p-8 border border-gray-200">
               <div className="text-center">
                 <Code size={48} className="text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{copy.formulaTitle}</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">{copy.formulaTitle}</h3>
                 <p className="text-gray-600 mb-6">{copy.formulaText}</p>
                 <Link
                   to="/servicios"
@@ -454,7 +454,7 @@ function About() {
             <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
               {copy.expertiseBadge}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.expertiseTitle}</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{copy.expertiseTitle}</h3>
             <p className="text-base text-gray-700 mb-2 max-w-3xl mx-auto">{copy.expertiseText1}</p>
             <p className="text-base text-gray-700 max-w-3xl mx-auto">{copy.expertiseText2}</p>
           </div>
@@ -468,7 +468,7 @@ function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
-              className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
+              className="bg-primary text-gray-800 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
             >
               {copy.contactTeam}
               <ArrowRight size={20} className="ml-2" />

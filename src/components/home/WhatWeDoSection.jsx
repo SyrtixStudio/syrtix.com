@@ -108,14 +108,14 @@ function WhatWeDoSection() {
   const repeatedServices = [...t.services, ...t.services];
 
   return (
-    <section className="bg-base2 py-16">
-      <div className="max-w-4xl mx-auto px-4 text-center">
+    <section className="bg-base2 py-24">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           {t.title} <span className="text-primary">{t.company}</span>?
         </h2>
         <p className="text-lg md:text-xl text-gray-700 mb-6">{t.intro}</p>
         <div className="text-base md:text-lg text-gray-700 mb-4">
-          <div className="font-semibold text-gray-900 mb-4">{t.servicesTitle}</div>
+          <div className="font-semibold text-gray-800 mb-4">{t.servicesTitle}</div>
           <div className="marquee">
             <div className="marquee-track" style={{ '--marquee-duration': '45s' }}>
               {repeatedServices.map((item, i) => {
@@ -140,11 +140,11 @@ function WhatWeDoSection() {
             </div>
           </div>
         </div>
-        <p className="text-gray-700 md:text-lg text-gray-700 mt-4">{t.closing}</p>
+        <p className="text-gray-700 md:text-lg mt-4">{t.closing}</p>
 
         {/* Sección de Valor: Ingeniería vs Plantillas */}
         <div className="mt-16 pt-12 border-t border-gray-200">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800">
             {t.whyEngineering.title}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">

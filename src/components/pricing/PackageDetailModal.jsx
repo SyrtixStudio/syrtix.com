@@ -38,7 +38,7 @@ function PackageDetailModal({ isOpen, onClose, title, subtitle, details, labels,
           <div className="px-5 sm:px-6 py-4 flex items-center justify-between">
             <div>
               <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-secondary">{subtitle}</p>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900">{title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800">{title}</h3>
             </div>
             <button
               type="button"

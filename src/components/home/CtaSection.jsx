@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ArrowRight } from 'lucide-react';
 
@@ -26,13 +26,13 @@ function CtaSection() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">
-      <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{copy.title}</h2>
+      <div className="max-w-[1440px] mx-auto text-center" data-aos="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{copy.title}</h2>
         <p className="text-gray-600 mb-8 max-w-xl mx-auto">{copy.description}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/paquetes"
-            className="bg-primary text-gray-900 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
+            className="bg-primary text-gray-800 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
           >
             {copy.packages}
             <ArrowRight size={20} className="ml-2" />

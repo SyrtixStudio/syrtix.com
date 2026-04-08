@@ -50,7 +50,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2 font-medium text-white">
-                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-900 font-bold">S</span>
+                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-800 font-bold">S</span>
                 Syrtix
               </div>
               <span className="text-gray-500">·</span>
@@ -70,7 +70,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             en esta guía te explicamos todo lo que necesitas saber para tomar una buena decisión.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             Resumen de precios según tipo de sitio web
           </h2>
           <div className="overflow-x-auto mb-8">
@@ -100,7 +100,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Qué factores afectan el precio de una página web?
           </h2>
           <p className="mb-4">El costo de una página web en Chile varía principalmente por:</p>
@@ -121,7 +121,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             ))}
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Cuánto cobra Syrtix por una página web?
           </h2>
           <p className="mb-4">
@@ -147,14 +147,14 @@ export default function CuantoCuestaUnaPaginaWeb() {
               },
             ].map((pack, i) => (
               <div key={i} className="border border-gray-200 p-5 rounded bg-white shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-1">{pack.nombre}</h3>
+                <h3 className="font-bold text-gray-800 mb-1">{pack.nombre}</h3>
                 <div className="text-primary font-semibold text-lg mb-2">{pack.precio}</div>
                 <p className="text-sm text-gray-500">{pack.desc}</p>
               </div>
             ))}
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Vale la pena invertir en una página web profesional?
           </h2>
           <p className="mb-4">
@@ -174,7 +174,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             ))}
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Cómo elegir a quién contratar?
           </h2>
           <p className="mb-6">
@@ -195,7 +195,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
             ))}
           </ul>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-10">Conclusión</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">Conclusión</h2>
           <p className="mb-6">
             El precio de una página web en Chile en 2026 varía entre{' '}
             <strong>$80.000 y más de $1.500.000 CLP</strong> dependiendo de lo que necesites.
@@ -214,13 +214,13 @@ export default function CuantoCuestaUnaPaginaWeb() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/paquetes"
-                className="bg-primary text-gray-900 font-bold px-6 py-3 hover:bg-yellow-400 transition flex items-center justify-center gap-2"
+                className="bg-primary text-gray-800 font-bold px-6 py-3 hover:bg-yellow-400 transition flex items-center justify-center gap-2"
               >
                 Ver paquetes y precios <ArrowRight size={18} />
               </Link>
               <Link
                 to="/contacto"
-                className="border-2 border-white text-white font-bold px-6 py-3 hover:bg-white hover:text-gray-900 transition"
+                className="border-2 border-white text-white font-bold px-6 py-3 hover:bg-white hover:text-gray-800 transition"
               >
                 Cotizar mi proyecto
               </Link>

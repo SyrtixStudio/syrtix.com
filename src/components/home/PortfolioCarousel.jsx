@@ -230,9 +230,9 @@ function PortfolioCarousel() {
 
   return (
     <section className="py-16 bg-base">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
         <div className="text-center mb-10" data-aos="fade-up">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
           </h2>
@@ -297,7 +297,7 @@ function PortfolioCarousel() {
                     <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
                       {category}
                     </span>
-                    <h3 className="text-gray-900 font-bold text-sm mt-0.5">{title}</h3>
+                    <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
                   </div>
                 </button>
               </SwiperSlide>
@@ -322,7 +322,7 @@ function PortfolioCarousel() {
             <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
               <div>
                 <p className="text-primary text-xs font-bold uppercase tracking-wide">{copy.previewLabel}</p>
-                <h3 className="text-gray-900 font-bold text-lg">
+                <h3 className="text-gray-800 font-bold text-lg">
                   {lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs}
                 </h3>
               </div>
@@ -342,7 +342,7 @@ function PortfolioCarousel() {
                 <button
                   type="button"
                   onClick={closeProjectModal}
-                  className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+                  className="p-2 text-gray-600 hover:text-gray-800 transition-colors"
                   aria-label={copy.closeModal}
                 >
                   <X size={20} />

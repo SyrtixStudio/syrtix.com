@@ -54,7 +54,7 @@ export default function ContactoPromocion() {
 
   return (
     <div className="max-w-xl mx-auto mt-12 bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
-      <h3 className="text-lg font-bold mb-2 text-gray-900">¿Interesado? Contáctanos directo</h3>
+      <h3 className="text-lg font-bold mb-2 text-gray-800">¿Interesado? Contáctanos directo</h3>
       <form onSubmit={handleSubmit} className="space-y-3 mb-4">
         <input
           required

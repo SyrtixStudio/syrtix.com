@@ -185,7 +185,7 @@ const TermsAndConditions = () => {
     <main className="min-h-screen bg-base/50 mt-28">
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
         <div className="mb-8 text-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{copy.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{copy.title}</h1>
           <p className="text-sm text-gray-600 mt-2">
             {copy.updated}: {copy.lastUpdatedValue}
           </p>

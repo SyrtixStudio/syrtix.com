@@ -117,7 +117,7 @@ const LegalNotice = () => {
     <main className="min-h-screen bg-base/50 mt-28">
       <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{copy.title}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">{copy.title}</h1>
           <p className="text-xs text-gray-600 mt-2">
             {copy.updated}: {copy.lastUpdatedValue}
           </p>
@@ -127,7 +127,7 @@ const LegalNotice = () => {
         <div className="bg-base rounded-none border border-gray-200 p-4 md:p-6 text-gray-700 space-y-6">
           {copy.sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-lg font-bold text-gray-900 mb-2">{section.title}</h2>
+              <h2 className="text-lg font-bold text-gray-800 mb-2">{section.title}</h2>
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-sm leading-relaxed mb-2">
                   {paragraph.includes('Privacy Policy') || paragraph.includes('Politica de Privacidad') ? (

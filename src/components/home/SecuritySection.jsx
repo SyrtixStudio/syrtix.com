@@ -81,7 +81,7 @@ function SecuritySection() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-secondary">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             {copy.titlePrefix}

@@ -232,7 +232,7 @@ export default function ModalPublicidad({
           onScroll={updateScrollHint}
           className="modal-scrollbar relative z-10 p-3 md:p-6 overflow-y-auto min-h-0"
         >
-          {title && <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{title}</h3>}
+          {title && <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">{title}</h3>}
           <div className="mb-3 rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary/5 via-white to-primary/5 p-3 md:p-4">
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
