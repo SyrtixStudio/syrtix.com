@@ -1,5 +1,9 @@
+import { COMPANY } from '../../constants';
+
 function WhatsAppButton() {
-  const whatsappUrl = import.meta.env.VITE_WHATSAPP_LINK;
+  const whatsappUrl = COMPANY.whatsappLink;
+
+  if (!whatsappUrl) return null;
 
   return (
     <a

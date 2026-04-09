@@ -1,0 +1,49 @@
+[
+    {
+        "name": "users",
+        "type": "auth",
+        "system": false,
+        "schema": [
+            { "system": false, "name": "name", "type": "text", "required": true },
+            { "system": false, "name": "avatar", "type": "file", "required": false },
+            { "system": false, "name": "role", "type": "select", "required": true, "options": { "values": ["admin", "manager", "employee", "client"] } }
+        ],
+        "listRule": "id = @request.auth.id || @request.auth.role = 'admin'",
+        "viewRule": "id = @request.auth.id || @request.auth.role = 'admin'",
+        "createRule": "",
+        "updateRule": "id = @request.auth.id || @request.auth.role = 'admin'",
+        "deleteRule": "@request.auth.role = 'admin'"
+    },
+    {
+        "name": "companies",
+        "type": "base",
+        "system": false,
+        "schema": [
+            { "system": false, "name": "name", "type": "text", "required": true, "unique": true },
+            { "system": false, "name": "tax_id", "type": "text", "required": false },
+            { "system": false, "name": "industry", "type": "text", "required": false }
+        ],
+        "listRule": "@request.auth.id != ''",
+        "viewRule": "@request.auth.id != ''",
+        "createRule": "@request.auth.role = 'admin' || @request.auth.role = 'manager'",
+        "updateRule": "@request.auth.role = 'admin'",
+        "deleteRule": "@request.auth.role = 'admin'"
+    },
+    {
+        "name": "leads",
+        "type": "base",
+        "system": false,
+        "schema": [
+            { "system": false, "name": "email", "type": "email", "required": true },
+            { "system": false, "name": "phone", "type": "text", "required": false },
+            { "system": false, "name": "status", "type": "select", "required": true, "options": { "values": ["new", "contacted", "qualified", "lost", "converted"] } },
+            { "system": false, "name": "assigned_to", "type": "relation", "required": false, "options": { "collectionId": "users", "maxSelect": 1 } },
+            { "system": false, "name": "company_id", "type": "relation", "required": false, "options": { "collectionId": "companies", "maxSelect": 1 } }
+        ],
+        "listRule": "@request.auth.role = 'admin' || assigned_to = @request.auth.id",
+        "viewRule": "@request.auth.role = 'admin' || assigned_to = @request.auth.id",
+        "createRule": "@request.auth.id != ''",
+        "updateRule": "@request.auth.role = 'admin' || assigned_to = @request.auth.id",
+        "deleteRule": "@request.auth.role = 'admin'"
+    }
+]

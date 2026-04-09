@@ -13,6 +13,10 @@ export const COMPANY = {
 // URLs de redes sociales
 export const SOCIAL = {
   whatsapp: COMPANY.whatsappLink,
+  facebook: import.meta.env.VITE_FACEBOOK_URL,
+  instagram: import.meta.env.VITE_INSTAGRAM_URL,
+  linkedin: import.meta.env.VITE_LINKEDIN_URL,
+  youtube: import.meta.env.VITE_YOUTUBE_URL,
 };
 
 // Rutas de la aplicación

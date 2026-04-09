@@ -11,13 +11,13 @@ import {
   Youtube,
 } from 'lucide-react';
 
-import { COMPANY } from '../../constants';
+import { COMPANY, SOCIAL } from '../../constants';
 import { useLanguage } from '../../i18n/index.jsx';
 
 function Footer() {
   const { lang } = useLanguage();
-  const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL;
-  const facebookUrl = import.meta.env.VITE_FACEBOOK_URL;
+  const instagramUrl = SOCIAL.instagram;
+  const facebookUrl = SOCIAL.facebook;
 
   const copy =
     lang === 'en'
@@ -195,12 +195,12 @@ function Footer() {
                       icon: <MessageCircle size={18} />,
                     },
                     {
-                      href: import.meta.env.VITE_LINKEDIN_URL,
+                      href: SOCIAL.linkedin,
                       label: 'LinkedIn',
                       icon: <Linkedin size={18} />,
                     },
                     {
-                      href: import.meta.env.VITE_YOUTUBE_URL,
+                      href: SOCIAL.youtube,
                       label: 'YouTube',
                       icon: <Youtube size={18} />,
                     },
