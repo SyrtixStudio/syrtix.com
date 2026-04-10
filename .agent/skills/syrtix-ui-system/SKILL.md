@@ -77,4 +77,10 @@ Antes de decirle al usuario "Hecho", revisa de forma mental lo siguiente en tu c
 - [ ] ¿Los formularios tienen `<label>` o claro placeholder?
 - [ ] Revisé el contraste de colores para que cumpla con WCAG básico.
 
-*Usa esta skill cada vez que se te pida diseñar o crear un nuevo componente `.jsx` o modificar los estilos de Tailwind.*
+## 🛡️ Estándares Estrictos de Implementación Web (Vercel)
+Para garantizar una programación microscópica perfecta, he incluido las Directrices de Interfaz Web de Vercel en esta misma carpeta:
+📄 `VERCEL_WEB_GUIDELINES.md`
+
+**INSTRUCCIÓN AL IA ENGINEER:** Al solicitarse un "Auditar mi UI" o un "Refactor de Accesibilidad", DEBES leer el archivo `VERCEL_WEB_GUIDELINES.md`. Contiene anti-patrones críticos que debes prohibir: uso de `transition: all`, ausencia de estados de `focus-visible`, desactivación del zoom del usuario (`user-scalable=no`), e higiene de tipografía como `tabular-nums`.
+
+*Usa esta skill principal cada vez que se te pida diseñar o crear un nuevo componente `.jsx` o modificar los estilos de Tailwind.*
