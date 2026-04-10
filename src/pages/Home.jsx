@@ -2,15 +2,15 @@ import { useEffect, useMemo, useState } from 'react';
 
 import {
   Differentiators,
-  ServicesGrid,
   PortfolioCarousel,
-  Testimonials,
   ProcessSteps,
   PricingSection,
   SecuritySection,
   CtaSection,
 } from '../components/home';
-import WhatWeDoSection from '../components/home/WhatWeDoSection';
+import { ServicesGrid, WhatWeDoSection, Testimonials } from '../modules/landing';
+
+
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
