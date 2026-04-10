@@ -24,20 +24,16 @@ Transformar requerimientos de negocio complejos en arquitecturas técnicas sóli
 
 ### 3. Design & Architecture (Diseño)
 - Define la estructura de datos (ERD - Entidad Relación).
-- Estructura los endpoints de la API, interacciones de WebSockets o la lógica de state management.
+- Estructura los módulos en `src/modules/` según su funcionalidad (Feature-Based Architecture), evitando carpetas genéricas de tipo.
 - Asegúrate de que las decisiones de diseño frontend se integren con las habilidades de `syrtix-ui-system`. Todo debe apuntar a la calidad "World-Class".
 
-### 4. Validation & Guardrails (Validación)
-- **Seguridad:** Verifica que no haya fugas de datos en el cliente (ej. variables de entorno mal manejadas), protege rutas y valida permisos.
-- **Rendimiento:** Optimiza el uso de Server Components vs Client Components en Next.js. Minimiza el peso de los bundles.
-- **Escalamiento:** Asegura que la arquitectura esté preparada para manejar alta concurrencia o picos de tráfico (ej. colas de trabajos, caché distribuida).
-
-## ⚠️ Reglas de Seguridad (Guardrails)
+## ⚠️ Reglas de Seguridad y Estructura (Guardrails)
+- **Feature-Based SIEMPRE**: Toda nueva lógica debe encapsularse en su propio módulo bajo `src/modules/{funcionalidad}/`. Solo los componentes atómicos (como botones base) van en `modules/core/`.
 - **NUNCA** realices operaciones destructivas masivas (como reescrituras completas de un módulo core) sin presentar una migración progresiva.
 - **SIEMPRE** prioriza la simplicidad, legibilidad y modularidad del código sobre soluciones excesivamente complejas (KISS & DRY).
 - Si el nivel de certidumbre respecto a los requerimientos del negocio es menor al 80%, **DETENTE** y haz preguntas aclaratorias al usuario antes de diseñar.
 
 ## 🚀 Comandos Disponibles
 - `/architect-draw`: Genera un diagrama Mermaid de la base de datos o el diagrama de flujo general del sistema o módulo solicitado.
-- `/architect-plan`: Crea un plan de implementación detallado paso a paso, priorizando el MVP y definiendo hitos (milestones).
+- `/architect-plan`: Crea un plan de implementación detallado paso a paso, priorizando el MVP y definiendo hitos (milestones) siguiendo la estructura Feature-Based.
 - `/architect-review`: Analiza un componente, módulo o base de datos existente y sugiere mejoras arquitectónicas, de seguridad o de rendimiento.

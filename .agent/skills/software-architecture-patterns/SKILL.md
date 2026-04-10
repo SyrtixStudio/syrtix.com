@@ -13,9 +13,9 @@ Esta es la base de conocimientos y herramientas principales para el agente **Dev
 Ubicación: `resources/pocketbase-crm-schema.json`
 - Utiliza esta plantilla como punto de partida cuando el usuario solicite un CRM o sistema de gestión de usuarios. Incluye manejo de roles, seguridad básica y relaciones.
 
-### 2. Estándares de Código Limpio (Clean Code)
+### 2. Estándares de Código Limpio (Clean Code & Modular Data)
 Ubicación: `resources/clean-code-standards.md`
-- Contiene la directriz de Syrtix sobre el manejo híbrido de constantes y contenido, además de reglas de modularidad y rendimiento.
+- Define la ley de Syrtix: **Feature-Based Architecture** obligatoria y la **Estrategia de Modular Data** para bilingüismo y escalabilidad. Prohíbe el hardcoding de contenido denso.
 
 ### 3. Checklists de Seguridad (Security Guardrails)
 Ubicación: `resources/security-guardrails.md`
