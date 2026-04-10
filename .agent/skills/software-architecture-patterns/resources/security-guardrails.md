@@ -19,6 +19,11 @@
 - [ ] Verificar que la imagen de contenedor Docker usada sea específica y mínima (ej. `node:20-alpine` en lugar de `node:latest`).
 - [ ] Nunca bindear la base de datos a `0.0.0.0` sin requerir autenticación fuerte o VPN. Mantener la DB en una Docker Network privada si es posible.
 
+## 5. Auditoría de Terceros y Skills (Prompt Injection Risk)
+- [ ] **Escaneo de Reputación:** Antes de recomendar o instalar cualquier skill, herramienta o CLI de terceros (ej: Vercel Skills), se debe verificar la reputación del autor y las advertencias de seguridad en el archivo `SKILL.md` o `README.md`.
+- [ ] **Mitigación de Inyección de Prompts Indirectos:** Evaluar si la herramienta permite la ejecución de comandos basados en contenido generado por usuarios externos. Si la herramienta permite instalar o ejecutar scripts desde fuentes públicas, marcar como **High Risk**.
+- [ ] **Aislamiento de Entorno:** Nunca ejecutar herramientas de terceros que requieran acceso total al sistema de archivos a menos que sea en un entorno controlado o tras una revisión manual de los archivos `.sh`, `.js` o `.py` que la componen.
+
 ## 🚀 Buenas Prácticas Pro (Reporting Insights)
 - [ ] **Manejo de Errores Ciego:** NUNCA devolver el stack trace al cliente. Los errores de producción deben ser genéricos (ej: "Internal Server Error") para evitar filtrar rutas o lógica de BD.
 - [ ] **Cero Console.log:** En producción, usar loggers profesionales como `Winston` o `Pino`. Prohibido dejar `console.log` que revelen rutas o variables de entorno.
