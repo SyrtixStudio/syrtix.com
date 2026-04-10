@@ -41,6 +41,15 @@ Antes de usar cualquier imagen en producción, si esta no tiene la calidad sufic
 | **Glass en Light Mode** | Usar `bg-white/80` (alta opacidad para legibilidad). | Usar `bg-white/10` en fondo blanco (no se ve). |
 | **Texto Plomizo** | Light Mode: `#0F172A` (slate-900). | Light Mode: `slate-400` (Es ilegible para texto principal). |
 
+## 🧠 Leyes Maestras de UX (Psicología Aplicada)
+Para Syrtix, el diseño no es solo estética, es **ingeniería de conversión**. Al programar, el agente debe aplicar estas leyes:
+
+1. **Ley de Jakob (Familiaridad):** Los usuarios pasan la mayor parte del tiempo en *otros* sitios. No reinventes la rueda en flujos críticos (ej: carritos, logins, navegación). Mantén patrones estándar para que el usuario se sienta en casa.
+2. **Ley de Hick (Carga Cognitiva):** El tiempo que se tarda en tomar una decisión aumenta con el número y la complejidad de las opciones. **Simplifica:** Si hay más de 5 opciones en un menú o formulario, usa pasos o categorías.
+3. **Ley de Fitts (Puntos Clave):** El tiempo para alcanzar un objetivo depende de su tamaño y distancia. Los CTA (Call to Action) principales deben ser grandes y estar en zonas de fácil alcance (especialmente en móvil).
+4. **Efecto de Posición Serial:** Los usuarios recuerdan mejor el primer y el último elemento de una lista. Coloca la información más importante al principio (Hero) y al final (Cierre/CTA) de la página.
+5. **Regla del Pico-Fin:** Las personas juzgan una experiencia basándose principalmente en cómo se sintieron en su punto máximo (pico) y en su final. Crea un momento "WOW" visual y una confirmación final satisfactoria.
+
 ## ✅ Checklist Pre-Entrega
 Antes de decirle al usuario "Hecho", revisa de forma mental lo siguiente en tu código:
 
@@ -48,6 +57,12 @@ Antes de decirle al usuario "Hecho", revisa de forma mental lo siguiente en tu c
 - [ ] ¿Hay al menos una sombra suave o gradiente sutil?
 - [ ] ¿Los botones principales parecen clickeables y tienen `cursor-pointer`?
 - [ ] ¿Es Responsive? (Nunca entregues un componente que se rompe en pantallas móviles de `375px`).
+
+### Inteligencia UX (Psicología)
+- [ ] **Simplicidad:** ¿He eliminado elementos innecesarios que distraen del objetivo principal?
+- [ ] **Feedback:** ¿El usuario sabe qué está pasando (loading, éxito, error)?
+- [ ] **Jerarquía:** ¿Lo más importante es lo primero que se ve?
+- [ ] **Prevención de Errores:** ¿Hay validaciones o advertencias claras antes de que el usuario cometa un error?
 
 ### Accesibilidad (A11Y)
 - [ ] ¿Las imágenes tienen su atributo `alt=""`?
