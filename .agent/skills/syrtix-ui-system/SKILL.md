@@ -41,6 +41,14 @@ Antes de usar cualquier imagen en producción, si esta no tiene la calidad sufic
 | **Glass en Light Mode** | Usar `bg-white/80` (alta opacidad para legibilidad). | Usar `bg-white/10` en fondo blanco (no se ve). |
 | **Texto Plomizo** | Light Mode: `#0F172A` (slate-900). | Light Mode: `slate-400` (Es ilegible para texto principal). |
 
+## ✨ Vanguardia Visual (Protocolo "Anti AI-Slop")
+Extracción directa de los estándares de Frontend Design de Anthropic. El objetivo es que las webs de Syrtix JAMÁS parezcan "generadas por inteligencia artificial".
+1. **Compromiso Estético Extremo:** Antes de codificar, decide un tono (Brutalista, Minimalista refinado, Caos maximalista, Retro-futurista). Nada de tibiezas.
+2. **Prohibido lo Genérico:** NUNCA uses gradientes púrpuras sobre fondos blancos, ni diseños en cajas predecibles (AI Slop). 
+3. **Tipografía con Carácter:** Aunque `Inter` y `Roboto` son excelentes para lectura (Body), debes parearlas con **fuentes Display distintivas e inesperadas** en los títulos (Hero, Headers) para darle personalidad única al proyecto.
+4. **Composición Espacial Inesperada:** Atrévete a romper la cuadrícula. Usa asimetría calculada, superposición de elementos, flujo diagonal y densidad controlada.
+5. **Cero Estilos Reciclados:** Interpreta creativamente cada proyecto. Si hiciste 5 webs oscuras, la siguiente debe proponer una estética radicalmente distinta.
+
 ## 🧠 Leyes Maestras de UX (Psicología Aplicada)
 Para Syrtix, el diseño no es solo estética, es **ingeniería de conversión**. Al programar, el agente debe aplicar estas leyes:
 
