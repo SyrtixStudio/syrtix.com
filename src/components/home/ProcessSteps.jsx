@@ -1,69 +1,83 @@
 import { useLanguage } from '../../i18n/index.jsx';
 
+const stepImages = [
+  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=300&auto=format&fit=crop&q=80',
+];
+
 function ProcessSteps() {
   const { lang } = useLanguage();
 
   const copy =
     lang === 'en'
       ? {
-          title: 'Our process',
+          title: 'Our ',
           highlight: 'process',
           subtitle: 'A proven method to deliver exceptional results',
           steps: [
-            { step: '01', title: 'Discovery', desc: 'We understand your goals and needs' },
-            { step: '02', title: 'Design', desc: 'We create mockups and prototypes' },
+            { step: '01', title: 'Discovery', desc: 'We understand your goals, audience, and competitive landscape' },
+            { step: '02', title: 'Design', desc: 'We create mockups and prototypes tailored to your brand' },
             {
               step: '03',
               title: 'Development',
-              desc: 'We build your website with top technologies',
+              desc: 'We build with clean, performant, and secure code',
             },
-            { step: '04', title: 'Launch', desc: 'We publish and optimize your website' },
+            { step: '04', title: 'Launch', desc: 'We publish, optimize, and guide you post-launch' },
           ],
         }
       : {
-          title: 'Nuestro proceso',
+          title: 'Nuestro ',
           highlight: 'proceso',
-          subtitle: 'Un metodo probado para entregar resultados excepcionales',
+          subtitle: 'Un método probado para entregar resultados excepcionales',
           steps: [
-            { step: '01', title: 'Descubrimiento', desc: 'Entendemos tus objetivos y necesidades' },
-            { step: '02', title: 'Diseño', desc: 'Creamos mockups y prototipos' },
+            { step: '01', title: 'Descubrimiento', desc: 'Entendemos tus objetivos, audiencia y panorama competitivo' },
+            { step: '02', title: 'Diseño', desc: 'Creamos mockups y prototipos a la medida de tu marca' },
             {
               step: '03',
               title: 'Desarrollo',
-              desc: 'Construimos tu sitio con las mejores tecnologias',
+              desc: 'Construimos con código limpio, rápido y seguro',
             },
-            { step: '04', title: 'Lanzamiento', desc: 'Publicamos y optimizamos tu sitio' },
+            { step: '04', title: 'Lanzamiento', desc: 'Publicamos, optimizamos y te acompañamos post-lanzamiento' },
           ],
         };
 
-  const [prefix, suffix = ''] = copy.title.split(copy.highlight);
-
   return (
-    <section className="py-16 px-4 sm:px-6 bg-base">
+    <section className="py-20 lg:py-24 px-4 sm:px-6 bg-base">
       <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-12" data-aos="fade-up">
+        <div className="text-center mb-14" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-            {prefix}
+            {copy.title}
             <span className="text-primary">{copy.highlight}</span>
-            {suffix}
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {copy.steps.map((item, idx) => (
             <div
               key={item.step}
-              data-aos="flip-up"
+              data-aos="fade-up"
               data-aos-delay={idx * 100}
-              className="text-center border border-gray-200 bg-white transition-colors duration-300 hover:border-primary hover:bg-primary/20"
+              className="bg-white border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300 group"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-800 font-bold text-xl mb-4">
-                {item.step}
+              <div className="aspect-[16/10] overflow-hidden relative">
+                <img
+                  src={stepImages[idx]}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 left-3 bg-primary text-gray-800 font-black text-sm w-10 h-10 flex items-center justify-center">
+                  {item.step}
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.desc}</p>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-gray-800 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>

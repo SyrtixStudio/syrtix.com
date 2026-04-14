@@ -1,6 +1,6 @@
 // Información de la empresa
 export const COMPANY = {
-  name: 'syrtix',
+  name: 'Syrtix',
   domain: 'syrtix.com',
   email: 'contacto@syrtix.com',
   phone: import.meta.env.VITE_WHATSAPP_PHONE,

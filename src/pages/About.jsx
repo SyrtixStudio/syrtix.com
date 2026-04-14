@@ -22,7 +22,7 @@ function About() {
       ? {
           heroBadge: 'Meet the team',
           heroTitlePrefix: 'We are ',
-          heroTitleHighlight: 'syrtix',
+          heroTitleHighlight: 'Syrtix',
           heroDescription:
             'A team passionate about building exceptional digital experiences that drive our clients growth.',
           missionTitle: 'Our Mission',
@@ -60,7 +60,7 @@ function About() {
           howTitlePrefix: 'How do we ',
           howTitleHighlight: 'work with you',
           methodologyText:
-            'At syrtix we use Scrum methodology, which means you are an active part of the process with weekly checkpoints and full transparency.',
+            'At Syrtix we use Scrum methodology, which means you are an active part of the process with weekly checkpoints and full transparency.',
           methodologyItems: [
             'First meeting: we analyze your current challenges and define the best solution.',
             'Project charter: we document scope, goals, constraints, and success criteria.',
@@ -146,7 +146,7 @@ function About() {
       : {
           heroBadge: 'Conoce al equipo',
           heroTitlePrefix: 'Somos ',
-          heroTitleHighlight: 'syrtix',
+          heroTitleHighlight: 'Syrtix',
           heroDescription:
             'Un equipo apasionado por crear experiencias digitales excepcionales que impulsan el crecimiento de nuestros clientes.',
           missionTitle: 'Nuestra Mision',
@@ -184,7 +184,7 @@ function About() {
           howTitlePrefix: 'Como ',
           howTitleHighlight: 'trabajamos contigo',
           methodologyText:
-            'En syrtix utilizamos la metodologia agil Scrum. Tendras reuniones semanales con nuestro equipo para revisar avances y proponer cambios viables.',
+            'En Syrtix utilizamos la metodologia agil Scrum. Tendras reuniones semanales con nuestro equipo para revisar avances y proponer cambios viables.',
           methodologyItems: [
             'Primera reunion: analizamos tus problemas actuales y definimos la mejor solucion.',
             'Acta de constitucion: documentamos alcance, objetivos, restricciones y criterios de exito.',

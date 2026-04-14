@@ -18,7 +18,7 @@ export default function ContactoPromocion() {
     const formData = new FormData();
     formData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
     formData.append('email', EMAIL);
-    formData.append('subject', 'Nueva cotizacion desde syrtix.com');
+    formData.append('subject', 'Nueva cotizacion desde Syrtix.com');
     formData.append('replyTo', EMAIL);
     formData.append('from_name', 'Syrtix Web');
     if (name) formData.append('name', name);

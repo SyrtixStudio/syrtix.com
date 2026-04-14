@@ -38,6 +38,8 @@ El error más común es hacer que el código "espere" innecesariamente. Las prom
 ### 5. Suspense para Streaming (`async-suspense-boundaries`)
 **Regla:** El usuario no debe ver una pantalla en blanco. Envuelve los componentes que hacen fetch en componentes `<Suspense>` con un estado de carga (Skeleton) para que la UI "esqueleto" cargue inmediatamente y las distintas piezas "aparezcan" según vayan resolviendo sus datos, sin bloquear el resto de la página.
 
+> ⚠️ **ALERTA DE SEGURIDAD (CVE-2025-55182):** Si estás usando Suspense con React Server Components (React 19), **VERIFICA** que la versión de React no sea 19.0.0, 19.1.0, 19.1.1 ni 19.2.0. Estas versiones tienen una vulnerabilidad CVSS 10.0 de deserialización insegura en el Flight Protocol. Usa versiones parcheadas o quédate en React 18 + Vite para proyectos client-side. Consulta `security-guardrails.md` → Sección 6.
+
 ---
 
 ## 🟢 Nivel 3: Higiene de Memolización (Re-renders) - MEDIO-ALTO

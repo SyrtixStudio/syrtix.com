@@ -89,7 +89,7 @@ export const landingData = {
   whatWeDo: {
     es: {
       title: '¿Buscas comprar o contratar un sitio web en',
-      company: 'syrtix',
+      company: 'Syrtix',
       intro: 'Somos una agencia de ingeniería dedicada al desarrollo de experiencias digitales de alto rendimiento. Diseñamos soluciones a medida que garantizan resultados comerciales reales.',
       servicesTitle: 'Nuestra ingeniería de software incluye:',
       closing: 'Dile adiós a las plantillas genéricas. Aplicamos ingeniería y diseño estratégico para que tu marca domine el mercado digital.',
@@ -102,7 +102,7 @@ export const landingData = {
     },
     en: {
       title: 'Looking to buy or contract a website at',
-      company: 'syrtix',
+      company: 'Syrtix',
       intro: 'We are an engineering agency dedicated to developing high-performance digital experiences. We design custom solutions that guarantee real business results.',
       servicesTitle: 'Our software engineering includes:',
       closing: 'Say goodbye to generic templates. We apply engineering and strategic design so your brand dominates the digital market.',

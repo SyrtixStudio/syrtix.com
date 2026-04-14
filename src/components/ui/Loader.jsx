@@ -16,21 +16,23 @@ export default function Loader({ fadeOut = false }) {
       }`}
     >
       <div className="flex flex-col items-center gap-6">
-        {/* Logo */}
-        <div className="relative w-48 h-48 sm:w-64 sm:h-64">
+        {/* Logo Icon */}
+        <div className="relative w-32 h-32 sm:w-40 sm:h-40">
           <img
-            src="/img/logos/logogif1.gif"
-            alt="syrtix.com"
-            className="w-full h-full object-contain animate-pulse-slow drop-shadow-primary"
+            src="/img/logos/logo6.png"
+            alt="Syrtix Icon"
+            className="w-full h-full object-contain animate-pulse-slow drop-shadow-primary bg-primary p-2"
           />
         </div>
 
-        {/* Nombre de la empresa */}
+        {/* Brand Name and Tagline */}
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
-            Desarrollo y soluciones <span className="text-primary">informáticas</span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-2">
+            Syrtix
+          </h1>
+          <h2 className="text-lg sm:text-xl font-medium text-gray-600">
+            Desarrollo y soluciones <span className="text-primary font-bold">informáticas</span>
           </h2>
-          
         </div>
       </div>
     </div>

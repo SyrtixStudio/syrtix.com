@@ -91,12 +91,12 @@ function Footer() {
               <div className="flex items-center space-x-3 mb-4">
                 <img
                   src="/img/logos/logo6.png"
-                  alt="syrtix Logo"
+                  alt="Syrtix Logo"
                   className="w-16 h-16 sm:w-16 sm:h-16 bg-primary object-contain p-1 border border-gray-700"
                   loading="lazy"
                 />
                 <div>
-                  <div className="text-xl font-bold text-white">syrtix</div>
+                  <div className="text-xl font-bold text-white">Syrtix</div>
                   <div className="text-sm text-gray-400">{copy.tagline}</div>
                 </div>
               </div>

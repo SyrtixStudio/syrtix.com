@@ -1,5 +1,11 @@
-import { getIcon } from './IconResolver';
 import { useLanguage } from '../../i18n/index.jsx';
+
+const cardImages = [
+  'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=400&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=400&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80',
+];
 
 function Differentiators() {
   const { lang } = useLanguage();
@@ -8,128 +14,98 @@ function Differentiators() {
     lang === 'en'
       ? {
           titlePrefix: 'Why choose ',
-          titleBrand: 'syrtix',
+          titleBrand: 'Syrtix',
           subtitle: 'Clear process, transparent pricing, and measurable outcomes.',
           cards: [
             {
               id: 'scope',
-              icon: 'CheckCircle',
-              title: 'Clear scope from day one',
+              title: 'Scope defined in writing',
               description:
-                'We define deliverables and timelines in writing before development starts.',
+                'Before writing a single line of code, we define every deliverable and timeline with you in writing.',
             },
             {
               id: 'payments',
-              icon: 'DollarSign',
-              title: 'Milestone-based payments',
+              title: 'Pay by real progress',
               description:
-                'You pay by progress, with visibility on what is delivered at each stage.',
+                'You only pay when you see results. No blind advances, no surprise charges along the way.',
             },
             {
               id: 'ownership',
-              icon: 'Lock',
-              title: 'Full ownership and access',
+              title: 'Your website is yours',
               description:
-                'Your website, assets, and project access stay in your control.',
-            },
-            {
-              id: 'costs',
-              icon: 'Shield',
-              title: 'No hidden costs',
-              description:
-                'Transparent pricing with no surprise charges during the project.',
-            },
-            {
-              id: 'infra',
-              icon: 'Server',
-              title: 'Usage-based infrastructure',
-              description:
-                'Hosting and provider licenses are quoted separately based on real usage.',
+                'Source code, domain, and access stay 100% under your control. No vendor lock-in.',
             },
             {
               id: 'results',
-              icon: 'TrendingUp',
-              title: 'Conversion-focused execution',
+              title: 'Designed to sell',
               description:
-                'Design and development are focused on turning visits into leads and sales.',
+                'Every design and development decision is oriented towards converting visits into paying customers.',
             },
           ],
         }
       : {
-          titlePrefix: 'Por que elegir ',
-          titleBrand: 'syrtix',
+          titlePrefix: 'Por qué elegir ',
+          titleBrand: 'Syrtix',
           subtitle: 'Proceso claro, costos transparentes y resultados medibles.',
           cards: [
             {
               id: 'scope',
-              icon: 'CheckCircle',
-              title: 'Alcance claro desde el inicio',
+              title: 'Alcance definido por escrito',
               description:
-                'Definimos entregables y plazos por escrito antes de comenzar.',
+                'Antes de escribir una línea de código, definimos contigo cada entregable y plazo por escrito.',
             },
             {
               id: 'payments',
-              icon: 'DollarSign',
-              title: 'Pagos por hitos',
+              title: 'Pagos por avance real',
               description:
-                'Pagas por avance real, con visibilidad de cada etapa del proyecto.',
+                'Solo pagas cuando ves resultados. Sin anticipos ciegos ni cobros sorpresa durante el proyecto.',
             },
             {
               id: 'ownership',
-              icon: 'Lock',
-              title: 'Propiedad y accesos para ti',
+              title: 'Tu web es tuya',
               description:
-                'Tu sitio, recursos y accesos quedan bajo tu control.',
-            },
-            {
-              id: 'costs',
-              icon: 'Shield',
-              title: 'Sin costos ocultos',
-              description:
-                'Cotizacion transparente, sin cobros sorpresa durante la implementacion.',
-            },
-            {
-              id: 'infra',
-              icon: 'Server',
-              title: 'Infraestructura segun uso real',
-              description:
-                'Hosting y licencias de proveedores se cotizan por separado segun consumo.',
+                'Código fuente, dominio y accesos quedan 100% bajo tu control. Sin dependencia tecnológica.',
             },
             {
               id: 'results',
-              icon: 'TrendingUp',
-              title: 'Enfoque en conversion',
+              title: 'Diseñado para vender',
               description:
-                'Disenamos y desarrollamos para transformar visitas en clientes.',
+                'Cada decisión de diseño y desarrollo está orientada a convertir visitas en clientes que pagan.',
             },
           ],
         };
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-base2">
+    <section className="py-20 lg:py-28 px-4 sm:px-6 bg-base2">
       <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-12" data-aos="fade-up">
+        <div className="text-center mb-14" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleBrand}</span>?
           </h2>
-          <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {copy.cards.map((item, idx) => (
             <div
               key={item.id}
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-              className="bg-base p-6 border-2 border-gray-200 hover:border-primary transition-all duration-300 text-center group"
+              className="bg-white border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-300 group"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-gray-800 transition-all duration-300">
-                {getIcon(item.icon, 32)}
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={cardImages[idx]}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.description}</p>
+              <div className="p-5">
+                <h3 className="text-base font-bold text-gray-800 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
             </div>
           ))}
         </div>

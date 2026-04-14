@@ -41,13 +41,26 @@ Antes de usar cualquier imagen en producción, si esta no tiene la calidad sufic
 | **Glass en Light Mode** | Usar `bg-white/80` (alta opacidad para legibilidad). | Usar `bg-white/10` en fondo blanco (no se ve). |
 | **Texto Plomizo** | Light Mode: `#0F172A` (slate-900). | Light Mode: `slate-400` (Es ilegible para texto principal). |
 
+### 🖼️ Regla de Oro de Imágenes
+- **Formato:** Prohibido usar PNG o JPG pesados. Usar WebP/AVIF por defecto.
+- **Carga:** Implementar `loading="lazy"` en todas las imágenes fuera del viewport inicial.
+- **Storage:** Coordinar con el backend el uso de **MinIO** para evitar dependencias externas como Cloudinary (Ver `software-architecture-patterns`).
+- **Placeholder:** Usar un `aspect-ratio` definido para evitar el Layout Shift (CLS).
+
 ## ✨ Vanguardia Visual (Protocolo "Anti AI-Slop")
 Extracción directa de los estándares de Frontend Design de Anthropic. El objetivo es que las webs de Syrtix JAMÁS parezcan "generadas por inteligencia artificial".
 1. **Compromiso Estético Extremo:** Antes de codificar, decide un tono (Brutalista, Minimalista refinado, Caos maximalista, Retro-futurista). Nada de tibiezas.
 2. **Prohibido lo Genérico:** NUNCA uses gradientes púrpuras sobre fondos blancos, ni diseños en cajas predecibles (AI Slop). 
-3. **Tipografía con Carácter:** Aunque `Inter` y `Roboto` son excelentes para lectura (Body), debes parearlas con **fuentes Display distintivas e inesperadas** en los títulos (Hero, Headers) para darle personalidad única al proyecto.
+3. **Tipografía con Carácter:** Aunque `Inter` y `Roboto` son excelentes para lectura (Body), debes parearlas con **fuentes Display distintivas e inesperadas** en los títulos (Hero, Headers) para darle personalidad única al proyecto. Fuentes recomendadas para Display: **Clash Display, Cabinet Grotesk, Satoshi, Space Grotesk, General Sans, Manrope**.
 4. **Composición Espacial Inesperada:** Atrévete a romper la cuadrícula. Usa asimetría calculada, superposición de elementos, flujo diagonal y densidad controlada.
 5. **Cero Estilos Reciclados:** Interpreta creativamente cada proyecto. Si hiciste 5 webs oscuras, la siguiente debe proponer una estética radicalmente distinta.
+6. **Animación como Identidad:** Un sitio sin animaciones es un sitio muerto. Consulta obligatoriamente la skill **`syrtix-wow-animations`** para seleccionar al menos 3 patrones de animación por página. El movimiento no es decoración, es parte del lenguaje visual del proyecto.
+7. **Profundidad Visual Obligatoria:** Cada página debe tener al menos 2 niveles de profundidad visual (sombras, overlapping, parallax, glassmorphism, capas). Un diseño completamente plano es un diseño mediocre.
+
+## 🔗 Skills Complementarias (Lectura Obligatoria)
+- **`syrtix-wow-animations`**: Arsenal de 11 patrones de animación premeum con código React listo para copiar (GSAP, Framer Motion, Lenis, CSS avanzado). **CONSULTAR SIEMPRE** antes de implementar cualquier componente visual.
+- **`syrtix-apple-motion`**: Para scroll de video sincronizado estilo Apple Product Pages.
+- **`syrtix-react-performance`**: Para que las animaciones no maten el rendimiento.
 
 ## 🧠 Leyes Maestras de UX (Psicología Aplicada)
 Para Syrtix, el diseño no es solo estética, es **ingeniería de conversión**. Al programar, el agente debe aplicar estas leyes:

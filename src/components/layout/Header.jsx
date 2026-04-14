@@ -113,7 +113,7 @@ function Header() {
               </div>
             </div>
             <div className="flex items-center space-x-3 text-xs">
-              <span>syrtix.com</span>
+              <span>Syrtix.com</span>
               <button
                 type="button"
                 onClick={toggleLang}
@@ -140,7 +140,7 @@ function Header() {
                 />
               </div>
               <div>
-                <div className="text-lg font-bold text-gray-800">syrtix</div>
+                <div className="text-lg font-bold text-gray-800">Syrtix</div>
                 <div className="text-sm text-gray-600">{t('brand.tagline')}</div>
               </div>
             </Link>
@@ -168,7 +168,7 @@ function Header() {
               <span className="text-xs">{COMPANY.phoneFormatted || COMPANY.phone}</span>
             </div>
             <div className="flex items-center space-x-2 text-xs">
-              <span>syrtix.com</span>
+              <span>Syrtix.com</span>
               <button
                 type="button"
                 onClick={toggleLang}

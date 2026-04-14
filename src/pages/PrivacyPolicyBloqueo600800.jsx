@@ -10,7 +10,7 @@ const sections = [
         <p className="text-sm leading-relaxed mb-2">
           Responsable: <strong>Syrtix</strong> (
           <a href="https://syrtix.com" className="text-primary">
-            syrtix.com
+            Syrtix.com
           </a>
           )
         </p>
@@ -127,7 +127,7 @@ const sections = [
         <p className="text-sm leading-relaxed">
           Web:{' '}
           <a href="https://syrtix.com" className="text-primary">
-            https://syrtix.com
+            https://Syrtix.com
           </a>
         </p>
       </>

@@ -521,7 +521,7 @@ function PricingSection() {
                 key={pkg.id}
                 data-aos="fade-up"
                 data-aos-delay={idx * 100}
-                className={`relative bg-base border-2 p-6 transition-all duration-300 hover:border-primary hover:shadow-lg flex flex-col h-full ${
+                className={`relative bg-base border p-6 transition-shadow duration-300 hover:shadow-lg flex flex-col h-full ${
                   pkg.featured ? 'border-secondary' : 'border-gray-200'
                 }`}
               >

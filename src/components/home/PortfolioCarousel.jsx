@@ -131,10 +131,10 @@ function PortfolioCarousel() {
   const copy =
     lang === 'en'
       ? {
-          titlePrefix: 'Your next website could look like ',
-          titleHighlight: 'this',
+          titlePrefix: 'Projects that deliver ',
+          titleHighlight: 'results',
           subtitle:
-            'Templates ready to launch your website quickly with the best quality/price ratio.',
+            'Every project is custom engineering. This is how Syrtix works.',
           prevProject: 'Previous project',
           nextProject: 'Next project',
           viewProject: 'View project',
@@ -150,10 +150,10 @@ function PortfolioCarousel() {
           },
         }
       : {
-          titlePrefix: 'Tu proxima web puede verse ',
-          titleHighlight: 'asi',
+          titlePrefix: 'Proyectos que generan ',
+          titleHighlight: 'resultados',
           subtitle:
-            'Plantillas listas para entregar tu web lo mas rapido posible y con la mejor calidad/precio del mercado.',
+            'Cada proyecto es ingeniería a medida. Así trabaja Syrtix.',
           prevProject: 'Proyecto anterior',
           nextProject: 'Proyecto siguiente',
           viewProject: 'Ver proyecto',
@@ -438,7 +438,7 @@ function PortfolioCarousel() {
         }
         .portfolio-slide {
           width: 320px !important;
-          border: 1px solid #e5e7eb;
+          border: 1px solid #f3f4f6;
           box-shadow: 0 8px 30px rgba(15,23,42,0.10);
           background: #fff;
         }

@@ -80,8 +80,18 @@ function SecuritySection() {
         };
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-secondary">
-      <div className="max-w-[1440px] mx-auto">
+    <section className="py-20 lg:py-24 px-4 sm:px-6 bg-secondary relative overflow-hidden">
+      {/* Imagen de fondo sutil */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=30)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             {copy.titlePrefix}
@@ -97,9 +107,9 @@ function SecuritySection() {
               key={feature.id}
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-              className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 text-center hover:border-primary/50 transition-all duration-300"
+              className="bg-white/5 backdrop-blur-sm p-6 border border-white/10 text-center hover:bg-white/10 transition-colors duration-300"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/20 text-primary mb-4 rounded-full">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/20 text-primary mb-4">
                 {getIcon(feature.icon)}
               </div>
               <h3 className="text-white font-bold mb-2">{feature.title}</h3>
@@ -109,21 +119,24 @@ function SecuritySection() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="400">
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
             <div className="flex items-center text-white/60">
-              <Lock size={20} className="text-green-500 mr-2" />
+              <Lock size={18} className="text-green-400 mr-2" />
               <span className="text-sm">{copy.badges[0]}</span>
             </div>
+            <div className="hidden sm:block w-px h-4 bg-white/20" />
             <div className="flex items-center text-white/60">
-              <Shield size={20} className="text-green-500 mr-2" />
+              <Shield size={18} className="text-green-400 mr-2" />
               <span className="text-sm">{copy.badges[1]}</span>
             </div>
+            <div className="hidden sm:block w-px h-4 bg-white/20" />
             <div className="flex items-center text-white/60">
-              <Server size={20} className="text-green-500 mr-2" />
+              <Server size={18} className="text-green-400 mr-2" />
               <span className="text-sm">{copy.badges[2]}</span>
             </div>
+            <div className="hidden sm:block w-px h-4 bg-white/20" />
             <div className="flex items-center text-white/60">
-              <CheckCircle size={20} className="text-green-500 mr-2" />
+              <CheckCircle size={18} className="text-green-400 mr-2" />
               <span className="text-sm">{copy.badges[3]}</span>
             </div>
           </div>

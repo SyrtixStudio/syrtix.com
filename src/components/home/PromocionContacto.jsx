@@ -147,41 +147,25 @@ export default function PromocionContacto({ data }) {
     e.preventDefault();
     if (status === 'sending') return;
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-    const targetEmail = contactEmail || import.meta.env.VITE_CONTACT_EMAIL;
-
-    if (!accessKey) {
-      setFeedback({
-        type: 'error',
-        message: copy.missingAccessKey,
-      });
-      return;
-    }
-
-    if (!targetEmail) {
-      setFeedback({
-        type: 'error',
-        message: copy.missingContactEmail,
-      });
-      return;
-    }
+    const n8nWebhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
 
     setFeedback(null);
     setStatus('sending');
 
-    const formData = new FormData();
-    formData.append('access_key', accessKey);
-    formData.append('email', targetEmail);
-    formData.append('replyTo', targetEmail);
-    formData.append('subject', copy.subject);
-    formData.append('from_name', name || copy.fromName);
-    if (email) formData.append('from', email);
-    if (message) formData.append('message', message);
-
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(n8nWebhookUrl, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          source: 'OFERTA_LIMITADA',
+          name: name,
+          email: email,
+          pregunta: message,
+          title: title,
+          price: price
+        }),
       });
 
       if (response.ok) {

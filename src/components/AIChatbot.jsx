@@ -12,8 +12,6 @@ const AIChatbot = () => {
   const messagesEndRef = useRef(null);
 
   const SECRET = import.meta.env.VITE_SYRTIX_SECRET || "syrtix_super_secret_123";
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
-
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -30,23 +28,23 @@ const AIChatbot = () => {
     setInput('');
     setIsLoading(true);
 
+    const N8N_URL = import.meta.env.VITE_N8N_WEBHOOK_URL;
+    
     try {
-      const response = await fetch(`${API_URL}/api/ia/chat`, {
+      const response = await fetch(N8N_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${SECRET}`
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          question: userMsg,
+          source: 'CHATBOT',
+          pregunta: userMsg,
           history: messages 
         })
       });
 
       const data = await response.json();
-      setMessages(prev => [...prev, { role: 'ai', text: data.answer }]);
+      setMessages(prev => [...prev, { role: 'ai', text: data.answer || data.response || "¡He recibido tu mensaje!" }]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: 'Lo siento, perdí conexión con mi cerebro. ¿Está el servidor encendido?' }]);
+      setMessages(prev => [...prev, { role: 'ai', text: 'Lo siento, mi conexión con el cuartel general está fallando.' }]);
     } finally {
       setIsLoading(false);
     }

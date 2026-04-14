@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useLanguage } from '../i18n/index.jsx';
 
@@ -14,7 +14,7 @@ function PrivacyPolicy() {
           updated: 'Last updated',
           introTitle: 'Introduction',
           introText:
-            'At syrtix.com we are committed to protecting your privacy and personal data. This Policy explains how we collect, use, and protect your information under applicable regulations.',
+            'At Syrtix.com we are committed to protecting your privacy and personal data. This Policy explains how we collect, use, and protect your information under applicable regulations.',
           controllerTitle: 'Data Controller',
           dataTitle: 'Data we collect',
           dataText:
@@ -40,7 +40,7 @@ function PrivacyPolicy() {
           updated: 'Ultima actualizacion',
           introTitle: 'Introduccion',
           introText:
-            'En syrtix.com nos comprometemos a proteger tu privacidad y tus datos personales. Esta politica describe como recopilamos, usamos y protegemos tu informacion conforme a la normativa aplicable.',
+            'En Syrtix.com nos comprometemos a proteger tu privacidad y tus datos personales. Esta politica describe como recopilamos, usamos y protegemos tu informacion conforme a la normativa aplicable.',
           controllerTitle: 'Responsable del tratamiento',
           dataTitle: 'Datos que recopilamos',
           dataText:
@@ -82,11 +82,11 @@ function PrivacyPolicy() {
           <section>
             <h2 className="text-lg font-bold text-gray-800 mb-2">{copy.controllerTitle}</h2>
             <p className="text-sm leading-relaxed">
-              <strong>syrtix.com</strong>
+              <strong>Syrtix.com</strong>
               <br />
               Correo:{' '}
-              <a href="mailto:contacto@syrtix.com" className="text-primary">
-                contacto@syrtix.com
+              <a href="mailto:contacto@Syrtix.com" className="text-primary">
+                contacto@Syrtix.com
               </a>
             </p>
           </section>

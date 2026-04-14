@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useLanguage } from '../i18n/index.jsx';
 
@@ -18,7 +18,7 @@ const LegalNotice = () => {
             {
               title: '1. Company information',
               paragraphs: [
-                'syrtix.com is a web development agency operating in Chile. For inquiries, contact us at contacto@syrtix.com.',
+                'Syrtix.com is a web development agency operating in Chile. For inquiries, contact us at contacto@Syrtix.com.',
                 'Contact address: Canal Sarmiento 6380, Puerto Montt, Chile.',
               ],
             },
@@ -46,7 +46,7 @@ const LegalNotice = () => {
             {
               title: '5. Liability',
               paragraphs: [
-                'syrtix.com makes reasonable efforts to ensure information accuracy, but does not guarantee completeness or absence of errors.',
+                'Syrtix.com makes reasonable efforts to ensure information accuracy, but does not guarantee completeness or absence of errors.',
                 'We disclaim liability for damages resulting from website use.',
               ],
             },
@@ -69,7 +69,7 @@ const LegalNotice = () => {
             {
               title: '1. Informacion de la empresa',
               paragraphs: [
-                'syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas, contactenos en contacto@syrtix.com.',
+                'Syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas, contactenos en contacto@Syrtix.com.',
                 'Domicilio de contacto: Canal Sarmiento 6380, Puerto Montt, Chile.',
               ],
             },
@@ -97,7 +97,7 @@ const LegalNotice = () => {
             {
               title: '5. Responsabilidad',
               paragraphs: [
-                'syrtix.com hace esfuerzos razonables para garantizar la precision de la informacion en este sitio, pero no garantiza que sea completa o libre de errores.',
+                'Syrtix.com hace esfuerzos razonables para garantizar la precision de la informacion en este sitio, pero no garantiza que sea completa o libre de errores.',
                 'Declinamos responsabilidad por daños resultantes del uso del sitio web.',
               ],
             },

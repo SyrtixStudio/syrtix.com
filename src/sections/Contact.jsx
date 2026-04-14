@@ -91,7 +91,7 @@ function Contact() {
           },
           rateLimitExceeded: 'You reached the submission limit. Please try again later.',
           waitBeforeSubmit: 'Please wait a moment before submitting again.',
-          subject: 'New quote request from syrtix.com',
+          subject: 'New quote request from Syrtix.com',
           fromName: 'Syrtix Web',
           submitSuccess: 'Message sent successfully!',
           submitError: 'Error sending the message.',
@@ -137,7 +137,7 @@ function Contact() {
           ],
         }
       : {
-          altBg: 'Fondo contacto syrtix',
+          altBg: 'Fondo contacto Syrtix',
           headerPrefix: 'Solicita tu ',
           headerHighlight: 'cotizacion',
           headerDescription:
@@ -190,7 +190,7 @@ function Contact() {
           },
           rateLimitExceeded: 'Has excedido el limite de envios. Intenta mas tarde.',
           waitBeforeSubmit: 'Por favor espera un momento antes de enviar nuevamente.',
-          subject: 'Nueva cotizacion desde syrtix.com',
+          subject: 'Nueva cotizacion desde Syrtix.com',
           fromName: 'Syrtix Web',
           submitSuccess: 'Mensaje enviado correctamente!',
           submitError: 'Error al enviar el mensaje.',

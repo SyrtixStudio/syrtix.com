@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -39,12 +39,11 @@ const parsePriceNumber = (value) => {
 const formatCLP = (value, lang) => {
   if (typeof value !== 'number' || Number.isNaN(value)) return '';
   const formatted = new Intl.NumberFormat(lang === 'en' ? 'en-US' : 'es-CL', {
-    style: 'currency',
-    currency: 'CLP',
+    style: 'decimal',
     minimumFractionDigits: 0,
   }).format(value);
 
-  return lang === 'en' ? `${formatted} CLP` : formatted;
+  return lang === 'en' ? `$${formatted} CLP` : `$${formatted}`;
 };
 
 export default function ModalPublicidad({
@@ -210,19 +209,30 @@ export default function ModalPublicidad({
             <path d="M6.5 6.5l7 7M13.5 6.5l-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
-        <div className="relative z-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary p-4 md:p-0">
-          <div className="text-center flex items-center gap-4 md:flex-col md:gap-0">
-            <div className="w-16 h-16 md:w-28 md:h-28 rounded-lg bg-white/10 flex items-center justify-center md:mb-4 p-2 md:p-3">
+        <div className="relative z-10 hidden md:flex flex-col justify-between bg-gray-900 border-r border-gray-800">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/img/promo/banner.png" 
+              alt="Promo Banner" 
+              className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
+          </div>
+
+          <div className="relative z-10 p-12 flex-1 flex flex-col justify-center items-center text-center">
+            <div className="w-20 h-20 mb-8 p-3 bg-primary/10 rounded-full border border-primary/20 backdrop-blur-md">
               <img
                 src="/img/logos/logo6.png"
-                alt="syrtix"
+                alt="Syrtix"
                 className="w-full h-full object-contain"
                 draggable="false"
               />
             </div>
-            <div className="text-left md:text-center">
-              <p className="text-xs md:text-sm text-white/90">{copy.sideLabel}</p>
-              <p className="text-[10px] md:text-xs text-white/80 md:mt-2">{copy.sideTags}</p>
+            <div className="space-y-4">
+              <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em] leading-none mb-4">{copy.sideLabel}</p>
+              <div className="h-0.5 w-12 bg-primary/30 mx-auto" />
+              <p className="text-[9px] text-white/50 uppercase tracking-[0.2em] leading-relaxed max-w-[180px]">{copy.sideTags}</p>
             </div>
           </div>
         </div>
@@ -232,57 +242,33 @@ export default function ModalPublicidad({
           onScroll={updateScrollHint}
           className="modal-scrollbar relative z-10 p-3 md:p-6 overflow-y-auto min-h-0"
         >
-          {title && <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-3">{title}</h3>}
-          <div className="mb-3 rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary/5 via-white to-primary/5 p-3 md:p-4">
-            <div className="mb-2 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+          {title && <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 tracking-tight">{title}</h3>}
+          
+          <div className="mb-8 rounded-3xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 p-8 shadow-sm">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-primary text-gray-900 uppercase tracking-widest">
                 {promoLabel || copy.launchOffer}
               </span>
-              {hasSavings && (
-                <>
-                  <span className="inline-flex items-center rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-[10px] font-semibold text-green-700">
-                    {copy.save}: {formatCLP(savingsValue, lang)}
-                  </span>
-                  <span className="inline-flex items-center rounded-full border border-red-200 bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-700">
-                    -{discountPercent}%
-                  </span>
-                </>
+            </div>
+            
+            <div className="space-y-1">
+              {displayOldPrice && (
+                <div className="text-sm font-medium text-gray-400 flex items-center gap-3">
+                  <span className="line-through opacity-50">{displayOldPrice}</span>
+                  {hasSavings && (
+                    <span className="bg-red-50 text-red-600 px-2 py-0.5 rounded text-[10px] font-bold">-{discountPercent}% OFF</span>
+                  )}
+                </div>
+              )}
+              {displayCurrentPrice && (
+                <div className="text-4xl font-bold text-gray-900 tracking-tight">
+                  {displayCurrentPrice}
+                </div>
               )}
             </div>
-            {displayOldPrice && (
-              <div className="text-[11px] text-gray-500">
-                {copy.before}:{' '}
-                <span className="line-through decoration-gray-400">{displayOldPrice}</span>
-              </div>
-            )}
-            {displayCurrentPrice && (
-              <div className="mt-0.5 text-xl md:text-2xl font-extrabold text-primary">
-                {copy.now}: {displayCurrentPrice}
-              </div>
-            )}
           </div>
 
-          {timeLeft.totalSeconds > 0 ? (
-            <div className="mb-3 flex flex-wrap items-center gap-2 rounded-lg border border-secondary/25 bg-secondary/5 px-3 py-2 text-xs text-secondary">
-              <span className="inline-flex h-2 w-2 rounded-full bg-primary animate-pulse" aria-hidden />
-              <span className="font-semibold text-secondary">
-                {copy.promoEnds} {promoDateLabel}
-              </span>
-              <div className="flex items-center gap-1 text-[11px] font-bold rounded-full border border-secondary/35 bg-white px-2 py-1 text-secondary">
-                <span>{formatUnit(timeLeft.days)}d</span>
-                <span>:</span>
-                <span>{formatUnit(timeLeft.hours)}h</span>
-                <span>:</span>
-                <span>{formatUnit(timeLeft.minutes)}m</span>
-                <span>:</span>
-                <span>{formatUnit(timeLeft.seconds)}s</span>
-              </div>
-            </div>
-          ) : (
-            <div className="mb-3 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs text-gray-600">
-              {copy.promoOver}
-            </div>
-          )}
+          {/* Countdown removed per request */}
 
           {(description || details) && (
             <div className="mb-3 rounded-lg border border-gray-200 bg-gray-50/70 p-3">
@@ -317,12 +303,13 @@ export default function ModalPublicidad({
 
           {hasAsteriskFeature && <p className="text-[10px] text-gray-500 mb-3">{copy.emailFootnote}</p>}
 
-          <div className={`grid gap-2 mb-2 ${whatsappHref ? 'grid-cols-2' : 'grid-cols-1'}`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             <Link
               to="/contacto"
               onClick={onClose}
-              className="w-full bg-primary text-white px-2 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition text-[11px] sm:text-xs text-center"
+              className="group relative overflow-hidden bg-secondary text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 text-sm text-center"
             >
+              <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity" />
               {copy.quoteCta}
             </Link>
             {whatsappHref && (
@@ -330,22 +317,15 @@ export default function ModalPublicidad({
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full border border-green-500 text-green-700 px-2 py-2 rounded-lg font-semibold hover:bg-green-50 transition text-[11px] sm:text-xs text-center flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-3 bg-white border-2 border-gray-900 text-gray-900 px-6 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:-translate-y-0.5 text-sm"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20.52 3.48A11.95 11.95 0 0012 .5C5.65.5.99 5.16.99 11.5c0 1.98.52 3.87 1.5 5.56L.5 23.5l6.64-1.74A11.98 11.98 0 0012 23.5c6.35 0 11.01-4.66 11.01-11 0-3.02-1.18-5.86-3.49-8.02z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M17.6 14.2c-.3-.15-1.8-.9-2.1-1.01-.3-.12-.52-.15-.74.15-.22.3-.86 1.01-1.05 1.22-.2.2-.4.23-.72.08-.32-.15-1.37-.5-2.61-1.6-.97-.86-1.62-1.92-1.81-2.24-.19-.33-.02-.51.14-.68.14-.14.32-.4.48-.6.16-.22.21-.37.32-.62.1-.25.05-.46-.03-.63-.08-.18-.74-1.78-1.02-2.44-.27-.64-.55-.55-.74-.56-.2-.01-.43-.01-.66-.01s-.6.09-.92.44c-.3.35-1.13 1.1-1.13 2.68 0 1.57 1.16 3.09 1.32 3.31.16.22 2.28 3.48 5.52 4.88 3.24 1.4 3.24.93 3.82.87.58-.05 1.88-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.12-.3-.2-.6-.35z"
-                    fill="#fff"
-                  />
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
                 {copy.whatsapp}
               </a>
-            )}
-          </div>
+            )
+}</div>
 
           <div className="mt-2">
             {delivery && <div className="text-xs text-green-700 font-semibold">{delivery}</div>}

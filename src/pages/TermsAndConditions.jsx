@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useLanguage } from '../i18n/index.jsx';
 
@@ -18,13 +18,13 @@ const TermsAndConditions = () => {
             {
               title: '1. Introduction',
               text: [
-                'Welcome to syrtix.com. By using this website, you accept these Terms and Conditions in full. If you disagree with any part, please do not use the site.',
+                'Welcome to Syrtix.com. By using this website, you accept these Terms and Conditions in full. If you disagree with any part, please do not use the site.',
               ],
             },
             {
               title: '2. Owner identification',
               text: [
-                'syrtix.com is a web development agency operating in Chile. For formal inquiries, contact us at contacto@syrtix.com.',
+                'Syrtix.com is a web development agency operating in Chile. For formal inquiries, contact us at contacto@Syrtix.com.',
                 'Contact address: Canal Sarmiento 6380, Puerto Montt, Chile.',
               ],
             },
@@ -37,7 +37,7 @@ const TermsAndConditions = () => {
             {
               title: '4. Intellectual property',
               text: [
-                'All rights over texts, images, logos, and other materials belong to syrtix.com or its licensors. Partial or total copy without permission is forbidden.',
+                'All rights over texts, images, logos, and other materials belong to Syrtix.com or its licensors. Partial or total copy without permission is forbidden.',
               ],
             },
             {
@@ -106,13 +106,13 @@ const TermsAndConditions = () => {
             {
               title: '1. Introduccion',
               text: [
-                'Bienvenido a syrtix.com. Al utilizar este sitio web aceptas estos terminos y condiciones en su totalidad. Si no estas de acuerdo con alguna parte, por favor no uses nuestro sitio.',
+                'Bienvenido a Syrtix.com. Al utilizar este sitio web aceptas estos terminos y condiciones en su totalidad. Si no estas de acuerdo con alguna parte, por favor no uses nuestro sitio.',
               ],
             },
             {
               title: '2. Identificacion del titular',
               text: [
-                'syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas formales, puedes contactarnos en contacto@syrtix.com.',
+                'Syrtix.com es una agencia de desarrollo web que opera en Chile. Para consultas formales, puedes contactarnos en contacto@Syrtix.com.',
                 'Domicilio de contacto: Canal Sarmiento 6380, Puerto Montt, Chile.',
               ],
             },
@@ -125,7 +125,7 @@ const TermsAndConditions = () => {
             {
               title: '4. Propiedad intelectual',
               text: [
-                'Todos los derechos sobre textos, imagenes, logotipos y materiales publicados pertenecen a syrtix.com o sus licenciantes.',
+                'Todos los derechos sobre textos, imagenes, logotipos y materiales publicados pertenecen a Syrtix.com o sus licenciantes.',
               ],
             },
             {

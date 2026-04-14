@@ -5,6 +5,14 @@ import { Star } from 'lucide-react';
 import { testimonials } from '../../data/testimonials.js';
 import { useLanguage } from '../../i18n/index.jsx';
 
+const avatarImages = [
+  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&auto=format&fit=crop&q=80',
+];
+
 const formatRelativeReviewTime = (createdAt, lang) => {
   const parsed = new Date(createdAt);
   const referenceDate = new Date();
@@ -38,7 +46,6 @@ function Testimonials() {
   const { lang } = useLanguage();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
-  const avatarPalette = ['bg-violet-500', 'bg-sky-500', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-500'];
 
   const copy =
     lang === 'en'
@@ -98,7 +105,7 @@ function Testimonials() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-base2">
+    <section className="py-20 lg:py-24 px-4 sm:px-6 bg-base2">
       <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
@@ -116,17 +123,16 @@ function Testimonials() {
                 key={testimonial.id}
                 data-aos="zoom-in"
                 data-aos-delay={idx * 150}
-                className="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm hover:shadow-md hover:border-secondary/40 transition-all duration-300 min-h-[220px]"
+                className="bg-white p-6 border border-gray-200 hover:shadow-md transition-shadow duration-300 min-h-[220px]"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <span
-                      className={`h-10 w-10 rounded-full flex items-center justify-center text-white font-semibold text-sm ${
-                        avatarPalette[(testimonial.id - 1) % avatarPalette.length]
-                      }`}
-                    >
-                      {testimonial.name.charAt(0).toLowerCase()}
-                    </span>
+                    <img
+                      src={avatarImages[(testimonial.id - 1) % avatarImages.length]}
+                      alt={testimonial.name}
+                      className="h-11 w-11 object-cover"
+                      loading="lazy"
+                    />
                     <div>
                       <p className="text-base font-semibold text-gray-800 leading-none">{testimonial.name}</p>
                       <p className="mt-1 text-xs text-gray-500">
@@ -137,7 +143,7 @@ function Testimonials() {
                   <img
                     src="/img/logo-google.webp"
                     alt="Google"
-                    className="h-6 w-6 object-contain"
+                    className="h-7 w-7 object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -148,7 +154,7 @@ function Testimonials() {
                   ))}
                 </div>
 
-                <p className="text-gray-800 text-sm leading-relaxed">
+                <p className="text-gray-700 text-sm leading-relaxed">
                   {lang === 'en' ? testimonial.textEn : testimonial.textEs}
                 </p>
               </div>
@@ -161,7 +167,7 @@ function Testimonials() {
                 <button
                   type="button"
                   onClick={goPrev}
-                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:border-secondary hover:text-secondary transition"
+                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
                   aria-label={copy.prev}
                 >
                   ‹
@@ -172,8 +178,8 @@ function Testimonials() {
                       key={idx}
                       type="button"
                       onClick={() => setActiveIndex(idx)}
-                      className={`h-2.5 w-2.5 transition ${
-                        idx === activeIndex ? 'bg-secondary' : 'bg-gray-300'
+                      className={`h-2.5 transition ${
+                        idx === activeIndex ? 'bg-secondary w-6' : 'bg-gray-300 w-2.5'
                       }`}
                       aria-label={`${copy.goToGroup} ${idx + 1}`}
                     />
@@ -182,7 +188,7 @@ function Testimonials() {
                 <button
                   type="button"
                   onClick={goNext}
-                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:border-secondary hover:text-secondary transition"
+                  className="h-9 w-9 border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
                   aria-label={copy.next}
                 >
                   ›

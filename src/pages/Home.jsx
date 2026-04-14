@@ -1,15 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import {
-  Differentiators,
   PortfolioCarousel,
-  ProcessSteps,
   PricingSection,
-  SecuritySection,
-  CtaSection,
+  TrustBar,
+  TrustBlock,
 } from '../components/home';
-import { ServicesGrid, WhatWeDoSection, Testimonials } from '../modules/landing';
-
+import { ServicesGrid, WhatWeDoSection } from '../modules/landing';
 
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { COMPANY } from '../constants';
@@ -37,7 +34,7 @@ function Home() {
         oldPrice: '$299.000 CLP',
         price: '$149.000 CLP',
         promoLabel: 'LAUNCH OFFER',
-        offerEndsAt: '2026-03-31T23:59:59-03:00',
+        offerEndsAt: '2026-12-31T23:59:59-03:00',
         description: 'Single-page website for entrepreneurs and service professionals who need fast lead capture.',
         details: '10 slots available. Launch offer valid until Mar 31, 2026.',
         list: [
@@ -64,7 +61,7 @@ function Home() {
       oldPrice: '$299.000',
       price: '$149.000',
       promoLabel: 'OFERTA LANZAMIENTO',
-      offerEndsAt: '2026-03-31T23:59:59-03:00',
+      offerEndsAt: '2026-12-31T23:59:59-03:00',
       description: 'Pagina web para emprendedores y pymes de servicios que necesitan captar clientes rapido.',
       details: '10 cupos disponibles. Oferta de lanzamiento valida hasta el 31 de marzo de 2026.',
       list: [
@@ -123,15 +120,23 @@ function Home() {
       />
       <Hero />
       <main className="bg-base">
+        {/* Bloque 2: Barra de confianza (logos tech) */}
+        <TrustBar />
+
+        {/* Bloque 3: Qué hacemos (servicios + imagen + métricas) */}
         <WhatWeDoSection />
+
+        {/* Bloque 4: Portfolio (proyectos reales) */}
         <PortfolioCarousel />
-        <Differentiators />
+
+        {/* Bloque 5: Paquetes + Complementos (todo lo comercial junto) */}
         <PricingSection />
-        <Testimonials />
-        <CtaSection />
         <ServicesGrid />
-        <ProcessSteps />
-        <SecuritySection />
+
+        {/* Bloque 6: Muro de confianza (testimonios + proceso + seguridad + CTA) */}
+        <TrustBlock />
+
+        {/* Bloque 7: Contacto */}
         <Contact />
       </main>
     </div>
@@ -139,4 +144,3 @@ function Home() {
 }
 
 export default Home;
-
