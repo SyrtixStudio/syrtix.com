@@ -158,7 +158,7 @@ const About = () => {
                   <img 
                     src="/img/Logo_DuocUC.svg.png" 
                     alt="Duoc UC Logo" 
-                    className="h-10 sm:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-10 sm:h-12 w-auto object-contain"
                   />
                   <div className="text-sm">
                     <p className="font-bold text-gray-800">{copy.founderDegree}</p>
