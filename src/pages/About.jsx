@@ -15,9 +15,11 @@ const About = () => {
             'Hi, I am Francisco Campos. I specialize in crafting modern, high-performance web applications that drive real business results through code, design, and AI.',
           founderTitlePrefix: 'The Professional ',
           founderTitleHighlight: 'Behind Syrtix',
-          founderSubtitle: 'Software Engineer & Digital Strategist',
+          founderSubtitle: 'Computer Engineer',
           founderContent:
             'With a strong background in software engineering, I founded Syrtix as a personal studio dedicated to helping businesses scale. I combine advanced technical expertise in modern web technologies with an eye for clean UI/UX and process automation.\n\nMy goal is to give your brand a robust digital presence that not only looks great but converts effectively and operates securely.',
+          founderDegree: 'Software Engineer',
+          founderInstitution: 'Duoc UC Alumni',
           expertiseTitle: 'Technical Expertise',
           expertiseList: [
             'Full Stack Web Development (React, Node, modern frameworks)',
@@ -66,9 +68,11 @@ const About = () => {
             'Hola, soy Francisco Campos. Me especializo en crear aplicaciones web modernas y de alto rendimiento que generan resultados reales a traves del codigo, el diseno y la IA.',
           founderTitlePrefix: 'El Profesional ',
           founderTitleHighlight: 'Detras de Syrtix',
-          founderSubtitle: 'Ingeniero de Software y Estratega Digital',
+          founderSubtitle: 'Ingeniero Informático',
           founderContent:
             'Con una fuerte base en ingenieria de software, funde Syrtix como un estudio personal dedicado a ayudar a las empresas a escalar. Combino avanzada experiencia tecnica en tecnologias web modernas con un enfoque en UI/UX limpio y automatizacion de procesos.\n\nMi objetivo es darle a tu marca una presencia digital robusta que no solo se vea increible sino que convierta de manera efectiva y opere con seguridad.',
+          founderDegree: 'Ingeniero en Informática',
+          founderInstitution: 'Titulado en Duoc UC',
           expertiseTitle: 'Expertise Tecnico',
           expertiseList: [
             'Desarrollo Web Full Stack (React, Node, frameworks modernos)',
@@ -145,15 +149,27 @@ const About = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-                {copy.founderTitlePrefix}
-                <span className="text-primary">{copy.founderTitleHighlight}</span>
-              </h2>
-              <p className="text-primary font-semibold mb-6">{copy.founderSubtitle}</p>
-              <div className="text-gray-600 space-y-4 whitespace-pre-line leading-relaxed text-lg">
-                {copy.founderContent}
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+                  {copy.founderTitlePrefix}
+                  <span className="text-primary">{copy.founderTitleHighlight}</span>
+                </h2>
+
+                <div className="flex items-center gap-4 mb-6">
+                  <img 
+                    src="/img/Logo_DuocUC.svg.png" 
+                    alt="Duoc UC Logo" 
+                    className="h-10 sm:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                  <div className="text-sm">
+                    <p className="font-bold text-gray-800">{copy.founderDegree}</p>
+                    <p className="text-gray-500">{copy.founderInstitution}</p>
+                  </div>
+                </div>
+
+                <div className="text-gray-600 space-y-4 whitespace-pre-line leading-relaxed text-lg">
+                  {copy.founderContent}
+                </div>
               </div>
-            </div>
             
             <div className="bg-base2 border-l-4 border-primary p-8 shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-3">
