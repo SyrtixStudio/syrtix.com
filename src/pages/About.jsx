@@ -1,322 +1,118 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
+import { Users, CheckCircle, Code, Star } from 'lucide-react';
+import { useLanguage } from '../i18n';
 
-import {
-  Target,
-  Rocket,
-  Shield,
-  Users,
-  Code,
-  Heart,
-  Zap,
-  ArrowRight,
-  CheckCircle,
-} from 'lucide-react';
-
-import { useLanguage } from '../i18n/index.jsx';
-
-function About() {
+const About = () => {
   const { lang } = useLanguage();
 
   const copy =
     lang === 'en'
       ? {
-          heroBadge: 'Meet the team',
-          heroTitlePrefix: 'We are ',
-          heroTitleHighlight: 'Syrtix',
+          heroBadge: 'ABOUT US',
+          heroTitlePrefix: 'We Build ',
+          heroTitleHighlight: 'Digital Solutions',
           heroDescription:
-            'A team passionate about building exceptional digital experiences that drive our clients growth.',
-          missionTitle: 'Our Mission',
-          missionText:
-            'Democratize access to professional websites through cutting-edge technology and accessible pricing, so every business can have a digital presence that delivers results.',
-          visionTitle: 'Our Vision',
-          visionText:
-            'Be the leading web development agency in Latin America, recognized for technical excellence, innovative design, and outstanding client service.',
-          valuesTitlePrefix: 'Our ',
-          valuesTitleHighlight: 'values',
-          valuesSubtitle: 'Principles that guide every decision and every line of code',
-          teamTitlePrefix: 'Our ',
-          teamTitleHighlight: 'team',
-          teamSubtitle: 'Passionate professionals committed to your success',
-          stats: [
-            { value: '+10', label: 'Projects delivered' },
-            { value: '100%', label: 'Satisfied clients' },
-            { value: '+5', label: 'Years of combined team experience' },
-            { value: '24/7', label: 'Support available' },
+            'Hi, I am Francisco Campos. I specialize in crafting modern, high-performance web applications that drive real business results through code, design, and AI.',
+          founderTitlePrefix: 'The Professional ',
+          founderTitleHighlight: 'Behind Syrtix',
+          founderSubtitle: 'Software Engineer & Digital Strategist',
+          founderContent:
+            'With a strong background in software engineering, I founded Syrtix as a personal studio dedicated to helping businesses scale. I combine advanced technical expertise in modern web technologies with an eye for clean UI/UX and process automation.\n\nMy goal is to give your brand a robust digital presence that not only looks great but converts effectively and operates securely.',
+          expertiseTitle: 'Technical Expertise',
+          expertiseList: [
+            'Full Stack Web Development (React, Node, modern frameworks)',
+            'AI Automation & Chatbots (RAG, LLM integrations)',
+            'Performance Optimization & Technical SEO',
+            'Solid Security & Architecture Practices',
           ],
-          whyTitlePrefix: 'Why work with ',
-          whyTitleHighlight: 'us',
+          whyTitlePrefix: 'Why Work ',
+          whyTitleHighlight: 'With Me',
           whyItems: [
-            'Multidisciplinary team with proven experience',
-            'AI-integrated modern technology',
-            'Transparent pricing with no surprises',
-            'Technical support included in all plans',
-            'Satisfaction guarantee for every project',
-            'Constant communication during the whole process',
+            'Direct communication with the lead engineer.',
+            'No agency bloat or unnecessary overhead.',
+            'Transparent pricing and clear expectations.',
+            'Focus on scalable and maintainable solutions.',
           ],
-          formulaTitle: 'Technology + Creativity = Results',
-          formulaText:
-            'We combine the latest technologies with user-centered design to build websites that not only look great, but also drive real conversions for your business.',
-          viewServices: 'View our services',
-          howTitlePrefix: 'How do we ',
-          howTitleHighlight: 'work with you',
-          methodologyText:
-            'At Syrtix we use Scrum methodology, which means you are an active part of the process with weekly checkpoints and full transparency.',
+          methodologyTitle: 'Simple Workflow',
           methodologyItems: [
-            'First meeting: we analyze your current challenges and define the best solution.',
-            'Project charter: we document scope, goals, constraints, and success criteria.',
-            'Timeline and planning: clear milestones and deliverables for each stage.',
-            'Mockups and prototypes: you validate before development starts.',
-            'Weekly meetings: progress review, questions, and viable changes.',
-            'Quality focus: we collect context deeply to deliver modern, fast, and stable products.',
-            'Security and trust: SSL and security best practices included by default.',
-          ],
-          expertiseBadge: 'TECH EXPERTISE',
-          expertiseTitle: 'Technical experience you can trust',
-          expertiseText1:
-            'We build fast, secure, and scalable websites focused on business outcomes.',
-          expertiseText2:
-            'We combine software engineering, data, AI, and cybersecurity to reduce risk and accelerate growth.',
-          processTitlePrefix: 'Our work ',
-          processTitleHighlight: 'methodology',
-          processTitleSuffix: '',
-          processSubtitle:
-            'We work with Scrum to ensure transparency, flexibility, and outcomes aligned with your goals.',
-          process: [
             {
-              title: 'Discovery meeting',
-              desc: 'We identify your pain points and define the best solution.',
+              title: '1. Discovery',
+              desc: 'We analyze your current challenges and define the ideal solution.',
             },
             {
-              title: 'Project charter',
-              desc: 'We document what is included, excluded, and success criteria.',
+              title: '2. Planning',
+              desc: 'We outline the scope, timeline, and exact deliverables.',
             },
             {
-              title: 'Timeline and plan',
-              desc: 'You receive a clear schedule with milestones and dates.',
+              title: '3. Execution',
+              desc: 'I develop the product with weekly progress updates.',
             },
             {
-              title: 'Mockups and prototypes',
-              desc: 'You review and approve the product vision before coding.',
-            },
-            {
-              title: 'Weekly check-ins',
-              desc: 'We review progress, clear blockers, and align decisions.',
-            },
-            {
-              title: 'Development and delivery',
-              desc: 'We build with focus on speed, stability, and quality.',
+              title: '4. Delivery',
+              desc: 'We go live with a fast, modern, and polished platform.',
             },
           ],
-          ctaTitle: 'Ready to work together?',
+          ctaTitle: 'Ready to build together?',
           ctaDescription:
-            'Tell us about your project and discover how we can help you achieve your digital goals.',
-          contactTeam: 'Contact the team',
-          viewPackages: 'View packages',
-          values: [
-            {
-              icon: <Zap size={28} />,
-              title: 'Innovation',
-              description:
-                'We use modern technologies and methodologies to create cutting-edge solutions.',
-            },
-            {
-              icon: <Heart size={28} />,
-              title: 'Passion',
-              description:
-                'We love what we do and it shows in every line of code and every design detail.',
-            },
-            {
-              icon: <Shield size={28} />,
-              title: 'Commitment',
-              description: 'Your success is our success. We are 100% involved in every project.',
-            },
-            {
-              icon: <Users size={28} />,
-              title: 'Collaboration',
-              description: 'We work with you as one team, not just as providers.',
-            },
-          ],
-          team: [
-            {
-              name: 'Francisco Campos',
-              role: 'Product Manager / Product Owner',
-              profession: 'Computer Engineer - Duoc UC',
-              description:
-                'Leads product strategy, roadmap, and priorities to maximize business impact.',
-            },
-            {
-              name: 'Sebastian Mella',
-              role: 'Full Stack Developer',
-              profession: 'Computer Engineer - Duoc UC',
-              description:
-                'Leads technical decisions and ensures scalable, maintainable solutions.',
-            },
-            {
-              name: 'Alexis Rodriguez',
-              role: 'Full Stack Developer',
-              profession: 'Computer Engineer - Duoc UC',
-              description:
-                'Builds end-to-end features across frontend and backend with production quality.',
-            },
-            {
-              name: 'Cristian Castro',
-              role: 'QA Engineer',
-              profession: 'Computer Engineer - Duoc UC',
-              description:
-                'Ensures quality, testing coverage, and secure development practices in every release.',
-            },
-          ],
+            'Tell me about your project and let us discover how I can help you achieve your digital goals.',
+          contactTeam: 'Get in Touch',
+          viewPackages: 'View Packages',
         }
       : {
-          heroBadge: 'Conoce al equipo',
-          heroTitlePrefix: 'Somos ',
-          heroTitleHighlight: 'Syrtix',
+          heroBadge: 'SOBRE NOSOTROS',
+          heroTitlePrefix: 'Construimos ',
+          heroTitleHighlight: 'Soluciones Digitales',
           heroDescription:
-            'Un equipo apasionado por crear experiencias digitales excepcionales que impulsan el crecimiento de nuestros clientes.',
-          missionTitle: 'Nuestra Mision',
-          missionText:
-            'Democratizar el acceso a sitios web profesionales mediante tecnologia de vanguardia y precios accesibles, permitiendo que cada negocio tenga una presencia digital que genere resultados reales.',
-          visionTitle: 'Nuestra Vision',
-          visionText:
-            'Ser la agencia de desarrollo web de referencia en Latinoamerica, reconocida por combinar excelencia tecnica, Diseño innovador y un servicio al cliente que supera expectativas.',
-          valuesTitlePrefix: 'Nuestros ',
-          valuesTitleHighlight: 'valores',
-          valuesSubtitle: 'Los principios que guian cada decision y cada linea de codigo',
-          teamTitlePrefix: 'Nuestro ',
-          teamTitleHighlight: 'equipo',
-          teamSubtitle: 'Profesionales apasionados comprometidos con tu exito',
-          stats: [
-            { value: '+10', label: 'Proyectos entregados' },
-            { value: '100%', label: 'Clientes satisfechos' },
-            { value: '+5', label: 'Años de experiencia acumulada del equipo' },
-            { value: '24/7', label: 'Soporte disponible' },
+            'Hola, soy Francisco Campos. Me especializo en crear aplicaciones web modernas y de alto rendimiento que generan resultados reales a traves del codigo, el diseno y la IA.',
+          founderTitlePrefix: 'El Profesional ',
+          founderTitleHighlight: 'Detras de Syrtix',
+          founderSubtitle: 'Ingeniero de Software y Estratega Digital',
+          founderContent:
+            'Con una fuerte base en ingenieria de software, funde Syrtix como un estudio personal dedicado a ayudar a las empresas a escalar. Combino avanzada experiencia tecnica en tecnologias web modernas con un enfoque en UI/UX limpio y automatizacion de procesos.\n\nMi objetivo es darle a tu marca una presencia digital robusta que no solo se vea increible sino que convierta de manera efectiva y opere con seguridad.',
+          expertiseTitle: 'Expertise Tecnico',
+          expertiseList: [
+            'Desarrollo Web Full Stack (React, Node, frameworks modernos)',
+            'Automatizacion IA y Chatbots (RAG, integraciones LLM)',
+            'Optimizacion de Rendimiento y SEO Tecnico',
+            'Practicas Solidas de Seguridad y Arquitectura',
           ],
-          whyTitlePrefix: 'Por que trabajar con ',
-          whyTitleHighlight: 'nosotros',
+          whyTitlePrefix: 'Por Que Trabajar ',
+          whyTitleHighlight: 'Conmigo',
           whyItems: [
-            'Equipo multidisciplinario con experiencia',
-            'Tecnologia de punta con IA integrada',
-            'Precios transparentes sin sorpresas',
-            'Soporte tecnico incluido en todos los planes',
-            'Garantia de satisfaccion en cada proyecto',
-            'Comunicacion constante durante todo el proceso',
+            'Comunicacion directa con el ingeniero principal.',
+            'Sin burocracia ni costos innecesarios de agencia.',
+            'Precios transparentes y expectativas claras.',
+            'Foco en soluciones escalables y mantenibles.',
           ],
-          formulaTitle: 'Tecnologia + Creatividad = Resultados',
-          formulaText:
-            'Combinamos las ultimas tecnologias con Diseño centrado en el usuario para crear sitios web que no solo se ven bien, sino que generan conversiones reales para tu negocio.',
-          viewServices: 'Ver nuestros servicios',
-          howTitlePrefix: 'Como ',
-          howTitleHighlight: 'trabajamos contigo',
-          methodologyText:
-            'En Syrtix utilizamos la metodologia agil Scrum. Tendras reuniones semanales con nuestro equipo para revisar avances y proponer cambios viables.',
+          methodologyTitle: 'Flujo de Trabajo Simple',
           methodologyItems: [
-            'Primera reunion: analizamos tus problemas actuales y definimos la mejor solucion.',
-            'Acta de constitucion: documentamos alcance, objetivos, restricciones y criterios de exito.',
-            'Cronograma y plan: fechas y entregables claros por etapa.',
-            'Mockups y prototipos: visualizas el producto final antes del desarrollo.',
-            'Reuniones semanales: revisamos avances, dudas y cambios viables.',
-            'Enfoque en calidad: producto moderno, elegante, rapido y estable.',
-            'Seguridad y confianza: SSL y buenas practicas de seguridad por defecto.',
-          ],
-          expertiseBadge: 'EXPERTISE TECNICO',
-          expertiseTitle: 'Experiencia tecnica que da confianza',
-          expertiseText1:
-            'Construimos sitios rapidos, seguros y escalables con foco en resultados de negocio.',
-          expertiseText2:
-            'Combinamos ingenieria de software, datos, IA y ciberseguridad para reducir riesgos y acelerar tu crecimiento.',
-          processTitlePrefix: 'Nuestra ',
-          processTitleHighlight: 'metodologia',
-          processTitleSuffix: ' de trabajo',
-          processSubtitle:
-            'Trabajamos con metodologia agil Scrum, asegurando transparencia, flexibilidad y resultados alineados a tus objetivos.',
-          process: [
             {
-              title: 'Primera reunion',
-              desc: 'Analizamos tus dolores y proponemos la mejor solucion.',
+              title: '1. Descubrimiento',
+              desc: 'Analizamos tus desafios actuales y definimos la solucion ideal.',
             },
             {
-              title: 'Acta de constitucion',
-              desc: 'Definimos alcance, objetivos y criterios de exito.',
+              title: '2. Planificacion',
+              desc: 'Trazamos el alcance, cronograma y entregables exactos.',
             },
             {
-              title: 'Cronograma y plan',
-              desc: 'Te entregamos fechas y entregables claros por etapa.',
+              title: '3. Ejecucion',
+              desc: 'Desarrollo el producto con actualizaciones semanales.',
             },
             {
-              title: 'Mockups y prototipos',
-              desc: 'Visualizas el resultado y das feedback antes de desarrollar.',
-            },
-            {
-              title: 'Reuniones semanales',
-              desc: 'Revisamos avances, resolvemos dudas y ajustamos decisiones.',
-            },
-            {
-              title: 'Desarrollo y entrega',
-              desc: 'Construimos con foco en rendimiento, estabilidad y Diseño.',
+              title: '4. Entrega',
+              desc: 'Lanzamos una plataforma rapida, moderna y pulida.',
             },
           ],
-          ctaTitle: 'Listo para trabajar juntos?',
+          ctaTitle: '¿Listo para trabajar juntos?',
           ctaDescription:
-            'Cuentaños sobre tu proyecto y descubre como podemos ayudarte a alcanzar tus objetivos digitales.',
-          contactTeam: 'Contactar al equipo',
-          viewPackages: 'Ver paquetes',
-          values: [
-            {
-              icon: <Zap size={28} />,
-              title: 'Innovacion',
-              description:
-                'Utilizamos las ultimas tecnologias y metodologias para crear soluciones modernas.',
-            },
-            {
-              icon: <Heart size={28} />,
-              title: 'Pasion',
-              description:
-                'Amamos lo que hacemos y se refleja en cada linea de codigo y cada pixel.',
-            },
-            {
-              icon: <Shield size={28} />,
-              title: 'Compromiso',
-              description: 'Tu exito es nuestro exito. Nos involucramos 100% en cada proyecto.',
-            },
-            {
-              icon: <Users size={28} />,
-              title: 'Colaboracion',
-              description: 'Trabajamos contigo como un equipo, no solo como proveedores.',
-            },
-          ],
-          team: [
-            {
-              name: 'Francisco Campos',
-              role: 'Product Manager / Product Owner',
-              profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Lidera la estrategia de producto, roadmap y prioridades de negocio.',
-            },
-            {
-              name: 'Sebastian Mella',
-              role: 'Full Stack Developer',
-              profession: 'Ingeniero Informatico - Duoc UC',
-              description:
-                'Lidera decisiones tecnicas y asegura soluciones escalables y mantenibles.',
-            },
-            {
-              name: 'Alexis Rodriguez',
-              role: 'Full Stack Developer',
-              profession: 'Ingeniero Informatico - Duoc UC',
-              description:
-                'Desarrolla funcionalidades end-to-end en frontend y backend con calidad de produccion.',
-            },
-            {
-              name: 'Cristian Castro',
-              role: 'QA y Seguridad',
-              profession: 'Ingeniero Informatico - Duoc UC',
-              description:
-                'Asegura calidad, cobertura de pruebas y practicas de desarrollo seguro en cada entrega.',
-            },
-          ],
+            'Cuentame sobre tu proyecto y descubramos como puedo ayudarte a alcanzar tus objetivos digitales.',
+          contactTeam: 'Contactar',
+          viewPackages: 'Ver Paquetes',
         };
 
   return (
     <main className="min-h-screen bg-base">
+      {/* Hero Section - KEEPS EXACT STYLING AND BACKGROUND */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
           <img
@@ -344,193 +140,95 @@ function About() {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 bg-base">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-base border-2 border-gray-200 hover:border-primary p-8 transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="bg-primary p-3 mr-4">
-                  <Target size={28} className="text-gray-800" />
-                </div>
-                <h2 className="text-2xl font-bold text-gray-800">{copy.missionTitle}</h2>
-              </div>
-              <p className="text-gray-600">{copy.missionText}</p>
-            </div>
-
-            <div className="bg-base border-2 border-gray-200 hover:border-primary p-8 transition-all duration-300">
-              <div className="flex items-center mb-4">
-                <div className="bg-secondary p-3 mr-4">
-                  <Rocket size={28} className="text-white" />
-                </div>
-                <h2 className="text-2xl font-bold text-gray-800">{copy.visionTitle}</h2>
-              </div>
-              <p className="text-gray-600">{copy.visionText}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base2">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.valuesTitlePrefix}
-              <span className="text-primary">{copy.valuesTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
-              {copy.valuesSubtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {copy.values.map((value, idx) => (
-              <div
-                key={idx}
-                className="bg-base p-6 border border-gray-200 hover:border-primary text-center transition-all duration-300 group"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary mb-4 group-hover:bg-primary group-hover:text-gray-800 transition-all duration-300">
-                  {value.icon}
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.teamTitlePrefix}
-              <span className="text-primary">{copy.teamTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
-              {copy.teamSubtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {copy.team.map((member, idx) => {
-              const showDuocLogo =
-                typeof member.profession === 'string' &&
-                member.profession.toLowerCase().includes('duoc uc');
-              const professionLabel =
-                typeof member.profession === 'string'
-                  ? member.profession.replace(/\s*-\s*duoc uc/i, '').trim()
-                  : member.profession;
-
-              return (
-                <div
-                  key={idx}
-                  className="bg-base border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300 group"
-                >
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
-                    <p className="text-primary text-sm font-medium mb-2">{member.role}</p>
-                    <div className="mb-2 flex items-center gap-2">
-                      <p className="text-xs text-gray-500">{professionLabel}</p>
-                      {showDuocLogo && (
-                        <img
-                          src="/img/Logo_DuocUC.svg.png"
-                          alt="Duoc UC"
-                          className="h-4 w-auto"
-                          loading="lazy"
-                        />
-                      )}
-                    </div>
-                    <p className="text-sm text-gray-600 mb-4">{member.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-secondary">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {copy.stats.map((item) => (
-              <div key={item.label}>
-                <div className="text-4xl font-bold text-primary mb-2">{item.value}</div>
-                <div className="text-white/80">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Founder Content Section */}
       <section className="py-16 px-4 sm:px-6 bg-base">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
-                {copy.whyTitlePrefix}
-                <span className="text-primary">{copy.whyTitleHighlight}</span>?
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+                {copy.founderTitlePrefix}
+                <span className="text-primary">{copy.founderTitleHighlight}</span>
               </h2>
-
-              <div className="space-y-4">
-                {copy.whyItems.map((item, idx) => (
-                  <div key={idx} className="flex items-center">
-                    <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0" />
+              <p className="text-primary font-semibold mb-6">{copy.founderSubtitle}</p>
+              <div className="text-gray-600 space-y-4 whitespace-pre-line leading-relaxed text-lg">
+                {copy.founderContent}
+              </div>
+            </div>
+            
+            <div className="bg-base2 border-l-4 border-primary p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                <Code className="text-primary" size={24} />
+                {copy.expertiseTitle}
+              </h3>
+              <ul className="space-y-4">
+                {copy.expertiseList.map((item, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <CheckCircle className="text-primary mr-3 mt-1 flex-shrink-0" size={20} />
                     <span className="text-gray-700">{item}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
-            </div>
-
-            <div className="bg-base p-8 border border-gray-200">
-              <div className="text-center">
-                <Code size={48} className="text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{copy.formulaTitle}</h3>
-                <p className="text-gray-600 mb-6">{copy.formulaText}</p>
-                <Link
-                  to="/servicios"
-                  className="inline-flex items-center text-secondary font-bold hover:text-primary transition-all duration-300"
-                >
-                  {copy.viewServices}
-                  <ArrowRight size={18} className="ml-2" />
-                </Link>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 px-4 sm:px-6 bg-base2">
-        <div className="max-w-5xl mx-auto">
-          <div className="border-2 border-secondary/20 bg-gradient-to-r from-secondary/5 via-base to-primary/5 p-6 sm:p-8 text-center">
-            <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
-              {copy.expertiseBadge}
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
-              {copy.expertiseTitle}
-            </h3>
-            <p className="text-base text-gray-700 mb-2 max-w-3xl mx-auto">{copy.expertiseText1}</p>
-            <p className="text-base text-gray-700 max-w-3xl mx-auto">{copy.expertiseText2}</p>
+      {/* Why Work With Me & Methodology */}
+      <section className="py-16 px-4 sm:px-6 bg-base2">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          {/* Why Me */}
+          <div>
+             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
+              {copy.whyTitlePrefix}
+              <span className="text-primary">{copy.whyTitleHighlight}</span>
+            </h2>
+            <div className="grid grid-cols-1 gap-4">
+              {copy.whyItems.map((item, idx) => (
+                <div key={idx} className="flex items-center p-4 bg-base border border-gray-200">
+                  <Star className="text-primary mr-4 flex-shrink-0" size={24} />
+                  <span className="font-medium text-gray-800">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Workflow */}
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
+              {copy.methodologyTitle}
+            </h2>
+            <div className="space-y-6 relative border-l-2 border-primary/30 ml-3">
+              {copy.methodologyItems.map((step, idx) => (
+                <div key={idx} className="relative pl-8">
+                  <div className="absolute -left-2 top-1.5 w-4 h-4 rounded-full bg-primary ring-4 ring-base2"></div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-1">{step.title}</h3>
+                  <p className="text-gray-600">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 bg-secondary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">{copy.ctaTitle}</h2>
-          <p className="text-base mb-8 max-w-xl mx-auto">{copy.ctaDescription}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 bg-primary text-gray-900 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">{copy.ctaTitle}</h2>
+          <p className="text-lg sm:text-xl font-medium mb-8 max-w-2xl mx-auto">
+            {copy.ctaDescription}
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contacto"
-              className="bg-primary text-gray-800 font-bold px-8 py-4 hover:bg-amber-500 transition duration-300 flex items-center justify-center"
+              className="px-8 py-3 bg-gray-900 text-primary font-bold hover:bg-gray-800 transition-colors shadow-lg"
             >
               {copy.contactTeam}
-              <ArrowRight size={20} className="ml-2" />
             </Link>
             <Link
               to="/paquetes"
-              className="border-2 border-primary text-base font-bold px-8 py-4 hover:bg-primary hover:text-white transition duration-300"
+              className="px-8 py-3 bg-transparent border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-900 hover:text-primary transition-colors"
             >
               {copy.viewPackages}
             </Link>
@@ -539,6 +237,7 @@ function About() {
       </section>
     </main>
   );
-}
+};
 
 export default About;
+
