@@ -107,10 +107,17 @@ const AIChatbot = () => {
 
       {/* Botón Flotante */}
       <button
-        className={`chat-bubble ${isOpen ? 'active' : ''}`}
+        className={`chat-bubble ${isOpen ? 'active' : ''} overflow-hidden`}
         onClick={() => setIsOpen(!isOpen)}
+        style={!isOpen ? { padding: 0, justifyContent: 'center' } : {}}
       >
-        {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
+        {isOpen ? <X size={28} /> : (
+          <img 
+            src="/img/img_syrtix_ia/chatbot_proposal_2.png" 
+            alt="Syrtix IA" 
+            className="w-full h-full object-cover scale-[1.4] bg-white" 
+          />
+        )}
       </button>
 
       {/* Ventana de Chat */}
