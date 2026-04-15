@@ -109,14 +109,16 @@ const AIChatbot = () => {
       <button
         className={`chat-bubble ${isOpen ? 'active' : ''} overflow-hidden`}
         onClick={() => setIsOpen(!isOpen)}
-        style={!isOpen ? { padding: 0, justifyContent: 'center' } : {}}
+        style={!isOpen ? { padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}}
       >
         {isOpen ? <X size={28} /> : (
-          <img 
-            src="/img/img_syrtix_ia/chatbot_proposal_2.png" 
-            alt="Syrtix IA" 
-            className="w-full h-full object-cover scale-[1.4] bg-white" 
-          />
+          <div className="w-[48px] h-[48px] bg-white rounded-full flex items-center justify-center overflow-hidden">
+            <img 
+              src="/img/img_syrtix_ia/chatbot_proposal_2.png" 
+              alt="Syrtix IA" 
+              className="w-[180%] h-[180%] max-w-none object-cover" 
+            />
+          </div>
         )}
       </button>
 
