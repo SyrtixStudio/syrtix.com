@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
+import { MessageSquare, Send, X, Bot, User, Sparkles } from 'lucide-react';
 import './AIChatbot.css';
 
 const AIChatbot = () => {
@@ -107,17 +107,13 @@ const AIChatbot = () => {
 
       {/* Botón Flotante */}
       <button
-        className={`chat-bubble ${isOpen ? 'active' : ''}`}
+        className={`chat-bubble ${isOpen ? 'active' : ''} shadow-xl hover:shadow-2xl`}
         onClick={() => setIsOpen(!isOpen)}
-        style={!isOpen ? { padding: 0, background: 'transparent', boxShadow: 'none' } : {}}
       >
         {isOpen ? <X size={28} /> : (
-          <div className="w-full h-full bg-white rounded-full flex items-center justify-center overflow-hidden shadow-[0_10px_25px_rgba(0,0,0,0.15)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.2)] transition-shadow">
-            <img 
-              src="/img/img_syrtix_ia/chatbot_proposal_2.png" 
-              alt="Syrtix IA" 
-              className="w-[180%] h-[180%] max-w-none object-cover" 
-            />
+          <div className="relative flex items-center justify-center text-white">
+            <Bot size={32} />
+            <Sparkles className="absolute -top-1 -right-2 w-4 h-4 text-emerald-300 animate-pulse" />
           </div>
         )}
       </button>
