@@ -91,7 +91,9 @@ const TermsAndConditions = () => {
             },
             {
               title: '12. Contact',
-              text: ['If you have questions about these Terms, contact us through our Contact page.'],
+              text: [
+                'If you have questions about these Terms, contact us through our Contact page.',
+              ],
             },
           ],
           privacyLink: 'Privacy Policy',
@@ -161,19 +163,27 @@ const TermsAndConditions = () => {
             },
             {
               title: '9. Enlaces a terceros',
-              text: ['Este sitio puede contener enlaces a sitios externos. No controlamos su contenido y no asumimos responsabilidad por ellos.'],
+              text: [
+                'Este sitio puede contener enlaces a sitios externos. No controlamos su contenido y no asumimos responsabilidad por ellos.',
+              ],
             },
             {
               title: '10. Modificaciones',
-              text: ['Podemos modificar estos terminos en cualquier momento. Las modificaciones se publicaran en esta pagina.'],
+              text: [
+                'Podemos modificar estos terminos en cualquier momento. Las modificaciones se publicaran en esta pagina.',
+              ],
             },
             {
               title: '11. Ley aplicable',
-              text: ['Estos terminos se rigen por la legislacion chilena. Cualquier controversia se somete a tribunales competentes de Santiago, Chile.'],
+              text: [
+                'Estos terminos se rigen por la legislacion chilena. Cualquier controversia se somete a tribunales competentes de Santiago, Chile.',
+              ],
             },
             {
               title: '12. Contacto',
-              text: ['Si tienes preguntas sobre estos terminos, contactaños desde nuestra pagina de Contacto.'],
+              text: [
+                'Si tienes preguntas sobre estos términos, contáctanos desde nuestra página de Contacto.',
+              ],
             },
           ],
           privacyLink: 'Politica de Privacidad',
@@ -232,4 +242,3 @@ const TermsAndConditions = () => {
 };
 
 export default TermsAndConditions;
-

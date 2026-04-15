@@ -133,8 +133,7 @@ function PortfolioCarousel() {
       ? {
           titlePrefix: 'Projects that deliver ',
           titleHighlight: 'results',
-          subtitle:
-            'Every project is custom engineering. This is how Syrtix works.',
+          subtitle: 'Every project is custom engineering. This is how Syrtix works.',
           prevProject: 'Previous project',
           nextProject: 'Next project',
           viewProject: 'View project',
@@ -152,8 +151,7 @@ function PortfolioCarousel() {
       : {
           titlePrefix: 'Proyectos que generan ',
           titleHighlight: 'resultados',
-          subtitle:
-            'Cada proyecto es ingeniería a medida. Así trabaja Syrtix.',
+          subtitle: 'Cada proyecto es ingeniería a medida. Así trabaja Syrtix.',
           prevProject: 'Proyecto anterior',
           nextProject: 'Proyecto siguiente',
           viewProject: 'Ver proyecto',
@@ -224,7 +222,8 @@ function PortfolioCarousel() {
     }
 
     setSelectedMockupIndex(
-      (prev) => (prev - 1 + selectedProject.mockupImages.length) % selectedProject.mockupImages.length,
+      (prev) =>
+        (prev - 1 + selectedProject.mockupImages.length) % selectedProject.mockupImages.length,
     );
   };
 
@@ -241,70 +240,70 @@ function PortfolioCarousel() {
         </div>
 
         <div data-aos="fade-up" data-aos-delay="200" className="portfolio-swiper-wrapper">
-        <Swiper
-          effect="coverflow"
-          grabCursor
-          centeredSlides
-          loop
-          slidesPerView="auto"
-          initialSlide={1}
-          coverflowEffect={{
-            rotate: 30,
-            stretch: 10,
-            depth: 120,
-            modifier: 1.2,
-            slideShadows: true,
-          }}
-          pagination={{ clickable: true }}
-          modules={[EffectCoverflow, Pagination]}
-          className="portfolio-swiper"
-        >
-          {portfolio.map((project) => {
-            const title = lang === 'en' ? project.titleEn : project.titleEs;
-            const category = copy.categories[project.category] || project.category;
-            const hasMockups =
-              MOCKUP_PROJECT_IDS.has(project.id) && Array.isArray(project.mockupImages);
+          <Swiper
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            loop
+            slidesPerView="auto"
+            initialSlide={1}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 10,
+              depth: 120,
+              modifier: 1.2,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination]}
+            className="portfolio-swiper"
+          >
+            {portfolio.map((project) => {
+              const title = lang === 'en' ? project.titleEn : project.titleEs;
+              const category = copy.categories[project.category] || project.category;
+              const hasMockups =
+                MOCKUP_PROJECT_IDS.has(project.id) && Array.isArray(project.mockupImages);
 
-            return (
-              <SwiperSlide key={project.id} className="portfolio-slide">
-                <button
-                  type="button"
-                  onClick={() => (hasMockups ? openProjectModal(project) : undefined)}
-                  className={`group block w-full h-full text-left ${
-                    hasMockups ? 'cursor-pointer' : 'opacity-70 cursor-not-allowed'
-                  }`}
-                  disabled={!hasMockups}
-                >
-                  <div className="relative overflow-hidden bg-white">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={title}
-                        className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-500"
-                      />
+              return (
+                <SwiperSlide key={project.id} className="portfolio-slide">
+                  <button
+                    type="button"
+                    onClick={() => (hasMockups ? openProjectModal(project) : undefined)}
+                    className={`group block w-full h-full text-left ${
+                      hasMockups ? 'cursor-pointer' : 'opacity-70 cursor-not-allowed'
+                    }`}
+                    disabled={!hasMockups}
+                  >
+                    <div className="relative overflow-hidden bg-white">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={title}
+                          className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-500"
+                        />
+                      </div>
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 pointer-events-none">
+                        <span className="text-primary text-xs font-bold mb-1">{category}</span>
+                        <h3 className="text-white font-bold text-base mb-2">{title}</h3>
+                        <span className="inline-flex items-center text-primary text-xs font-bold">
+                          {copy.viewProject} <ExternalLink size={13} className="ml-1" />
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 pointer-events-none">
-                      <span className="text-primary text-xs font-bold mb-1">{category}</span>
-                      <h3 className="text-white font-bold text-base mb-2">{title}</h3>
-                      <span className="inline-flex items-center text-primary text-xs font-bold">
-                        {copy.viewProject} <ExternalLink size={13} className="ml-1" />
+                    <div className="py-3 px-1 bg-base text-center">
+                      <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
+                        {category}
                       </span>
+                      <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
                     </div>
-                  </div>
-
-                  <div className="py-3 px-1 bg-base text-center">
-                    <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
-                      {category}
-                    </span>
-                    <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
-                  </div>
-                </button>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
+                  </button>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </div>
 
       {selectedProject && (
@@ -321,7 +320,9 @@ function PortfolioCarousel() {
           >
             <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
               <div>
-                <p className="text-primary text-xs font-bold uppercase tracking-wide">{copy.previewLabel}</p>
+                <p className="text-primary text-xs font-bold uppercase tracking-wide">
+                  {copy.previewLabel}
+                </p>
                 <h3 className="text-gray-800 font-bold text-lg">
                   {lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs}
                 </h3>

@@ -134,7 +134,9 @@ function Testimonials() {
                       loading="lazy"
                     />
                     <div>
-                      <p className="text-base font-semibold text-gray-800 leading-none">{testimonial.name}</p>
+                      <p className="text-base font-semibold text-gray-800 leading-none">
+                        {testimonial.name}
+                      </p>
                       <p className="mt-1 text-xs text-gray-500">
                         {formatRelativeReviewTime(testimonial.createdAt, lang)}
                       </p>

@@ -5,15 +5,15 @@ import './AIChatbot.css';
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'ai', text: '¡Hola! Soy SyrtixAI. ¿En qué puedo ayudarte hoy?' }
+    { role: 'ai', text: '¡Hola! Soy SyrtixAI. ¿En qué puedo ayudarte hoy?' },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const SECRET = import.meta.env.VITE_SYRTIX_SECRET || "syrtix_super_secret_123";
+  const SECRET = import.meta.env.VITE_SYRTIX_SECRET || 'syrtix_super_secret_123';
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -24,27 +24,33 @@ const AIChatbot = () => {
     if (!input.trim()) return;
 
     const userMsg = input;
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
+    setMessages((prev) => [...prev, { role: 'user', text: userMsg }]);
     setInput('');
     setIsLoading(true);
 
     const N8N_URL = import.meta.env.VITE_N8N_WEBHOOK_URL;
-    
+
     try {
       const response = await fetch(N8N_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           source: 'CHATBOT',
           pregunta: userMsg,
-          history: messages 
-        })
+          history: messages,
+        }),
       });
 
       const data = await response.json();
-      setMessages(prev => [...prev, { role: 'ai', text: data.answer || data.response || "¡He recibido tu mensaje!" }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: 'ai', text: data.answer || data.response || '¡He recibido tu mensaje!' },
+      ]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: 'Lo siento, mi conexión con el cuartel general está fallando.' }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: 'ai', text: 'Lo siento, mi conexión con el cuartel general está fallando.' },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -53,7 +59,7 @@ const AIChatbot = () => {
   // Función simple para parsear enlaces [Texto](URL) y transformarlos en <a>
   const renderMessageText = (text) => {
     if (!text) return '';
-    
+
     // Regex para encontrar [Texto](URL)
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
     const parts = [];
@@ -65,20 +71,20 @@ const AIChatbot = () => {
       if (match.index > lastIndex) {
         parts.push(text.substring(lastIndex, match.index));
       }
-      
+
       // Agregar el enlace como un componente
       parts.push(
-        <a 
-          key={match.index} 
-          href={match[2]} 
-          target="_blank" 
+        <a
+          key={match.index}
+          href={match[2]}
+          target="_blank"
           rel="noopener noreferrer"
           className="chat-link"
         >
           {match[1]}
-        </a>
+        </a>,
       );
-      
+
       lastIndex = linkRegex.lastIndex;
     }
 
@@ -100,8 +106,8 @@ const AIChatbot = () => {
       )}
 
       {/* Botón Flotante */}
-      <button 
-        className={`chat-bubble ${isOpen ? 'active' : ''}`} 
+      <button
+        className={`chat-bubble ${isOpen ? 'active' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
@@ -116,7 +122,9 @@ const AIChatbot = () => {
               <h3>Syrtix AI</h3>
               <span>Online</span>
             </div>
-            <button className="close-btn" onClick={() => setIsOpen(false)}><X size={18} /></button>
+            <button className="close-btn" onClick={() => setIsOpen(false)}>
+              <X size={18} />
+            </button>
           </div>
 
           <div className="chat-messages">
@@ -125,15 +133,15 @@ const AIChatbot = () => {
                 <div className="avatar">
                   {msg.role === 'ai' ? <Bot size={14} /> : <User size={14} />}
                 </div>
-                <div className="message-text">
-                  {renderMessageText(msg.text)}
-                </div>
+                <div className="message-text">{renderMessageText(msg.text)}</div>
               </div>
             ))}
 
             {isLoading && (
               <div className="message-row ai">
-                <div className="avatar"><Bot size={14} /></div>
+                <div className="avatar">
+                  <Bot size={14} />
+                </div>
                 <div className="message-text typing">Escribiendo...</div>
               </div>
             )}
@@ -141,9 +149,9 @@ const AIChatbot = () => {
           </div>
 
           <div className="chat-input-area">
-            <input 
-              type="text" 
-              placeholder="Escribe tu duda..." 
+            <input
+              type="text"
+              placeholder="Escribe tu duda..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}

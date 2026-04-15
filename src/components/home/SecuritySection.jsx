@@ -67,7 +67,8 @@ function SecuritySection() {
               id: 'hosting',
               icon: 'Server',
               title: 'Hosting seguro',
-              description: 'Servidores de alta disponibilidad con backups automaticos y proteccion DDoS.',
+              description:
+                'Servidores de alta disponibilidad con backups automaticos y proteccion DDoS.',
             },
             {
               id: 'code',
@@ -85,7 +86,8 @@ function SecuritySection() {
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=30)',
+          backgroundImage:
+            'url(https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=30)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -118,7 +120,11 @@ function SecuritySection() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="400">
+        <div
+          className="mt-12 pt-8 border-t border-white/10"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
             <div className="flex items-center text-white/60">
               <Lock size={18} className="text-green-400 mr-2" />

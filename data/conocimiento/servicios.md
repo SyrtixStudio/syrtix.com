@@ -16,11 +16,11 @@ Syrtix Studio ofrece soluciones digitales de alto impacto para emprendedores y e
 - **Ideal para:** Empresas que buscan posicionamiento y explicar servicios detalladamente.
 - **Incluye:** Sitio multipágina de hasta 5 secciones, optimización de velocidad, SEO on-page esencial y todo lo del plan emprendedor.
 
-### 3. Solución Negocio (E-commerce)
+### 3. Solución Empresa (E-commerce)
 - **Precio Oferta:** $699.000 CLP
 - **Precio Normal:** $999.000 CLP
-- **Ideal para:** Negocios que necesitan vender online y autogestionar su contenido.
-- **Incluye:** E-commerce con checkout seguro, panel administrador para productos y stock, gestión de pedidos y clientes, y soporte prioritario.
+- **Ideal para:** Negocios de servicios que necesitan escalar su presencia digital con catálogo y captación comercial, sin desarrollar un sistema interno complejo.
+- **Incluye:** Sitio corporativo ampliado, catálogo administrable, integración de checkout/pago con proveedor externo, formularios de captación centralizados y soporte prioritario.
 
 ### 4. Solución Empresa (Enterprise)
 - **Precio:** Desde $999.000 CLP

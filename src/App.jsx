@@ -72,8 +72,14 @@ function App() {
               <Route path="/terminos-condiciones" element={<TermsAndConditions />} />
               <Route path="/aviso-legal" element={<LegalNotice />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/cuanto-cuesta-una-pagina-web-en-chile" element={<CuantoCuestaPaginaWeb />} />
-              <Route path="/blog/por-que-necesito-una-pagina-web" element={<PorQueNecesitoUnaPaginaWeb />} />
+              <Route
+                path="/blog/cuanto-cuesta-una-pagina-web-en-chile"
+                element={<CuantoCuestaPaginaWeb />}
+              />
+              <Route
+                path="/blog/por-que-necesito-una-pagina-web"
+                element={<PorQueNecesitoUnaPaginaWeb />}
+              />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

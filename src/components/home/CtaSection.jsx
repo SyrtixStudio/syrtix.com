@@ -42,7 +42,10 @@ function CtaSection() {
                 className="bg-primary text-gray-800 font-bold px-7 py-3.5 hover:brightness-110 transition duration-300 flex items-center justify-center text-sm uppercase tracking-wide group"
               >
                 {copy.packages}
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={18}
+                  className="ml-2 group-hover:translate-x-1 transition-transform"
+                />
               </Link>
               <Link
                 to="/contacto"
@@ -57,7 +60,11 @@ function CtaSection() {
           <div data-aos="fade-left">
             <img
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80"
-              alt={lang === 'en' ? 'Business team planning digital strategy' : 'Equipo de negocio planificando estrategia digital'}
+              alt={
+                lang === 'en'
+                  ? 'Business team planning digital strategy'
+                  : 'Equipo de negocio planificando estrategia digital'
+              }
               className="w-full aspect-[4/3] object-cover shadow-lg"
               loading="lazy"
             />

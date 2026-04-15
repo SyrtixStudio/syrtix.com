@@ -18,12 +18,10 @@ function ServicesGrid() {
       ? {
           sectionTitlePrefix: 'Additional ',
           sectionTitleHighlight: 'add-ons',
-          sectionSubtitle:
-            'Enhance your website post-launch with our ongoing growth services.',
+          sectionSubtitle: 'Enhance your website post-launch with our ongoing growth services.',
           pricingDisclaimer:
             '* Monthly recurring services. Prices may vary depending on the scope.',
-          whatsappDisclaimer:
-            '* Contact us via WhatsApp to quote your specific needs.',
+          whatsappDisclaimer: '* Contact us via WhatsApp to quote your specific needs.',
           viewService: 'Learn more',
           services: [
             {
@@ -53,14 +51,14 @@ function ServicesGrid() {
             'Potencia tu sitio web después del lanzamiento con nuestros servicios de crecimiento continuo.',
           pricingDisclaimer:
             '* Servicios de cobro mensual recurrente. Los precios pueden variar según el alcance.',
-          whatsappDisclaimer:
-            '* Contáctanos por WhatsApp para cotizar según tu necesidad.',
+          whatsappDisclaimer: '* Contáctanos por WhatsApp para cotizar según tu necesidad.',
           viewService: 'Saber más',
           services: [
             {
               id: 'seo',
               title: 'Posicionamiento SEO',
-              description: 'Optimización para buscadores que mejora tu visibilidad orgánica en Google.',
+              description:
+                'Optimización para buscadores que mejora tu visibilidad orgánica en Google.',
               price: 'Desde $79.000/mes',
             },
             {
@@ -87,7 +85,9 @@ function ServicesGrid() {
             <span className="text-primary">{copy.sectionTitleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">{copy.sectionSubtitle}</p>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+            {copy.sectionSubtitle}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

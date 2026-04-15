@@ -1,11 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import {
-  PortfolioCarousel,
-  PricingSection,
-  TrustBar,
-  TrustBlock,
-} from '../components/home';
+import { PortfolioCarousel, PricingSection, TrustBar, TrustBlock } from '../components/home';
 import { ServicesGrid, WhatWeDoSection } from '../modules/landing';
 
 import ModalPublicidad from '../components/ui/ModalPublicidad';
@@ -35,7 +30,8 @@ function Home() {
         price: '$149.000 CLP',
         promoLabel: 'LAUNCH OFFER',
         offerEndsAt: '2026-12-31T23:59:59-03:00',
-        description: 'Single-page website for entrepreneurs and service professionals who need fast lead capture.',
+        description:
+          'Single-page website for entrepreneurs and service professionals who need fast lead capture.',
         details: '10 slots available. Launch offer valid until Mar 31, 2026.',
         list: [
           'Professional design',
@@ -49,34 +45,35 @@ function Home() {
           'Business email setup*',
           'Website launch configuration',
           '15-day post-launch guidance',
-          'Free hosting for 1 year',
+          'Monthly hosting billed separately',
         ],
         delivery: 'Delivery in 7 days',
       };
     }
 
-      return {
-        ...common,
+    return {
+      ...common,
       title: 'Solución Emprendedor',
       oldPrice: '$299.000',
       price: '$149.000',
       promoLabel: 'OFERTA LANZAMIENTO',
       offerEndsAt: '2026-12-31T23:59:59-03:00',
-      description: 'Pagina web para emprendedores y pymes de servicios que necesitan captar clientes rapido.',
-      details: '10 cupos disponibles. Oferta de lanzamiento valida hasta el 31 de marzo de 2026.',
+      description:
+        'Página web para emprendedores y pymes de servicios que necesitan captar clientes rápido.',
+      details: '',
       list: [
         'Enfoque UX/U',
         'Identidad visual',
         'Diseño responsive',
         'Landing page',
-        'Setup basico para Google',
+        'Setup básico para Google',
         'Formulario de contacto',
         'WhatsApp integrado',
         'Ubicación en Google Maps',
-        'Configuracion correo corporativo*',
-        'Configuracion y publicacion del sitio',
-        'Acompanamiento post-lanzamiento por 15 dias',
-        'Hosting gratis por 1 año',
+        'Configuración correo corporativo*',
+        'Configuración y publicación del sitio',
+        'Acompañamiento post-lanzamiento por 15 días',
+        'Hosting mensual se cotiza aparte',
       ],
       delivery: 'Entrega en 7 días',
     };

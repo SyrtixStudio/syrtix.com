@@ -82,12 +82,30 @@ function About() {
           processSubtitle:
             'We work with Scrum to ensure transparency, flexibility, and outcomes aligned with your goals.',
           process: [
-            { title: 'Discovery meeting', desc: 'We identify your pain points and define the best solution.' },
-            { title: 'Project charter', desc: 'We document what is included, excluded, and success criteria.' },
-            { title: 'Timeline and plan', desc: 'You receive a clear schedule with milestones and dates.' },
-            { title: 'Mockups and prototypes', desc: 'You review and approve the product vision before coding.' },
-            { title: 'Weekly check-ins', desc: 'We review progress, clear blockers, and align decisions.' },
-            { title: 'Development and delivery', desc: 'We build with focus on speed, stability, and quality.' },
+            {
+              title: 'Discovery meeting',
+              desc: 'We identify your pain points and define the best solution.',
+            },
+            {
+              title: 'Project charter',
+              desc: 'We document what is included, excluded, and success criteria.',
+            },
+            {
+              title: 'Timeline and plan',
+              desc: 'You receive a clear schedule with milestones and dates.',
+            },
+            {
+              title: 'Mockups and prototypes',
+              desc: 'You review and approve the product vision before coding.',
+            },
+            {
+              title: 'Weekly check-ins',
+              desc: 'We review progress, clear blockers, and align decisions.',
+            },
+            {
+              title: 'Development and delivery',
+              desc: 'We build with focus on speed, stability, and quality.',
+            },
           ],
           ctaTitle: 'Ready to work together?',
           ctaDescription:
@@ -98,12 +116,14 @@ function About() {
             {
               icon: <Zap size={28} />,
               title: 'Innovation',
-              description: 'We use modern technologies and methodologies to create cutting-edge solutions.',
+              description:
+                'We use modern technologies and methodologies to create cutting-edge solutions.',
             },
             {
               icon: <Heart size={28} />,
               title: 'Passion',
-              description: 'We love what we do and it shows in every line of code and every design detail.',
+              description:
+                'We love what we do and it shows in every line of code and every design detail.',
             },
             {
               icon: <Shield size={28} />,
@@ -121,25 +141,29 @@ function About() {
               name: 'Francisco Campos',
               role: 'Product Manager / Product Owner',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Leads product strategy, roadmap, and priorities to maximize business impact.',
+              description:
+                'Leads product strategy, roadmap, and priorities to maximize business impact.',
             },
             {
               name: 'Sebastian Mella',
               role: 'Full Stack Developer',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Leads technical decisions and ensures scalable, maintainable solutions.',
+              description:
+                'Leads technical decisions and ensures scalable, maintainable solutions.',
             },
             {
               name: 'Alexis Rodriguez',
               role: 'Full Stack Developer',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Builds end-to-end features across frontend and backend with production quality.',
+              description:
+                'Builds end-to-end features across frontend and backend with production quality.',
             },
             {
               name: 'Cristian Castro',
               role: 'QA Engineer',
               profession: 'Computer Engineer - Duoc UC',
-              description: 'Ensures quality, testing coverage, and secure development practices in every release.',
+              description:
+                'Ensures quality, testing coverage, and secure development practices in every release.',
             },
           ],
         }
@@ -206,12 +230,30 @@ function About() {
           processSubtitle:
             'Trabajamos con metodologia agil Scrum, asegurando transparencia, flexibilidad y resultados alineados a tus objetivos.',
           process: [
-            { title: 'Primera reunion', desc: 'Analizamos tus dolores y proponemos la mejor solucion.' },
-            { title: 'Acta de constitucion', desc: 'Definimos alcance, objetivos y criterios de exito.' },
-            { title: 'Cronograma y plan', desc: 'Te entregamos fechas y entregables claros por etapa.' },
-            { title: 'Mockups y prototipos', desc: 'Visualizas el resultado y das feedback antes de desarrollar.' },
-            { title: 'Reuniones semanales', desc: 'Revisamos avances, resolvemos dudas y ajustamos decisiones.' },
-            { title: 'Desarrollo y entrega', desc: 'Construimos con foco en rendimiento, estabilidad y Diseño.' },
+            {
+              title: 'Primera reunion',
+              desc: 'Analizamos tus dolores y proponemos la mejor solucion.',
+            },
+            {
+              title: 'Acta de constitucion',
+              desc: 'Definimos alcance, objetivos y criterios de exito.',
+            },
+            {
+              title: 'Cronograma y plan',
+              desc: 'Te entregamos fechas y entregables claros por etapa.',
+            },
+            {
+              title: 'Mockups y prototipos',
+              desc: 'Visualizas el resultado y das feedback antes de desarrollar.',
+            },
+            {
+              title: 'Reuniones semanales',
+              desc: 'Revisamos avances, resolvemos dudas y ajustamos decisiones.',
+            },
+            {
+              title: 'Desarrollo y entrega',
+              desc: 'Construimos con foco en rendimiento, estabilidad y Diseño.',
+            },
           ],
           ctaTitle: 'Listo para trabajar juntos?',
           ctaDescription:
@@ -222,12 +264,14 @@ function About() {
             {
               icon: <Zap size={28} />,
               title: 'Innovacion',
-              description: 'Utilizamos las ultimas tecnologias y metodologias para crear soluciones modernas.',
+              description:
+                'Utilizamos las ultimas tecnologias y metodologias para crear soluciones modernas.',
             },
             {
               icon: <Heart size={28} />,
               title: 'Pasion',
-              description: 'Amamos lo que hacemos y se refleja en cada linea de codigo y cada pixel.',
+              description:
+                'Amamos lo que hacemos y se refleja en cada linea de codigo y cada pixel.',
             },
             {
               icon: <Shield size={28} />,
@@ -251,19 +295,22 @@ function About() {
               name: 'Sebastian Mella',
               role: 'Full Stack Developer',
               profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Lidera decisiones tecnicas y asegura soluciones escalables y mantenibles.',
+              description:
+                'Lidera decisiones tecnicas y asegura soluciones escalables y mantenibles.',
             },
             {
               name: 'Alexis Rodriguez',
               role: 'Full Stack Developer',
               profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Desarrolla funcionalidades end-to-end en frontend y backend con calidad de produccion.',
+              description:
+                'Desarrolla funcionalidades end-to-end en frontend y backend con calidad de produccion.',
             },
             {
               name: 'Cristian Castro',
               role: 'QA y Seguridad',
               profession: 'Ingeniero Informatico - Duoc UC',
-              description: 'Asegura calidad, cobertura de pruebas y practicas de desarrollo seguro en cada entrega.',
+              description:
+                'Asegura calidad, cobertura de pruebas y practicas de desarrollo seguro en cada entrega.',
             },
           ],
         };
@@ -291,7 +338,9 @@ function About() {
             <span className="text-primary">{copy.heroTitleHighlight}</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">{copy.heroDescription}</p>
+          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            {copy.heroDescription}
+          </p>
         </div>
       </section>
 
@@ -329,7 +378,9 @@ function About() {
               <span className="text-primary">{copy.valuesTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.valuesSubtitle}</p>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
+              {copy.valuesSubtitle}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -357,7 +408,9 @@ function About() {
               <span className="text-primary">{copy.teamTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.teamSubtitle}</p>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
+              {copy.teamSubtitle}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -454,7 +507,9 @@ function About() {
             <span className="inline-flex items-center px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full mb-4">
               {copy.expertiseBadge}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{copy.expertiseTitle}</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
+              {copy.expertiseTitle}
+            </h3>
             <p className="text-base text-gray-700 mb-2 max-w-3xl mx-auto">{copy.expertiseText1}</p>
             <p className="text-base text-gray-700 max-w-3xl mx-auto">{copy.expertiseText2}</p>
           </div>

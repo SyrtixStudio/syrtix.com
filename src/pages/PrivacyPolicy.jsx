@@ -56,7 +56,7 @@ function PrivacyPolicy() {
             'Utilizamos cookies tecnicas y de sesion para el funcionamiento del sitio. No usamos cookies de terceros para publicidad. Puedes configurar tu navegador para rechazarlas.',
           rightsTitle: 'Tus derechos',
           rightsText:
-            'Tienes derecho de acceso, rectificacion, supresion, oposicion y portabilidad. Para ejercerlos, contactaños en',
+            'Tienes derecho de acceso, rectificación, supresión, oposición y portabilidad. Para ejercerlos, contáctanos en',
           footerText:
             'Al usar nuestro sitio aceptas esta politica. Revisa esta pagina periodicamente para ver actualizaciones.',
           back: 'Volver al inicio',

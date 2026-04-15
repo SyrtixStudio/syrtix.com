@@ -82,7 +82,8 @@ function Services() {
           requestService: 'Request service',
           additionalTitlePrefix: 'Strategic ',
           additionalTitleHighlight: 'add-ons',
-          additionalSubtitle: 'Complement your project with tools that boost your commercial performance',
+          additionalSubtitle:
+            'Complement your project with tools that boost your commercial performance',
           maintenanceTitlePrefix: 'Maintenance and ',
           maintenanceTitleHighlight: 'growth',
           maintenanceSubtitle:
@@ -101,7 +102,8 @@ function Services() {
             {
               title: 'Landing Pages',
               icon: <Zap size={32} />,
-              description: 'Optimized for high conversion. Ideal for specific marketing campaigns and quick lead capture.',
+              description:
+                'Optimized for high conversion. Ideal for specific marketing campaigns and quick lead capture.',
               features: [
                 'Conversion-oriented UI/UX design',
                 'Optimized capture forms',
@@ -115,7 +117,8 @@ function Services() {
             {
               title: 'Corporate Websites',
               icon: <Building size={32} />,
-              description: 'Professional authority for your business. Ideal for service companies requiring trust and complex content.',
+              description:
+                'Professional authority for your business. Ideal for service companies requiring trust and complex content.',
               features: [
                 'Full professional branding',
                 'Multi-page structure (Home, Services, Blog)',
@@ -129,7 +132,8 @@ function Services() {
             {
               title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: 'Robust online stores. Everything you need to sell 24/7 with automated payments and inventory.',
+              description:
+                'Robust online stores. Everything you need to sell 24/7 with automated payments and inventory.',
               features: [
                 'Shopping cart and secure checkout',
                 'Full payment gateway integration',
@@ -141,23 +145,25 @@ function Services() {
               price: 'From $699.000 CLP',
             },
             {
-              title: 'SEO & Positioning',
+              title: 'SEO & Performance (Core Web Vitals)',
               icon: <Search size={32} />,
-              description: 'Organic growth for your brand. We optimize your structure and content to reach the top search results.',
+              description:
+                'We turn your metrics green. We optimize your technical performance and content to dominate top Google rankings.',
               features: [
-                'Search Generative Experience (SGE) Optimization',
+                'Continuous Core Web Vitals Optimization',
+                'Google Lighthouse Reports (100/100)',
+                'Page Speed Improvement (LCP & TTFB)',
+                'Accessibility Audit & Correction',
                 'Keyword Research & Top 1-3 Google Positioning',
-                'Fast Indexing with Immediate Response API',
-                'Advanced Analytics Setup (GA4 & Search Console)',
-                'Local SEO & Google Business Profile Management',
-                'Monthly ROI Reports & Position Tracking',
+                'Local SEO & AI Search Optimization (SGE)',
               ],
               price: 'Custom Monthly Plan',
             },
             {
               title: 'Maintenance & Support',
               icon: <Settings size={32} />,
-              description: 'Security and continuity. Your site always updated, secure, and running at peak performance.',
+              description:
+                'Security and continuity. Your site always updated, secure, and running at peak performance.',
               features: [
                 '24/7 Uptime monitoring',
                 'Daily automated backups',
@@ -169,23 +175,25 @@ function Services() {
               price: 'From $49.000 CLP/month',
             },
             {
-              title: 'Integrations & Automation',
+              title: 'AI Automation & Chatbots',
               icon: <Workflow size={32} />,
-              description: 'Scale your operation. We connect your site with CRM, Chatbots, and automated workflows using AI.',
+              description:
+                'Scale your operation with an Advanced AI Chatbot (RAG + n8n) and automated workflows connected to your sales process.',
               features: [
-                'Advanced AI Chatbots (OpenAI)',
-                'Automated CRM lead injection',
-                'Marketing automation (n8n/Make)',
-                'Custom API & Webhook connectors',
-                'Ticketing & Helpdesk systems',
-                'Email marketing automation',
+                'Custom AI Chatbot trained exclusively on your business data',
+                'Smart AI responses to complex queries and FAQs 24/7',
+                'Omnichannel integration: Web, WhatsApp, and CRM',
+                'Automatically capture, qualify and route leads via n8n',
+                'Virtual AI agent with conversation history and contextual awareness',
+                'AI automation to reduce operational load and boost sales',
               ],
               price: 'Custom Quote',
             },
             {
               title: 'Digital Audits',
               icon: <Search size={32} />,
-              description: 'Exhaustive check of your current digital presence to unlock its full potential.',
+              description:
+                'Exhaustive check of your current digital presence to unlock its full potential.',
               features: [
                 'Performance Audit (Speed & Load)',
                 'UX/UI Audit (User Experience)',
@@ -199,7 +207,8 @@ function Services() {
             {
               title: 'Strategic Rebranding',
               icon: <Palette size={32} />,
-              description: 'Revitalize your brand identity to transmit trust and professional value.',
+              description:
+                'Revitalize your brand identity to transmit trust and professional value.',
               features: [
                 'Logo modernization & Redesign',
                 'Professional color palette & Typography',
@@ -213,7 +222,8 @@ function Services() {
             {
               title: 'PWA & Mobile Solutions',
               icon: <Smartphone size={32} />,
-              description: 'Modern mobile experiences without the complexity of traditional app stores.',
+              description:
+                'Modern mobile experiences without the complexity of traditional app stores.',
               features: [
                 'Progressive Web App (PWA) development',
                 'Installable icon on mobile home screen',
@@ -231,7 +241,8 @@ function Services() {
               title: 'Performance & Speed',
               icon: <Zap size={24} />,
               what: 'Deep analysis of load times, Core Web Vitals, server response, and asset optimization.',
-              result: 'A fast-loading site that improves SEO rankings and reduces visitor bounce rates.',
+              result:
+                'A fast-loading site that improves SEO rankings and reduces visitor bounce rates.',
             },
             {
               id: 'uxui',
@@ -259,28 +270,32 @@ function Services() {
               title: 'Code & Scalability',
               icon: <Code size={24} />,
               what: 'Quality review of current architecture, technical debt, and growth potential.',
-              result: 'Clear understanding of your technical foundation to add new features or scale.',
+              result:
+                'Clear understanding of your technical foundation to add new features or scale.',
             },
             {
               id: 'accessibility',
               title: 'Digital Accessibility',
               icon: <Users size={24} />,
               what: 'Audit of WCAG 2.1 compliance, color contrast, and keyboard navigation.',
-              result: 'An inclusive site for everyone that also boosts your brand prestige and SEO.',
+              result:
+                'An inclusive site for everyone that also boosts your brand prestige and SEO.',
             },
             {
               id: 'rebranding',
               title: 'Strategic Rebranding',
               icon: <Palette size={24} />,
               what: 'Visual identity audit, logo revitalization, professional color palette, and brand voice consistency.',
-              result: 'A premium and modern brand image that reflects the true value of your business.',
+              result:
+                'A premium and modern brand image that reflects the true value of your business.',
             },
             {
               id: 'pwa',
               title: 'PWA & Mobile Solutions',
               icon: <Smartphone size={24} />,
               what: 'Conversion of your website into a Progressive Web App (PWA) that installs on mobile without app stores.',
-              result: 'Increased user loyalty with an app-like experience, push notifications, and offline access.',
+              result:
+                'Increased user loyalty with an app-like experience, push notifications, and offline access.',
             },
           ],
           webTypesTitlePrefix: 'Websites we ',
@@ -361,7 +376,8 @@ function Services() {
           requestService: 'Solicitar servicio',
           additionalTitlePrefix: 'Complementos ',
           additionalTitleHighlight: 'estratégicos',
-          additionalSubtitle: 'Potencia tu presencia digital con herramientas que impulsan tus ventas',
+          additionalSubtitle:
+            'Potencia tu presencia digital con herramientas que impulsan tus ventas',
           maintenanceTitlePrefix: 'Mantenimiento y ',
           maintenanceTitleHighlight: 'crecimiento',
           maintenanceSubtitle:
@@ -380,7 +396,8 @@ function Services() {
             {
               title: 'Landing Pages',
               icon: <Rocket size={32} />,
-              description: 'Máxima conversión para tus campañas. Incluye diseño visual de alto impacto, copy persuasivo y desarrollo técnico optimizado.',
+              description:
+                'Máxima conversión para tus campañas. Incluye diseño visual de alto impacto, copy persuasivo y desarrollo técnico optimizado.',
               features: [
                 'Diseño UX/UI enfocado en resultados',
                 'Diseño de Logotipo básico incluido',
@@ -394,7 +411,8 @@ function Services() {
             {
               title: 'Web Corporativa',
               icon: <Building size={32} />,
-              description: 'Autoridad y confianza para tu marca. Un sistema digital sólido que proyecta el valor real de tu negocio.',
+              description:
+                'Autoridad y confianza para tu marca. Un sistema digital sólido que proyecta el valor real de tu negocio.',
               features: [
                 'Diseño de Identidad Visual y Logo Pro',
                 'Estructura multi-página estratégica',
@@ -408,7 +426,8 @@ function Services() {
             {
               title: 'E-commerce',
               icon: <ShoppingCart size={32} />,
-              description: 'Tu tienda lista para escalar. Nos encargamos de todo el ecosistema de venta, pagos y logística.',
+              description:
+                'Tu tienda lista para escalar. Nos encargamos de todo el ecosistema de venta, pagos y logística.',
               features: [
                 'Branding y Manual de Estilo incluido',
                 'Pasarelas de pago (Webpay/Stripe)',
@@ -420,23 +439,25 @@ function Services() {
               price: 'Desde $699.000 CLP',
             },
             {
-              title: 'SEO & Posicionamiento',
+              title: 'SEO & Performance (Core Web Vitals)',
               icon: <Search size={32} />,
-              description: 'Crecimiento orgánico para tu marca. Optimizamos tu estructura y contenido para alcanzar los primeros lugares.',
+              description:
+                'Llevamos tu web a color verde. Optimizamos tu rendimiento técnico y contenido para escalar los primeros lugares.',
               features: [
-                'Optimización para Búsqueda con IA (Google SGE)',
+                'Optimización continua de Core Web Vitals',
+                'Reportes de Google Lighthouse (100/100)',
+                'Mejora de Velocidad de Carga (LCP y TTFB)',
+                'Auditoría y Corrección de Accesibilidad',
                 'Investigación de Keywords y Posicionamiento Top 1-3',
-                'Indexación Rápida con API de Respuesta Inmediata',
-                'Configuración Avanzada de GA4 y Search Console',
-                'Posicionamiento en Google Maps y Búsqueda Local',
-                'Reportes Mensuales de ROI y Seguimiento de Posiciones',
+                'Posicionamiento Local y Optimización IA (SGE)',
               ],
               price: 'Plan Mensual Personalizado',
             },
             {
               title: 'Mantenimiento & Soporte',
               icon: <Settings size={32} />,
-              description: 'Seguridad y continuidad. Tu sitio siempre actualizado, protegido y funcionando al máximo rendimiento.',
+              description:
+                'Seguridad y continuidad. Tu sitio siempre actualizado, protegido y funcionando al máximo rendimiento.',
               features: [
                 'Monitoreo de uptime 24/7',
                 'Backups automatizados diarios',
@@ -448,23 +469,25 @@ function Services() {
               price: 'Desde $49.000 CLP/mes',
             },
             {
-              title: 'Integraciones & Automatización',
+              title: 'Automatización & Chatbot IA',
               icon: <Workflow size={32} />,
-              description: 'Escala tu operación. Conectamos tu web con CRM, Chatbots inteligentes y flujos de trabajo automáticos.',
+              description:
+                'Escala tu operación con un Chatbot de IA Avanzada (RAG + n8n) y flujos automáticos conectados a tu negocio.',
               features: [
-                'Chatbots con IA (OpenAI)',
-                'Inyección automática de leads en CRM',
-                'Automatización de marketing (n8n/Make)',
-                'Conectores API y Webhooks personalizados',
-                'Sistemas de tickets y Helpdesk',
-                'Email marketing automatizado',
+                'Chatbot IA entrenado exclusivamente con los datos de tu empresa',
+                'Respuestas inteligentes a dudas y casos complejos 24/7',
+                'Integración omnicanal: Web, WhatsApp y CRM',
+                'Captura, califica y deriva leads automáticamente con n8n',
+                'Agente virtual IA con historial de conversación y contexto',
+                'Automatización IA para reducir carga operativa y disparar ventas',
               ],
               price: 'Cotización Personalizada',
             },
             {
               title: 'Auditorías',
               icon: <Search size={32} />,
-              description: 'Chequeo exhaustivo de tu presencia digital actual para desbloquear todo su potencial.',
+              description:
+                'Chequeo exhaustivo de tu presencia digital actual para desbloquear todo su potencial.',
               features: [
                 'Auditoría de Performance (Velocidad & Carga)',
                 'Auditoría UX/UI (Experiencia de Usuario)',
@@ -478,7 +501,8 @@ function Services() {
             {
               title: 'Rebranding Estratégico',
               icon: <Palette size={32} />,
-              description: 'Revitaliza tu identidad visual para transmitir confianza y el valor real de tu negocio.',
+              description:
+                'Revitaliza tu identidad visual para transmitir confianza y el valor real de tu negocio.',
               features: [
                 'Modernización y rediseño de logo',
                 'Paleta de colores y tipografía profesional',
@@ -492,7 +516,8 @@ function Services() {
             {
               title: 'PWA & Soluciones Móviles',
               icon: <Smartphone size={32} />,
-              description: 'Experiencias móviles modernas sin la complejidad de las tiendas de aplicaciones.',
+              description:
+                'Experiencias móviles modernas sin la complejidad de las tiendas de aplicaciones.',
               features: [
                 'Desarrollo de Progressive Web App (PWA)',
                 'Icono instalable en pantalla de inicio móvil',
@@ -510,35 +535,40 @@ function Services() {
               title: 'Performance & Velocidad',
               icon: <Zap size={24} />,
               what: 'Análisis profundo de tiempos de carga, Core Web Vitals y optimización de recursos.',
-              result: 'Un sitio ultrarrápido que mejora el ranking en Google y retiene a tus visitantes.',
+              result:
+                'Un sitio ultrarrápido que mejora el ranking en Google y retiene a tus visitantes.',
             },
             {
               id: 'uxui',
               title: 'UX/UI & Experiencia',
               icon: <Monitor size={24} />,
               what: 'Evaluación de flujos de usuario, usabilidad móvil y efectividad de llamados a la acción.',
-              result: 'Una interfaz sin fricciones que guía al usuario naturalmente hacia la conversión.',
+              result:
+                'Una interfaz sin fricciones que guía al usuario naturalmente hacia la conversión.',
             },
             {
               id: 'seo',
               title: 'SEO Técnico',
               icon: <Search size={24} />,
               what: 'Revisión de indexación, sitemaps, arquitectura de encabezados y meta-etiquetas.',
-              result: 'Un mapa de visibilidad optimizado para que Google te ponga en los primeros puestos.',
+              result:
+                'Un mapa de visibilidad optimizado para que Google te ponga en los primeros puestos.',
             },
             {
               id: 'security',
               title: 'Seguridad & Privacidad',
               icon: <Shield size={24} />,
               what: 'Escaneo de vulnerabilidades, configuración SSL y cumplimiento de protección de datos.',
-              result: 'Un entorno digital blindado que protege la información de tu negocio y clientes.',
+              result:
+                'Un entorno digital blindado que protege la información de tu negocio y clientes.',
             },
             {
               id: 'code',
               title: 'Código & Escalabilidad',
               icon: <Code size={24} />,
               what: 'Revisión de calidad de arquitectura, deuda técnica y potencial de crecimiento.',
-              result: 'Claridad total sobre tu base técnica para añadir nuevas funciones o escalar sin riesgos.',
+              result:
+                'Claridad total sobre tu base técnica para añadir nuevas funciones o escalar sin riesgos.',
             },
             {
               id: 'accessibility',
@@ -552,14 +582,16 @@ function Services() {
               title: 'Rebranding Estratégico',
               icon: <Palette size={24} />,
               what: 'Auditoría de identidad visual, revitalización de logo, paletas de colores y coherencia en la voz de marca.',
-              result: 'Una imagen de marca premium y moderna que transmite confianza y el valor real de tu negocio.',
+              result:
+                'Una imagen de marca premium y moderna que transmite confianza y el valor real de tu negocio.',
             },
             {
               id: 'pwa',
               title: 'PWA & Soluciones Móviles',
               icon: <Smartphone size={24} />,
               what: 'Conversión de tu sitio web en una Progressive Web App (PWA) instalable en móviles sin pasar por las tiendas.',
-              result: 'Mayor fidelización de usuarios con una experiencia de app, notificaciones push y acceso offline.',
+              result:
+                'Mayor fidelización de usuarios con una experiencia de app, notificaciones push y acceso offline.',
             },
           ],
           webTypesTitlePrefix: 'Tipos de webs que ',
@@ -653,7 +685,9 @@ function Services() {
             {copy.heroTitleLine1} <span className="text-primary">{copy.heroTitleLine2}</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto">{copy.heroDescription}</p>
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
+            {copy.heroDescription}
+          </p>
         </div>
       </section>
 
@@ -665,7 +699,9 @@ function Services() {
               <span className="text-primary">{copy.sectionTitleHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.sectionSubtitle}</p>
+            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">
+              {copy.sectionSubtitle}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -682,7 +718,9 @@ function Services() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-800 leading-tight">{service.title}</h3>
+                      <h3 className="text-lg font-bold text-gray-800 leading-tight">
+                        {service.title}
+                      </h3>
                       <p className="text-primary font-bold text-xs mt-1">{service.price}</p>
                     </div>
                   </div>
@@ -692,16 +730,21 @@ function Services() {
                   <ul className="space-y-2 mb-8">
                     {service.features.map((feature, i) => {
                       // Check if it's the "360° Digital Audit" card (usually the 7th item, index 6)
-                      const isAuditCard = service.title.includes('Auditoría') || service.title.includes('Digital Audit');
-                      
+                      const isAuditCard =
+                        service.title.includes('Auditoría') ||
+                        service.title.includes('Digital Audit');
+
                       if (isAuditCard) {
                         // Find the relevant audit data based on index or title match
                         const auditItem = auditsData[lang][i];
 
                         return (
                           <li key={i} className="flex items-start text-sm text-gray-700">
-                            <CheckCircle size={14} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
-                            <button 
+                            <CheckCircle
+                              size={14}
+                              className="text-green-500 mr-2 mt-1 flex-shrink-0"
+                            />
+                            <button
                               onClick={() => setSelectedAudit(auditItem)}
                               className="text-left hover:text-secondary hover:underline transition-colors decoration-secondary underline-offset-4"
                             >
@@ -713,7 +756,10 @@ function Services() {
 
                       return (
                         <li key={i} className="flex items-start text-sm text-gray-700">
-                          <CheckCircle size={14} className="text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          <CheckCircle
+                            size={14}
+                            className="text-green-500 mr-2 mt-1 flex-shrink-0"
+                          />
                           <span>{feature}</span>
                         </li>
                       );
@@ -726,169 +772,16 @@ function Services() {
                   className="inline-flex items-center text-secondary font-bold text-sm hover:text-primary transition-all duration-300 group/link"
                 >
                   {copy.requestService}
-                  <ArrowRight size={16} className="ml-1 group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight
+                    size={16}
+                    className="ml-1 group-hover/link:translate-x-1 transition-transform"
+                  />
                 </Link>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-
-
-      <section className="py-16 px-4 sm:px-6 bg-base2">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.webTypesTitlePrefix}
-              <span className="text-primary">{copy.webTypesTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.webTypesSubtitle}</p>
-          </div>
-
-          <div className="marquee">
-            <div className="marquee-track" style={{ '--marquee-duration': '40s' }}>
-              {[...copy.webTypes, ...copy.webTypes].map((item, i) => {
-                const isDuplicate = i >= copy.webTypes.length;
-
-                return (
-                  <div
-                    key={`${item.title}-${i}`}
-                    className="marquee-card bg-base border border-gray-300 px-6 py-4 shadow-sm hover:border-primary hover:shadow-md transition flex flex-col items-center text-center gap-2"
-                    aria-hidden={isDuplicate ? 'true' : undefined}
-                  >
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
-                      {item.icon}
-                    </div>
-                    <div className="text-sm font-semibold text-gray-700">{item.title}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.maintenanceTitlePrefix}
-              <span className="text-primary">{copy.maintenanceTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-gray-600 text-gray-600 max-w-2xl mx-auto">{copy.maintenanceSubtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {copy.maintenanceCards.map((item, idx) => (
-              <div key={idx} className="border border-gray-200 bg-base p-5">
-                <h3 className="text-sm font-bold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-xs text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/contacto"
-              className="inline-flex items-center bg-secondary text-white font-bold px-6 py-3 hover:bg-primary transition duration-300"
-            >
-              {copy.maintenanceCta}
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base2">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.whyTitlePrefix}
-              <span className="text-primary">{copy.whyTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {copy.whyItems.map((item, idx) => (
-              <article
-                key={`${item.title}-${idx}`}
-                className="border border-gray-200 bg-base px-4 py-4 shadow-sm hover:border-secondary/50 hover:shadow-md transition-all duration-300"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-white flex-shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">{item.desc}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-base">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
-              {copy.workTitlePrefix}
-              <span className="text-primary">{copy.workTitleHighlight}</span>
-            </h2>
-            <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {copy.process.map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-gray-800 font-bold text-xl mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 sm:px-6 bg-secondary">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            {copy.techTitlePrefix}
-            <span className="text-primary">{copy.techTitleHighlight}</span>
-          </h2>
-          <div className="h-1 w-16 bg-primary mx-auto mb-8"></div>
-
-          <div className="marquee marquee--secondary">
-            <div className="marquee-track" style={{ '--marquee-duration': '30s' }}>
-              {[...copy.tech, ...copy.tech].map((tech, idx) => {
-                const techLogo = TECH_LOGOS[tech];
-                const Icon = techLogo?.Icon;
-                const iconColor = techLogo?.color || 'text-primary';
-                const isDuplicate = idx >= copy.tech.length;
-
-                return (
-                  <div
-                    key={`${tech}-${idx}`}
-                    className="marquee-card inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-2 text-white/90 hover:border-primary/60 hover:bg-white/10 transition-all duration-300 min-w-[170px] justify-center"
-                    aria-hidden={isDuplicate ? 'true' : undefined}
-                  >
-                    {Icon && <Icon size={18} className={iconColor} aria-hidden />}
-                    <span className="text-sm sm:text-base font-semibold">{tech}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 px-4 sm:px-6 bg-base2">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">{copy.ctaTitle}</h2>
@@ -911,9 +804,9 @@ function Services() {
         </div>
       </section>
 
-      <AuditModal 
-        isOpen={selectedAudit !== null} 
-        onClose={() => setSelectedAudit(null)} 
+      <AuditModal
+        isOpen={selectedAudit !== null}
+        onClose={() => setSelectedAudit(null)}
         auditData={selectedAudit}
         lang={lang}
       />
@@ -922,6 +815,3 @@ function Services() {
 }
 
 export default Services;
-
-
-

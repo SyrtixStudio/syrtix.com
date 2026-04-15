@@ -1,5 +1,6 @@
-import { Check, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+import { Check, ArrowRight } from 'lucide-react';
 
 import { useLanguage } from '../../i18n/index.jsx';
 
@@ -8,40 +9,64 @@ const content = {
     title: 'Ingeniería digital de ',
     titleHighlight: 'alto rendimiento',
     intro:
-      'Desarrollamos sitios web a medida con foco en conversión, velocidad y seguridad. Cada línea de código está diseñada para que tu negocio facture más.',
+      'Desarrollamos sitios web a medida con foco en conversión, velocidad y seguridad. Cada línea de código y automatización está diseñada para que tu negocio facture más.',
     services: [
       'Landing Pages de alta conversión',
       'Sitios Corporativos multipágina con SEO técnico',
       'Tiendas Online con checkout seguro',
-      'Identidad Visual y Branding estratégico',
+      'Automatización con n8n y Chatbot con IA',
       'Hosting seguro con 99.9% uptime',
       'Soporte técnico continuo 24/7',
     ],
     cta: 'Ver paquetes y precios',
     metrics: [
-      { value: '800ms', label: 'carga promedio', desc: 'Tus visitas no esperan. Una plantilla tarda 5+ segundos.' },
-      { value: '0', label: 'vulnerabilidades', desc: 'Código limpio sin las brechas de seguridad de WordPress.' },
-      { value: '99.9%', label: 'uptime garantizado', desc: 'Tu web siempre online con infraestructura profesional.' },
+      {
+        value: '800ms',
+        label: 'carga promedio',
+        desc: 'Tus visitas no esperan. Una plantilla tarda 5+ segundos.',
+      },
+      {
+        value: '0',
+        label: 'vulnerabilidades',
+        desc: 'Código limpio sin las brechas de seguridad de WordPress.',
+      },
+      {
+        value: '99.9%',
+        label: 'uptime garantizado',
+        desc: 'Tu web siempre online con infraestructura profesional.',
+      },
     ],
   },
   en: {
     title: 'High-performance ',
     titleHighlight: 'digital engineering',
     intro:
-      'We build custom websites focused on conversion, speed, and security. Every line of code is designed to make your business sell more.',
+      'We build custom websites focused on conversion, speed, and security. Every line of code and automation is designed to make your business sell more.',
     services: [
       'High-conversion Landing Pages',
       'Multi-page Corporate Websites with technical SEO',
       'Online Stores with secure checkout',
-      'Strategic Branding and Visual Identity',
+      'n8n automation & AI Chatbot',
       'Secure Hosting with 99.9% uptime',
       'Continuous 24/7 technical support',
     ],
     cta: 'View packages & pricing',
     metrics: [
-      { value: '800ms', label: 'average load time', desc: 'Your visitors don\'t wait. A template takes 5+ seconds.' },
-      { value: '0', label: 'vulnerabilities', desc: 'Clean code without the security gaps of WordPress plugins.' },
-      { value: '99.9%', label: 'guaranteed uptime', desc: 'Your website always online with professional infrastructure.' },
+      {
+        value: '800ms',
+        label: 'average load time',
+        desc: "Your visitors don't wait. A template takes 5+ seconds.",
+      },
+      {
+        value: '0',
+        label: 'vulnerabilities',
+        desc: 'Clean code without the security gaps of WordPress plugins.',
+      },
+      {
+        value: '99.9%',
+        label: 'guaranteed uptime',
+        desc: 'Your website always online with professional infrastructure.',
+      },
     ],
   },
 };
@@ -71,7 +96,7 @@ function WhatWeDoSection() {
                   <div className="mt-1 flex-shrink-0 w-5 h-5 bg-primary/10 flex items-center justify-center">
                     <Check size={13} className="text-primary" strokeWidth={2.5} />
                   </div>
-                  <span 
+                  <span
                     className="text-sm md:text-base font-medium leading-relaxed"
                     style={{ color: '#4b5563' }}
                   >
@@ -86,7 +111,10 @@ function WhatWeDoSection() {
               className="inline-flex items-center bg-primary text-gray-800 font-bold px-6 py-3 hover:brightness-110 transition duration-300 text-sm uppercase tracking-wide group"
             >
               {t.cta}
-              <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                className="ml-2 group-hover:translate-x-1 transition-transform"
+              />
             </Link>
           </div>
 

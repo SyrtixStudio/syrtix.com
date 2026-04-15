@@ -49,7 +49,7 @@ export const translations = {
     'hero.title.emphasis': 'digital solutions',
     'hero.title.line2': 'for Chilean businesses',
     'hero.subtitle':
-      'At Syrtix we don\'t just sell websites, we sell future and visibility for your business in the digital age.',
+      "At Syrtix we don't just sell websites, we sell future and visibility for your business in the digital age.",
     'hero.cta.primary': 'View packages and pricing',
     'hero.cta.secondary': 'Request a quote',
     'hero.carousel.prev': 'Previous image',

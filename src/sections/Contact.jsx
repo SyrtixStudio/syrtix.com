@@ -23,10 +23,7 @@ const MAX_SUBMISSIONS_PER_HOUR = 3;
 
 function sanitizeInput(str) {
   if (typeof str !== 'string') return str;
-  return str
-    .replace(/[<>]/g, '')
-    .trim()
-    .slice(0, 1000);
+  return str.replace(/[<>]/g, '').trim().slice(0, 1000);
 }
 
 function Contact() {
@@ -58,7 +55,7 @@ function Contact() {
           ],
           projectDetails: 'Project details',
           projectDetailsDescription:
-            'Complete the essentials and optionally add more details for a more accurate quote.',
+            'Complete the essentials to get a custom proposal tailored to your needs.',
           fullName: 'Full name *',
           yourName: 'Your name',
           companyOptional: 'Company (optional)',
@@ -67,10 +64,8 @@ function Contact() {
           yourEmail: 'you@email.com',
           phone: 'Phone',
           projectType: 'Project type *',
-          tellUsMore: 'Tell us more about your project (optional)',
-          messagePlaceholder:
-            'Describe your project, goals, and references of websites you like.',
-          addMoreDetails: 'Add more details (optional)',
+          tellUsMore: 'Tell us about your project *',
+          messagePlaceholder: 'Describe your project, goals, and references of websites you like.',
           estimatedBudget: 'Estimated budget',
           desiredDeadline: 'Desired timeline',
           requiredFeatures: 'Required features',
@@ -88,6 +83,7 @@ function Contact() {
             emailOrPhoneRequired: 'Email or phone is required',
             invalidEmail: 'Invalid email',
             selectProject: 'Select a project type',
+            messageRequired: 'Please tell us about your project',
           },
           rateLimitExceeded: 'You reached the submission limit. Please try again later.',
           waitBeforeSubmit: 'Please wait a moment before submitting again.',
@@ -157,7 +153,7 @@ function Contact() {
           ],
           projectDetails: 'Detalles del proyecto',
           projectDetailsDescription:
-            'Completa lo esencial y, si quieres, agrega detalles opcionales para una cotizacion mas precisa.',
+            'Completa lo esencial para que podamos enviarte una propuesta personalizada.',
           fullName: 'Nombre completo *',
           yourName: 'Tu nombre',
           companyOptional: 'Empresa (opcional)',
@@ -166,16 +162,15 @@ function Contact() {
           yourEmail: 'tu@email.com',
           phone: 'Telefono',
           projectType: 'Tipo de proyecto *',
-          tellUsMore: 'Cuentaños mas sobre tu proyecto (opcional)',
+          tellUsMore: 'Cuéntanos sobre tu proyecto *',
           messagePlaceholder:
             'Describe tu proyecto, objetivos y referencias de sitios que te gusten.',
-          addMoreDetails: 'Anadir mas detalles (opcional)',
           estimatedBudget: 'Presupuesto estimado',
           desiredDeadline: 'Plazo deseado',
           requiredFeatures: 'Funcionalidades requeridas',
           loading: 'Enviando solicitud...',
           submit: 'Solicitar cotizacion gratuita',
-          orContact: 'o contactaños por',
+          orContact: 'o contáctanos por',
           whatsapp: 'Escribir por WhatsApp',
           sslSecure: 'Conexion segura SSL',
           protectedData: 'Datos protegidos',
@@ -187,6 +182,7 @@ function Contact() {
             emailOrPhoneRequired: 'Email o telefono es obligatorio',
             invalidEmail: 'Email no valido',
             selectProject: 'Selecciona un tipo',
+            messageRequired: 'Por favor, cuéntanos sobre tu proyecto',
           },
           rateLimitExceeded: 'Has excedido el limite de envios. Intenta mas tarde.',
           waitBeforeSubmit: 'Por favor espera un momento antes de enviar nuevamente.',
@@ -248,7 +244,6 @@ function Contact() {
       email: '',
       phone: '',
       company: '',
-      projectType: '',
       budget: '',
       deadline: '',
       features: [],
@@ -293,8 +288,6 @@ function Contact() {
             .join(', ')
         : '';
 
-    const projectTypeText =
-      copy.projectTypes.find((p) => p.value === sanitizedData.projectType)?.label || '';
     const budgetText = copy.budgetRanges.find((b) => b.value === sanitizedData.budget)?.label || '';
     const deadlineText =
       copy.deadlineOptions.find((d) => d.value === sanitizedData.deadline)?.label || '';
@@ -307,9 +300,6 @@ function Contact() {
     if (sanitizedData.email) formData.append('from', sanitizedData.email);
     if (sanitizedData.phone) formData.append('phone', sanitizedData.phone);
     if (sanitizedData.company) formData.append('company', sanitizedData.company);
-    if (projectTypeText && projectTypeText !== copy.projectTypes[0].label) {
-      formData.append('projectType', projectTypeText);
-    }
     if (budgetText && budgetText !== copy.budgetRanges[0].label) {
       formData.append('budget', budgetText);
     }
@@ -445,7 +435,9 @@ function Contact() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.fullName}</label>
+                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                        {copy.fullName}
+                      </label>
                       <input
                         type="text"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
@@ -454,11 +446,15 @@ function Contact() {
                         placeholder={copy.yourName}
                         {...register('name', { required: copy.validation.nameRequired })}
                       />
-                      {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>}
+                      {errors.name && (
+                        <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>
+                      )}
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.companyOptional}</label>
+                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                        {copy.companyOptional}
+                      </label>
                       <input
                         type="text"
                         className="w-full px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -470,7 +466,9 @@ function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.email}</label>
+                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                        {copy.email}
+                      </label>
                       <input
                         type="email"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
@@ -490,11 +488,15 @@ function Contact() {
                           },
                         })}
                       />
-                      {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>}
+                      {errors.email && (
+                        <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>
+                      )}
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.phone}</label>
+                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                        {copy.phone}
+                      </label>
                       <input
                         type="tel"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
@@ -511,94 +513,28 @@ function Contact() {
                           },
                         })}
                       />
-                      {errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone.message}</p>}
+                      {errors.phone && (
+                        <p className="text-red-600 text-xs mt-1">{errors.phone.message}</p>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.projectType}</label>
-                    <select
-                      className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                        errors.projectType ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                      {...register('projectType', { required: copy.validation.selectProject })}
-                    >
-                      {copy.projectTypes.map((type) => (
-                        <option key={type.value} value={type.value}>
-                          {type.label}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.projectType && (
-                      <p className="text-red-600 text-xs mt-1">{errors.projectType.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.tellUsMore}</label>
+                    <label className="block text-gray-700 font-medium mb-1 text-sm">
+                      {copy.tellUsMore}
+                    </label>
                     <textarea
-                      className="w-full px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                      className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none ${
+                        errors.message ? 'border-red-500' : 'border-gray-300'
+                      }`}
                       rows="4"
                       placeholder={copy.messagePlaceholder}
-                      {...register('message')}
+                      {...register('message', { required: copy.validation.messageRequired })}
                     ></textarea>
+                    {errors.message && (
+                      <p className="text-red-600 text-xs mt-1">{errors.message.message}</p>
+                    )}
                   </div>
-
-                  <details className="border border-gray-200 p-4">
-                    <summary className="text-sm font-medium text-gray-700 cursor-pointer">
-                      {copy.addMoreDetails}
-                    </summary>
-                    <div className="mt-4 space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-gray-700 font-medium mb-1 text-sm">
-                            {copy.estimatedBudget}
-                          </label>
-                          <select
-                            className="w-full px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                            {...register('budget')}
-                          >
-                            {copy.budgetRanges.map((range) => (
-                              <option key={range.value} value={range.value}>
-                                {range.label}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block text-gray-700 font-medium mb-1 text-sm">{copy.desiredDeadline}</label>
-                          <select
-                            className="w-full px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                            {...register('deadline')}
-                          >
-                            {copy.deadlineOptions.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-gray-700 font-medium mb-2 text-sm">{copy.requiredFeatures}</label>
-                        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-                          {copy.featureOptions.map((feature) => (
-                            <label key={feature.value} className="flex items-center text-xs cursor-pointer">
-                              <input
-                                type="checkbox"
-                                value={feature.value}
-                                className="mr-2 accent-primary"
-                                {...register('features')}
-                              />
-                              {feature.label}
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </details>
 
                   <input type="checkbox" name="botcheck" className="hidden" />
 

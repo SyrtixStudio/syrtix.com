@@ -143,9 +143,7 @@ function PrivacyPolicyBloqueo600800() {
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
             Politica de Privacidad - Bloqueo 600 y 800
           </h1>
-          <p className="text-xs text-gray-600 mt-2">
-            Ultima actualizacion: {LAST_UPDATED}
-          </p>
+          <p className="text-xs text-gray-600 mt-2">Ultima actualizacion: {LAST_UPDATED}</p>
           <div className="h-0.5 w-16 bg-primary mx-auto mt-4"></div>
         </div>
 
@@ -154,8 +152,8 @@ function PrivacyPolicyBloqueo600800() {
             <p className="text-sm leading-relaxed">
               Esta Politica de Privacidad describe como la app <strong>Bloqueo 600 y 800</strong>,
               desarrollada por <strong>Syrtix</strong>, trata informacion para su funcionamiento en
-              Chile y LatAm. Se redacta en lenguaje general, alineada con politicas de Google Play
-              y buenas practicas de privacidad.
+              Chile y LatAm. Se redacta en lenguaje general, alineada con politicas de Google Play y
+              buenas practicas de privacidad.
             </p>
           </section>
 
@@ -192,13 +190,27 @@ function PrivacyPolicyBloqueo600800() {
           ))}
 
           <section className="border-t border-gray-200 pt-4">
-            <h2 className="text-lg font-bold text-gray-800 mb-2">Resumen corto para Play Console</h2>
-            <p className="text-sm leading-relaxed">Bloqueo 600 y 800 bloquea llamadas por prefijos 600, 800 y 809.</p>
-            <p className="text-sm leading-relaxed">No grabamos llamadas ni accedemos a SMS o contactos.</p>
-            <p className="text-sm leading-relaxed">El historial de llamadas bloqueadas se guarda localmente y cifrado (AES).</p>
-            <p className="text-sm leading-relaxed">El usuario puede exportar su historial y eliminar todos sus datos locales.</p>
-            <p className="text-sm leading-relaxed">La suscripcion (CLP 990/mes) se procesa con Google Play Billing.</p>
-            <p className="text-sm leading-relaxed">Para privacidad y soporte: contacto@syrtix.com.</p>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">
+              Resumen corto para Play Console
+            </h2>
+            <p className="text-sm leading-relaxed">
+              Bloqueo 600 y 800 bloquea llamadas por prefijos 600, 800 y 809.
+            </p>
+            <p className="text-sm leading-relaxed">
+              No grabamos llamadas ni accedemos a SMS o contactos.
+            </p>
+            <p className="text-sm leading-relaxed">
+              El historial de llamadas bloqueadas se guarda localmente y cifrado (AES).
+            </p>
+            <p className="text-sm leading-relaxed">
+              El usuario puede exportar su historial y eliminar todos sus datos locales.
+            </p>
+            <p className="text-sm leading-relaxed">
+              La suscripcion (CLP 990/mes) se procesa con Google Play Billing.
+            </p>
+            <p className="text-sm leading-relaxed">
+              Para privacidad y soporte: contacto@syrtix.com.
+            </p>
           </section>
         </div>
 

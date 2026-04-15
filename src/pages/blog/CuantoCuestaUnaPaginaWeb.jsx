@@ -35,22 +35,25 @@ export default function CuantoCuestaUnaPaginaWeb() {
 
           <div className="relative max-w-3xl mx-auto px-4">
             <div className="flex items-center gap-2 text-sm text-primary mb-6">
-              <Link to="/blog" className="hover:underline">Blog</Link>
+              <Link to="/blog" className="hover:underline">
+                Blog
+              </Link>
               <ChevronRight size={14} />
               <span>Precios y costos</span>
             </div>
-            
+
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              ¿Cuánto cuesta una página web en Chile?{' '}
-              <br />
+              ¿Cuánto cuesta una página web en Chile? <br />
               <span className="text-primary">Guía de precios 2026</span>
             </h1>
 
             <p className="text-white/80 text-lg mb-8">{DESCRIPTION}</p>
-            
+
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2 font-medium text-white">
-                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-800 font-bold">S</span>
+                <span className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-gray-800 font-bold">
+                  S
+                </span>
                 Syrtix
               </div>
               <span className="text-gray-500">·</span>
@@ -63,11 +66,11 @@ export default function CuantoCuestaUnaPaginaWeb() {
 
         {/* Contenido */}
         <article className="max-w-3xl mx-auto px-4 py-12 prose prose-lg text-gray-700">
-
           <p className="text-xl text-gray-600 mb-8">
-            Una de las preguntas más frecuentes que recibimos en Syrtix es: <strong>"¿cuánto cuesta
-            hacer una página web en Chile?"</strong> La respuesta depende de varios factores, pero
-            en esta guía te explicamos todo lo que necesitas saber para tomar una buena decisión.
+            Una de las preguntas más frecuentes que recibimos en Syrtix es:{' '}
+            <strong>"¿cuánto cuesta hacer una página web en Chile?"</strong> La respuesta depende de
+            varios factores, pero en esta guía te explicamos todo lo que necesitas saber para tomar
+            una buena decisión.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
@@ -92,7 +95,9 @@ export default function CuantoCuestaUnaPaginaWeb() {
                 ].map(([tipo, precio, ideal], i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="p-3 border border-gray-200 font-medium">{tipo}</td>
-                    <td className="p-3 border border-gray-200 text-primary font-semibold">{precio}</td>
+                    <td className="p-3 border border-gray-200 text-primary font-semibold">
+                      {precio}
+                    </td>
                     <td className="p-3 border border-gray-200 text-gray-500">{ideal}</td>
                   </tr>
                 ))}
@@ -125,8 +130,8 @@ export default function CuantoCuestaUnaPaginaWeb() {
             ¿Cuánto cobra Syrtix por una página web?
           </h2>
           <p className="mb-4">
-            En <strong>Syrtix</strong> ofrecemos paquetes claros y sin sorpresas pensados para
-            el mercado chileno:
+            En <strong>Syrtix</strong> ofrecemos paquetes claros y sin sorpresas pensados para el
+            mercado chileno:
           </p>
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             {[
@@ -177,9 +182,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
           <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
             ¿Cómo elegir a quién contratar?
           </h2>
-          <p className="mb-6">
-            Antes de contratar, considera estos puntos clave:
-          </p>
+          <p className="mb-6">Antes de contratar, considera estos puntos clave:</p>
           <ul className="space-y-3 mb-8">
             {[
               'Pide ver su portafolio y proyectos anteriores.',
@@ -198,19 +201,23 @@ export default function CuantoCuestaUnaPaginaWeb() {
           <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">Conclusión</h2>
           <p className="mb-6">
             El precio de una página web en Chile en 2026 varía entre{' '}
-            <strong>$80.000 y más de $1.500.000 CLP</strong> dependiendo de lo que necesites.
-            Lo más importante es no elegir solo por precio: una web barata que no convierte
-            visitantes en clientes es inversión perdida.
+            <strong>$80.000 y más de $1.500.000 CLP</strong> dependiendo de lo que necesites. Lo más
+            importante es no elegir solo por precio: una web barata que no convierte visitantes en
+            clientes es inversión perdida.
           </p>
           <p className="mb-8">
-            En Syrtix nos especializamos en páginas web que convierten. Si quieres saber
-            exactamente cuánto costaría tu proyecto, te damos una <strong>cotización gratis</strong>.
+            En Syrtix nos especializamos en páginas web que convierten. Si quieres saber exactamente
+            cuánto costaría tu proyecto, te damos una <strong>cotización gratis</strong>.
           </p>
 
           {/* CTA */}
           <div className="bg-gray-900 text-white p-8 rounded text-center">
-            <h3 className="text-2xl font-bold mb-3">¿Quieres saber el precio exacto para tu proyecto?</h3>
-            <p className="text-gray-300 mb-6">Cotización gratis, sin compromiso. Respondemos en menos de 24 horas.</p>
+            <h3 className="text-2xl font-bold mb-3">
+              ¿Quieres saber el precio exacto para tu proyecto?
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Cotización gratis, sin compromiso. Respondemos en menos de 24 horas.
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/paquetes"

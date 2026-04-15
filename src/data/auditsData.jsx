@@ -1,13 +1,4 @@
-import { 
-  Zap, 
-  Monitor, 
-  Search, 
-  Target, 
-  Code, 
-  Users,
-  Shield,
-  BarChart
-} from 'lucide-react';
+import { Zap, Monitor, Search, Target, Code, Users, Shield, BarChart } from 'lucide-react';
 
 export const auditsData = {
   es: [
@@ -15,31 +6,35 @@ export const auditsData = {
       id: 'performance',
       title: 'Auditoría de Performance (Velocidad & Carga)',
       icon: <Zap className="text-amber-500" />,
-      description: 'Optimizamos cada milisegundo de tu sitio para que tus usuarios no tengan que esperar.',
+      description:
+        'Optimizamos cada milisegundo de tu sitio para que tus usuarios no tengan que esperar.',
       what: [
         'Análisis de Core Web Vitals (LCP, FID, CLS)',
         'Optimización de carga de imágenes (WebP, Lazy Loading)',
         'Revisión de tiempo de respuesta del servidor (TTFB)',
         'Minificación de archivos CSS y JavaScript',
         'Configuración avanzada de Caché y CDNs',
-        'Detección de scripts de terceros pesados'
+        'Detección de scripts de terceros pesados',
       ],
-      result: 'Un sitio con puntuación 90+ en Lighthouse, carga instantánea y mejor posicionamiento en Google.'
+      result:
+        'Un sitio con puntuación 90+ en Lighthouse, carga instantánea y mejor posicionamiento en Google.',
     },
     {
       id: 'uxui',
       title: 'Auditoría UX/UI (Experiencia de Usuario)',
       icon: <Monitor className="text-blue-500" />,
-      description: 'Evaluamos cómo navegan tus clientes para eliminar cualquier barrera visual o lógica.',
+      description:
+        'Evaluamos cómo navegan tus clientes para eliminar cualquier barrera visual o lógica.',
       what: [
         'Análisis de flujo de navegación y jerarquía visual',
         'Evaluación de usabilidad en dispositivos móviles',
         'Consistencia en el diseño y sistemas de diseño',
         'Claridad en los llamados a la acción (CTAs)',
         'Pruebas de legibilidad y contraste',
-        'Análisis de mapas de calor (Heurísticas de Nielsen)'
+        'Análisis de mapas de calor (Heurísticas de Nielsen)',
       ],
-      result: 'Una interfaz intuitiva que reduce la frustración del usuario y aumenta el tiempo de sesión.'
+      result:
+        'Una interfaz intuitiva que reduce la frustración del usuario y aumenta el tiempo de sesión.',
     },
     {
       id: 'seo',
@@ -52,9 +47,10 @@ export const auditsData = {
         'Análisis de Sitemap XML y enlaces rotos',
         'Optimización de Meta-descripciones y Títulos',
         'Evaluación de canibalización de palabras clave',
-        'Revisión técnica de marcado de esquema (Schema.org)'
+        'Revisión técnica de marcado de esquema (Schema.org)',
       ],
-      result: 'Aparición en los primeros resultados de Google y aumento de tráfico orgánico de calidad.'
+      result:
+        'Aparición en los primeros resultados de Google y aumento de tráfico orgánico de calidad.',
     },
     {
       id: 'cro',
@@ -67,9 +63,10 @@ export const auditsData = {
         'Pruebas sociales y gatillos psicológicos',
         'Optimización de Landing Pages específicas',
         'Análisis de tasa de rebote por página',
-        'Estrategia de Copywriting para la acción'
+        'Estrategia de Copywriting para la acción',
       ],
-      result: 'Aumento directo en tu retorno de inversión (ROI) sin necesidad de gastar más en anuncios.'
+      result:
+        'Aumento directo en tu retorno de inversión (ROI) sin necesidad de gastar más en anuncios.',
     },
     {
       id: 'code',
@@ -82,56 +79,59 @@ export const auditsData = {
         'Evaluación de deuda técnica acumulada',
         'Pruebas de seguridad (Vulnerabilidades OWASP)',
         'Escalabilidad de la base de datos y arquitectura',
-        'Revisión de estándares de desarrollo modernos'
+        'Revisión de estándares de desarrollo modernos',
       ],
-      result: 'Un sistema robusto, fácil de mantener y preparado para crecer sin fallos críticos.'
+      result: 'Un sistema robusto, fácil de mantener y preparado para crecer sin fallos críticos.',
     },
     {
       id: 'accessibility',
       title: 'Auditoría de Accesibilidad (WCAG)',
       icon: <Users className="text-teal-500" />,
-      description: 'Aseguramos que tu sitio sea accesible para todas las personas, sin excepciones.',
+      description:
+        'Aseguramos que tu sitio sea accesible para todas las personas, sin excepciones.',
       what: [
         'Cumplimiento con estándares WCAG 2.1 (Niveles A, AA)',
         'Navegación completa por teclado',
         'Etiquetado ARIA para lectores de pantalla',
         'Contraste de color y legibilidad de texto',
         'Gestión de foco y jerarquía semántica',
-        'Capacitación básica en edición accesible'
+        'Capacitación básica en edición accesible',
       ],
-      result: 'Inclusividad total, cumplimiento legal y una imagen de marca socialmente responsable.'
-    }
+      result:
+        'Inclusividad total, cumplimiento legal y una imagen de marca socialmente responsable.',
+    },
   ],
   en: [
     {
       id: 'performance',
       title: 'Performance Audit (Speed & Load)',
       icon: <Zap className="text-amber-500" />,
-      description: 'We optimize every millisecond of your site so your users don\'t have to wait.',
+      description: "We optimize every millisecond of your site so your users don't have to wait.",
       what: [
         'Core Web Vitals analysis (LCP, FID, CLS)',
         'Image load optimization (WebP, Lazy Loading)',
         'Server response time review (TTFB)',
         'CSS and JavaScript file minification',
         'Advanced Cache and CDN configuration',
-        'Detection of heavy third-party scripts'
+        'Detection of heavy third-party scripts',
       ],
-      result: 'A site with 90+ Lighthouse score, instant load times, and better Google rankings.'
+      result: 'A site with 90+ Lighthouse score, instant load times, and better Google rankings.',
     },
     {
       id: 'uxui',
       title: 'UX/UI Audit (User Experience)',
       icon: <Monitor className="text-blue-500" />,
-      description: 'We evaluate how your customers navigate to remove any visual or logic barriers.',
+      description:
+        'We evaluate how your customers navigate to remove any visual or logic barriers.',
       what: [
         'Navigation flow and visual hierarchy analysis',
         'Mobile device usability evaluation',
         'Consistency in design and design systems',
         'Clarity in calls to action (CTAs)',
         'Readability and contrast testing',
-        'Heatmap analysis (Nielsen Heuristics)'
+        'Heatmap analysis (Nielsen Heuristics)',
       ],
-      result: 'An intuitive interface that reduces user frustration and increases session time.'
+      result: 'An intuitive interface that reduces user frustration and increases session time.',
     },
     {
       id: 'seo',
@@ -144,9 +144,9 @@ export const auditsData = {
         'XML Sitemap and broken link analysis',
         'Meta-description and Title optimization',
         'Keyword cannibalization evaluation',
-        'Technical Schema markup review (Schema.org)'
+        'Technical Schema markup review (Schema.org)',
       ],
-      result: 'Appear in top Google results and increase quality organic traffic.'
+      result: 'Appear in top Google results and increase quality organic traffic.',
     },
     {
       id: 'cro',
@@ -159,9 +159,9 @@ export const auditsData = {
         'Social proof and psychological triggers',
         'Specific Landing Page optimization',
         'Bounce rate analysis per page',
-        'Copywriting action strategy'
+        'Copywriting action strategy',
       ],
-      result: 'Direct increase in your return on investment (ROI) without spending more on ads.'
+      result: 'Direct increase in your return on investment (ROI) without spending more on ads.',
     },
     {
       id: 'code',
@@ -174,9 +174,9 @@ export const auditsData = {
         'Accumulated technical debt evaluation',
         'Security testing (OWASP Vulnerabilities)',
         'Database and architecture scalability',
-        'Modern development standards review'
+        'Modern development standards review',
       ],
-      result: 'A robust system, easy to maintain and prepared to grow without critical failures.'
+      result: 'A robust system, easy to maintain and prepared to grow without critical failures.',
     },
     {
       id: 'accessibility',
@@ -189,9 +189,9 @@ export const auditsData = {
         'ARIA labeling for screen readers',
         'Color contrast and text readability',
         'Focus management and semantic hierarchy',
-        'Basic accessible editing training'
+        'Basic accessible editing training',
       ],
-      result: 'Total inclusiveness, legal compliance, and a socially responsible brand image.'
-    }
-  ]
+      result: 'Total inclusiveness, legal compliance, and a socially responsible brand image.',
+    },
+  ],
 };

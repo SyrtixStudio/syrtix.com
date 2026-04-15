@@ -63,8 +63,7 @@ export default function PromocionContacto({ data }) {
           submit: 'I want this offer',
           whatsapp: 'WhatsApp',
           map: 'Open in Google Maps',
-          missingAccessKey:
-            'VITE_WEB3FORMS_ACCESS_KEY is missing. The form cannot be submitted.',
+          missingAccessKey: 'VITE_WEB3FORMS_ACCESS_KEY is missing. The form cannot be submitted.',
           missingContactEmail: 'Contact email is missing. The form cannot be submitted.',
           success: 'Message sent successfully.',
           error: 'Error sending message. Please try again.',
@@ -89,7 +88,8 @@ export default function PromocionContacto({ data }) {
           map: 'Ver en Google Maps',
           missingAccessKey:
             'Falta configurar VITE_WEB3FORMS_ACCESS_KEY en produccion. No se puede enviar el formulario.',
-          missingContactEmail: 'Falta configurar el correo de contacto. No se puede enviar el formulario.',
+          missingContactEmail:
+            'Falta configurar el correo de contacto. No se puede enviar el formulario.',
           success: 'Mensaje enviado correctamente.',
           error: 'Error al enviar el mensaje. Intenta nuevamente.',
           defaultMessage: `Estoy interesado en la oferta limitada de ${title} (${price}).`,
@@ -141,7 +141,8 @@ export default function PromocionContacto({ data }) {
   const discountPercent = hasSavings ? Math.round((savingsValue / oldPriceValue) * 100) : 0;
 
   const displayOldPrice = oldPrice || (oldPriceValue ? formatCLP(oldPriceValue, lang) : '');
-  const displayCurrentPrice = price || (currentPriceValue ? formatCLP(currentPriceValue, lang) : '');
+  const displayCurrentPrice =
+    price || (currentPriceValue ? formatCLP(currentPriceValue, lang) : '');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -164,7 +165,7 @@ export default function PromocionContacto({ data }) {
           email: email,
           pregunta: message,
           title: title,
-          price: price
+          price: price,
         }),
       });
 
@@ -225,10 +226,18 @@ export default function PromocionContacto({ data }) {
               <div className="mb-4">
                 <div className="text-xs font-semibold text-gray-600 mb-2">{copy.endsIn}</div>
                 <div className="flex gap-2 text-sm font-bold text-gray-800">
-                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.days)}d</span>
-                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.hours)}h</span>
-                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.minutes)}m</span>
-                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">{pad(timeLeft.seconds)}s</span>
+                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">
+                    {pad(timeLeft.days)}d
+                  </span>
+                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">
+                    {pad(timeLeft.hours)}h
+                  </span>
+                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">
+                    {pad(timeLeft.minutes)}m
+                  </span>
+                  <span className="px-2 py-1 bg-base border border-gray-200 rounded">
+                    {pad(timeLeft.seconds)}s
+                  </span>
                 </div>
                 <p className="text-xs text-secondary font-semibold mt-2">{copy.slots}</p>
               </div>

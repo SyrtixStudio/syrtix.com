@@ -87,11 +87,7 @@ export default function ContactoPromocion() {
           {status === 'sending' ? 'Enviando...' : 'Enviar'}
         </button>
         {feedback && (
-          <p
-            className={`text-sm ${
-              status === 'error' ? 'text-red-600' : 'text-green-600'
-            }`}
-          >
+          <p className={`text-sm ${status === 'error' ? 'text-red-600' : 'text-green-600'}`}>
             {feedback}
           </p>
         )}

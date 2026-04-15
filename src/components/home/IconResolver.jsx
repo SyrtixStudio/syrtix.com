@@ -15,6 +15,8 @@ import {
   Shield,
   Server,
   CheckCircle,
+  Bot,
+  MessageSquare,
 } from 'lucide-react';
 
 /**
@@ -37,6 +39,8 @@ const iconMap = {
   Shield,
   Server,
   CheckCircle,
+  Bot,
+  MessageSquare,
 };
 
 /**

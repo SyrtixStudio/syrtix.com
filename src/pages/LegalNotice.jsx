@@ -109,7 +109,7 @@ const LegalNotice = () => {
             },
           ],
           privacyLink: 'Politica de Privacidad',
-          footer: 'Si tienes preguntas sobre este Aviso Legal, contactaños en',
+          footer: 'Si tienes preguntas sobre este Aviso Legal, contáctanos en',
           back: 'Volver al inicio',
         };
 
@@ -130,9 +130,12 @@ const LegalNotice = () => {
               <h2 className="text-lg font-bold text-gray-800 mb-2">{section.title}</h2>
               {section.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="text-sm leading-relaxed mb-2">
-                  {paragraph.includes('Privacy Policy') || paragraph.includes('Politica de Privacidad') ? (
+                  {paragraph.includes('Privacy Policy') ||
+                  paragraph.includes('Politica de Privacidad') ? (
                     <>
-                      {paragraph.replace('Privacy Policy', '').replace('Politica de Privacidad', '')}
+                      {paragraph
+                        .replace('Privacy Policy', '')
+                        .replace('Politica de Privacidad', '')}
                       <Link to="/politica-privacidad" className="text-primary">
                         {copy.privacyLink}
                       </Link>

@@ -55,14 +55,12 @@ export default function Blog() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-              Recursos sobre{' '}
-              <br />
+              Recursos sobre <br />
               <span className="text-primary">desarrollo web en Chile</span>
             </h1>
 
             <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Guías prácticas, precios reales y estrategias para que tu negocio crezca
-              en internet.
+              Guías prácticas, precios reales y estrategias para que tu negocio crezca en internet.
             </p>
           </div>
         </section>

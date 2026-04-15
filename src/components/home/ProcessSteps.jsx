@@ -17,14 +17,26 @@ function ProcessSteps() {
           highlight: 'process',
           subtitle: 'A proven method to deliver exceptional results',
           steps: [
-            { step: '01', title: 'Discovery', desc: 'We understand your goals, audience, and competitive landscape' },
-            { step: '02', title: 'Design', desc: 'We create mockups and prototypes tailored to your brand' },
+            {
+              step: '01',
+              title: 'Discovery',
+              desc: 'We understand your goals, audience, and competitive landscape',
+            },
+            {
+              step: '02',
+              title: 'Design',
+              desc: 'We create mockups and prototypes tailored to your brand',
+            },
             {
               step: '03',
               title: 'Development',
               desc: 'We build with clean, performant, and secure code',
             },
-            { step: '04', title: 'Launch', desc: 'We publish, optimize, and guide you post-launch' },
+            {
+              step: '04',
+              title: 'Launch',
+              desc: 'We publish, optimize, and guide you post-launch',
+            },
           ],
         }
       : {
@@ -32,14 +44,26 @@ function ProcessSteps() {
           highlight: 'proceso',
           subtitle: 'Un método probado para entregar resultados excepcionales',
           steps: [
-            { step: '01', title: 'Descubrimiento', desc: 'Entendemos tus objetivos, audiencia y panorama competitivo' },
-            { step: '02', title: 'Diseño', desc: 'Creamos mockups y prototipos a la medida de tu marca' },
+            {
+              step: '01',
+              title: 'Descubrimiento',
+              desc: 'Entendemos tus objetivos, audiencia y panorama competitivo',
+            },
+            {
+              step: '02',
+              title: 'Diseño',
+              desc: 'Creamos mockups y prototipos a la medida de tu marca',
+            },
             {
               step: '03',
               title: 'Desarrollo',
               desc: 'Construimos con código limpio, rápido y seguro',
             },
-            { step: '04', title: 'Lanzamiento', desc: 'Publicamos, optimizamos y te acompañamos post-lanzamiento' },
+            {
+              step: '04',
+              title: 'Lanzamiento',
+              desc: 'Publicamos, optimizamos y te acompañamos post-lanzamiento',
+            },
           ],
         };
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { CheckCircle2, X, XCircle } from 'lucide-react';
+import { CheckCircle2, X } from 'lucide-react';
 
 function PackageDetailModal({ isOpen, onClose, title, subtitle, details, labels, closeLabel }) {
   useEffect(() => {
@@ -37,7 +37,9 @@ function PackageDetailModal({ isOpen, onClose, title, subtitle, details, labels,
           <div className="h-1 bg-gradient-to-r from-secondary via-primary to-secondary" />
           <div className="px-5 sm:px-6 py-4 flex items-center justify-between">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-secondary">{subtitle}</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-secondary">
+                {subtitle}
+              </p>
               <h3 className="text-lg sm:text-xl font-bold text-gray-800">{title}</h3>
             </div>
             <button
@@ -54,47 +56,30 @@ function PackageDetailModal({ isOpen, onClose, title, subtitle, details, labels,
         <div className="p-5 sm:p-6 space-y-4 sm:space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="border border-gray-200 bg-base2/40 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">{labels.audience}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
+                {labels.audience}
+              </p>
               <p className="text-sm text-gray-700 mt-1">{details.audience}</p>
             </div>
             <div className="border border-gray-200 bg-base2/40 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">{labels.objective}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
+                {labels.objective}
+              </p>
               <p className="text-sm text-gray-700 mt-1">{details.objective}</p>
             </div>
             <div className="border border-gray-200 bg-base2/40 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">{labels.focus}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
+                {labels.focus}
+              </p>
               <p className="text-sm text-gray-700 mt-1">{details.focus}</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="border border-green-200 bg-green-50/60 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-green-700 mb-2">{labels.includes}</p>
-              <ul className="space-y-2">
-                {details.includes.map((item) => (
-                  <li key={item} className="text-sm text-gray-700 flex items-start">
-                    <CheckCircle2 size={16} className="mr-2 mt-0.5 text-green-600 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="border border-amber-200 bg-amber-50/60 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-amber-700 mb-2">{labels.excludes}</p>
-              <ul className="space-y-2">
-                {details.excludes.map((item) => (
-                  <li key={item} className="text-sm text-gray-700 flex items-start">
-                    <XCircle size={16} className="mr-2 mt-0.5 text-amber-600 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
           {Array.isArray(details.webTypes) && details.webTypes.length > 0 && (
             <div className="border border-secondary/30 bg-secondary/5 p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary mb-2">{labels.webTypes}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary mb-2">
+                {labels.webTypes}
+              </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {details.webTypes.map((item) => (
                   <li key={item} className="text-sm text-gray-700 flex items-start">
