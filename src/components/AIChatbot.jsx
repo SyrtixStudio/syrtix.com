@@ -28,23 +28,32 @@ const AIChatbot = () => {
     setInput('');
     setIsLoading(true);
 
-    const N8N_URL = import.meta.env.VITE_N8N_WEBHOOK_URL;
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    
     try {
-      const response = await fetch(N8N_URL, {
+      const response = await fetch(`${API_URL}/api/ia/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SECRET}`
+        },
         body: JSON.stringify({
-          source: 'CHATBOT',
-          pregunta: userMsg,
-          history: messages,
+          source: 'WEB_CHATBOT',
+          question: userMsg,
+          history: messages.map(m => ({
+            role: m.role === 'ai' ? 'assistant' : 'user',
+            content: m.text
+          })),
         }),
       });
 
       const data = await response.json();
+      
+      if (!response.ok) throw new Error(data.error || 'Error en la respuesta');
+
       setMessages((prev) => [
         ...prev,
-        { role: 'ai', text: data.answer || data.response || '¡He recibido tu mensaje!' },
+        { role: 'ai', text: data.answer || '¡He recibido tu mensaje!' },
       ]);
     } catch (error) {
       setMessages((prev) => [
