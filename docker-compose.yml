@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  syrtix-ai-engine:
+    build:
+      context: .
+      dockerfile: ia-engine/Dockerfile
+    container_name: syrtix-ai-engine
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - SYRTIX_SECRET=${SYRTIX_SECRET}
+      - VITE_POCKETBASE_URL=${VITE_POCKETBASE_URL}
+      - PB_ADMIN_EMAIL=${PB_ADMIN_EMAIL}
+      - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD}
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+    restart: always
+    networks:
+      - coolify
+
+networks:
+  coolify:
+    external: true

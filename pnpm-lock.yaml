@@ -60,8 +60,8 @@ importers:
         specifier: ^0.468.0
         version: 0.468.0(react@18.3.1)
       pocketbase:
-        specifier: ^0.26.8
-        version: 0.26.8
+        specifier: ^0.17.0
+        version: 0.17.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2841,8 +2841,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pocketbase@0.26.8:
-    resolution: {integrity: sha512-aQ/ewvS7ncvAE8wxoW10iAZu6ElgbeFpBhKPnCfvRovNzm2gW8u/sQNPGN6vNgVEagz44kK//C61oKjfa+7Low==}
+  pocketbase@0.17.0:
+    resolution: {integrity: sha512-icsdgI35o/ewjwpJbhkkUAyWpkvPNYXV0iy8XJBMl64yR16YHMIFzfoLwukk86WZ13ojGpupr+/WscXVDiPKDQ==}
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -5408,7 +5408,7 @@ snapshots:
       jsonwebtoken: 9.0.3
       load-esm: 1.0.3
       mime-types: 2.1.35
-      retry-axios: 2.6.0(axios@1.14.0(debug@4.4.3))
+      retry-axios: 2.6.0(axios@1.14.0)
       tough-cookie: 4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -6084,7 +6084,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  pocketbase@0.26.8: {}
+  pocketbase@0.17.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
@@ -6324,7 +6324,7 @@ snapshots:
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
-  retry-axios@2.6.0(axios@1.14.0(debug@4.4.3)):
+  retry-axios@2.6.0(axios@1.14.0):
     dependencies:
       axios: 1.14.0(debug@4.4.3)
 

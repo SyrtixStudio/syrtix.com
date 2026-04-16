@@ -1,0 +1,14 @@
+node_modules
+.git
+.env
+dist
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.cursor
+.gemini
+.agent
+.vscode

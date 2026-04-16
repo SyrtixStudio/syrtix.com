@@ -113,7 +113,7 @@ const AIChatbot = () => {
         {isOpen ? <X size={28} /> : (
           <div className="relative flex items-center justify-center text-white">
             <Bot size={32} />
-            <Sparkles className="absolute -top-1 -right-2 w-4 h-4 text-emerald-300 animate-pulse" />
+            <Sparkles className="absolute -top-1 -right-2 w-4 h-4 text-primary animate-pulse" />
           </div>
         )}
       </button>
