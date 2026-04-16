@@ -63,9 +63,12 @@ class SyrtixAgent {
       const context = results.map(r => r.content).join("\n\n---\n\n");
 
       // 2. Construcción del historial para LangChain
-      const chatHistory = history.map(h => 
-        h.role === 'user' ? new HumanMessage(h.text) : new AIMessage(h.text)
-      );
+      const chatHistory = history.map(h => {
+        const messageText = h.text || h.content || "";
+        return h.role === 'user' 
+          ? new HumanMessage(messageText) 
+          : new AIMessage(messageText);
+      });
 
       // 3. Definición del System Prompt (El ADN del Agente)
       const systemPrompt = `Eres SyrtixAI, el Agente de Ventas de Syrtix Studio.
