@@ -105,7 +105,7 @@ ${context}`;
 
     } catch (error) {
       console.error("❌ Error en SyrtixAgent:", error);
-      return "Lo siento, ocurrió un error en mi procesamiento. Por favor, contacta a nuestro equipo por WhatsApp directamente.";
+      return `❌ Error de procesamiento: ${error.message}. Por favor, contacta a soporte.`;
     }
   }
 }
