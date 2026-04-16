@@ -16,5 +16,4 @@ backend/dist/
 backend/.env
 
 # Documentación interna ignorada
-doc/
 CREDENTIALS.md
