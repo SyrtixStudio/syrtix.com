@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, Bot, User, Sparkles } from 'lucide-react';
 import './AIChatbot.css';
-
+import AIOrb from './AIOrb';
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -118,11 +118,11 @@ const AIChatbot = () => {
       <button
         className={`chat-bubble ${isOpen ? 'active' : ''} shadow-xl hover:shadow-2xl`}
         onClick={() => setIsOpen(!isOpen)}
+        style={!isOpen ? { background: 'transparent', padding: 0 } : {}}
       >
         {isOpen ? <X size={28} /> : (
-          <div className="relative flex items-center justify-center text-white">
-            <Bot size={32} />
-            <Sparkles className="absolute -top-1 -right-2 w-4 h-4 text-primary animate-pulse" />
+          <div className="relative flex items-center justify-center text-white w-full h-full">
+            <AIOrb width={60} height={60} />
           </div>
         )}
       </button>
