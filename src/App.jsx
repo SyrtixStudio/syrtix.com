@@ -26,6 +26,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const Blog = lazy(() => import('./pages/blog/Blog'));
 const CuantoCuestaPaginaWeb = lazy(() => import('./pages/blog/CuantoCuestaUnaPaginaWeb'));
 const PorQueNecesitoUnaPaginaWeb = lazy(() => import('./pages/blog/PorQueNecesitoUnaPaginaWeb'));
+const Delivery = lazy(() => import('./pages/Delivery'));
 
 // Loading fallback component
 function PageLoader() {
@@ -47,7 +48,7 @@ function App() {
       offset: 50,
     });
 
-    const timer = setTimeout(() => setShowLoader(false), 2000);
+    const timer = setTimeout(() => setShowLoader(false), 3500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -80,6 +81,7 @@ function App() {
                 path="/blog/por-que-necesito-una-pagina-web"
                 element={<PorQueNecesitoUnaPaginaWeb />}
               />
+              <Route path="/entrega" element={<Delivery />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

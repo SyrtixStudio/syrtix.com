@@ -17,3 +17,5 @@ backend/.env
 
 # Documentación interna ignorada
 CREDENTIALS.md
+docs/
+scratch/
