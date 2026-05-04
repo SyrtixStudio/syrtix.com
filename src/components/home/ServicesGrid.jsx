@@ -5,9 +5,9 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../i18n/index.jsx';
 
 const serviceImages = [
-  'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&auto=format&fit=crop&q=80',
+  '/img/img_posicionamiento_seo.png',
+  '/img/img_mantenimiento_sw.png',
+  '/img/img_integraciones_medida.png',
 ];
 
 function ServicesGrid() {
@@ -85,7 +85,7 @@ function ServicesGrid() {
             <span className="text-primary">{copy.sectionTitleHighlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base max-w-2xl mx-auto" style={{ color: '#4b5563' }}>
             {copy.sectionSubtitle}
           </p>
         </div>
@@ -110,7 +110,7 @@ function ServicesGrid() {
               </div>
               <div className="p-5">
                 <h3 className="text-base font-bold text-gray-800 mb-1">{service.title}</h3>
-                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                <p className="text-sm mb-3" style={{ color: '#4b5563' }}>{service.description}</p>
                 <p className="text-primary font-bold text-sm mb-2">{service.price}</p>
                 <span className="inline-flex items-center text-secondary font-semibold text-xs group-hover:text-primary transition-colors">
                   {copy.viewService} <ArrowRight size={14} className="ml-1" />
@@ -120,7 +120,7 @@ function ServicesGrid() {
           ))}
         </div>
 
-        <p className="mt-6 text-xs sm:text-sm text-gray-600 text-center max-w-4xl mx-auto">
+        <p className="mt-6 text-xs sm:text-sm text-center max-w-4xl mx-auto" style={{ color: '#4b5563' }}>
           {copy.pricingDisclaimer}
         </p>
         <p className="mt-2 text-xs sm:text-sm text-secondary text-center max-w-4xl mx-auto font-medium">

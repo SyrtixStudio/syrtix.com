@@ -319,7 +319,7 @@ function PricingSection() {
               icon: 'MessageSquare',
               description: 'Omnichannel AI Assistant integrating CRMs, APIs, WhatsApp, and advanced context.',
               price: 490000,
-              oldPrice: 690000,
+              oldPrice: 590000,
               paymentType: 'one-time setup payment',
               scopeDetails: {
                 audience: 'Medium to large clinics, e-commerce, and enterprises with complex data structures and high message volume.',

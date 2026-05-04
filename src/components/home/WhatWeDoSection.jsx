@@ -86,7 +86,7 @@ function WhatWeDoSection() {
               {t.title}
               <span className="text-primary">{t.titleHighlight}</span>
             </h2>
-            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg mb-8 leading-relaxed max-w-xl" style={{ color: '#4b5563' }}>
               {t.intro}
             </p>
 
@@ -151,7 +151,7 @@ function WhatWeDoSection() {
               <div className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 mb-4">
                 {item.label}
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+              <p className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>{item.desc}</p>
             </div>
           ))}
         </div>

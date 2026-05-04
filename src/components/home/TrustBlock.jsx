@@ -337,7 +337,7 @@ function TrustBlock() {
               <span className="text-primary">{t.processHighlight}</span>
             </h2>
             <div className="h-1 w-16 bg-primary mx-auto mb-4" />
-            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base max-w-2xl mx-auto" style={{ color: '#4b5563' }}>
               {t.processSubtitle}
             </p>
           </div>
@@ -363,7 +363,7 @@ function TrustBlock() {
                 </div>
                 <div className="p-5">
                   <h3 className="text-base font-bold text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>{step.desc}</p>
                 </div>
               </div>
             ))}

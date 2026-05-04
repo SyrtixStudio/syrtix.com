@@ -76,7 +76,7 @@ function ProcessSteps() {
             <span className="text-primary">{copy.highlight}</span>
           </h2>
           <div className="h-1 w-16 bg-primary mx-auto mb-4"></div>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">{copy.subtitle}</p>
+          <p className="text-sm sm:text-base max-w-2xl mx-auto" style={{ color: '#4b5563' }}>{copy.subtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -100,7 +100,7 @@ function ProcessSteps() {
               </div>
               <div className="p-5">
                 <h3 className="text-base font-bold text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                <p className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>{item.desc}</p>
               </div>
             </div>
           ))}

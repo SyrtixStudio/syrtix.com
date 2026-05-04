@@ -8,22 +8,22 @@ Syrtix Digital Engineering ha incorporado a su catálogo de servicios integracio
 2. **Tiempos de Respuesta Lentos:** La IA responde al instante dudas frecuentes, precios y servicios de manera profesional.
 3. **Fricción Comercial:** Derivamos al lead hacia WhatsApp únicamente cuando demuestra intención de compra ("quiero cotizar", "precios", "agendar").
 
-## 1. Agente Inteligente Web (Lead Catcher RAG)
-- **Precio Oferta:** $199.000 CLP (Setup inicial) + Mensualidad según volumen.
+## 1. Chatbot AI Start (Lead Catcher RAG)
+- **Precio Oferta:** $190.000 CLP (Setup inicial) + Mensualidad desde $29.900/mes.
 - **Ideal para:** Agencias, clínicas, inmobiliarias y servicios B2B.
 - **Incluye:** 
   - Chatbot interactivo en el sitio web (diseño flotante premium).
   - Ingesta de documentos de la empresa (la IA solo responde usando datos reales de la empresa usando arquitectura RAG).
   - Integración básica con webhook.
-  - Alerta por WhatsApp al equipo de ventas cuando un lead requiere atención.
+  - Alerta por correo o Google Sheets cuando un lead requiere atención.
 
-## 2. Automatización Empresarial (n8n Orchestration)
-- **Precio Base:** Desde $399.000 CLP.
-- **Ideal para:** Empresas que necesitan conectar sistemas sin intervención humana.
+## 2. Chatbot AI Enterprise (n8n Orchestration & WhatsApp)
+- **Precio Base:** Desde $490.000 CLP + Mensualidad desde $89.900/mes.
+- **Ideal para:** Empresas que necesitan conectar sistemas sin intervención humana y atención vía WhatsApp Oficial.
 - **Incluye:**
-  - Diseño de flujos de trabajo en n8n.
-  - Conexión del Chatbot Web o WhatsApp con CRM (Pipedrive, HubSpot, etc.).
-  - Registro automático en Google Sheets.
-  - Creación de tickets en Jira/Trello automáticamente.
+  - Diseño de flujos de trabajo avanzados en n8n.
+  - Conexión del Chatbot Web y WhatsApp Oficial con CRM (Pipedrive, HubSpot, Buk, etc.).
+  - Registro automático en Google Sheets y acciones complejas (reservas, seguimiento).
+  - Entrenamiento RAG sin límite de páginas y derivación inteligente a humanos.
 
 *Nota:* Estos servicios se integran perfectamente con nuestros planes de Sitios Web (Solución Pyme y Empresa).
