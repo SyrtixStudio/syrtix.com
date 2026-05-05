@@ -19,7 +19,7 @@ function Home() {
     const common = {
       contactEmail: 'contacto@syrtix.com',
       whatsapp: COMPANY.phone,
-      address: '5151 Los Militares, Las Condes, Region Metropolitana, Chile',
+      address: 'Agencia 100% Digital, Santiago, Chile',
     };
 
     if (lang === 'en') {

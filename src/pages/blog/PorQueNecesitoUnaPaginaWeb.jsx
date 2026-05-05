@@ -176,7 +176,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
           </h2>
           <p className="mb-6">
             Con una página web y un perfil de Google Business, tu negocio puede aparecer cuando
-            alguien busca <em>"diseño web Santiago"</em>, <em>"agencia web Las Condes"</em> o
+            alguien busca <em>"diseño web Santiago"</em>, <em>"agencia web digital"</em> o
             cualquier servicio que ofreces en tu zona. Este tráfico es gratuito y de muy alta
             intención de compra.
           </p>
