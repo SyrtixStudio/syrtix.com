@@ -25,9 +25,9 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Entrepreneur Solution',
+        title: 'Web Solution Start',
         oldPrice: '$299.000 CLP',
-        price: '$149.000 CLP',
+        price: '$199.000 CLP',
         promoLabel: 'LAUNCH OFFER',
         offerEndsAt: '2026-12-31T23:59:59-03:00',
         description:
@@ -53,9 +53,9 @@ function Home() {
 
     return {
       ...common,
-      title: 'Solución Emprendedor',
+      title: 'Web Solution Start',
       oldPrice: '$299.000',
-      price: '$149.000',
+      price: '$199.000',
       promoLabel: 'OFERTA LANZAMIENTO',
       offerEndsAt: '2026-12-31T23:59:59-03:00',
       description:

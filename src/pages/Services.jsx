@@ -112,7 +112,7 @@ function Services() {
                 'Extreme loading speed (90+ Lighthouse)',
                 'Basic SEO technical setup',
               ],
-              price: 'From $149.000 CLP',
+              price: 'From $199.000 CLP',
             },
             {
               title: 'Corporate Websites',
@@ -406,7 +406,7 @@ function Services() {
                 'Formularios de captura de alta performance',
                 'Setup técnico de analítica (GA4/GSC)',
               ],
-              price: 'Desde $149.000 CLP',
+              price: 'Desde $199.000 CLP',
             },
             {
               title: 'Web Corporativa',

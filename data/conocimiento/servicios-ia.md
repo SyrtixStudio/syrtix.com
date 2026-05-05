@@ -26,4 +26,4 @@ Syrtix Digital Engineering ha incorporado a su catálogo de servicios integracio
   - Registro automático en Google Sheets y acciones complejas (reservas, seguimiento).
   - Entrenamiento RAG sin límite de páginas y derivación inteligente a humanos.
 
-*Nota:* Estos servicios se integran perfectamente con nuestros planes de Sitios Web (Solución Pyme y Empresa).
+*Nota:* Estos servicios se integran perfectamente con nuestros planes de Sitios Web (Web Solution Start, Pro y Enterprise).

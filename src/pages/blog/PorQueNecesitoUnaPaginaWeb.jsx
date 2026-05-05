@@ -197,7 +197,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
             Una landing page que recibe 500 visitas mensuales desde Google y convierte el 2% en
             clientes potenciales = <strong>10 clientes nuevos al mes</strong>. Si tu servicio vale
             $100.000 CLP, eso es $1.000.000 mensuales generados por una inversión inicial de
-            $149.000. La página web se paga sola en el primer mes.
+            $199.000. La página web se paga sola en el primer mes.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-800 mb-4 mt-10">
@@ -243,7 +243,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
           <div className="bg-gray-900 text-white p-8 rounded text-center">
             <h3 className="text-2xl font-bold mb-3">¿Listo para crear tu página web?</h3>
             <p className="text-gray-300 mb-6">
-              En Syrtix lanzamos tu sitio web profesional en 7 días. Precios desde $149.000 CLP.
+              En Syrtix lanzamos tu sitio web profesional en 7 días. Precios desde $199.000 CLP.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link

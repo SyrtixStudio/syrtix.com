@@ -57,24 +57,32 @@ export default function ContactoPromocion() {
       <h3 className="text-lg font-bold mb-2 text-gray-800">¿Interesado? Contáctanos directo</h3>
       <form onSubmit={handleSubmit} className="space-y-3 mb-4">
         <input
+          id="contact-promo-name"
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Tu nombre"
+          autoComplete="name"
+          aria-label="Tu nombre"
           className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
         />
         <input
+          id="contact-promo-email"
           required
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
+          autoComplete="email"
+          aria-label="Email"
           className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
         />
         <textarea
+          id="contact-promo-message"
           required
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          aria-label="Mensaje"
           className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm h-24"
         />
         <button

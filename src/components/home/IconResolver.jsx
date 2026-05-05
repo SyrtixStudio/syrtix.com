@@ -17,6 +17,7 @@ import {
   CheckCircle,
   Bot,
   MessageSquare,
+  ShoppingBag,
 } from 'lucide-react';
 
 /**
@@ -41,6 +42,7 @@ const iconMap = {
   CheckCircle,
   Bot,
   MessageSquare,
+  ShoppingBag,
 };
 
 /**

@@ -435,11 +435,13 @@ function Contact() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                      <label htmlFor="contact-name" className="block text-gray-700 font-medium mb-1 text-sm">
                         {copy.fullName}
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
+                        autoComplete="name"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                           errors.name ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -452,11 +454,13 @@ function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                      <label htmlFor="contact-company" className="block text-gray-700 font-medium mb-1 text-sm">
                         {copy.companyOptional}
                       </label>
                       <input
+                        id="contact-company"
                         type="text"
+                        autoComplete="organization"
                         className="w-full px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder={copy.yourCompany}
                         {...register('company')}
@@ -466,11 +470,13 @@ function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                      <label htmlFor="contact-email" className="block text-gray-700 font-medium mb-1 text-sm">
                         {copy.email}
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
+                        autoComplete="email"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                           errors.email ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -494,11 +500,13 @@ function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-1 text-sm">
+                      <label htmlFor="contact-phone" className="block text-gray-700 font-medium mb-1 text-sm">
                         {copy.phone}
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
+                        autoComplete="tel"
                         className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                           errors.phone ? 'border-red-500' : 'border-gray-300'
                         }`}
@@ -520,10 +528,11 @@ function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-700 font-medium mb-1 text-sm">
+                    <label htmlFor="contact-message" className="block text-gray-700 font-medium mb-1 text-sm">
                       {copy.tellUsMore}
                     </label>
                     <textarea
+                      id="contact-message"
                       className={`w-full px-3 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none ${
                         errors.message ? 'border-red-500' : 'border-gray-300'
                       }`}

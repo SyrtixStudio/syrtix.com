@@ -259,24 +259,32 @@ export default function PromocionContacto({ data }) {
             <div className="bg-base/50 p-4 border border-gray-200">
               <form onSubmit={handleSubmit} className="space-y-3">
                 <input
+                  id="promo-name"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={copy.namePlaceholder}
+                  autoComplete="name"
+                  aria-label={copy.namePlaceholder}
                   className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
                 />
                 <input
+                  id="promo-email"
                   required
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={copy.emailPlaceholder}
+                  autoComplete="email"
+                  aria-label={copy.emailPlaceholder}
                   className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm"
                 />
                 <textarea
+                  id="promo-message"
                   required
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  aria-label="Mensaje"
                   className="w-full border border-gray-200 rounded-md px-3 py-2 text-sm h-28"
                 />
 

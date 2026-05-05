@@ -136,17 +136,17 @@ export default function CuantoCuestaUnaPaginaWeb() {
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             {[
               {
-                nombre: 'Solución Emprendedor',
-                precio: 'Desde $149.000',
+                nombre: 'Web Solution Start',
+                precio: 'Desde $199.000',
                 desc: 'Landing page profesional, entrega en 7 días, hosting gratis 1 año.',
               },
               {
-                nombre: 'Solución Empresa',
+                nombre: 'Web Solution Pro',
                 precio: 'Desde $350.000',
                 desc: 'Sitio web completo con múltiples secciones, formularios y SEO básico.',
               },
               {
-                nombre: 'Solución E-commerce',
+                nombre: 'Web Solution Enterprise',
                 precio: 'Desde $650.000',
                 desc: 'Tienda online completa con carrito, Webpay y panel de administración.',
               },

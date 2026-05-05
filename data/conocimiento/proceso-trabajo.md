@@ -22,5 +22,5 @@ Sometemos el sitio a pruebas rigurosas de velocidad y seguridad. Configuramos el
 ---
 
 ## Tiempos de Entrega
-*   **Solución Emprendedor:** 7 días hábiles (promesa garantizada).
-*   **Proyectos Adaptativos (Pyme, E-commerce, Enterprise):** De 2 a 4 semanas según la complejidad técnica y volumen de contenido.
+*   **Web Solution Start:** 7 días hábiles (promesa garantizada).
+*   **Proyectos Adaptativos (Web Solution Pro, Enterprise, Enterprise+):** De 2 a 4 semanas según la complejidad técnica y volumen de contenido.

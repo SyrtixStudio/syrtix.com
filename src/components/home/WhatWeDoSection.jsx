@@ -71,6 +71,15 @@ const content = {
   },
 };
 
+import CountUp from '../common/CountUp.jsx';
+
+const parseMetricValue = (value) => {
+  const num = parseFloat(value.replace(/[^0-9.]/g, ''));
+  const suffix = value.replace(/[0-9.]/g, '');
+  const decimals = value.includes('.') ? value.split('.')[1].length : 0;
+  return { num, suffix, decimals };
+};
+
 function WhatWeDoSection() {
   const { lang } = useLanguage();
   const t = content[lang] || content.es;
@@ -139,21 +148,26 @@ function WhatWeDoSection() {
 
         {/* Métricas */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-200">
-          {t.metrics.map((item, i) => (
-            <div
-              key={i}
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-              className="p-10 bg-white border-b md:border-b-0 md:border-r border-gray-200 last:border-r-0 last:border-b-0 hover:bg-gray-50 transition-colors duration-300 group relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500" />
-              <div className="text-4xl font-black text-secondary mb-1">{item.value}</div>
-              <div className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 mb-4">
-                {item.label}
+          {t.metrics.map((item, i) => {
+            const { num, suffix, decimals } = parseMetricValue(item.value);
+            return (
+              <div
+                key={i}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+                className="p-10 bg-white border-b md:border-b-0 md:border-r border-gray-200 last:border-r-0 last:border-b-0 hover:bg-gray-50 transition-colors duration-300 group relative overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500" />
+                <div className="text-4xl font-black text-secondary mb-1">
+                  <CountUp end={num} suffix={suffix} decimals={decimals} />
+                </div>
+                <div className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500 mb-4">
+                  {item.label}
+                </div>
+                <p className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>{item.desc}</p>
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: '#4b5563' }}>{item.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
