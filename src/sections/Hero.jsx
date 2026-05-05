@@ -66,7 +66,7 @@ function Hero() {
           },
           {
             image:
-              'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1932&auto=format&fit=crop',
+              'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920&auto=format&fit=crop',
             badge: 'Source Code Ownership',
             titleLine1: 'Your source code is',
             titleEmphasis: '100% yours',
@@ -139,7 +139,7 @@ function Hero() {
           },
           {
             image:
-              'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1932&auto=format&fit=crop',
+              'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920&auto=format&fit=crop',
             badge: 'Propiedad del Código',
             titleLine1: 'Código fuente',
             titleEmphasis: '100% tuyo',
