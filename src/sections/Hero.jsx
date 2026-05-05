@@ -21,7 +21,7 @@ function Hero() {
             titleEmphasis: 'contract or buy',
             titleLine2: 'your custom website',
             subtitle:
-              'High-performance digital infrastructure and strategic design. We develop custom software solutions to grow your brand.',
+              'High-performance digital infrastructure (React, Vite, Node). We develop custom software solutions to grow your SME or Enterprise.',
           },
           {
             image:
@@ -94,7 +94,7 @@ function Hero() {
             titleEmphasis: 'comprar y contratar',
             titleLine2: 'tu sitio a medida',
             subtitle:
-              'Infraestructura digital de alto rendimiento y diseño estratégico. Desarrollamos soluciones de software que garantizan el éxito de tu marca.',
+              'Infraestructura digital de alto rendimiento (React, Vite, Node). Desarrollamos soluciones de software a medida que garantizan el éxito de tu Pyme o Empresa.',
           },
           {
             image:
