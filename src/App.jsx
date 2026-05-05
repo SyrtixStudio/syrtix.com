@@ -11,6 +11,7 @@ import Header from './components/layout/Header';
 import Loader from './components/ui/Loader';
 import WhatsAppButton from './components/ui/WhatsAppButton';
 import AIChatbot from './components/AIChatbot';
+import { initSmoothScroll } from './lib/smoothScroll';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
@@ -48,8 +49,13 @@ function App() {
       offset: 50,
     });
 
+    const lenis = initSmoothScroll();
+
     const timer = setTimeout(() => setShowLoader(false), 3500);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      lenis.destroy();
+    };
   }, []);
 
   return (
