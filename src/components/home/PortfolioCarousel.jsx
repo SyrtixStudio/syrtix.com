@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -125,8 +125,6 @@ const portfolio = [
 
 function PortfolioCarousel() {
   const { lang } = useLanguage();
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [selectedMockupIndex, setSelectedMockupIndex] = useState(0);
 
   const copy =
     lang === 'en'
@@ -167,66 +165,6 @@ function PortfolioCarousel() {
           },
         };
 
-  useEffect(() => {
-    if (!selectedProject) {
-      return undefined;
-    }
-
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedProject(null);
-        return;
-      }
-
-      if (event.key === 'ArrowRight') {
-        setSelectedMockupIndex((prev) => (prev + 1) % selectedProject.mockupImages.length);
-      }
-
-      if (event.key === 'ArrowLeft') {
-        setSelectedMockupIndex(
-          (prev) =>
-            (prev - 1 + selectedProject.mockupImages.length) % selectedProject.mockupImages.length,
-        );
-      }
-    };
-
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [selectedProject]);
-
-  const openProjectModal = (project) => {
-    setSelectedProject(project);
-    setSelectedMockupIndex(0);
-  };
-
-  const closeProjectModal = () => {
-    setSelectedProject(null);
-  };
-
-  const nextMockup = () => {
-    if (!selectedProject) {
-      return;
-    }
-
-    setSelectedMockupIndex((prev) => (prev + 1) % selectedProject.mockupImages.length);
-  };
-
-  const prevMockup = () => {
-    if (!selectedProject) {
-      return;
-    }
-
-    setSelectedMockupIndex(
-      (prev) =>
-        (prev - 1 + selectedProject.mockupImages.length) % selectedProject.mockupImages.length,
-    );
-  };
-
   return (
     <section className="py-16 bg-base">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
@@ -266,39 +204,58 @@ function PortfolioCarousel() {
 
               return (
                 <SwiperSlide key={project.id} className="portfolio-slide">
-                  <button
-                    type="button"
-                    onClick={() => (hasMockups ? openProjectModal(project) : undefined)}
-                    className={`group block w-full h-full text-left ${
-                      hasMockups ? 'cursor-pointer' : 'opacity-70 cursor-not-allowed'
-                    }`}
-                    disabled={!hasMockups}
-                  >
-                    <div className="relative overflow-hidden bg-white">
-                      <div className="aspect-[4/3] overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={title}
-                          className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-500"
-                        />
+                  {project.url ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block w-full h-full text-left cursor-pointer"
+                    >
+                      <div className="relative overflow-hidden bg-white">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={title}
+                            className="w-full h-full object-contain p-4 group-hover:scale-[1.05] transition-transform duration-500"
+                          />
+                        </div>
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5">
+                          <span className="text-primary text-xs font-bold mb-1">{category}</span>
+                          <h3 className="text-white font-bold text-base mb-2">{title}</h3>
+                          <span className="inline-flex items-center text-primary text-xs font-bold">
+                            {copy.viewProject} <ExternalLink size={13} className="ml-1" />
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 pointer-events-none">
-                        <span className="text-primary text-xs font-bold mb-1">{category}</span>
-                        <h3 className="text-white font-bold text-base mb-2">{title}</h3>
-                        <span className="inline-flex items-center text-primary text-xs font-bold">
-                          {copy.viewProject} <ExternalLink size={13} className="ml-1" />
+                      <div className="py-3 px-1 bg-base text-center group-hover:bg-gray-50 transition-colors">
+                        <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
+                          {category}
                         </span>
+                        <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="group block w-full h-full text-left opacity-80">
+                      <div className="relative overflow-hidden bg-white">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={project.image}
+                            alt={title}
+                            className="w-full h-full object-contain p-4 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="py-3 px-1 bg-base text-center">
+                        <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
+                          {category}
+                        </span>
+                        <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
                       </div>
                     </div>
-
-                    <div className="py-3 px-1 bg-base text-center">
-                      <span className="text-primary text-[11px] font-bold uppercase tracking-wide">
-                        {category}
-                      </span>
-                      <h3 className="text-gray-800 font-bold text-sm mt-0.5">{title}</h3>
-                    </div>
-                  </button>
+                  )}
                 </SwiperSlide>
               );
             })}
@@ -306,103 +263,7 @@ function PortfolioCarousel() {
         </div>
       </div>
 
-      {selectedProject && (
-        <div
-          className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={closeProjectModal}
-          role="dialog"
-          aria-modal="true"
-          aria-label={lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs}
-        >
-          <div
-            className="w-full max-w-5xl bg-white shadow-2xl overflow-hidden"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4">
-              <div>
-                <p className="text-primary text-xs font-bold uppercase tracking-wide">
-                  {copy.previewLabel}
-                </p>
-                <h3 className="text-gray-800 font-bold text-lg">
-                  {lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs}
-                </h3>
-              </div>
 
-              <div className="flex items-center gap-3">
-                {selectedProject.url && (
-                  <a
-                    href={selectedProject.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-gray-700 hover:text-primary transition-colors"
-                  >
-                    {copy.viewProject} <ExternalLink size={14} />
-                  </a>
-                )}
-
-                <button
-                  type="button"
-                  onClick={closeProjectModal}
-                  className="p-2 text-gray-600 hover:text-gray-800 transition-colors"
-                  aria-label={copy.closeModal}
-                >
-                  <X size={20} />
-                </button>
-              </div>
-            </div>
-
-            <div className="relative bg-gray-100">
-              <button
-                type="button"
-                onClick={prevMockup}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white p-2 shadow-md transition-colors"
-                aria-label={copy.previousMockup}
-              >
-                <ChevronLeft size={20} className="text-gray-800" />
-              </button>
-
-              <img
-                src={selectedProject.mockupImages[selectedMockupIndex]}
-                alt={`${lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs} ${selectedMockupIndex + 1}`}
-                className="w-full h-[56vh] object-contain p-3 sm:p-6"
-              />
-
-              <button
-                type="button"
-                onClick={nextMockup}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/95 hover:bg-white p-2 shadow-md transition-colors"
-                aria-label={copy.nextMockup}
-              >
-                <ChevronRight size={20} className="text-gray-800" />
-              </button>
-            </div>
-
-            <div className="px-4 py-4 border-t border-gray-200 bg-white">
-              <div className="flex gap-2 overflow-x-auto pb-1">
-                {selectedProject.mockupImages.map((mockupSrc, index) => (
-                  <button
-                    key={`${selectedProject.id}-thumb-${index}`}
-                    type="button"
-                    onClick={() => setSelectedMockupIndex(index)}
-                    className={`flex-shrink-0 border-2 transition-colors ${
-                      index === selectedMockupIndex
-                        ? 'border-primary'
-                        : 'border-transparent hover:border-gray-300'
-                    }`}
-                    aria-label={`${copy.previewLabel} ${index + 1}`}
-                  >
-                    <img
-                      src={mockupSrc}
-                      alt={`${lang === 'en' ? selectedProject.titleEn : selectedProject.titleEs} thumb ${index + 1}`}
-                      className="w-20 h-14 object-contain bg-gray-50"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <style>{`
         .portfolio-swiper-wrapper {
