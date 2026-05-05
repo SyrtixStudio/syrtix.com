@@ -15,7 +15,7 @@ function Hero() {
       ? [
           {
             image:
-              'https://images.unsplash.com/photo-1607706189992-eae578626c86?q=80&w=1170&auto=format&fit=crop',
+              'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1920&auto=format&fit=crop',
             badge: 'Software Engineering',
             titleLine1: 'The easiest way to',
             titleEmphasis: 'contract or buy',
@@ -88,7 +88,7 @@ function Hero() {
       : [
           {
             image:
-              'https://images.unsplash.com/photo-1607706189992-eae578626c86?q=80&w=1170&auto=format&fit=crop',
+              'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1920&auto=format&fit=crop',
             badge: 'Ingeniería de Software',
             titleLine1: 'La mejor forma de',
             titleEmphasis: 'comprar y contratar',
