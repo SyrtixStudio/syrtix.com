@@ -11,7 +11,7 @@ export const packagesEN = [
     id: 'landing-starter',
     name: 'Web Solution Start',
     icon: 'Zap',
-    description: 'Self-manageable single-page website for service SMBs that need fast lead capture.',
+    description: 'Self-manageable single-page website for entrepreneurs, professionals, and small businesses that need fast lead capture.',
     price: 199000,
     oldPrice: 299000,
     paymentType: 'one-time setup payment',
@@ -93,13 +93,13 @@ export const packagesEN = [
     name: 'Web Solution Pro',
     icon: 'Code',
     description:
-      'Self-manageable multi-page corporate website for service SMB positioning and lead generation.',
+      'Self-manageable multi-page corporate website for entrepreneurs, SMBs, and medium enterprises focused on positioning and lead generation.',
     price: 399000,
     oldPrice: 599000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience:
-        'Service SMBs that need stronger digital positioning and a steady lead capture flow.',
+        'Entrepreneurs and small to medium service businesses that need stronger digital positioning and a steady lead capture flow.',
       objective:
         'Build a professional multi-page website that explains services clearly and converts visits into qualified inquiries.',
       focus:
@@ -179,19 +179,19 @@ export const packagesEN = [
     name: 'Web Solution Enterprise',
     icon: 'ShoppingCart',
     description:
-      'Advanced corporate website for service businesses, with a manageable catalog and payment integrations without custom backend development.',
+      'Advanced corporate website for small and medium enterprises, with a manageable catalog and payment integrations without custom backend development.',
     price: 899000,
     oldPrice: 1299000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience:
-        'Service businesses that need to scale digital presence with catalog and lead capture, without building a complex internal system.',
+        'Growing companies and service businesses that need to scale digital presence with catalog and lead capture, without building a complex internal system.',
       objective:
         'Launch a robust website with catalog, forms, and provider-based checkout, prioritizing speed-to-market and simple maintenance.',
       focus:
         'Commercial conversion and simple operations using standard tools, avoiding custom backoffice development.',
       webTypes: [
-        'SMB ecommerce website with scalable catalog',
+        'Scalable ecommerce website for growing businesses',
         'Corporate site + online sales channel',
         'Product-focused website with provider-based checkout',
         'Multi-category catalog website for service companies',
@@ -397,13 +397,13 @@ export const packagesES = [
     name: 'Web Solution Start',
     icon: 'Zap',
     description:
-      'Página web autoadministrable para emprendedores y pymes de servicios que necesitan captar leads rápido.',
+      'Página web autoadministrable para emprendedores, profesionales y pequeñas empresas que necesitan captar leads rápido.',
     price: 199000,
     oldPrice: 299000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience:
-        'Emprendedores, profesionales y pymes de servicios que necesitan presencia digital profesional rápida.',
+        'Emprendedores, profesionales y pequeñas empresas de servicios que necesitan presencia digital profesional rápida.',
       objective:
         'Lanzar una página enfocada en conversión para captar leads calificados y abrir canales directos con clientes.',
       focus:
@@ -477,13 +477,13 @@ export const packagesES = [
     name: 'Web Solution Pro',
     icon: 'Code',
     description:
-      'Sitio corporativo multipágina autoadministrable para pymes de servicios enfocadas en posicionamiento y leads.',
+      'Sitio corporativo multipágina autoadministrable para empresas en crecimiento y pymes enfocadas en posicionamiento y leads.',
     price: 399000,
     oldPrice: 599000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience:
-        'Pymes de servicios que necesitan mejor posicionamiento digital y un flujo constante de contactos.',
+        'Emprendedores y pequeñas o medianas empresas de servicios que necesitan mejor posicionamiento digital y un flujo constante de contactos.',
       objective:
         'Construir un sitio multipagina que explique servicios con claridad y convierta visitas en consultas calificadas.',
       focus:
@@ -554,19 +554,19 @@ export const packagesES = [
     name: 'Web Solution Enterprise',
     icon: 'ShoppingCart',
     description:
-      'Sitio corporativo avanzado para negocios de servicios, con catálogo administrable e integraciones de pago sin backend a medida.',
+      'Sitio corporativo avanzado para pequeñas y medianas empresas, con catálogo administrable e integraciones de pago sin backend a medida.',
     price: 899000,
     oldPrice: 1299000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience:
-        'Negocios de servicios que necesitan escalar su presencia digital con catálogo y captación comercial, sin desarrollar un sistema interno complejo.',
+        'Pequeñas y medianas empresas de servicios que necesitan escalar su presencia digital con catálogo y captación comercial, sin desarrollar un sistema interno complejo.',
       objective:
         'Lanzar un sitio robusto con catálogo, formularios y checkout integrado por proveedor externo, priorizando velocidad de salida y mantenimiento simple.',
       focus:
         'Conversión comercial y operación simple con herramientas estándar, evitando desarrollo de backoffice personalizado.',
       webTypes: [
-        'Ecommerce pyme con catalogo escalable',
+        'Ecommerce corporativo con catalogo escalable',
         'Sitio corporativo + canal de ventas online',
         'Web orientada a productos con checkout por proveedor',
         'Catalogo multiproducto para negocios de servicios',
