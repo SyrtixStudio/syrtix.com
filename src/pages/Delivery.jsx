@@ -1,4 +1,3 @@
-import React from 'react';
 import AIBackgroundOrb from '../components/AIBackgroundOrb';
 
 const Delivery = () => {
