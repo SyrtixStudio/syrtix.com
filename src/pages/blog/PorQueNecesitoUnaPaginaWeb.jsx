@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -16,20 +17,14 @@ const DESCRIPTION =
 const CANONICAL = 'https://syrtix.com/blog/por-que-necesito-una-pagina-web';
 
 export default function PorQueNecesitoUnaPaginaWeb() {
-  return (
-    <>
-      <head>
-        <title>{TITLE}</title>
-        <meta name="description" content={DESCRIPTION} />
-        <link rel="canonical" href={CANONICAL} />
-        <meta property="og:title" content={TITLE} />
-        <meta property="og:description" content={DESCRIPTION} />
-        <meta property="og:url" content={CANONICAL} />
-        <meta property="og:type" content="article" />
-        <meta name="robots" content="index, follow" />
-      </head>
+  useEffect(() => {
+    document.title = TITLE;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', DESCRIPTION);
+  }, []);
 
-      <main className="bg-base min-h-screen">
+  return (
+    <main className="bg-base min-h-screen">
         {/* Hero */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
           <div className="absolute inset-0">
@@ -270,6 +265,5 @@ export default function PorQueNecesitoUnaPaginaWeb() {
           </Link>
         </div>
       </main>
-    </>
   );
 }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ArrowRight, BookOpen, Clock } from 'lucide-react';
@@ -24,22 +25,21 @@ const posts = [
 ];
 
 export default function Blog() {
-  return (
-    <>
-      <head>
-        <title>Blog de desarrollo web en Chile | Syrtix</title>
-        <meta
-          name="description"
-          content="Artículos sobre desarrollo web, precios, SEO y estrategia digital para negocios en Chile. Guías prácticas del equipo de Syrtix."
-        />
-        <link rel="canonical" href="https://syrtix.com/blog" />
-        <meta name="robots" content="index, follow" />
-      </head>
+  useEffect(() => {
+    document.title = 'Blog de desarrollo web en Chile | Syrtix';
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc)
+      metaDesc.setAttribute(
+        'content',
+        'Artículos sobre desarrollo web, precios, SEO y estrategia digital para negocios en Chile. Guías prácticas del equipo de Syrtix.'
+      );
+  }, []);
 
-      <main className="bg-base min-h-screen">
-        {/* Hero */}
-        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
-          <div className="absolute inset-0">
+  return (
+    <main className="bg-base min-h-screen">
+      {/* Hero */}
+      <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
+        <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920&q=85"
               alt="blog background"
@@ -100,6 +100,5 @@ export default function Blog() {
           </div>
         </section>
       </main>
-    </>
   );
 }
