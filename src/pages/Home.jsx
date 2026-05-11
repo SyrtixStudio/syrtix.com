@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import { PortfolioCarousel, PricingSection, TrustBar, TrustBlock } from '../components/home';
-import { ServicesGrid, WhatWeDoSection } from '../modules/landing';
-
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
+import { ServicesGrid, WhatWeDoSection } from '../modules/landing';
 import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
 

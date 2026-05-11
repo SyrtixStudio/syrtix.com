@@ -31,6 +31,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
               className="w-full h-full object-cover opacity-30"
               style={{ objectPosition: 'center' }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
           </div>
 
           <div className="relative max-w-3xl mx-auto px-4">

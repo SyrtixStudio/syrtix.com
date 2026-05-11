@@ -19,3 +19,4 @@ backend/.env
 CREDENTIALS.md
 docs/
 scratch/
+.aider*

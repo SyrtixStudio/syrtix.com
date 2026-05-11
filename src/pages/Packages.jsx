@@ -288,6 +288,7 @@ function Packages() {
             className="w-full h-full object-cover opacity-30"
             style={{ objectPosition: 'center' }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
         </div>
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center bg-primary/20 border border-primary/40 px-4 py-2 mb-6">

@@ -8,5 +8,6 @@
         "strings": true
     },
     "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.colorDecorators": true
+    "tailwindCSS.colorDecorators": true,
+    "CodeGPT.apiKey": "Ollama"
 }
