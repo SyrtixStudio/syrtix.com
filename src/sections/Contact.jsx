@@ -635,3 +635,105 @@ function Contact() {
 }
 
 export default Contact;
+
+// Initialize loading state and screen
+let [serverMessage, setServerMessage] = useState<string | null>(null);
+
+// Mount the loading screen when component mounts
+useEffect(() => {
+  if (loadingScreen.current) {
+    return () => {
+      loadingScreen.current();
+    };
+  }
+}, []);
+
+function HandleLoading() {
+  if (serverMessage) {
+    const start = new Date().toISOString();
+    try {
+      const response = fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (response.ok) {
+        setServerMessage(copy.submitSuccess || serverMessage);
+      } else {
+        setServerMessage(copy.submitError || serverMessage);
+      }
+    } catch (error) {
+      console.error('Form submission failed. Response:', response);
+      console.error('Error in form submission:', error);
+      setServerMessage(copy submissionError || serverMessage);
+    }
+  } else {
+    const start = new Date().toISOString();
+    try {
+      const response = fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (response.ok) {
+        setServerMessage(copy.submitSuccess || serverMessage);
+      } else {
+        setServerMessage(copy.submitError || serverMessage);
+      }
+    } catch (error) {
+      console.error('Form submission failed. Response:', response);
+      console.error('Error in form submission:', error);
+      setServerMessage(copy submissionError || serverMessage);
+    }
+  }
+  
+  // Reset all form fields after successful submission
+  if (const success = response.ok && JSON.parse(response.json())?.success) {
+    resetFormFields();
+  } else {
+    setServerMessage(copy.submitError || serverMessage);
+    resetFormFields();
+  }
+}
+
+// Handle loading state changes
+function toggleLoading() {
+  const [serverMessage, setServerMessage] = useState<string | null>(null);
+
+  if (serverMessage && !serverMessage.trim()) {
+    useEffect(() => {
+      if (loadingScreen.current) {
+        return () => {
+          serverMessage ? loadingScreen.current().textContent : loadingScreen.current();
+        };
+      }
+    }, [serverMessage]);
+  
+    const stopLoading = () => {
+      if (loadingScreen.current) {
+        loadingScreen.current?.disney();
+      }
+    };
+
+    // Initialize loading screen
+    if (!loadingScreen.current) {
+      startLoadingTime();
+    }
+  }
+}
+
+function startLoadingTime() {
+  if (loadingScreen.current) {
+    const timer = setInterval(() => {
+      setServerMessage(null);
+      if (
+        Date.now() > now + 300 ||
+        loadingScreen.current?.style.display === 'flex'
+      ) {
+        clearInterval(timer);
+        stopLoading();
+        render/loading;
+      }
+    }, 500);
+  }
+}
