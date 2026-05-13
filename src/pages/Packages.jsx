@@ -442,6 +442,11 @@ function Packages() {
                     target="_blank"
                     rel="noreferrer"
                     className="mt-3 inline-flex items-center justify-center text-sm font-bold text-secondary hover:text-primary transition-all duration-300"
+                    onClick={() => {
+                      if (window.fbq) {
+                        window.fbq('track', 'Contact');
+                      }
+                    }}
                   >
                     {copy.moreInfoCta}
                   </a>
