@@ -69,6 +69,10 @@ function App() {
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
+              
+              {/* Prioridad: Rutas SEO Programático */}
+              <Route path="/diseno-web-:city" element={<CityServicePage />} />
+              
               <Route path="/paquetes" element={<Packages />} />
               <Route path="/nosotros" element={<About />} />
               <Route path="/servicios" element={<Services />} />
@@ -89,11 +93,8 @@ function App() {
                 path="/blog/por-que-necesito-una-pagina-web"
                 element={<PorQueNecesitoUnaPaginaWeb />}
               />
-              <Route
-                path="/blog/shopify-vs-woocommerce-vs-custom-code"
-                element={<TecnologiasWebComparativa />}
-              />
-              <Route path="/diseno-web-:city" element={<CityServicePage />} />
+              <Route path="/blog/shopify-vs-woocommerce-vs-custom-code" element={<TecnologiasWebComparativa />} />
+              
               <Route path="/entrega" element={<Delivery />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
