@@ -170,9 +170,6 @@ function Hero() {
 
   const currentSlide = heroContent[currentIndex];
 
-  // Determinar el tamaño de imagen según el dispositivo (aproximado)
-  const imageParams = window.innerWidth < 768 ? '&w=800&q=70' : '&w=1920&q=85';
-
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center">
       {/* Carrusel de imágenes */}
@@ -184,6 +181,11 @@ function Hero() {
           
           if (!isVisible && !isNext) return null;
 
+          // Parse Unsplash URL to avoid duplicate parameters
+          const baseUrl = item.image.split('?')[0];
+          const mobileUrl = `${baseUrl}?auto=format&fit=crop&q=80&w=800`;
+          const desktopUrl = `${baseUrl}?auto=format&fit=crop&q=80&w=1920`;
+
           return (
             <div
               key={index}
@@ -191,15 +193,17 @@ function Hero() {
                 isVisible ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <img
-                src={`${item.image}${imageParams}`}
-                alt={item.titleEmphasis}
-                className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
-                // Preload solo la primera, lazy para el resto si fuera necesario, 
-                // pero aquí controlamos la carga manualmente con el condicional isVisible/isNext
-                fetchPriority={index === 0 ? "high" : "low"}
-                loading={index === 0 ? "eager" : "lazy"}
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet={mobileUrl} />
+                <source media="(min-width: 769px)" srcSet={desktopUrl} />
+                <img
+                  src={desktopUrl}
+                  alt={item.titleEmphasis}
+                  className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
+                  fetchPriority={index === 0 ? "high" : "low"}
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
             </div>
           );

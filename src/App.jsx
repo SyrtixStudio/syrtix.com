@@ -56,8 +56,8 @@ function App() {
 
     const lenis = initSmoothScroll();
 
-    // Reducir el timer artificial para mejorar LCP y experiencia de usuario
-    const timer = setTimeout(() => setShowLoader(false), 800);
+    // Eliminar el timer artificial por completo para móviles. Mostrar la web lo antes posible.
+    const timer = setTimeout(() => setShowLoader(false), 50);
     return () => {
       clearTimeout(timer);
       clearTimeout(timerAOS);

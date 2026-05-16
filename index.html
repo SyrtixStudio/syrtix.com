@@ -114,8 +114,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" />
 
-    <!-- LCP Preload: Primera imagen del Hero para evitar demoras en el renderizado -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1548092372-0d1bd40894a3?q=80&w=1200&auto=format&fit=crop" />
+    <!-- LCP Preload: Primera imagen del Hero para evitar demoras en el renderizado. Utiliza imagesrcset para precargar la versión correcta según el tamaño de la pantalla -->
+    <link rel="preload" as="image" imagesrcset="https://images.unsplash.com/photo-1548092372-0d1bd40894a3?auto=format&amp;fit=crop&amp;q=80&amp;w=800 800w, https://images.unsplash.com/photo-1548092372-0d1bd40894a3?auto=format&amp;fit=crop&amp;q=80&amp;w=1920 1920w" imagesizes="(max-width: 768px) 800px, 1920px" fetchpriority="high" />
 
     <!-- Schema.org JSON-LD Structured Data - Estrategia Híbrida (Direct Keywords + High Authority) -->
     <script type="application/ld+json">

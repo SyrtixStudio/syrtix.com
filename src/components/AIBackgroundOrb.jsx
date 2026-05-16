@@ -95,6 +95,10 @@ const AIBackgroundOrb = ({ width = 800, height = 800, className = '' }) => {
     return () => cancelAnimationFrame(animationFrameId);
   }, [width, height]);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  if (isMobile) return null;
+
   return (
     <canvas 
       ref={canvasRef} 
