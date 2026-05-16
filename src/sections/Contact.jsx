@@ -17,6 +17,9 @@ import {
 
 import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
+import { useLocation } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
+import { seoData } from '../components/seo/seoData';
 
 const RATE_LIMIT_MS = 60000;
 const MAX_SUBMISSIONS_PER_HOUR = 3;
@@ -28,6 +31,8 @@ function sanitizeInput(str) {
 
 function Contact() {
   const { lang } = useLanguage();
+  const location = useLocation();
+  const isStandalonePage = location.pathname === '/contacto';
   const [status, setStatus] = useState('idle');
   const [serverMessage, setServerMessage] = useState('');
   const submissionTimestamps = useRef([]);
@@ -341,6 +346,14 @@ function Contact() {
       id="contacto"
       className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900"
     >
+      {isStandalonePage && (
+        <SEOHead
+          title={(seoData.contacto[lang] || seoData.contacto.es).title}
+          description={(seoData.contacto[lang] || seoData.contacto.es).description}
+          canonical="/contacto"
+          jsonLd={(seoData.contacto[lang] || seoData.contacto.es).jsonLd}
+        />
+      )}
       <div className="absolute inset-0">
         <img
           src="/img/img-contacto.avif"

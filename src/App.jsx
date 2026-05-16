@@ -27,7 +27,9 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const Blog = lazy(() => import('./pages/blog/Blog'));
 const CuantoCuestaPaginaWeb = lazy(() => import('./pages/blog/CuantoCuestaUnaPaginaWeb'));
 const PorQueNecesitoUnaPaginaWeb = lazy(() => import('./pages/blog/PorQueNecesitoUnaPaginaWeb'));
+const TecnologiasWebComparativa = lazy(() => import('./pages/blog/TecnologiasWebComparativa'));
 const Delivery = lazy(() => import('./pages/Delivery'));
+const CityServicePage = lazy(() => import('./pages/CityServicePage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -87,6 +89,11 @@ function App() {
                 path="/blog/por-que-necesito-una-pagina-web"
                 element={<PorQueNecesitoUnaPaginaWeb />}
               />
+              <Route
+                path="/blog/shopify-vs-woocommerce-vs-custom-code"
+                element={<TecnologiasWebComparativa />}
+              />
+              <Route path="/diseno-web-:city" element={<CityServicePage />} />
               <Route path="/entrega" element={<Delivery />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />

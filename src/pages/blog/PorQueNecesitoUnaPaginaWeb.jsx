@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import SEOHead from '../../components/seo/SEOHead';
+import { seoData } from '../../components/seo/seoData';
 import { Link } from 'react-router-dom';
 
 import {
@@ -11,20 +12,17 @@ import {
   ShoppingCart,
 } from 'lucide-react';
 
-const TITLE = '¿Por qué necesito una página web para mi negocio? | Syrtix';
-const DESCRIPTION =
-  'Descubre por qué tu negocio necesita una página web profesional en Chile. Ventajas, estadísticas y cómo una web puede aumentar tus ventas y visibilidad en Google.';
-const CANONICAL = 'https://syrtix.com/blog/por-que-necesito-una-pagina-web';
-
 export default function PorQueNecesitoUnaPaginaWeb() {
-  useEffect(() => {
-    document.title = TITLE;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', DESCRIPTION);
-  }, []);
+  const seo = seoData['blog/por-que-necesito-una-pagina-web']?.es || {};
 
   return (
     <main className="bg-base min-h-screen">
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        jsonLd={seo.jsonLd}
+      />
         {/* Hero */}
         <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
           <div className="absolute inset-0">
@@ -51,7 +49,7 @@ export default function PorQueNecesitoUnaPaginaWeb() {
               <span className="text-primary">mi negocio en Chile?</span>
             </h1>
 
-            <p className="text-white/80 text-lg mb-8">{DESCRIPTION}</p>
+            <p className="text-white/80 text-lg mb-8">{seo.description}</p>
 
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2 font-medium text-white">

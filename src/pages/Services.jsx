@@ -49,6 +49,8 @@ import {
 import { useLanguage } from '../i18n/index.jsx';
 import AuditModal from '../components/services/AuditModal.jsx';
 import { auditsData } from '../data/auditsData.jsx';
+import SEOHead from '../components/seo/SEOHead';
+import { seoData } from '../components/seo/seoData';
 
 const TECH_LOGOS = {
   React: { Icon: SiReact, color: 'text-[#61DAFB]' },
@@ -663,8 +665,17 @@ function Services() {
           tech: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Vite'],
         };
 
+  const seo = seoData.servicios[lang] || seoData.servicios.es;
+
   return (
     <main className="min-h-screen bg-base">
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        ogImage={seo.ogImage}
+        jsonLd={seo.jsonLd}
+      />
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
           <img

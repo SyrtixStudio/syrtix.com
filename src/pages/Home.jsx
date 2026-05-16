@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import { PortfolioCarousel, PricingSection, TrustBar, TrustBlock } from '../components/home';
+import SEOHead from '../components/seo/SEOHead';
+import { seoData } from '../components/seo/seoData';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
@@ -98,6 +100,11 @@ function Home() {
 
   return (
     <div className="w-full overflow-hidden">
+      <SEOHead
+        title={(seoData.home[lang] || seoData.home.es).title}
+        description={(seoData.home[lang] || seoData.home.es).description}
+        canonical="/"
+      />
       <ModalPublicidad
         open={showModal}
         onClose={handleCloseModal}

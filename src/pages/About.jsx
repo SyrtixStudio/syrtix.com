@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Users, CheckCircle, Code, Star } from 'lucide-react';
 import { useLanguage } from '../i18n';
+import SEOHead from '../components/seo/SEOHead';
+import { seoData } from '../components/seo/seoData';
 
 const About = () => {
   const { lang } = useLanguage();
@@ -114,8 +116,16 @@ const About = () => {
           viewPackages: 'Ver Paquetes',
         };
 
+  const seo = seoData.nosotros[lang] || seoData.nosotros.es;
+
   return (
     <main className="min-h-screen bg-base">
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        jsonLd={seo.jsonLd}
+      />
       {/* Hero Section - KEEPS EXACT STYLING AND BACKGROUND */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">

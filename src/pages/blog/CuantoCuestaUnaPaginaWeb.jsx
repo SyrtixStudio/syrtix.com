@@ -1,22 +1,20 @@
-import { useEffect } from 'react';
+import SEOHead from '../../components/seo/SEOHead';
+import { seoData } from '../../components/seo/seoData';
 import { Link } from 'react-router-dom';
 
 import { ArrowRight, CheckCircle, ChevronRight } from 'lucide-react';
 
-const TITLE = '¿Cuánto cuesta una página web en Chile? Guía de precios 2026';
-const DESCRIPTION =
-  'Descubre cuánto cuesta una página web en Chile en 2026. Comparamos precios por tipo de sitio, factores que influyen en el valor y cómo elegir la mejor opción para tu negocio.';
-const CANONICAL = 'https://syrtix.com/blog/cuanto-cuesta-una-pagina-web-en-chile';
-
 export default function CuantoCuestaUnaPaginaWeb() {
-  useEffect(() => {
-    document.title = TITLE;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', DESCRIPTION);
-  }, []);
+  const seo = seoData['blog/cuanto-cuesta-una-pagina-web-en-chile']?.es || {};
 
   return (
     <main className="bg-base min-h-screen">
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        jsonLd={seo.jsonLd}
+      />
       {/* Hero del artículo */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
@@ -43,7 +41,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
               <span className="text-primary">Guía de precios 2026</span>
             </h1>
 
-            <p className="text-white/80 text-lg mb-8">{DESCRIPTION}</p>
+            <p className="text-white/80 text-lg mb-8">{seo.description}</p>
 
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2 font-medium text-white">

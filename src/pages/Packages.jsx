@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Check, X, Zap, Star, ArrowRight, Building2, ShoppingCart, Bot, MessageSquare } from 'lucide-react';
 
 import PackageDetailModal from '../components/pricing/PackageDetailModal.jsx';
+import SEOHead from '../components/seo/SEOHead';
+import { seoData } from '../components/seo/seoData';
 import { COMPANY } from '../constants/index.js';
 import { useLanguage } from '../i18n/index.jsx';
 import { packagesEN, packagesES } from '../data/plansData.js';
@@ -280,6 +282,12 @@ function Packages() {
 
   return (
     <main className="min-h-screen bg-base">
+      <SEOHead
+        title={(seoData.paquetes[lang] || seoData.paquetes.es).title}
+        description={(seoData.paquetes[lang] || seoData.paquetes.es).description}
+        canonical="/paquetes"
+        jsonLd={(seoData.paquetes[lang] || seoData.paquetes.es).jsonLd}
+      />
       <section className="relative py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-secondary to-gray-900 mt-20 lg:mt-28">
         <div className="absolute inset-0">
           <img
