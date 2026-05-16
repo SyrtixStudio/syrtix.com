@@ -10,9 +10,9 @@ import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Loader from './components/ui/Loader';
 import { initSmoothScroll } from './lib/smoothScroll';
+import Home from './pages/Home';
 
-// Lazy load pages for better performance
-const Home = lazy(() => import('./pages/Home'));
+// Lazy load secondary pages for better performance
 const About = lazy(() => import('./pages/About'));
 const Packages = lazy(() => import('./pages/Packages'));
 const Services = lazy(() => import('./pages/Services'));
@@ -47,17 +47,25 @@ function App() {
   const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
     // Initialize AOS with a slight delay to avoid blocking initial render
+    // Disable or simplify AOS on mobile to save CPU
     const timerAOS = setTimeout(() => {
       AOS.init({
         duration: 800,
         easing: 'ease-out',
         once: true,
         offset: 50,
+        disable: isMobile, // Disable AOS on mobile for performance
       });
     }, 1000);
 
-    const lenis = initSmoothScroll();
+    // Only init smooth scroll on desktop
+    let lenis = null;
+    if (!isMobile) {
+      lenis = initSmoothScroll();
+    }
 
     // Eliminar el timer artificial por completo para móviles. Mostrar la web lo antes posible.
     const timer = setTimeout(() => setShowLoader(false), 50);
@@ -69,7 +77,7 @@ function App() {
       clearTimeout(timer);
       clearTimeout(timerAOS);
       clearTimeout(timerFloating);
-      lenis.destroy();
+      if (lenis) lenis.destroy();
     };
   }, []);
 

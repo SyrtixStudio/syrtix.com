@@ -7,4 +7,25 @@ export default defineConfig({
   preview: {
     allowedHosts: ['syrtix.com', 'www.syrtix.com'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': [
+            'react', 
+            'react-dom', 
+            'react-router-dom', 
+            'lucide-react', 
+            'swiper',
+            'aos'
+          ],
+          'ui-core': [
+            'framer-motion',
+            'canvas-confetti'
+          ]
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+  }
 })
