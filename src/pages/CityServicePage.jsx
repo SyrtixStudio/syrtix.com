@@ -8,8 +8,8 @@ export default function CityServicePage() {
   const { city: citySlugFromParam } = useParams();
   const { lang } = useLanguage();
   
-  // Si no viene por parámetro (ruta fija), lo extraemos del pathname
-  const citySlug = citySlugFromParam || window.location.pathname.split('-').pop();
+  // Si no viene por parámetro (ruta fija), lo extraemos eliminando el prefijo y posibles slashes finales
+  const citySlug = citySlugFromParam || window.location.pathname.replace(/^\/diseno-web-/, '').replace(/\/$/, '');
   
   const city = CHILE_CITIES.find(c => c.slug === citySlug);
 
