@@ -216,6 +216,7 @@ function PortfolioCarousel() {
                           <img
                             src={project.image}
                             alt={title}
+                            loading="lazy"
                             className="w-full h-full object-contain p-4 group-hover:scale-[1.05] transition-transform duration-500"
                           />
                         </div>
@@ -243,6 +244,7 @@ function PortfolioCarousel() {
                           <img
                             src={project.image}
                             alt={title}
+                            loading="lazy"
                             className="w-full h-full object-contain p-4 transition-transform duration-500"
                           />
                         </div>

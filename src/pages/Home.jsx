@@ -1,14 +1,20 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useState } from 'react';
 
-import { PortfolioCarousel, PricingSection, TrustBar, TrustBlock } from '../components/home';
+import { TrustBar } from '../components/home';
 import SEOHead from '../components/seo/SEOHead';
 import { seoData } from '../components/seo/seoData';
 import ModalPublicidad from '../components/ui/ModalPublicidad';
 import { COMPANY } from '../constants';
 import { useLanguage } from '../i18n/index.jsx';
-import { ServicesGrid, WhatWeDoSection } from '../modules/landing';
-import Contact from '../sections/Contact';
 import Hero from '../sections/Hero';
+
+// Lazy load everything below the fold to save execution time on mobile
+const WhatWeDoSection = React.lazy(() => import('../components/home/WhatWeDoSection'));
+const PortfolioCarousel = React.lazy(() => import('../components/home/PortfolioCarousel'));
+const PricingSection = React.lazy(() => import('../components/home/PricingSection'));
+const ServicesGrid = React.lazy(() => import('../components/home/ServicesGrid'));
+const TrustBlock = React.lazy(() => import('../components/home/TrustBlock'));
+const Contact = React.lazy(() => import('../sections/Contact'));
 
 const PROMO_MODAL_DELAY_MS = import.meta.env.DEV ? 1200 : 25000;
 
@@ -126,21 +132,24 @@ function Home() {
         {/* Bloque 2: Barra de confianza (logos tech) */}
         <TrustBar />
 
-        {/* Bloque 3: Qué hacemos (servicios + imagen + métricas) */}
-        <WhatWeDoSection />
+        {/* Carga diferida de todo lo que está bajo el scroll (below the fold) */}
+        <Suspense fallback={<div className="h-32 w-full flex items-center justify-center bg-base text-gray-400">...</div>}>
+          {/* Bloque 3: Qué hacemos (servicios + imagen + métricas) */}
+          <WhatWeDoSection />
 
-        {/* Bloque 4: Portfolio (proyectos reales) */}
-        <PortfolioCarousel />
+          {/* Bloque 4: Portfolio (proyectos reales) */}
+          <PortfolioCarousel />
 
-        {/* Bloque 5: Paquetes + Complementos (todo lo comercial junto) */}
-        <PricingSection />
-        <ServicesGrid />
+          {/* Bloque 5: Paquetes + Complementos (todo lo comercial junto) */}
+          <PricingSection />
+          <ServicesGrid />
 
-        {/* Bloque 6: Muro de confianza (testimonios + proceso + seguridad + CTA) */}
-        <TrustBlock />
+          {/* Bloque 6: Muro de confianza (testimonios + proceso + seguridad + CTA) */}
+          <TrustBlock />
 
-        {/* Bloque 7: Contacto */}
-        <Contact />
+          {/* Bloque 7: Contacto */}
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );
