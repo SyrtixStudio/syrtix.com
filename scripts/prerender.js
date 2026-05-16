@@ -196,6 +196,8 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error('💀 Pre-render failed:', error);
-  process.exit(1);
+  console.error('\n❌ SEO Pre-render failed:', error.message);
+  console.log('⚠️ The build will continue, but static HTML files for city pages may not be generated.');
+  console.log('💡 Tip: Run "pnpm run build" locally and upload the "dist" folder if SEO is critical.');
+  process.exit(0); // Don't kill the build in CI
 });

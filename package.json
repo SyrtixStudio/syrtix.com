@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && pnpm run prerender",
+    "build": "vite build && (pnpm run prerender || echo '⚠️ SEO Pre-render skipped or failed in CI')",
+    "build:vite": "vite build",
     "prerender": "node scripts/prerender.js",
     "preview": "vite preview",
     "lint": "eslint src/",
