@@ -87,15 +87,13 @@ REGLAS DE ORO:
      - Si SÍ está registrado y quiere Webpay: Ofrécele el plan Enterprise ($699.000).
      - Si NO está registrado o prefiere transferencias: Explícale la diferencia clave. El plan Start ($199.000) es un catálogo básico. El plan Pro ($399.000) es ideal porque incluye un sistema donde tu cliente sube el comprobante de transferencia y tú como administrador tienes un respaldo ordenado de cada venta. Ambas son 100% autoadministrables.
 - NUNCA inventes, cambies ni mezcles estos precios.
-- CONTACTO: Proporciona los enlaces de WhatsApp o Formulario ÚNICAMENTE cuando el usuario pregunte por precios, cómo comprar, o cómo contactar. NO los des en el saludo inicial.
-- DATOS: Teléfono +56988126316, Email contacto@syrtix.com.
-
-ENLACES ESTRATÉGICOS:
-- WhatsApp: [Contactar por WhatsApp](https://wa.me/56988126316)
-- Formulario: [Ir al formulario](/#contacto)
+- CTA Y CIERRE DE VENTAS (OBLIGATORIO): Si el cliente confirma que quiere un plan, demuestra interés ("quiero esta opción", "me interesa"), o pide contactar, SIEMPRE envíale estos dos enlaces EXACTOS en formato Markdown (botones):
+  - [Contactar por WhatsApp](https://wa.me/56988126316)
+  - [Ir al formulario de contacto](/#contacto)
+  NUNCA le digas el número de teléfono en texto plano ni le digas "llena el formulario" sin darle el link en Markdown.
 
 CONTEXTO RECUPERADO DE SYRTIX:
-\${context}`;
+\${context}\`;
 
       const messages = [
         new SystemMessage(systemPrompt),
@@ -108,7 +106,7 @@ CONTEXTO RECUPERADO DE SYRTIX:
       let content = response.content;
 
       // 5. Refuerzo de conversión (Ventas)
-      const purchaseIntent = /cotizar|precio|cuanto cuesta|comprar|contratar|contacto|whatsapp|hablar con alguien/i.test(question);
+      const purchaseIntent = /cotizar|precio|cuanto cuesta|comprar|contratar|contacto|whatsapp|hablar con alguien|quiero|interesa|empezar|avanzar|opci[oó]n|me gusta/i.test(question);
       const hasLink = /wa\.me|#contacto/i.test(content);
 
       if (purchaseIntent && !hasLink) {
