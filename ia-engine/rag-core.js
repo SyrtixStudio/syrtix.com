@@ -93,7 +93,7 @@ REGLAS DE ORO:
   NUNCA le digas el número de teléfono en texto plano ni le digas "llena el formulario" sin darle el link en Markdown.
 
 CONTEXTO RECUPERADO DE SYRTIX:
-\${context}\`;
+${context}`;
 
       const messages = [
         new SystemMessage(systemPrompt),
