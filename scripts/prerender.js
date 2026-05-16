@@ -23,7 +23,7 @@ import puppeteer from 'puppeteer';
 // ─── Configuration ───────────────────────────────────
 const DIST_DIR = join(process.cwd(), 'dist');
 const PORT = 4173;
-const TIMEOUT_MS = 15000;
+const TIMEOUT_MS = 30000;
 
 /**
  * All public routes that should be pre-rendered.

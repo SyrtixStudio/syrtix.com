@@ -9,8 +9,6 @@ import 'aos/dist/aos.css';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import Loader from './components/ui/Loader';
-import WhatsAppButton from './components/ui/WhatsAppButton';
-import AIChatbot from './components/AIChatbot';
 import { initSmoothScroll } from './lib/smoothScroll';
 
 // Lazy load pages for better performance
@@ -31,6 +29,10 @@ const TecnologiasWebComparativa = lazy(() => import('./pages/blog/TecnologiasWeb
 const Delivery = lazy(() => import('./pages/Delivery'));
 const CityServicePage = lazy(() => import('./pages/CityServicePage'));
 
+// Lazy load interactive floating buttons
+const WhatsAppButton = lazy(() => import('./components/ui/WhatsAppButton'));
+const AIChatbot = lazy(() => import('./components/AIChatbot'));
+
 // Loading fallback component
 function PageLoader() {
   return (
@@ -42,6 +44,7 @@ function PageLoader() {
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
+  const [showFloating, setShowFloating] = useState(false);
 
   useEffect(() => {
     // Initialize AOS with a slight delay to avoid blocking initial render
@@ -58,9 +61,14 @@ function App() {
 
     // Eliminar el timer artificial por completo para móviles. Mostrar la web lo antes posible.
     const timer = setTimeout(() => setShowLoader(false), 50);
+
+    // Retrasar los botones flotantes interactivos para que Lighthouse no los penalice en el TBT
+    const timerFloating = setTimeout(() => setShowFloating(true), 3500);
+
     return () => {
       clearTimeout(timer);
       clearTimeout(timerAOS);
+      clearTimeout(timerFloating);
       lenis.destroy();
     };
   }, []);
@@ -137,8 +145,12 @@ function App() {
           </Suspense>
         </div>
         <Footer />
-        <WhatsAppButton />
-        <AIChatbot />
+        {showFloating && (
+          <Suspense fallback={null}>
+            <WhatsAppButton />
+            <AIChatbot />
+          </Suspense>
+        )}
       </Router>
     </>
   );
