@@ -179,9 +179,9 @@ export const packagesEN = [
     name: 'Web Solution Enterprise',
     icon: 'ShoppingCart',
     description:
-      'Advanced corporate website for small and medium enterprises, with a manageable catalog and payment integrations without custom backend development.',
-    price: 899000,
-    oldPrice: 1299000,
+      'High-performance E-commerce platform designed to scale online sales, featuring a shopping cart, payment gateway integrations (Webpay/MercadoPago), and full self-management.',
+    price: 699000,
+    oldPrice: 990000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience:
@@ -189,7 +189,7 @@ export const packagesEN = [
       objective:
         'Launch a robust website with catalog, forms, and provider-based checkout, prioritizing speed-to-market and simple maintenance.',
       focus:
-        'Commercial conversion and simple operations using standard tools, avoiding custom backoffice development.',
+        'Commercial conversion and simple operations using a high-performance self-manageable backend.',
       webTypes: [
         'Scalable ecommerce website for growing businesses',
         'Corporate site + online sales channel',
@@ -216,7 +216,7 @@ export const packagesEN = [
         'Priority support',
       ],
       excludes: [
-        'Custom backoffice/admin panel for stock, orders, or customers',
+        'Custom complex ERP/CRM systems built from scratch',
         'Advanced custom automations and enterprise integrations',
       ],
     },
@@ -554,9 +554,9 @@ export const packagesES = [
     name: 'Web Solution Enterprise',
     icon: 'ShoppingCart',
     description:
-      'Sitio corporativo avanzado para pequeñas y medianas empresas, con catálogo administrable e integraciones de pago sin backend a medida.',
-    price: 899000,
-    oldPrice: 1299000,
+      'E-commerce profesional de alto rendimiento diseñado para escalar tus ventas online, con carrito de compras, Webpay/MercadoPago y panel autoadministrable total.',
+    price: 699000,
+    oldPrice: 990000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience:
@@ -564,7 +564,7 @@ export const packagesES = [
       objective:
         'Lanzar un sitio robusto con catálogo, formularios y checkout integrado por proveedor externo, priorizando velocidad de salida y mantenimiento simple.',
       focus:
-        'Conversión comercial y operación simple con herramientas estándar, evitando desarrollo de backoffice personalizado.',
+        'Conversión comercial y operación simple utilizando un backend autoadministrable de alto rendimiento.',
       webTypes: [
         'Ecommerce corporativo con catalogo escalable',
         'Sitio corporativo + canal de ventas online',
@@ -591,7 +591,7 @@ export const packagesES = [
         'Soporte prioritario',
       ],
       excludes: [
-        'Panel/backoffice a medida para stock, pedidos o clientes',
+        'Sistemas complejos de ERP/CRM a medida desarrollados desde cero',
         'Automatizaciones avanzadas e integraciones enterprise a medida',
       ],
     },

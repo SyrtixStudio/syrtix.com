@@ -6,6 +6,7 @@ import rateLimit from "express-rate-limit";
 import * as dotenv from "dotenv";
 import PocketBase from "pocketbase";
 import { syrtixAgent } from "./rag-core.js";
+import { generateAndSaveTestimonial } from "./testimonial-generator.js";
 
 dotenv.config();
 
@@ -36,6 +37,75 @@ async function authenticatePB() {
 }
 
 authenticatePB();
+
+authenticatePB().then(() => {
+  // --- Check inicial y luego cada hora ---
+  checkWeeklyTestimonial();
+  setInterval(checkWeeklyTestimonial, 60 * 60 * 1000); // Revisar cada hora
+});
+
+/**
+ * Verifica si se debe generar nuevos testimonios (entre 1 y 4 por semana)
+ * Lógica orgánica y aleatoria.
+ */
+async function checkWeeklyTestimonial() {
+  try {
+    console.log("📅 Verificando frecuencia orgánica de testimonios...");
+    
+    // 1. Obtener testimonios de los últimos 7 días
+    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+    const recentRecords = await pb.collection("testimonials").getList(1, 50, {
+      filter: `created > "${sevenDaysAgo}"`,
+      sort: "-created",
+    });
+
+    const countThisWeek = recentRecords.items.length;
+    console.log(`📊 Testimonios esta semana: ${countThisWeek}/4`);
+
+    // 2. Límites estrictos
+    if (countThisWeek >= 4) {
+      console.log("✅ Límite semanal alcanzado (4). No se generarán más esta semana.");
+      return;
+    }
+
+    // 3. Cooldown: No generar si el último fue hace menos de 2 horas (para evitar spam evidente)
+    if (countThisWeek > 0) {
+      const lastCreated = new Date(recentRecords.items[0].created);
+      const diffHours = (new Date() - lastCreated) / (1000 * 60 * 60);
+      if (diffHours < 2) {
+        console.log(`⏳ Cooldown activo: el último fue hace ${diffHours.toFixed(1)}h. Esperando...`);
+        return;
+      }
+    }
+
+    let shouldGenerate = false;
+
+    // 4. Lógica de Decisión
+    if (countThisWeek === 0) {
+      // Si no hay ninguno esta semana, generamos uno con alta probabilidad o forzado si ya pasó tiempo
+      console.log("🚨 Semana vacía. ¡Necesitamos contenido!");
+      shouldGenerate = true;
+    } else {
+      // Probabilidad dinámica según cuántos faltan para el máximo de 4
+      // A menos testimonios existentes, más probabilidad de generar el siguiente
+      const baseProb = (4 - countThisWeek) * 0.05; // 0.15, 0.10, 0.05 según el progreso
+      const roll = Math.random();
+      
+      if (roll < baseProb) {
+        console.log(`🎲 Dado orgánico: ${roll.toFixed(2)} < ${baseProb}. ¡Generando nuevo testimonio!`);
+        shouldGenerate = true;
+      } else {
+        console.log(`🎲 Dado orgánico: ${roll.toFixed(2)} >= ${baseProb}. Postponiendo...`);
+      }
+    }
+
+    if (shouldGenerate) {
+      await generateAndSaveTestimonial();
+    }
+  } catch (error) {
+    console.warn("⚠️ Error en frecuencia de testimonios:", error.message);
+  }
+}
 
 // --- Middlewares de Seguridad ---
 

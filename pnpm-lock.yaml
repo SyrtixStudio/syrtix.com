@@ -56,6 +56,9 @@ importers:
       express-validator:
         specifier: ^7.3.2
         version: 7.3.2
+      groq-sdk:
+        specifier: ^1.2.0
+        version: 1.2.0
       gsap:
         specifier: ^3.15.0
         version: 3.15.0
@@ -2084,8 +2087,8 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
-  groq-sdk@1.1.2:
-    resolution: {integrity: sha512-CZO0XUQQDhn43ri1+lZHxZKpb+bGutgTvFmCJtooexiitGmPqhm1hntOT3nCoaq07e+OpeokVnfUs0i/oQuUaQ==}
+  groq-sdk@1.2.0:
+    resolution: {integrity: sha512-pMhSYXWcjiqvbOeKdv2zjci1BYjGdp04a40hnmQmJpKJyB6oa+gRndAqE128gwR0NLgYO+Wt1fIF46KNHcplsw==}
     hasBin: true
 
   gsap@3.15.0:
@@ -4238,7 +4241,7 @@ snapshots:
   '@langchain/groq@1.2.0(@langchain/core@1.1.39(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))':
     dependencies:
       '@langchain/core': 1.1.39(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
-      groq-sdk: 1.1.2
+      groq-sdk: 1.2.0
 
   '@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.39(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))':
     dependencies:
@@ -5538,7 +5541,7 @@ snapshots:
 
   gopd@1.2.0: {}
 
-  groq-sdk@1.1.2: {}
+  groq-sdk@1.2.0: {}
 
   gsap@3.15.0: {}
 

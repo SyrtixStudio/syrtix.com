@@ -141,7 +141,7 @@ export default function CuantoCuestaUnaPaginaWeb() {
               },
               {
                 nombre: 'Web Solution Enterprise',
-                precio: 'Desde $650.000',
+                precio: 'Desde $699.000',
                 desc: 'Tienda online completa con carrito, Webpay y panel de administración.',
               },
             ].map((pack, i) => (

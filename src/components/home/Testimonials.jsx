@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { Star } from 'lucide-react';
 
-import { testimonials } from '../../data/testimonials.js';
+import { useTestimonials } from '../../hooks/useTestimonials';
 import { useLanguage } from '../../i18n/index.jsx';
 
 const avatarImages = [
@@ -44,6 +44,7 @@ const formatRelativeReviewTime = (createdAt, lang) => {
 
 function Testimonials() {
   const { lang } = useLanguage();
+  const { testimonials } = useTestimonials();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -76,11 +77,12 @@ function Testimonials() {
 
   const groups = useMemo(() => {
     const chunks = [];
+    if (!testimonials) return [];
     for (let i = 0; i < testimonials.length; i += groupSize) {
       chunks.push(testimonials.slice(i, i + groupSize));
     }
     return chunks;
-  }, [groupSize]);
+  }, [groupSize, testimonials]);
 
   useEffect(() => {
     if (groups.length <= 1) return undefined;
@@ -128,7 +130,7 @@ function Testimonials() {
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <img
-                      src={avatarImages[(testimonial.id - 1) % avatarImages.length]}
+                      src={avatarImages[idx % avatarImages.length]}
                       alt={testimonial.name}
                       className="h-11 w-11 object-cover"
                       loading="lazy"

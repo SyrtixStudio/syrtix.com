@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { Star, Lock, Shield, Server, CheckCircle, Workflow } from 'lucide-react';
 
-import { testimonials } from '../../data/testimonials.js';
+import { useTestimonials } from '../../hooks/useTestimonials';
 import { useLanguage } from '../../i18n/index.jsx';
 
 /* ─── Paleta de colores para avatares (Estilo Google) ─── */
@@ -47,6 +47,7 @@ const formatRelativeReviewTime = (createdAt, lang) => {
 
 function TrustBlock() {
   const { lang } = useLanguage();
+  const { testimonials } = useTestimonials();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -214,10 +215,11 @@ function TrustBlock() {
 
   const groups = useMemo(() => {
     const chunks = [];
+    if (!testimonials) return [];
     for (let i = 0; i < testimonials.length; i += groupSize)
       chunks.push(testimonials.slice(i, i + groupSize));
     return chunks;
-  }, [groupSize]);
+  }, [groupSize, testimonials]);
 
   useEffect(() => {
     if (groups.length <= 1) return undefined;
@@ -261,7 +263,7 @@ function TrustBlock() {
                     <div className="flex items-center gap-3">
                       {/* Avatar estilo Google (Inicial + Color) */}
                       <div
-                        className={`h-11 w-11 flex items-center justify-center text-white font-bold text-lg rounded-full shadow-sm ${avatarPalette[(item.id - 1) % avatarPalette.length]}`}
+                        className={`h-11 w-11 flex items-center justify-center text-white font-bold text-lg rounded-full shadow-sm ${avatarPalette[idx % avatarPalette.length]}`}
                       >
                         {item.name.charAt(0).toUpperCase()}
                       </div>
