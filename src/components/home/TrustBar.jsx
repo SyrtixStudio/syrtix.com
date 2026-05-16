@@ -38,7 +38,10 @@ const techLogos = [
 ];
 
 function TrustBar() {
-  const doubleLogos = [...techLogos, ...techLogos];
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  // Reducir la cantidad de logos en el DOM para móviles para mejorar el rendimiento y el tamaño del DOM
+  const logosToShow = isMobile ? techLogos.slice(0, 12) : techLogos;
+  const doubleLogos = [...logosToShow, ...logosToShow];
 
   return (
     <section className="bg-white/[0.02] border-y border-white/5 py-6 md:py-8 overflow-hidden relative group">

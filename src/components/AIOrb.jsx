@@ -19,7 +19,7 @@ const AIOrb = ({ width = 56, height = 56, className = '' }) => {
 
     const RADIUS = 220 * scaleFactor;
     // For smaller sizes, keep a minimum number of points so it still looks like an orb
-    const POINTS = Math.max(300, Math.floor(900 * scaleFactor * 2));
+    const POINTS = Math.max(80, Math.floor(900 * scaleFactor * 2));
 
     let angleX = 0;
     let angleY = 0;

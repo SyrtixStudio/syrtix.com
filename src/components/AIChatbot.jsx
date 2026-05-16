@@ -119,6 +119,7 @@ const AIChatbot = () => {
         className={`chat-bubble ${isOpen ? 'active' : ''} shadow-xl hover:shadow-2xl`}
         onClick={() => setIsOpen(!isOpen)}
         style={!isOpen ? { background: 'transparent', padding: 0 } : {}}
+        aria-label={isOpen ? "Cerrar chat de Syrtix IA" : "Abrir chat de Syrtix IA"}
       >
         {isOpen ? <X size={28} /> : (
           <div className="relative flex items-center justify-center text-white w-full h-full">
@@ -136,7 +137,7 @@ const AIChatbot = () => {
               <h3>Syrtix AI</h3>
               <span>Online</span>
             </div>
-            <button className="close-btn" onClick={() => setIsOpen(false)}>
+            <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Cerrar ventana de chat">
               <X size={18} />
             </button>
           </div>
@@ -170,7 +171,7 @@ const AIChatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             />
-            <button onClick={handleSend} disabled={isLoading}>
+            <button onClick={handleSend} disabled={isLoading} aria-label="Enviar mensaje">
               <Send size={18} />
             </button>
           </div>

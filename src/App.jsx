@@ -29,7 +29,7 @@ const CuantoCuestaPaginaWeb = lazy(() => import('./pages/blog/CuantoCuestaUnaPag
 const PorQueNecesitoUnaPaginaWeb = lazy(() => import('./pages/blog/PorQueNecesitoUnaPaginaWeb'));
 const TecnologiasWebComparativa = lazy(() => import('./pages/blog/TecnologiasWebComparativa'));
 const Delivery = lazy(() => import('./pages/Delivery'));
-import CityServicePage from './pages/CityServicePage';
+const CityServicePage = lazy(() => import('./pages/CityServicePage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -53,7 +53,8 @@ function App() {
 
     const lenis = initSmoothScroll();
 
-    const timer = setTimeout(() => setShowLoader(false), 3500);
+    // Reducir el timer artificial para mejorar LCP y experiencia de usuario
+    const timer = setTimeout(() => setShowLoader(false), 800);
     return () => {
       clearTimeout(timer);
       lenis.destroy();

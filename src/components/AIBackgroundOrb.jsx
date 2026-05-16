@@ -13,8 +13,8 @@ const AIBackgroundOrb = ({ width = 800, height = 800, className = '' }) => {
     const CX = W / 2;
     const CY = H / 2;
 
-    const DOT_COUNT = 900;
-    const RADIUS = 220;
+    const DOT_COUNT = window.innerWidth < 768 ? 300 : 900;
+    const RADIUS = window.innerWidth < 768 ? 180 : 220;
 
     let dots = [];
     let angle = 0;

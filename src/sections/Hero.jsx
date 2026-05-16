@@ -170,25 +170,40 @@ function Hero() {
 
   const currentSlide = heroContent[currentIndex];
 
+  // Determinar el tamaño de imagen según el dispositivo (aproximado)
+  const imageParams = window.innerWidth < 768 ? '&w=800&q=70' : '&w=1920&q=85';
+
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center">
       {/* Carrusel de imágenes */}
       <div className="absolute inset-0">
-        {heroContent.map((item, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={item.image}
-              alt={item.titleEmphasis}
-              className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
-          </div>
-        ))}
+        {heroContent.map((item, index) => {
+          // Solo renderizar la imagen actual y las adyacentes para ahorrar ancho de banda
+          const isVisible = index === currentIndex;
+          const isNext = index === (currentIndex + 1) % heroContent.length;
+          
+          if (!isVisible && !isNext) return null;
+
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={`${item.image}${imageParams}`}
+                alt={item.titleEmphasis}
+                className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
+                // Preload solo la primera, lazy para el resto si fuera necesario, 
+                // pero aquí controlamos la carga manualmente con el condicional isVisible/isNext
+                fetchPriority={index === 0 ? "high" : "low"}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">

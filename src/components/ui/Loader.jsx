@@ -6,7 +6,8 @@ export default function Loader({ fadeOut = false }) {
 
   React.useEffect(() => {
     if (fadeOut) {
-      setTimeout(() => setFade(true), 2500);
+      // Reducir el tiempo de desvanecimiento interno para que el contenido real aparezca antes
+      setTimeout(() => setFade(true), 500);
     }
   }, [fadeOut]);
 
@@ -47,7 +48,7 @@ export default function Loader({ fadeOut = false }) {
         {/* Animated Logo Image */}
         <div className="relative w-40 h-40 sm:w-56 sm:h-56">
           <img
-            src="/img/logos/img-logo-syrtix.png"
+            src="/img/logos/logo-syrtix.webp"
             alt="Syrtix Logo Loading"
             className="w-full h-full object-contain animate-logo mix-blend-screen"
             style={{ filter: 'invert(1)' }}

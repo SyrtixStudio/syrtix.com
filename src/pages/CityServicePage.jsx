@@ -74,10 +74,10 @@ export default function CityServicePage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="relative py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in">
+      {/* Hero Section - Dark background for white text contrast */}
+      <section className="relative py-20 px-4 bg-secondary overflow-hidden">
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-sm font-medium mb-6 animate-fade-in">
             <Zap className="w-4 h-4" />
             <span>{isEn ? `Now serving ${cityName}` : `Ahora atendiendo en ${cityName}`}</span>
           </div>
@@ -86,29 +86,29 @@ export default function CityServicePage() {
             {content.heroTitle}
           </h1>
           
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
             {content.heroSubtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
               href="/contacto" 
-              className="px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-hover transition-all flex items-center gap-2 shadow-lg shadow-primary/20"
+              className="px-8 py-4 bg-primary text-secondary font-bold rounded-xl hover:bg-white transition-all flex items-center gap-2 shadow-lg shadow-primary/20"
             >
               {content.cta}
               <ArrowRight className="w-5 h-5" />
             </a>
             <a 
               href="/servicios" 
-              className="px-8 py-4 bg-white/5 text-white font-semibold rounded-xl hover:bg-white/10 transition-all border border-white/10"
+              className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/10 backdrop-blur-sm"
             >
               {isEn ? 'Our Services' : 'Nuestros Servicios'}
             </a>
           </div>
         </div>
 
-        {/* Background Gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -z-10 opacity-30" />
+        {/* Background Gradients for depth */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-0 opacity-40" />
       </section>
 
       {/* Features Grid */}
