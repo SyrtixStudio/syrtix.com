@@ -5,12 +5,16 @@ import { ArrowRight, Code, ShoppingCart, Search, Shield, Zap, CheckCircle } from
 import { useLanguage } from '../i18n/index.jsx';
 
 export default function CityServicePage() {
-  const { city: citySlug } = useParams();
+  const { city: citySlugFromParam } = useParams();
   const { lang } = useLanguage();
+  
+  // Si no viene por parámetro (ruta fija), lo extraemos del pathname
+  const citySlug = citySlugFromParam || window.location.pathname.split('-').pop();
   
   const city = CHILE_CITIES.find(c => c.slug === citySlug);
 
   if (!city) {
+    console.error('City not found for slug:', citySlug);
     return <Navigate to="/404" replace />;
   }
 
