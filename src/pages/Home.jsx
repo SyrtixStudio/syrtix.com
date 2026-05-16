@@ -20,9 +20,11 @@ const PROMO_MODAL_DELAY_MS = import.meta.env.DEV ? 1200 : 25000;
 
 function Home() {
   const [showModal, setShowModal] = useState(false);
+  const [showBelowFold, setShowBelowFold] = useState(false);
   const { lang } = useLanguage();
 
   const publicidadWeb = useMemo(() => {
+    // ... (rest of publicidadWeb logic stays same)
     const common = {
       contactEmail: 'contacto@syrtix.com',
       whatsapp: COMPANY.phone,
@@ -88,13 +90,30 @@ function Home() {
 
   useEffect(() => {
     const modalSeen = !import.meta.env.DEV && sessionStorage.getItem('promo_modal_seen') === '1';
-    if (modalSeen) return;
+    if (!modalSeen) {
+      const timerId = setTimeout(() => {
+        setShowModal(true);
+      }, PROMO_MODAL_DELAY_MS);
+      return () => clearTimeout(timerId);
+    }
+  }, []);
 
-    const timerId = setTimeout(() => {
-      setShowModal(true);
-    }, PROMO_MODAL_DELAY_MS);
+  // Intersection Observer to defer below-the-fold content
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShowBelowFold(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' } // Start loading 300px before scroll
+    );
 
-    return () => clearTimeout(timerId);
+    const anchor = document.getElementById('scroll-anchor');
+    if (anchor) observer.observe(anchor);
+
+    return () => observer.disconnect();
   }, []);
 
   const handleCloseModal = () => {
@@ -131,25 +150,20 @@ function Home() {
       <main className="bg-base">
         {/* Bloque 2: Barra de confianza (logos tech) */}
         <TrustBar />
+        
+        {/* Anchor to trigger lazy loading of below-fold components */}
+        <div id="scroll-anchor" className="h-px" />
 
-        {/* Carga diferida de todo lo que está bajo el scroll (below the fold) */}
-        <Suspense fallback={<div className="h-32 w-full flex items-center justify-center bg-base text-gray-400">...</div>}>
-          {/* Bloque 3: Qué hacemos (servicios + imagen + métricas) */}
-          <WhatWeDoSection />
-
-          {/* Bloque 4: Portfolio (proyectos reales) */}
-          <PortfolioCarousel />
-
-          {/* Bloque 5: Paquetes + Complementos (todo lo comercial junto) */}
-          <PricingSection />
-          <ServicesGrid />
-
-          {/* Bloque 6: Muro de confianza (testimonios + proceso + seguridad + CTA) */}
-          <TrustBlock />
-
-          {/* Bloque 7: Contacto */}
-          <Contact />
-        </Suspense>
+        {showBelowFold && (
+          <Suspense fallback={<div className="h-32 w-full flex items-center justify-center bg-base text-gray-400">...</div>}>
+            <WhatWeDoSection />
+            <PortfolioCarousel />
+            <PricingSection />
+            <ServicesGrid />
+            <TrustBlock />
+            <Contact />
+          </Suspense>
+        )}
       </main>
     </div>
   );

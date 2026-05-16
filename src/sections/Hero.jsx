@@ -175,15 +175,17 @@ function Hero() {
       {/* Carrusel de imágenes */}
       <div className="absolute inset-0">
         {heroContent.map((item, index) => {
-          // Solo renderizar la imagen actual y las adyacentes para ahorrar ancho de banda
+          // Solo renderizar la imagen actual para ahorrar ancho de banda en móvil. 
+          // En escritorio podemos precargar la siguiente.
+          const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
           const isVisible = index === currentIndex;
-          const isNext = index === (currentIndex + 1) % heroContent.length;
+          const isNext = !isMobile && index === (currentIndex + 1) % heroContent.length;
           
           if (!isVisible && !isNext) return null;
 
           // Parse Unsplash URL to avoid duplicate parameters
           const baseUrl = item.image.split('?')[0];
-          const mobileUrl = `${baseUrl}?auto=format&fit=crop&q=80&w=800`;
+          const mobileUrl = `${baseUrl}?auto=format&fit=crop&q=50&w=600`;
           const desktopUrl = `${baseUrl}?auto=format&fit=crop&q=80&w=1920`;
 
           return (
@@ -202,6 +204,7 @@ function Hero() {
                   className={`w-full h-full object-cover ${item.isDark ? 'brightness-[0.4] contrast-125' : ''}`}
                   fetchPriority={index === 0 ? "high" : "low"}
                   loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
                 />
               </picture>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50"></div>
