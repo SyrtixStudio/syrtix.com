@@ -7,6 +7,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 
 # Instalar pnpm y dependencias
+ENV PUPPETEER_SKIP_DOWNLOAD=true
 RUN npm install -g pnpm && pnpm install --prod
 
 # Copiar el resto de los archivos del motor
