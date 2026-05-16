@@ -29,7 +29,7 @@ const CuantoCuestaPaginaWeb = lazy(() => import('./pages/blog/CuantoCuestaUnaPag
 const PorQueNecesitoUnaPaginaWeb = lazy(() => import('./pages/blog/PorQueNecesitoUnaPaginaWeb'));
 const TecnologiasWebComparativa = lazy(() => import('./pages/blog/TecnologiasWebComparativa'));
 const Delivery = lazy(() => import('./pages/Delivery'));
-const CityServicePage = lazy(() => import('./pages/CityServicePage'));
+import CityServicePage from './pages/CityServicePage';
 
 // Loading fallback component
 function PageLoader() {
@@ -70,7 +70,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               
-              {/* Prioridad: Rutas SEO Programático */}
+              {/* Rutas SEO: Explicitamente definidas para evitar errores de matching */}
+              <Route path="/diseno-web-santiago" element={<CityServicePage />} />
+              <Route path="/diseno-web-concepcion" element={<CityServicePage />} />
+              <Route path="/diseno-web-vina-del-mar" element={<CityServicePage />} />
               <Route path="/diseno-web-:city" element={<CityServicePage />} />
               
               <Route path="/paquetes" element={<Packages />} />
