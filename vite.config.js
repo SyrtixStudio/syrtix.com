@@ -10,19 +10,19 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor': [
-            'react', 
-            'react-dom', 
-            'react-router-dom', 
-            'lucide-react', 
-            'swiper',
-            'aos'
-          ],
-          'ui-core': [
-            'framer-motion',
-            'canvas-confetti'
-          ]
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('lucide-react') || id.includes('swiper') || id.includes('aos')) {
+              return 'vendor-utils';
+            }
+            if (id.includes('framer-motion') || id.includes('canvas-confetti')) {
+              return 'vendor-ui';
+            }
+            return 'vendor';
+          }
         }
       }
     },
