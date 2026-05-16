@@ -70,10 +70,37 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               
-              {/* Rutas SEO: Explicitamente definidas para evitar errores de matching */}
+              {/* COBERTURA NACIONAL SYRTIX: 28 Ciudades con Rutas Explícitas */}
               <Route path="/diseno-web-santiago" element={<CityServicePage />} />
               <Route path="/diseno-web-concepcion" element={<CityServicePage />} />
+              <Route path="/diseno-web-valparaiso" element={<CityServicePage />} />
               <Route path="/diseno-web-vina-del-mar" element={<CityServicePage />} />
+              <Route path="/diseno-web-antofagasta" element={<CityServicePage />} />
+              <Route path="/diseno-web-arica" element={<CityServicePage />} />
+              <Route path="/diseno-web-iquique" element={<CityServicePage />} />
+              <Route path="/diseno-web-calama" element={<CityServicePage />} />
+              <Route path="/diseno-web-copiapo" element={<CityServicePage />} />
+              <Route path="/diseno-web-la-serena" element={<CityServicePage />} />
+              <Route path="/diseno-web-coquimbo" element={<CityServicePage />} />
+              <Route path="/diseno-web-quillota" element={<CityServicePage />} />
+              <Route path="/diseno-web-los-andes" element={<CityServicePage />} />
+              <Route path="/diseno-web-san-antonio" element={<CityServicePage />} />
+              <Route path="/diseno-web-rancagua" element={<CityServicePage />} />
+              <Route path="/diseno-web-machali" element={<CityServicePage />} />
+              <Route path="/diseno-web-talca" element={<CityServicePage />} />
+              <Route path="/diseno-web-curico" element={<CityServicePage />} />
+              <Route path="/diseno-web-chillan" element={<CityServicePage />} />
+              <Route path="/diseno-web-los-angeles" element={<CityServicePage />} />
+              <Route path="/diseno-web-temuco" element={<CityServicePage />} />
+              <Route path="/diseno-web-pucon" element={<CityServicePage />} />
+              <Route path="/diseno-web-valdivia" element={<CityServicePage />} />
+              <Route path="/diseno-web-osorno" element={<CityServicePage />} />
+              <Route path="/diseno-web-puerto-montt" element={<CityServicePage />} />
+              <Route path="/diseno-web-puerto-varas" element={<CityServicePage />} />
+              <Route path="/diseno-web-coyhaique" element={<CityServicePage />} />
+              <Route path="/diseno-web-punta-arenas" element={<CityServicePage />} />
+              
+              {/* Fallback para futuras ciudades dinámicas */}
               <Route path="/diseno-web-:city" element={<CityServicePage />} />
               
               <Route path="/paquetes" element={<Packages />} />
