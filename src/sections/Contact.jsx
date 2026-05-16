@@ -446,7 +446,7 @@ function Contact() {
             <div className="lg:col-span-2">
               <div className="bg-base p-6 border border-gray-200">
                 <h3 className="text-lg font-bold text-gray-800 mb-2">{copy.projectDetails}</h3>
-                <p className="text-xs text-gray-500 mb-6">{copy.projectDetailsDescription}</p>
+                <p className="text-xs text-gray-600 mb-6">{copy.projectDetailsDescription}</p>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -638,7 +638,7 @@ function Contact() {
                     </div>
                   </div>
 
-                  <p className="text-gray-500 text-xs text-center">
+                  <p className="text-gray-600 text-xs text-center">
                     {copy.privacyText}
                     <a href="/politica-privacidad" className="text-secondary hover:underline">
                       {copy.privacyLink}

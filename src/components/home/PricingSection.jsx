@@ -160,7 +160,7 @@ function PricingSection() {
                           -{discountPercent}%
                         </span>
                       </div>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-600">
                         {lang === 'en' ? 'Before' : 'Antes'}{' '}
                         <span className="line-through decoration-gray-400">
                           {formatPrice(pkg.oldPrice)}
@@ -179,8 +179,8 @@ function PricingSection() {
                     </span>
                     <span className="align-middle">{formatPrice(pkg.price)}</span>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">~ {formatUsdPrice(pkg.price)}</div>
-                  <div className="text-sm text-gray-500 mt-1">{pkg.paymentType}</div>
+                  <div className="text-xs text-gray-600 mt-1">~ {formatUsdPrice(pkg.price)}</div>
+                  <div className="text-sm text-gray-600 mt-1">{pkg.paymentType}</div>
                 </div>
 
                 <div className="flex-1">
@@ -238,7 +238,7 @@ function PricingSection() {
         <div className="text-center mt-8" data-aos="fade-up">
           <p className="text-xs sm:text-sm text-gray-600 mb-3">{copy.growthTip}</p>
           {copy.emailFootnote && (
-            <p className="text-[11px] text-gray-500 mb-3">{copy.emailFootnote}</p>
+            <p className="text-[11px] text-gray-600 mb-3">{copy.emailFootnote}</p>
           )}
           <Link
             to="/paquetes"
