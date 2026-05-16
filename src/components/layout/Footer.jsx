@@ -164,7 +164,7 @@ function Footer() {
                   >
                     {COMPANY.phone}
                   </a>
-                  <div className="text-gray-500 text-xs">{copy.workHours}</div>
+                  <div className="text-gray-400 text-xs">{copy.workHours}</div>
                 </div>
               </div>
 
@@ -179,12 +179,12 @@ function Footer() {
                   >
                     {COMPANY.email}
                   </a>
-                  <div className="text-gray-500 text-xs">{copy.responseTime}</div>
+                  <div className="text-gray-400 text-xs">{copy.responseTime}</div>
                 </div>
               </div>
 
               <div className="pt-4 space-y-2">
-                <p className="text-gray-500 text-xs mb-1">{copy.followUs}</p>
+                <p className="text-gray-400 text-xs mb-1">{copy.followUs}</p>
                 <div className="flex items-center gap-3">
                   {[
                     { href: instagramUrl, label: 'Instagram', icon: <Instagram size={18} /> },

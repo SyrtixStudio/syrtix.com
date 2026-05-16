@@ -222,13 +222,8 @@ export default function ModalPublicidad({
             />
           </svg>
         </button>
-        <div className="relative md:hidden overflow-hidden bg-gray-900 min-h-[170px]">
-          <img
-            src="/img/promo/banner.png"
-            alt="Promo Banner"
-            className="absolute inset-0 h-full w-full object-cover opacity-55"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/70 to-transparent" />
+        <div className="relative md:hidden overflow-hidden bg-gray-950 min-h-[170px]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,170,90,0.15),transparent),radial-gradient(circle_at_bottom_left,rgba(0,33,173,0.15),transparent)]" />
           <div className="relative z-10 p-5 pt-10 flex h-full flex-col justify-end gap-3">
             <div className="flex items-center gap-3">
               <div className="h-11 w-11 border border-primary/30 bg-primary/10 p-2 backdrop-blur-sm">
@@ -251,15 +246,11 @@ export default function ModalPublicidad({
             {title && <h3 className="text-2xl font-bold leading-tight text-white">{title}</h3>}
           </div>
         </div>
-        <div className="relative z-10 hidden md:flex flex-col justify-between bg-gray-900 border-r border-gray-800">
-          {/* Background Image with Overlay */}
+        <div className="relative z-10 hidden md:flex flex-col justify-between bg-gray-950 border-r border-gray-800">
+          {/* Decorative Gradient Background */}
           <div className="absolute inset-0 z-0">
-            <img
-              src="/img/promo/banner.png"
-              alt="Promo Banner"
-              className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,170,90,0.08),transparent)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
           </div>
 
           <div className="relative z-10 p-12 flex-1 flex flex-col justify-center items-center text-center">

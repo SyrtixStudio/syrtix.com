@@ -44,12 +44,15 @@ function App() {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out',
-      once: true,
-      offset: 50,
-    });
+    // Initialize AOS with a slight delay to avoid blocking initial render
+    const timerAOS = setTimeout(() => {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out',
+        once: true,
+        offset: 50,
+      });
+    }, 1000);
 
     const lenis = initSmoothScroll();
 
@@ -57,6 +60,7 @@ function App() {
     const timer = setTimeout(() => setShowLoader(false), 800);
     return () => {
       clearTimeout(timer);
+      clearTimeout(timerAOS);
       lenis.destroy();
     };
   }, []);

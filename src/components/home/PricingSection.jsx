@@ -192,7 +192,7 @@ function PricingSection() {
                         ) : (
                           <X size={18} className="text-gray-300 mr-2 flex-shrink-0" />
                         )}
-                        <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
+                        <span className={feature.included ? 'text-gray-800' : 'text-gray-600'}>
                           {feature.text}
                         </span>
                       </li>
@@ -201,7 +201,7 @@ function PricingSection() {
 
                   <div className="min-h-[44px] mb-4">
                     {pkg.conditionNote && (
-                      <p className="text-[11px] text-gray-500">{pkg.conditionNote}</p>
+                      <p className="text-[11px] text-gray-600">{pkg.conditionNote}</p>
                     )}
                   </div>
                 </div>

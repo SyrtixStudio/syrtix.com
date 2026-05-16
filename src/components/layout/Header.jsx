@@ -203,12 +203,12 @@ function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`flex flex-col items-center justify-center py-2 px-1 flex-1 transition-colors ${
-                    isActive(item.path) ? 'text-primary' : 'text-gray-600 hover:text-primary'
+                  className={`flex flex-col items-center justify-center py-3 px-1 flex-1 transition-colors ${
+                    isActive(item.path) ? 'text-primary' : 'text-gray-700 hover:text-primary'
                   }`}
                 >
                   <span className="mb-1">{item.icon}</span>
-                  <span className="text-[10px] font-medium">{t(item.labelKey)}</span>
+                  <span className="text-[11px] sm:text-xs font-bold leading-none">{t(item.labelKey)}</span>
                 </Link>
               ))}
             </nav>
