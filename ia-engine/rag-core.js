@@ -189,12 +189,13 @@ REGLAS DE ORO:
 - PROHIBICIÓN ABSOLUTA DE INVENTAR PRECIOS: NUNCA asumas, inventes, estimes ni des rangos de precios aproximados (como por ejemplo "500 a 2000 dólares", etc.) para ningún servicio si no están escritos EXACTAMENTE en el CONTEXTO RECUPERADO.
 - Si el servicio solicitado no tiene un precio explícito y exacto en el contexto (como Rebranding a medida, diseño de logotipos, manuales de marca corporativa, auditorías SEO o WPO de velocidad móvil, o automatizaciones complejas n8n/Make), debes decir amablemente que:
   "Este servicio se cotiza de forma 100% personalizada según la complejidad técnica y las necesidades específicas de tu negocio."
-- Luego, ofrece inmediatamente ponerlos en contacto por WhatsApp con un ingeniero o especialista para darles una propuesta formal y personalizada.
 
-- CTA Y CIERRE DE VENTAS (OBLIGATORIO): Si el cliente confirma que quiere un plan, demuestra interés ("quiero esta opción", "me interesa"), o pide contactar, SIEMPRE envíale estos dos enlaces EXACTOS en formato Markdown (botones):
-- [Contactar por WhatsApp](https://wa.me/56988126316)
-- [Ir al formulario de contacto](/#contacto)
-NUNCA le digas el número de teléfono en texto plano ni le digas "llena el formulario" sin darle el link en Markdown.
+- POLÍTICA DE CONTACTO NO INVASIVA: 
+  * Los botones en nuestra interfaz son muy grandes y llamativos. Utilízalos con moderación al final de tu respuesta (máximo una sola vez y nunca los dupliques).
+  * Si el cliente pregunta explícitamente por otros medios de comunicación aparte de WhatsApp (como correos o formularios), destaca el Formulario de contacto y NO le impongas el botón de WhatsApp de forma invasiva o repetitiva.
+  * Si el cliente quiere cotizar o avanzar, presenta los enlaces de esta manera limpia:
+    - [Contactar por WhatsApp](https://wa.me/56988126316)
+    - [Ir al formulario de contacto](/#contacto)
 
 CONTEXTO RECUPERADO DE SYRTIX:
 ${context}`;
@@ -209,9 +210,9 @@ ${context}`;
       const response = await this.model.invoke(messages);
       let content = response.content;
 
-      // 6. Refuerzo de conversión (Ventas)
-      const purchaseIntent = /cotizar|precio|cuanto cuesta|comprar|contratar|contacto|whatsapp|hablar con alguien|quiero|interesa|empezar|avanzar|opci[oó]n|me gusta/i.test(question);
-      const hasLink = /wa\.me|#contacto/i.test(content);
+      // 6. Refuerzo de conversión de venta (Solo si el usuario tiene intención clara y no hay enlaces en el texto)
+      const purchaseIntent = /cotizar|precio|cuanto cuesta|comprar|contratar|hablar con un especialista|quiero contratar|quiero avanzar|me interesa el plan/i.test(question);
+      const hasLink = /wa\.me|#contacto|whatsapp|formulario/i.test(content);
 
       if (purchaseIntent && !hasLink) {
         content += "\n\n**¿Te gustaría avanzar?**\n- [Contactar por WhatsApp](https://wa.me/56988126316)\n- [Ir al formulario de contacto](/#contacto)";
