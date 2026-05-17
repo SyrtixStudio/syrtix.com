@@ -185,7 +185,13 @@ REGLAS DE ORO:
           break;
       }
 
-      systemPrompt += `\n\n- CTA Y CIERRE DE VENTAS (OBLIGATORIO): Si el cliente confirma que quiere un plan, demuestra interés ("quiero esta opción", "me interesa"), o pide contactar, SIEMPRE envíale estos dos enlaces EXACTOS en formato Markdown (botones):
+      systemPrompt += `\n\nREGLAS DE PRECIOS CRÍTICAS (DEBEN CUMPLIRSE SIN EXCEPCIÓN):
+- PROHIBICIÓN ABSOLUTA DE INVENTAR PRECIOS: NUNCA asumas, inventes, estimes ni des rangos de precios aproximados (como por ejemplo "500 a 2000 dólares", etc.) para ningún servicio si no están escritos EXACTAMENTE en el CONTEXTO RECUPERADO.
+- Si el servicio solicitado no tiene un precio explícito y exacto en el contexto (como Rebranding a medida, diseño de logotipos, manuales de marca corporativa, auditorías SEO o WPO de velocidad móvil, o automatizaciones complejas n8n/Make), debes decir amablemente que:
+  "Este servicio se cotiza de forma 100% personalizada según la complejidad técnica y las necesidades específicas de tu negocio."
+- Luego, ofrece inmediatamente ponerlos en contacto por WhatsApp con un ingeniero o especialista para darles una propuesta formal y personalizada.
+
+- CTA Y CIERRE DE VENTAS (OBLIGATORIO): Si el cliente confirma que quiere un plan, demuestra interés ("quiero esta opción", "me interesa"), o pide contactar, SIEMPRE envíale estos dos enlaces EXACTOS en formato Markdown (botones):
 - [Contactar por WhatsApp](https://wa.me/56988126316)
 - [Ir al formulario de contacto](/#contacto)
 NUNCA le digas el número de teléfono en texto plano ni le digas "llena el formulario" sin darle el link en Markdown.
