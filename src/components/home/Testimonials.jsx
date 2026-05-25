@@ -123,7 +123,7 @@ function Testimonials() {
             {groups[activeIndex]?.map((testimonial, idx) => (
               <div
                 key={testimonial.id}
-                className="bg-white p-6 border border-gray-200 hover:shadow-md transition-all duration-300 min-h-[220px] animate-[fadeIn_0.5s_ease-in-out]"
+                className="bg-white p-6 border border-gray-200 hover:shadow-md transition-shadow duration-300 min-h-[220px]"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex items-center gap-3">
