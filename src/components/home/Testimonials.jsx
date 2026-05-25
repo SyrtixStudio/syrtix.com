@@ -47,7 +47,6 @@ function Testimonials() {
   const { testimonials } = useTestimonials();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
 
   const copy =
     lang === 'en'
@@ -85,22 +84,14 @@ function Testimonials() {
     return chunks;
   }, [groupSize, testimonials]);
 
-  // Transición suave: fade-out → cambiar índice → fade-in
-  const changeIndex = (newIndex) => {
-    setVisible(false);
-    setTimeout(() => {
-      setActiveIndex(newIndex);
-      setVisible(true);
-    }, 250);
-  };
-
+  // Auto-rotación simple y limpia
   useEffect(() => {
     if (groups.length <= 1) return undefined;
     const intervalId = setInterval(() => {
-      changeIndex((activeIndex + 1) % groups.length);
+      setActiveIndex((prev) => (prev + 1) % groups.length);
     }, 6000);
     return () => clearInterval(intervalId);
-  }, [groups.length, activeIndex]);
+  }, [groups.length]);
 
   useEffect(() => {
     if (activeIndex >= groups.length && groups.length > 0) {
@@ -109,17 +100,18 @@ function Testimonials() {
   }, [activeIndex, groups.length]);
 
   const goPrev = () => {
-    changeIndex((activeIndex - 1 + groups.length) % groups.length);
+    setActiveIndex((prev) => (prev - 1 + groups.length) % groups.length);
   };
 
   const goNext = () => {
-    changeIndex((activeIndex + 1) % groups.length);
+    setActiveIndex((prev) => (prev + 1) % groups.length);
   };
 
   return (
     <section className="py-20 lg:py-24 px-4 sm:px-6 bg-base2">
       <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-12" data-aos="fade-up">
+        {/* Título SIN data-aos para evitar el bug de opacity:0 en móviles */}
+        <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
             {copy.titlePrefix}
             <span className="text-primary">{copy.titleHighlight}</span>
@@ -129,13 +121,10 @@ function Testimonials() {
         </div>
 
         <div className="relative">
-          <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            style={{
-              opacity: visible ? 1 : 0,
-              transition: 'opacity 0.25s ease-in-out',
-            }}
-          >
+          {/* key={activeIndex} fuerza a React a destruir y recrear el grid completo
+              en cada cambio de slide. Esto garantiza que NINGÚN CSS residual
+              (de AOS u otra librería) pueda dejar las tarjetas invisibles. */}
+          <div key={activeIndex} className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {groups[activeIndex]?.map((testimonial, idx) => (
               <div
                 key={testimonial.id}
