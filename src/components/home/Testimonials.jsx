@@ -47,6 +47,7 @@ function Testimonials() {
   const { testimonials } = useTestimonials();
   const [groupSize, setGroupSize] = useState(3);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   const copy =
     lang === 'en'
@@ -84,26 +85,35 @@ function Testimonials() {
     return chunks;
   }, [groupSize, testimonials]);
 
+  // Transición suave: fade-out → cambiar índice → fade-in
+  const changeIndex = (newIndex) => {
+    setVisible(false);
+    setTimeout(() => {
+      setActiveIndex(newIndex);
+      setVisible(true);
+    }, 250);
+  };
+
   useEffect(() => {
     if (groups.length <= 1) return undefined;
     const intervalId = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % groups.length);
+      changeIndex((activeIndex + 1) % groups.length);
     }, 6000);
     return () => clearInterval(intervalId);
-  }, [groups.length]);
+  }, [groups.length, activeIndex]);
 
   useEffect(() => {
-    if (activeIndex >= groups.length) {
+    if (activeIndex >= groups.length && groups.length > 0) {
       setActiveIndex(0);
     }
   }, [activeIndex, groups.length]);
 
   const goPrev = () => {
-    setActiveIndex((prev) => (prev - 1 + groups.length) % groups.length);
+    changeIndex((activeIndex - 1 + groups.length) % groups.length);
   };
 
   const goNext = () => {
-    setActiveIndex((prev) => (prev + 1) % groups.length);
+    changeIndex((activeIndex + 1) % groups.length);
   };
 
   return (
@@ -119,7 +129,13 @@ function Testimonials() {
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            style={{
+              opacity: visible ? 1 : 0,
+              transition: 'opacity 0.25s ease-in-out',
+            }}
+          >
             {groups[activeIndex]?.map((testimonial, idx) => (
               <div
                 key={testimonial.id}
