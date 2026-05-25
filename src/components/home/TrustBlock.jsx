@@ -241,7 +241,7 @@ function TrustBlock() {
       {/* ═══════════ TESTIMONIALS ═══════════ */}
       <div className="py-20 lg:py-24 px-4 sm:px-6">
         <div className="max-w-[1440px] mx-auto">
-          <div className="text-center mb-12" data-aos="fade-up">
+          <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
               {t.testimonialsTitle}
               <span className="text-primary">{t.testimonialsHighlight}</span>
@@ -251,12 +251,10 @@ function TrustBlock() {
           </div>
 
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div key={activeIndex} className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {groups[activeIndex]?.map((item, idx) => (
                 <div
                   key={item.id}
-                  data-aos="zoom-in"
-                  data-aos-delay={idx * 150}
                   className="bg-white p-6 border border-gray-200 hover:shadow-md transition-shadow duration-300 min-h-[220px]"
                 >
                   <div className="mb-4 flex items-start justify-between">
