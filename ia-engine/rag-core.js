@@ -167,8 +167,8 @@ REGLAS DE ORO:
 - PLANES CHATBOT IA:
   1. AI Start: $190.000 CLP (Agente de atención y FAQ básico en tu web).
   2. AI Pro: $490.000 CLP (Agente con base de conocimiento dinámica y agendamiento).
-  3. AI Enterprise: $990.000 CLP (Agente integrado a ERPs, CRMs o WhatsApp).
-- Explica que automatizan la atención 24/7 y la captación de leads en la web o WhatsApp sin intervención humana.
+  3. AI Enterprise: $990.000 CLP (Arquitectura Multi-Agente idéntica a la mía, con filtros anti-alucinación, integración a CRMs y WhatsApp).
+- Explica que no somos un chatbot básico, automatizamos la captación de leads de forma inteligente y segura.
 - CTA: Invítalos a cotizar su propio agente IA por WhatsApp o formulario.`;
           break;
 
