@@ -34,14 +34,14 @@ function Home() {
     if (lang === 'en') {
       return {
         ...common,
-        title: 'Web Solution Start',
+        title: 'Cyber Day: Web Solution Start',
         oldPrice: '$299.000 CLP',
-        price: '$199.000 CLP',
-        promoLabel: 'LAUNCH OFFER',
-        offerEndsAt: '2026-12-31T23:59:59-03:00',
+        price: '$149.000 CLP',
+        promoLabel: 'CYBER DAY OFFER',
+        offerEndsAt: '2026-06-03T23:59:59-04:00',
         description:
           'Single-page website for entrepreneurs and service professionals who need fast lead capture.',
-        details: '10 slots available. Launch offer valid until Mar 31, 2026.',
+        details: 'Limited slots available. Cyber Day promotion valid until Wednesday, June 3rd.',
         list: [
           'Professional design',
           'Visual identity',
@@ -62,14 +62,14 @@ function Home() {
 
     return {
       ...common,
-      title: 'Web Solution Start',
+      title: 'Cyber Day: Web Solution Start',
       oldPrice: '$299.000',
-      price: '$199.000',
-      promoLabel: 'OFERTA LANZAMIENTO',
-      offerEndsAt: '2026-12-31T23:59:59-03:00',
+      price: '$149.000',
+      promoLabel: 'OFERTA CYBER DAY',
+      offerEndsAt: '2026-06-03T23:59:59-04:00',
       description:
         'Página web para emprendedores y pymes de servicios que necesitan captar clientes rápido.',
-      details: '',
+      details: 'Cupos limitados. Promoción de Cyber Day válida hasta el miércoles 3 de junio.',
       list: [
         'Enfoque UX/U',
         'Identidad visual',

@@ -154,7 +154,7 @@ function PricingSection() {
                     <div className="mb-2 flex flex-col items-center gap-1">
                       <div className="flex items-center gap-2">
                         <span className="inline-flex items-center px-3 py-1 text-[10px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full">
-                          {lang === 'en' ? 'SPECIAL OFFER' : 'OFERTA ESPECIAL'}
+                          {lang === 'en' ? 'CYBER DAY OFFER' : 'OFERTA CYBER DAY'}
                         </span>
                         <span className="inline-flex items-center px-2 py-1 text-[10px] font-bold text-white bg-secondary rounded-full">
                           -{discountPercent}%

@@ -12,7 +12,7 @@ export const packagesEN = [
     name: 'Web Solution Start',
     icon: 'Zap',
     description: 'Self-manageable single-page website for entrepreneurs, professionals, and small businesses that need fast lead capture.',
-    price: 199000,
+    price: 149000,
     oldPrice: 299000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -94,7 +94,7 @@ export const packagesEN = [
     icon: 'Code',
     description:
       'Self-manageable multi-page corporate website for entrepreneurs, SMBs, and medium enterprises focused on positioning and lead generation.',
-    price: 399000,
+    price: 299000,
     oldPrice: 599000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -180,7 +180,7 @@ export const packagesEN = [
     icon: 'ShoppingCart',
     description:
       'High-performance E-commerce platform designed to scale online sales, featuring a shopping cart, payment gateway integrations (Webpay/MercadoPago), and full self-management.',
-    price: 699000,
+    price: 590000,
     oldPrice: 990000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -254,7 +254,7 @@ export const packagesEN = [
     name: 'Chatbot AI Start',
     icon: 'Bot',
     description: 'Essential RAG assistant to answer FAQs and capture leads on a single website or landing page.',
-    price: 190000,
+    price: 174000,
     oldPrice: 290000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -300,7 +300,7 @@ export const packagesEN = [
     name: 'Chatbot AI Pro',
     icon: 'Zap',
     description: 'Advanced assistant with WhatsApp integration and expanded knowledge base for growing businesses.',
-    price: 490000,
+    price: 474000,
     oldPrice: 790000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -345,7 +345,7 @@ export const packagesEN = [
     name: 'Chatbot AI Enterprise',
     icon: 'MessageSquare',
     description: 'Omnichannel AI Assistant integrating CRMs, APIs, WhatsApp, and advanced context.',
-    price: 990000,
+    price: 894000,
     oldPrice: 1490000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
@@ -398,7 +398,7 @@ export const packagesES = [
     icon: 'Zap',
     description:
       'Página web autoadministrable para emprendedores, profesionales y pequeñas empresas que necesitan captar leads rápido.',
-    price: 199000,
+    price: 149000,
     oldPrice: 299000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
@@ -478,7 +478,7 @@ export const packagesES = [
     icon: 'Code',
     description:
       'Sitio corporativo multipágina autoadministrable para empresas en crecimiento y pymes enfocadas en posicionamiento y leads.',
-    price: 399000,
+    price: 299000,
     oldPrice: 599000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
@@ -555,7 +555,7 @@ export const packagesES = [
     icon: 'ShoppingCart',
     description:
       'E-commerce profesional de alto rendimiento diseñado para escalar tus ventas online, con carrito de compras, Webpay/MercadoPago y panel autoadministrable total.',
-    price: 699000,
+    price: 590000,
     oldPrice: 990000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
@@ -626,7 +626,7 @@ export const packagesES = [
     name: 'Chatbot AI Start',
     icon: 'Bot',
     description: 'Asistente RAG esencial para responder FAQs y capturar leads en una página web o landing page.',
-    price: 190000,
+    price: 174000,
     oldPrice: 290000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
@@ -672,7 +672,7 @@ export const packagesES = [
     name: 'Chatbot AI Pro',
     icon: 'Zap',
     description: 'Asistente avanzado con integración de WhatsApp y base de conocimientos ampliada para negocios en crecimiento.',
-    price: 490000,
+    price: 474000,
     oldPrice: 790000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
@@ -717,7 +717,7 @@ export const packagesES = [
     name: 'Chatbot AI Enterprise',
     icon: 'MessageSquare',
     description: 'Asistente de IA Omnicanal con integración en tu CRM, APIs, WhatsApp Oficial y contexto avanzado.',
-    price: 990000,
+    price: 894000,
     oldPrice: 1490000,
     paymentType: 'pago único de implementación',
     scopeDetails: {

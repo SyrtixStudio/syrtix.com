@@ -8,7 +8,7 @@ import {
 import PocketBase from "pocketbase";
 
 // Configuración de PocketBase para Syrtix
-const PB_URL = "https://syrtix.5.78.86.158.sslip.io";
+const PB_URL = "https://syrtix.5.78.86.159.sslip.io";
 const PB_EMAIL = "syrtix.solutions@gmail.com";
 const PB_PASSWORD = "Tutula0754*";
 
