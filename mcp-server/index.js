@@ -7,10 +7,40 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import PocketBase from "pocketbase";
 
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Cargar variables de entorno desde el .env del directorio raíz
+try {
+  const envPath = join(__dirname, "../.env");
+  if (fs.existsSync(envPath)) {
+    const content = fs.readFileSync(envPath, "utf8");
+    content.split(/\r?\n/).forEach((line) => {
+      const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+      if (match) {
+        const key = match[1];
+        let value = match[2] || "";
+        if (value.startsWith('"') && value.endsWith('"')) {
+          value = value.slice(1, -1);
+        } else if (value.startsWith("'") && value.endsWith("'")) {
+          value = value.slice(1, -1);
+        }
+        process.env[key] = value.trim();
+      }
+    });
+  }
+} catch (e) {
+  console.error("Error loading .env in MCP server:", e.message);
+}
+
 // Configuración de PocketBase para Syrtix
-const PB_URL = "https://syrtix.5.78.86.159.sslip.io";
-const PB_EMAIL = "syrtix.solutions@gmail.com";
-const PB_PASSWORD = "Tutula0754*";
+const PB_URL = process.env.VITE_POCKETBASE_URL || "https://syrtix.5.78.86.159.sslip.io";
+const PB_EMAIL = process.env.PB_ADMIN_EMAIL;
+const PB_PASSWORD = process.env.PB_ADMIN_PASSWORD;
 
 const pb = new PocketBase(PB_URL);
 let isAuthenticated = false;
