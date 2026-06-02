@@ -358,7 +358,7 @@ function Contact() {
         <img
           src="/img/img-contacto.avif"
           alt={copy.altBg}
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-5"
           style={{ objectPosition: 'center' }}
         />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-gray-900 to-transparent"></div>
