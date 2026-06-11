@@ -99,18 +99,7 @@ function Header() {
           hidden ? '-translate-y-full' : 'translate-y-0'
         }`}
       >
-        {/* Cyber Day Promo Bar Desktop */}
-        <div className="bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600 text-gray-950 py-1.5 px-6 text-center text-xs font-black tracking-wider uppercase select-none flex items-center justify-center gap-2 border-b border-yellow-400">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-          </span>
-          {lang === 'es' ? (
-            <span>🔥 <strong>Cyber Day:</strong> 50% DCTO en Start/Pro, 40% en Chatbots y Enterprise. ¡Hasta el miércoles! 🔥</span>
-          ) : (
-            <span>🔥 <strong>Cyber Day:</strong> 50% OFF on Start/Pro, 40% on Chatbots & Enterprise. Until Wednesday! 🔥</span>
-          )}
-        </div>
+
         {/* Barra superior */}
         <div className="bg-secondary text-white py-2 px-6">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -172,18 +161,7 @@ function Header() {
 
       {/* Header Mobile */}
       <header className="lg:hidden w-full fixed top-0 left-0 z-50 border-b-2 border-primary">
-        {/* Cyber Day Promo Bar Mobile */}
-        <div className="bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600 text-gray-950 py-1 px-4 text-center text-[10px] font-black tracking-wider uppercase select-none flex items-center justify-center gap-1.5 border-b border-yellow-400">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-600"></span>
-          </span>
-          {lang === 'es' ? (
-            <span>🔥 <strong>Cyber:</strong> 50% Start/Pro y 40% Chatbots/Enterprise. ¡Solo 3 días! 🔥</span>
-          ) : (
-            <span>🔥 <strong>Cyber:</strong> 50% Start/Pro & 40% Chatbots/Enterprise. 3 days only! 🔥</span>
-          )}
-        </div>
+
         {/* Barra superior móvil */}
         <div className="bg-secondary text-white py-2 px-3">
           <div className="flex justify-between items-center">
