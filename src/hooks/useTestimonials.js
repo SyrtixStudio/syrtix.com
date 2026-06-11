@@ -22,13 +22,18 @@ export const useTestimonials = () => {
         });
 
         if (records.length > 0) {
+          // Filtrar testimonios vacíos o de prueba que no tienen contenido
+          const validRecords = records.filter(
+            record => record.textEs && record.textEs.trim() !== '' && record.textEs !== 'N/A'
+          );
+
           // Mapear los campos de PocketBase a la estructura del frontend
-          const formatted = records.map(record => ({
+          const formatted = validRecords.map(record => ({
             id: record.id,
             name: record.name,
             textEs: record.textEs,
             textEn: record.textEn,
-            rating: record.rating,
+            rating: record.rating || 5,
             createdAt: record.created,
           }));
           
