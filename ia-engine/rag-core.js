@@ -59,11 +59,11 @@ class SyrtixAgent {
     try {
       // 1. Clasificación de la intención del cliente (Intent Routing)
       const classificationPrompt = `Determina la intención de la siguiente consulta de un cliente de Syrtix Studio. Responde ÚNICAMENTE con una sola palabra clave en minúsculas (sin puntos, sin texto adicional, sin formato markdown, solo la palabra) de las siguientes opciones:
-- "ecommerce": Si pregunta por tiendas online, carros de compra, pasarela de pago, Webpay, vender online o precios de e-commerce.
+- "ecommerce": Si pregunta por tiendas online, e-commerce, carros de compra, pasarela de pago, Webpay, vender online, precios de webs, precios de páginas web, planes web, precios en general, cotizaciones de sitios web o costos de desarrollo web.
 - "branding_design": Si pregunta por logos, branding, rebranding, manual de marca, diseño UX/UI en Figma, rediseñar un sitio web viejo/lento o cambiar el aspecto visual.
 - "audits_consulting": Si pregunta por SEO, velocidad/rendimiento web, accesibilidad, optimización Lighthouse, automatizaciones con n8n/Make o consultoría tecnológica.
 - "corporate_booking": Si pregunta por sitios corporativos de servicios, landing pages, portafolios de proyectos, o sistemas de agendamiento/reservas (Google Calendar, recordatorios WhatsApp).
-- "chatbots": Si pregunta por chatbots de IA, asistentes virtuales o agentes automáticos.
+- "chatbots": Si pregunta por chatbots de IA, asistentes virtuales, agentes automáticos o precios/planes de chatbots.
 - "general": Saludos, preguntas sobre quiénes somos, qué servicios ofrecemos en general, o si no encaja en las anteriores.
 
 Consulta: "${question}"
@@ -185,9 +185,19 @@ REGLAS DE ORO:
           break;
       }
 
-      systemPrompt += `\n\nREGLAS DE PRECIOS CRÍTICAS (DEBEN CUMPLIRSE SIN EXCEPCIÓN):
-- PROHIBICIÓN ABSOLUTA DE INVENTAR PRECIOS: NUNCA asumas, inventes, estimes ni des rangos de precios aproximados (como por ejemplo "500 a 2000 dólares", etc.) para ningún servicio si no están escritos EXACTAMENTE en el CONTEXTO RECUPERADO.
-- Si el servicio solicitado no tiene un precio explícito y exacto en el contexto (como Rebranding a medida, diseño de logotipos, manuales de marca corporativa, auditorías SEO o WPO de velocidad móvil, o automatizaciones complejas n8n/Make), debes decir amablemente que:
+      systemPrompt += `\n\nHOJA DE PRECIOS OFICIALES DE SYRTIX (UTILIZA ESTOS PRECIOS SIEMPRE Y NUNCA INVENTES OTROS):
+- PLANES DE SITIOS WEB (Todos incluyen dominio y hosting gratis por el 1er año y son autoadministrables):
+  1. Web Solution Start: Precio Oferta de $199.000 CLP (Precio base normal es $299.000 CLP). Plan One-Page, catálogo vitrina hasta 30 productos, SIN pagos automáticos.
+  2. Web Solution Pro: Precio Oferta de $499.000 CLP (Precio base normal es $599.000 CLP). Sitio multipágina hasta 5 secciones, catálogo vitrina hasta 50 productos, SIN pagos automáticos.
+  3. Web Solution Enterprise (E-commerce): Precio Oferta de $899.000 CLP (Precio base normal es $999.000 CLP). E-commerce completo con carrito, pagos automáticos (Webpay/MercadoPago), hasta 100 productos.
+- ASISTENTES DE INTELIGENCIA ARTIFICIAL (CHATBOTS IA):
+  1. Chatbot AI Start: Precio Oferta de $199.000 CLP (Precio base normal es $299.000 CLP) (Agente de atención y FAQ básico en tu web).
+  2. Chatbot AI Pro: Precio Oferta de $499.000 CLP (Precio base normal es $599.000 CLP) (Agente en Web y WhatsApp, reservas y citas online).
+  3. Chatbot AI Enterprise: Precio Oferta de $899.000 CLP (Precio base normal es $999.000 CLP) (Multi-Agente omnicanal, API oficial de WhatsApp, integraciones con CRMs).
+
+REGLAS DE PRECIOS CRÍTICAS (DEBEN CUMPLIRSE SIN EXCEPCIÓN):
+- NUNCA inventes ni estimes precios en dólares (USD) ni des rangos de precios aproximados que no sean los indicados en la HOJA DE PRECIOS OFICIALES.
+- Si el servicio solicitado no tiene un precio explícito en los planes oficiales (como Rebranding a medida, diseño de logotipos, manuales de marca corporativa, auditorías SEO o WPO de velocidad móvil, o automatizaciones complejas n8n/Make), debes decir amablemente que:
   "Este servicio se cotiza de forma 100% personalizada según la complejidad técnica y las necesidades específicas de tu negocio."
 
 - POLÍTICA DE CONTACTO NO INVASIVA: 
