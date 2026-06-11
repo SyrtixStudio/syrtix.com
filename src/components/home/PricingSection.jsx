@@ -76,19 +76,17 @@ function PricingSection() {
         };
 
   const formatPrice = (price) => {
-    const discountedPrice = price - 100;
     const formatted = new Intl.NumberFormat('es-CL', {
       style: 'currency',
       currency: 'CLP',
       minimumFractionDigits: 0,
-    }).format(discountedPrice);
+    }).format(price);
 
     return lang === 'en' ? `${formatted} CLP` : formatted;
   };
 
   const formatUsdPrice = (price) => {
-    const discountedPrice = price - 100;
-    const usdValue = Math.round(discountedPrice / USD_REFERENCE_RATE);
+    const usdValue = Math.round(price / USD_REFERENCE_RATE);
     const formatted = new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
@@ -97,7 +95,11 @@ function PricingSection() {
     return `US$${formatted}`;
   };
 
-  const visiblePackages = copy.packages;
+  const visiblePackages = copy.packages.map((pkg) => ({
+    ...pkg,
+    oldPrice: pkg.price,
+    price: pkg.price - 100000,
+  }));
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">
@@ -156,7 +158,7 @@ function PricingSection() {
                     <div className="mb-2 flex flex-col items-center gap-1">
                       <div className="flex items-center gap-2">
                         <span className="inline-flex items-center px-3 py-1 text-[10px] font-semibold tracking-[0.16em] text-secondary bg-secondary/10 border border-secondary/30 rounded-full">
-                          {lang === 'en' ? 'CYBER DAY OFFER' : 'OFERTA CYBER DAY'}
+                          {lang === 'en' ? 'OFFER PRICE' : 'PRECIO OFERTA'}
                         </span>
                         <span className="inline-flex items-center px-2 py-1 text-[10px] font-bold text-white bg-secondary rounded-full">
                           -{discountPercent}%
