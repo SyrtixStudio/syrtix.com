@@ -17,7 +17,7 @@ Ayudamos a las empresas a construir una identidad visual premium y moderna.
 
 - **Sitios Corporativos y Portafolios:** Diseñamos páginas para empresas de servicios, constructoras, abogados, consultoras, etc.
   - **Web Solution Start ($199.000 CLP):** Ideal para portafolios simples, landing pages de un solo producto o landing pages de captación de leads rápidas (One-Page).
-  - **Web Solution Pro ($399.000 CLP):** Ideal para sitios corporativos tradicionales de hasta 5 páginas (Inicio, Nosotros, Servicios, Blog, Contacto).
+  - **Web Solution Pro ($499.000 CLP):** Ideal para sitios corporativos tradicionales de hasta 5 páginas (Inicio, Nosotros, Servicios, Blog, Contacto).
 - **Sistemas de Agendamiento e Integración de Citas:**
   - Diseñamos e integramos sistemas de reservas online directamente en tu sitio web.
   - Sincronización automática en tiempo real con Google Calendar o Outlook.
