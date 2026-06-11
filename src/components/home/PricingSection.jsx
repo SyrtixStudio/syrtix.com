@@ -76,17 +76,19 @@ function PricingSection() {
         };
 
   const formatPrice = (price) => {
+    const discountedPrice = price - 100;
     const formatted = new Intl.NumberFormat('es-CL', {
       style: 'currency',
       currency: 'CLP',
       minimumFractionDigits: 0,
-    }).format(price);
+    }).format(discountedPrice);
 
     return lang === 'en' ? `${formatted} CLP` : formatted;
   };
 
   const formatUsdPrice = (price) => {
-    const usdValue = Math.round(price / USD_REFERENCE_RATE);
+    const discountedPrice = price - 100;
+    const usdValue = Math.round(discountedPrice / USD_REFERENCE_RATE);
     const formatted = new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
