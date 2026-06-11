@@ -260,6 +260,13 @@ app.get("/health", (req, res) => {
   });
 });
 
+// Pre-cargar precios de PocketBase antes de iniciar
+syrtixAgent.loadOfficialPrices().then(() => {
+  console.log("✅ Carga inicial de precios completada desde PocketBase.");
+}).catch((err) => {
+  console.error("❌ Error en carga inicial de precios:", err.message);
+});
+
 // Inicio del servidor
 app.listen(PORT, () => {
   console.log(`\n🚀 Syrtix IA Engine Operativo`);

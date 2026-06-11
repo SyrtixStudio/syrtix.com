@@ -10,6 +10,7 @@ import { seoData } from '../components/seo/seoData';
 import { COMPANY } from '../constants/index.js';
 import { useLanguage } from '../i18n/index.jsx';
 import { packagesEN, packagesES } from '../data/plansData.js';
+import { usePlans } from '../hooks/usePlans';
 
 const USD_REFERENCE_RATE = 950;
 
@@ -33,6 +34,38 @@ const yearlyPrices = {
 function Packages() {
   const [selectedDetailPlan, setSelectedDetailPlan] = useState(null);
   const { lang } = useLanguage();
+  const { plans } = usePlans();
+
+  const mapPackage = (p) => {
+    let dbKey = '';
+    if (p.id === 'landing-starter') dbKey = 'web-start';
+    else if (p.id === 'corporate-web' || p.id === 'web-corporativa') dbKey = 'web-pro';
+    else if (p.id === 'ecommerce-standard') dbKey = 'web-enterprise';
+    else if (p.id === 'ai-chatbot-start') dbKey = 'chatbot-start';
+    else if (p.id === 'ai-chatbot-pro') dbKey = 'chatbot-pro';
+    else if (p.id === 'ai-chatbot-enterprise') dbKey = 'chatbot-enterprise';
+
+    const dbPlan = plans[dbKey];
+    const priceMonthly = dbPlan 
+      ? (dbPlan.isOnOffer ? dbPlan.priceOffer : dbPlan.priceNormal)
+      : (p.price - 100000);
+    const oldPriceMonthly = dbPlan 
+      ? (dbPlan.isOnOffer ? dbPlan.priceNormal : null)
+      : p.price;
+
+    return {
+      ...p,
+      icon: iconMap[p.icon] || <Zap size={32} />,
+      priceMonthly,
+      oldPriceMonthly,
+      priceYearly: yearlyPrices[p.id] || Math.round((dbPlan ? dbPlan.priceNormal : p.price) * 2.5),
+      popular: p.featured || false,
+      cycleNoteMonthly: p.paymentType,
+      cycleNoteYearly: '',
+      features: p.features.map(f => ({ name: f.text, included: f.included })),
+      cta: p.ctaText,
+    };
+  };
 
   const copy =
     lang === 'en'
@@ -118,20 +151,7 @@ function Packages() {
                 'All plans include post-launch guidance to resolve questions and small adjustments.',
             },
           ],
-          plans: [
-            ...packagesEN.map(p => ({
-              ...p,
-              icon: iconMap[p.icon] || <Zap size={32} />,
-              priceMonthly: p.price - 100000,
-              oldPriceMonthly: p.price,
-              priceYearly: yearlyPrices[p.id] || Math.round(p.price * 2.5),
-              popular: p.featured || false,
-              cycleNoteMonthly: p.paymentType,
-              cycleNoteYearly: '',
-              features: p.features.map(f => ({ name: f.text, included: f.included })),
-              cta: p.ctaText,
-            })),
-          ],
+          plans: packagesEN.map(mapPackage),
         }
       : {
           heroBadge: 'Paquetes y precios',
@@ -215,20 +235,7 @@ function Packages() {
                 'Todos los planes incluyen acompañamiento post-lanzamiento para resolver dudas y ajustes menores.',
             },
           ],
-          plans: [
-            ...packagesES.map(p => ({
-              ...p,
-              icon: iconMap[p.icon] || <Zap size={32} />,
-              priceMonthly: p.price - 100000,
-              oldPriceMonthly: p.price,
-              priceYearly: yearlyPrices[p.id] || Math.round(p.price * 2.5),
-              popular: p.featured || false,
-              cycleNoteMonthly: p.paymentType,
-              cycleNoteYearly: '',
-              features: p.features.map(f => ({ name: f.text, included: f.included })),
-              cta: p.ctaText,
-            })),
-          ],
+          plans: packagesES.map(mapPackage),
         };
 
   const enterprisePlan = copy.plans.find((pkg) => pkg.enterpriseOnly);

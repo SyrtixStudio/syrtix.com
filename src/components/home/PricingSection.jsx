@@ -8,6 +8,7 @@ import { getIcon } from './IconResolver';
 import { useLanguage } from '../../i18n/index.jsx';
 import PackageDetailModal from '../pricing/PackageDetailModal.jsx';
 import { packagesEN, packagesES } from '../../data/plansData.js';
+import { usePlans } from '../../hooks/usePlans';
 
 const USD_REFERENCE_RATE = 950;
 
@@ -95,11 +96,31 @@ function PricingSection() {
     return `US$${formatted}`;
   };
 
-  const visiblePackages = copy.packages.map((pkg) => ({
-    ...pkg,
-    oldPrice: pkg.price,
-    price: pkg.price - 100000,
-  }));
+  const { plans } = usePlans();
+
+  const visiblePackages = copy.packages.map((pkg) => {
+    let dbKey = '';
+    if (pkg.id === 'landing-starter') dbKey = 'web-start';
+    else if (pkg.id === 'corporate-web') dbKey = 'web-pro';
+    else if (pkg.id === 'ecommerce-standard') dbKey = 'web-enterprise';
+
+    const dbPlan = plans[dbKey];
+
+    if (dbPlan) {
+      return {
+        ...pkg,
+        price: dbPlan.isOnOffer ? dbPlan.priceOffer : dbPlan.priceNormal,
+        oldPrice: dbPlan.isOnOffer ? dbPlan.priceNormal : null,
+        deliveryTime: dbPlan.deliveryTime,
+      };
+    }
+
+    return {
+      ...pkg,
+      oldPrice: pkg.price,
+      price: pkg.price - 100000,
+    };
+  });
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-base">

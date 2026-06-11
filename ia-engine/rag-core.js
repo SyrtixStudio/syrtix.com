@@ -2,7 +2,14 @@ import * as dotenv from "dotenv";
 import { ChatGroq } from "@langchain/groq";
 import { SystemMessage, HumanMessage, AIMessage } from "@langchain/core/messages";
 import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
+import PocketBase from "pocketbase";
 import { SyrtixStore } from "./syrtix-store.js";
+
+// CLP price format helper
+const formatCLP = (num) => {
+  if (num === undefined || num === null) return "";
+  return `$${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} CLP`;
+};
 
 dotenv.config();
 
@@ -33,8 +40,82 @@ class SyrtixAgent {
 
     this.store = new SyrtixStore();
     this.store.load("vectorstore.json");
+
+    // Configuración de PocketBase para precios dinámicos
+    const pbUrl = (process.env.VITE_POCKETBASE_URL || "https://syrtix.5.78.86.159.sslip.io").replace(/\/$/, "");
+    this.pb = new PocketBase(pbUrl);
+    this.plansMap = null;
+    this.lastFetched = 0;
+    this.ttlMs = 5 * 60 * 1000; // 5 minutos de cache en memoria
     
     console.log("🤖 SyrtixAgent: Inicializado con éxito.");
+  }
+
+  /**
+   * Carga los precios oficiales desde PocketBase.
+   * Si falla, usa los precios de fallback locales.
+   */
+  async loadOfficialPrices(force = false) {
+    const now = Date.now();
+    if (!force && this.plansMap && (now - this.lastFetched < this.ttlMs)) {
+      return; // Usar caché
+    }
+
+    try {
+      console.log("🔄 SyrtixAgent: Cargando precios oficiales de PocketBase...");
+      const records = await this.pb.collection("plans").getFullList();
+      if (records && records.length > 0) {
+        const plansMap = {};
+        records.forEach((record) => {
+          const key = `${record.category}-${record.tier}`;
+          plansMap[key] = {
+            name: record.name,
+            price_normal: record.price_normal,
+            price_offer: record.price_offer,
+            is_on_offer: record.is_on_offer,
+            delivery_time: record.delivery_time,
+          };
+        });
+
+        this.plansMap = plansMap;
+        this.lastFetched = now;
+        console.log("📈 SyrtixAgent: Precios actualizados exitosamente de PocketBase.");
+      } else {
+        console.warn("⚠️ SyrtixAgent: Colección 'plans' vacía, usando fallback.");
+        if (!this.plansMap) this._useFallbackPrices();
+      }
+    } catch (error) {
+      console.warn("⚠️ SyrtixAgent: Error al obtener precios de PocketBase, usando fallback:", error.message);
+      if (!this.plansMap) this._useFallbackPrices();
+    }
+  }
+
+  _useFallbackPrices() {
+    this.plansMap = {
+      "web-start": { price_normal: 299000, price_offer: 199000, is_on_offer: true, delivery_time: "7 días hábiles" },
+      "web-pro": { price_normal: 599000, price_offer: 499000, is_on_offer: true, delivery_time: "2 a 4 semanas" },
+      "web-enterprise": { price_normal: 999000, price_offer: 899000, is_on_offer: true, delivery_time: "2 a 4 semanas" },
+      "chatbot-start": { price_normal: 299000, price_offer: 199000, is_on_offer: true, delivery_time: "Setup inmediato" },
+      "chatbot-pro": { price_normal: 599000, price_offer: 499000, is_on_offer: true, delivery_time: "1 a 2 semanas" },
+      "chatbot-enterprise": { price_normal: 999000, price_offer: 899000, is_on_offer: true, delivery_time: "2 a 4 semanas" }
+    };
+    this.lastFetched = Date.now();
+  }
+
+  getPlanPriceInfo(category, tier) {
+    const key = `${category}-${tier}`;
+    if (!this.plansMap || !this.plansMap[key]) {
+      return { price_normal: 0, price_offer: 0, is_on_offer: false };
+    }
+    return this.plansMap[key];
+  }
+
+  getPlanPriceDescription(category, tier) {
+    const plan = this.getPlanPriceInfo(category, tier);
+    if (plan.is_on_offer) {
+      return `${formatCLP(plan.price_offer)} (Precio de Oferta, precio base normal ${formatCLP(plan.price_normal)})`;
+    }
+    return `${formatCLP(plan.price_normal)}`;
   }
 
   /**
@@ -57,6 +138,9 @@ class SyrtixAgent {
    */
   async ask(question, history = []) {
     try {
+      // Cargar precios de PocketBase antes de armar el system prompt
+      await this.loadOfficialPrices();
+
       // 1. Clasificación de la intención del cliente (Intent Routing)
       const classificationPrompt = `Determina la intención de la siguiente consulta de un cliente de Syrtix Studio. Responde ÚNICAMENTE con una sola palabra clave en minúsculas (sin puntos, sin texto adicional, sin formato markdown, solo la palabra) de las siguientes opciones:
 - "ecommerce": Si pregunta por tiendas online, e-commerce, carros de compra, pasarela de pago, Webpay, vender online, precios de webs, precios de páginas web, planes web, precios en general, cotizaciones de sitios web o costos de desarrollo web.
@@ -95,6 +179,15 @@ Categoría:`;
       });
 
       // 4. Selección dinámica del System Prompt del Especialista
+      const planWebStart = this.getPlanPriceInfo("web", "start");
+      const planWebPro = this.getPlanPriceInfo("web", "pro");
+      const planWebEnterprise = this.getPlanPriceInfo("web", "enterprise");
+      const planChatbotStart = this.getPlanPriceInfo("chatbot", "start");
+      const planChatbotPro = this.getPlanPriceInfo("chatbot", "pro");
+      const planChatbotEnterprise = this.getPlanPriceInfo("chatbot", "enterprise");
+
+      const webStartAnchor = planWebStart.is_on_offer ? planWebStart.price_offer : planWebStart.price_normal;
+
       let systemPrompt = "";
 
       switch (intent) {
@@ -105,13 +198,13 @@ Tu objetivo es calificar al cliente y asesorarlo en la mejor solución de comerc
 REGLAS DE ORO:
 - BREVEDAD: Responde en máximo 3 frases.
 - PRECIOS DE TIENDA (MEMORIZA ESTO):
-  1. Web Solution Start: $199.000 CLP (Precio de Oferta, precio base normal $299.000 CLP) (Sitio Web One-Page, catálogo vitrina autoadministrable, pedidos manuales, SIN comprobantes ni pagos automáticos).
-  2. Web Solution Pro: $499.000 CLP (Precio de Oferta, precio base normal $599.000 CLP) (Sitio Multipágina, catálogo autoadministrable, INCLUYE sistema para que el cliente suba su comprobante de transferencia y el administrador gestione el respaldo de la venta).
-  3. Web Solution Enterprise: $899.000 CLP (Precio de Oferta, precio base normal $999.000 CLP) (E-commerce completo con carrito y pagos automáticos integrados Webpay/MercadoPago).
+  1. Web Solution Start: ${this.getPlanPriceDescription("web", "start")} (Sitio Web One-Page, catálogo vitrina autoadministrable, pedidos manuales, SIN comprobantes ni pagos automáticos).
+  2. Web Solution Pro: ${this.getPlanPriceDescription("web", "pro")} (Sitio Multipágina, catálogo autoadministrable, INCLUYE sistema para que el cliente suba su comprobante de transferencia y el administrador gestione el respaldo de la venta).
+  3. Web Solution Enterprise: ${this.getPlanPriceDescription("web", "enterprise")} (E-commerce completo con carrito y pagos automáticos integrados Webpay/MercadoPago).
 - TÉCNICA DE VENTAS (MANDATORIA): NO asustes con los $899.000 de golpe.
-  - PASO 1 (Anclaje): Dile que tenemos soluciones de tiendas autoadministrables desde $199.000 CLP (Precio Oferta del Plan Start).
+  - PASO 1 (Anclaje): Dile que tenemos soluciones de tiendas autoadministrables desde ${formatCLP(webStartAnchor)} (${planWebStart.is_on_offer ? "Precio Oferta" : "Precio"} del Plan Start).
   - PASO 2 (Calificación): Luego pregúntale directamente: "¿Tu negocio está registrado en el SII y necesitas integrar pagos automáticos con tarjeta (Webpay)?"
-  - PASO 3 (Cierre): Si dice SÍ, ofrece Enterprise ($899.000 CLP en oferta, base $999.000 CLP). Si dice NO (o transferencias), explícale la diferencia entre Start ($199.000 CLP, catálogo simple) y Pro ($499.000 CLP en oferta, base $599.000 CLP).
+  - PASO 3 (Cierre): Si dice SÍ, ofrece Enterprise (${this.getPlanPriceDescription("web", "enterprise")}). Si dice NO (o transferencias), explícale la diferencia entre Start (${this.getPlanPriceDescription("web", "start")}) y Pro (${this.getPlanPriceDescription("web", "pro")}).
 - NUNCA inventes, cambies ni mezcles estos precios.
 - CTA: Envíales botones Markdown de WhatsApp/Contacto cuando confirmen o quieran avanzar.`;
           break;
@@ -137,8 +230,8 @@ Tu objetivo es guiar al cliente sobre la estructura web ideal para su negocio de
 REGLAS DE ORO:
 - BREVEDAD: Responde en máximo 3 frases.
 - SITIOS CORPORATIVOS:
-  - Plan Start ($199.000 CLP en oferta, base $299.000 CLP): Ideal para landing pages informativas de captación o portafolios rápidos (One-Page).
-  - Plan Pro ($499.000 CLP en oferta, base $599.000 CLP): Perfecto para empresas con hasta 5 páginas (Nosotros, Servicios, Blog, Contacto).
+  - Plan Start (${this.getPlanPriceDescription("web", "start")}): Ideal para landing pages informativas de captación o portafolios rápidos (One-Page).
+  - Plan Pro (${this.getPlanPriceDescription("web", "pro")}): Perfecto para empresas con hasta 5 páginas (Nosotros, Servicios, Blog, Contacto).
 - AGENDAMIENTO: Explica que integramos sistemas de reservas online sincronizados con Google Calendar y automatizaciones de recordatorios por WhatsApp.
 - Todo es 100% autoadministrable.
 - CTA: Envíales botones Markdown si demuestran interés en crear su web corporativa o de reservas.`;
@@ -165,9 +258,9 @@ Tu objetivo es vender nuestras soluciones avanzadas de agentes virtuales automat
 REGLAS DE ORO:
 - BREVEDAD: Responde en máximo 3 frases.
 - PLANES CHATBOT IA:
-  1. AI Start: $199.000 CLP (Precio de Oferta, precio base normal $299.000 CLP) (Agente de atención y FAQ básico en tu web).
-  2. AI Pro: $499.000 CLP (Precio de Oferta, precio base normal $599.000 CLP) (Agente con base de conocimiento dinámica y agendamiento).
-  3. AI Enterprise: $899.000 CLP (Precio de Oferta, precio base normal $999.000 CLP) (Arquitectura Multi-Agente idéntica a la mía, con filtros anti-alucinación, integración a CRMs y WhatsApp).
+  1. AI Start: ${this.getPlanPriceDescription("chatbot", "start")} (Agente de atención y FAQ básico en tu web).
+  2. AI Pro: ${this.getPlanPriceDescription("chatbot", "pro")} (Agente con base de conocimiento dinámica y agendamiento).
+  3. AI Enterprise: ${this.getPlanPriceDescription("chatbot", "enterprise")} (Arquitectura Multi-Agente idéntica a la mía, con filtros anti-alucinación, integración a CRMs y WhatsApp).
 - Explica que no somos un chatbot básico, automatizamos la captación de leads de forma inteligente y segura.
 - CTA: Invítalos a cotizar su propio agente IA por WhatsApp o formulario.`;
           break;
@@ -187,13 +280,13 @@ REGLAS DE ORO:
 
       systemPrompt += `\n\nHOJA DE PRECIOS OFICIALES DE SYRTIX (UTILIZA ESTOS PRECIOS SIEMPRE Y NUNCA INVENTES OTROS):
 - PLANES DE SITIOS WEB (Todos incluyen dominio y hosting gratis por el 1er año y son autoadministrables):
-  1. Web Solution Start: Precio Oferta de $199.000 CLP (Precio base normal es $299.000 CLP). Plan One-Page, catálogo vitrina hasta 30 productos, SIN pagos automáticos.
-  2. Web Solution Pro: Precio Oferta de $499.000 CLP (Precio base normal es $599.000 CLP). Sitio multipágina hasta 5 secciones, catálogo vitrina hasta 50 productos, SIN pagos automáticos.
-  3. Web Solution Enterprise (E-commerce): Precio Oferta de $899.000 CLP (Precio base normal es $999.000 CLP). E-commerce completo con carrito, pagos automáticos (Webpay/MercadoPago), hasta 100 productos.
+  1. Web Solution Start: ${this.getPlanPriceDescription("web", "start")}. Plan One-Page, catálogo vitrina hasta 30 productos, SIN pagos automáticos.
+  2. Web Solution Pro: ${this.getPlanPriceDescription("web", "pro")}. Sitio multipágina hasta 5 secciones, catálogo vitrina hasta 50 productos, SIN pagos automáticos.
+  3. Web Solution Enterprise (E-commerce): ${this.getPlanPriceDescription("web", "enterprise")}. E-commerce completo con carrito, pagos automáticos (Webpay/MercadoPago), hasta 100 productos.
 - ASISTENTES DE INTELIGENCIA ARTIFICIAL (CHATBOTS IA):
-  1. Chatbot AI Start: Precio Oferta de $199.000 CLP (Precio base normal es $299.000 CLP) (Agente de atención y FAQ básico en tu web).
-  2. Chatbot AI Pro: Precio Oferta de $499.000 CLP (Precio base normal es $599.000 CLP) (Agente en Web y WhatsApp, reservas y citas online).
-  3. Chatbot AI Enterprise: Precio Oferta de $899.000 CLP (Precio base normal es $999.000 CLP) (Multi-Agente omnicanal, API oficial de WhatsApp, integraciones con CRMs).
+  1. Chatbot AI Start: ${this.getPlanPriceDescription("chatbot", "start")} (Agente de atención y FAQ básico en tu web).
+  2. Chatbot AI Pro: ${this.getPlanPriceDescription("chatbot", "pro")} (Agente en Web y WhatsApp, reservas y citas online).
+  3. Chatbot AI Enterprise: ${this.getPlanPriceDescription("chatbot", "enterprise")} (Multi-Agente omnicanal, API oficial de WhatsApp, integraciones con CRMs).
 
 REGLAS DE PRECIOS CRÍTICAS (DEBEN CUMPLIRSE SIN EXCEPCIÓN):
 - NUNCA inventes ni estimes precios en dólares (USD) ni des rangos de precios aproximados que no sean los indicados en la HOJA DE PRECIOS OFICIALES.
