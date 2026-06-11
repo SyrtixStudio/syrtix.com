@@ -178,7 +178,7 @@ export const packagesEN = [
     icon: 'ShoppingCart',
     description:
       'High-performance E-commerce platform designed to scale online sales, featuring a shopping cart, payment gateway integrations (Webpay/MercadoPago), and full self-management.',
-    price: 990000,
+    price: 999000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience:
@@ -251,7 +251,7 @@ export const packagesEN = [
     name: 'Chatbot AI Start',
     icon: 'Bot',
     description: 'Essential RAG assistant to answer FAQs and capture leads on a single website or landing page.',
-    price: 290000,
+    price: 299000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience: 'Independent professionals and SMBs starting to automate their customer service.',
@@ -296,7 +296,7 @@ export const packagesEN = [
     name: 'Chatbot AI Pro',
     icon: 'Zap',
     description: 'Advanced assistant with WhatsApp integration and expanded knowledge base for growing businesses.',
-    price: 790000,
+    price: 599000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience: 'Businesses with steady traffic needing presence on both Web and WhatsApp.',
@@ -340,7 +340,7 @@ export const packagesEN = [
     name: 'Chatbot AI Enterprise',
     icon: 'MessageSquare',
     description: 'Omnichannel AI Assistant integrating CRMs, APIs, WhatsApp, and advanced context.',
-    price: 1490000,
+    price: 999000,
     paymentType: 'one-time setup payment',
     scopeDetails: {
       audience: 'Medium to large clinics, e-commerce, and enterprises with complex data structures and high message volume.',
@@ -547,7 +547,7 @@ export const packagesES = [
     icon: 'ShoppingCart',
     description:
       'E-commerce profesional de alto rendimiento diseñado para escalar tus ventas online, con carrito de compras, Webpay/MercadoPago y panel autoadministrable total.',
-    price: 990000,
+    price: 999000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience:
@@ -617,7 +617,7 @@ export const packagesES = [
     name: 'Chatbot AI Start',
     icon: 'Bot',
     description: 'Asistente RAG esencial para responder FAQs y capturar leads en una página web o landing page.',
-    price: 290000,
+    price: 299000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience: 'Profesionales independientes y pymes que buscan empezar a automatizar su atención al cliente.',
@@ -662,7 +662,7 @@ export const packagesES = [
     name: 'Chatbot AI Pro',
     icon: 'Zap',
     description: 'Asistente avanzado con integración de WhatsApp y base de conocimientos ampliada para negocios en crecimiento.',
-    price: 790000,
+    price: 599000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience: 'Negocios con tráfico constante que necesitan presencia tanto en Web como en WhatsApp.',
@@ -706,7 +706,7 @@ export const packagesES = [
     name: 'Chatbot AI Enterprise',
     icon: 'MessageSquare',
     description: 'Asistente de IA Omnicanal con integración en tu CRM, APIs, WhatsApp Oficial y contexto avanzado.',
-    price: 1490000,
+    price: 999000,
     paymentType: 'pago único de implementación',
     scopeDetails: {
       audience: 'Clínicas, e-commerce o empresas con alto volumen de consultas que requieren integraciones con sus sistemas.',
